@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using PL;
+using BL;
+using DAL;
 
 namespace ProgramLauncher
 {
@@ -10,7 +13,8 @@ namespace ProgramLauncher
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("hello");
+            IDAL theDAL = new DAL_Excel();
+            Console.WriteLine(theDAL.getPassword(1));
         }
     }
 }

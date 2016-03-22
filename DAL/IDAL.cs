@@ -7,10 +7,9 @@ using SharedClasses;
 
 namespace DAL
 {
-    interface IDAL
+    public interface IDAL
     {
         string getLine(string username);
         string getPassword(int line);
-        jhg
     }
 }

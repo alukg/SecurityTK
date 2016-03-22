@@ -1,0 +1,9 @@
+C:\Users\guyal\Desktop\SecurityTK\PL\bin\Debug\PL.dll
+C:\Users\guyal\Desktop\SecurityTK\PL\bin\Debug\PL.pdb
+C:\Users\guyal\Desktop\SecurityTK\PL\bin\Debug\BL.dll
+C:\Users\guyal\Desktop\SecurityTK\PL\bin\Debug\SharedClasses.dll
+C:\Users\guyal\Desktop\SecurityTK\PL\bin\Debug\BL.pdb
+C:\Users\guyal\Desktop\SecurityTK\PL\bin\Debug\SharedClasses.pdb
+C:\Users\guyal\Desktop\SecurityTK\PL\obj\Debug\PL.csprojResolveAssemblyReference.cache
+C:\Users\guyal\Desktop\SecurityTK\PL\obj\Debug\PL.dll
+C:\Users\guyal\Desktop\SecurityTK\PL\obj\Debug\PL.pdb

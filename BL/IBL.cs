@@ -12,7 +12,6 @@ namespace BL
         bool verifyCardentials(string username, string password);
         void setPassword(User user, string pass);
         void setPassword(User user);
-        jhgfj,h
     }
 
 }
