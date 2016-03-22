@@ -19,7 +19,7 @@ namespace SharedClasses
 
         public void setPassword(string pass)
         {
-
+            password = pass;
         }
     }
 }
