@@ -10,7 +10,7 @@ namespace ProgramLauncher
     {
         static void Main(string[] args)
         {
-
+            Console.WriteLine("hello");
         }
     }
 }
