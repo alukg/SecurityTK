@@ -9,7 +9,8 @@ namespace DAL
 {
     public interface IDAL
     {
-        string getLine(string username);
+        //getLine function - Return the line value of the username. If the username doesn't exists return -1 .
+        int getLine(string userName);
         string getPassword(int line);
     }
 }

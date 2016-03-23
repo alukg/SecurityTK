@@ -14,7 +14,6 @@ namespace ProgramLauncher
         static void Main(string[] args)
         {
             IDAL theDAL = new DAL_Excel();
-            Console.WriteLine(theDAL.getPassword(1));
         }
     }
 }
