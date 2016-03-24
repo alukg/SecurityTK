@@ -7,7 +7,7 @@ using SharedClasses;
 
 namespace PL
 {
-    interface IPL
+    public interface IPL
     {
         void Run();
     }

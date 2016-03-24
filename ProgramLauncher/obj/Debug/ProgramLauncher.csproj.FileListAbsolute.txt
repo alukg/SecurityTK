@@ -13,3 +13,17 @@ C:\Users\guyal\Desktop\SecurityTK\ProgramLauncher\bin\Debug\SharedClasses.pdb
 C:\Users\guyal\Desktop\SecurityTK\ProgramLauncher\obj\Debug\ProgramLauncher.csprojResolveAssemblyReference.cache
 C:\Users\guyal\Desktop\SecurityTK\ProgramLauncher\obj\Debug\ProgramLauncher.exe
 C:\Users\guyal\Desktop\SecurityTK\ProgramLauncher\obj\Debug\ProgramLauncher.pdb
+C:\Users\rOTEM\Documents\SecurityTK\ProgramLauncher\bin\Debug\ProgramLauncher.exe.config
+C:\Users\rOTEM\Documents\SecurityTK\ProgramLauncher\bin\Debug\ProgramLauncher.exe
+C:\Users\rOTEM\Documents\SecurityTK\ProgramLauncher\bin\Debug\ProgramLauncher.pdb
+C:\Users\rOTEM\Documents\SecurityTK\ProgramLauncher\bin\Debug\BL.dll
+C:\Users\rOTEM\Documents\SecurityTK\ProgramLauncher\bin\Debug\DAL.dll
+C:\Users\rOTEM\Documents\SecurityTK\ProgramLauncher\bin\Debug\PL.dll
+C:\Users\rOTEM\Documents\SecurityTK\ProgramLauncher\bin\Debug\SharedClasses.dll
+C:\Users\rOTEM\Documents\SecurityTK\ProgramLauncher\bin\Debug\BL.pdb
+C:\Users\rOTEM\Documents\SecurityTK\ProgramLauncher\bin\Debug\DAL.pdb
+C:\Users\rOTEM\Documents\SecurityTK\ProgramLauncher\bin\Debug\PL.pdb
+C:\Users\rOTEM\Documents\SecurityTK\ProgramLauncher\bin\Debug\SharedClasses.pdb
+C:\Users\rOTEM\Documents\SecurityTK\ProgramLauncher\obj\Debug\ProgramLauncher.csprojResolveAssemblyReference.cache
+C:\Users\rOTEM\Documents\SecurityTK\ProgramLauncher\obj\Debug\ProgramLauncher.exe
+C:\Users\rOTEM\Documents\SecurityTK\ProgramLauncher\obj\Debug\ProgramLauncher.pdb
