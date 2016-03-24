@@ -12,5 +12,6 @@ namespace DAL
         //getLine function - Return the line value of the username. If the username doesn't exists return -1 .
         int getLine(string userName);
         string getPassword(int line);
+        void setPassword(int line, string value);
     }
 }
