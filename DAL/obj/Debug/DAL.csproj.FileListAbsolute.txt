@@ -7,3 +7,12 @@ C:\Users\guyal\Desktop\SecurityTK\DAL\bin\Debug\Microsoft.SharePoint.Client.Runt
 C:\Users\guyal\Desktop\SecurityTK\DAL\bin\Debug\SharedClasses.pdb
 C:\Users\guyal\Desktop\SecurityTK\DAL\obj\Debug\DAL.dll
 C:\Users\guyal\Desktop\SecurityTK\DAL\obj\Debug\DAL.pdb
+C:\Users\rOTEM\Documents\SecurityTK\DAL\bin\Debug\DAL.dll
+C:\Users\rOTEM\Documents\SecurityTK\DAL\bin\Debug\DAL.pdb
+C:\Users\rOTEM\Documents\SecurityTK\DAL\bin\Debug\Microsoft.Office.Client.Education.dll
+C:\Users\rOTEM\Documents\SecurityTK\DAL\bin\Debug\SharedClasses.dll
+C:\Users\rOTEM\Documents\SecurityTK\DAL\bin\Debug\Microsoft.SharePoint.Client.Runtime.dll
+C:\Users\rOTEM\Documents\SecurityTK\DAL\bin\Debug\SharedClasses.pdb
+C:\Users\rOTEM\Documents\SecurityTK\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
+C:\Users\rOTEM\Documents\SecurityTK\DAL\obj\Debug\DAL.dll
+C:\Users\rOTEM\Documents\SecurityTK\DAL\obj\Debug\DAL.pdb

@@ -7,9 +7,10 @@ using SharedClasses;
 
 namespace BL
 {
-    interface IBL
+    public interface IBL
     {
         bool verifyCardentials(string username, string password);
+        int findUsername(String username);
         void setPassword(User user, string pass);
         void setPassword(User user);
     }
