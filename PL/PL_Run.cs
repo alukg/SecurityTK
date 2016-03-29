@@ -23,9 +23,8 @@ namespace PL
         {
             Console.WriteLine("Welcome!");
             Console.WriteLine("Please enter your username:");
-            Console.WriteLine("Please enter your password:");
             string username = Console.ReadLine();
-            
+            Console.WriteLine("Please enter your password:");
             string password = Console.ReadLine();
             
             int NUM_OF_TRIES = 5;
