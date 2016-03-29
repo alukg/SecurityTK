@@ -7,7 +7,7 @@ using SharedClasses;
 
 namespace BL
 {
-    interface IBL
+   public interface IBL
     {
         bool verifyCardentials(string username, string password);
         void setPassword(User user, string pass);
