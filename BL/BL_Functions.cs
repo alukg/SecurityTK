@@ -39,6 +39,7 @@ namespace BL
         
         public void setPassword(User user, string pass)
         {
+            itsDAL.setPassword(user.getLine(), pass);
             user.setPassword(pass);
         }
 
