@@ -69,7 +69,7 @@ namespace PL
             else if (isVerified)
             {
                 Console.WriteLine("Hello " + username);
-                User tempUser = new User(username);
+                User tempUser = new User(username,pass);
 
                 Console.Read(); // Keeps the console window open
 
@@ -98,7 +98,7 @@ namespace PL
         {
             if (s.Length == 1 && s[0] == '1')
             {
-                user.setPassword();
+                theBL.setPassword(user);
                 
              //   Console.WriteLine("Your new password is:" +);
             }
@@ -112,7 +112,7 @@ namespace PL
                     Console.WriteLine("illegal password, please enter a new one. The password should contain 8 characters and at least one number");
                     newPass = Console.ReadLine();
                 }
-                user.setPassword(newPass);
+                theBL.setPassword(user,newPass);
             }
             else
             {
