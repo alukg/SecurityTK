@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-    public class DAL_Excel_Test
+    public class DAL_Test
     {
         private static bool testPassed = true;
         private static int testNum = 0;
 
-        public void test_DAL_Excel()
+        public void test_DAL()
         {
             // Each function here should test the matches function.
             testGetLine();
