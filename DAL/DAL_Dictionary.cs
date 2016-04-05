@@ -5,6 +5,8 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using SharedClasses;
+
 
 namespace DAL
 {
@@ -17,12 +19,11 @@ namespace DAL
                 throw new Exception("input is null");
             }
             Dictionary<string, string> UsersDB = Serializer.getFromBinaryFile();
-            try { User currUser = (User)UsersDB[userName]; }
-            catch (KeyNotFoundException)
-            {
+            User currUser = new User((UsersDB[userName]));
+            if(UsersDB[userName]==null)
                 throw new KeyNotFoundException("There is no such user in the DataBase");
-            }
-            return currUser.getPassword();
+            else
+                return currUser.getPassword();
         }
         
         public void setPassword(string userName, string newPassword)
@@ -32,13 +33,14 @@ namespace DAL
                 throw new Exception("input is null");
             }
             Dictionary<string,string> UsersDB = Serializer.getFromBinaryFile();
-            try { User currUser = (User)UsersDB[userName]; }
-            catch (KeyNotFoundException)
-            {
+            User currUser = new User((UsersDB[userName]));
+            if (UsersDB[userName] == null)
                 throw new KeyNotFoundException("There is no such user in the DataBase");
+            else
+            {
+                currUser.setPassword(newPassword);
+                Serializer.saveToBinaryFile(UsersDB);
             }
-            currUser.setPassword(newPassword);
-            Serializer.saveToBinaryFile(UsersDB);
         }
 
     }

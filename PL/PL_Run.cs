@@ -34,7 +34,7 @@ namespace PL
 
             while (!isVerified)
             {
-                while (theBL.findUsername(username) == -1 && counter < NUM_OF_TRIES)
+                while (!theBL.verifyCardentials(username,password) && counter < NUM_OF_TRIES)
                 {
                     counter++;
                     Console.WriteLine("The entered username does not exist in our system, please re-renter your credentials:");
@@ -69,9 +69,8 @@ namespace PL
             else if (isVerified)
             {
                 Console.WriteLine("Hello " + username);
-                User tempUser = new User(username,pass);
+                User tempUser = new User(username,password);
 
-                Console.Read(); // Keeps the console window open
 
 
                 //change password
@@ -81,6 +80,7 @@ namespace PL
 
                 Console.WriteLine("press '1' for a random password, or press '2' to set yourself");
                 changePassStep2(Console.ReadLine(), tempUser);
+                Console.Read(); // Keeps the console window open
             }
 
         }

@@ -16,12 +16,12 @@ namespace BL
             this.itsDAL = itsDAL;
         }
 
-        // checks if the username is in the database.
+      /*  // checks if the username is in the database.
         public int findUsername(String username)
         {
             return itsDAL.getLine(username);
            
-        }
+        }*/
 
         public bool verifyCardentials(string username, string enteredPassword)
         {
@@ -29,8 +29,7 @@ namespace BL
                 throw new Exception("The username is null");
             if (enteredPassword == null)
                 throw new Exception("The password is null");
-            int line = findUsername(username);
-            String currentPassword = itsDAL.getPassword(line);
+            String currentPassword = itsDAL.getPassword(username);
             if (currentPassword.Equals(enteredPassword))
                return true;
             else
@@ -39,8 +38,8 @@ namespace BL
         
         public void setPassword(User user, string pass)
         {
-            itsDAL.setPassword(user.getLine(), pass);
-            user.setPassword(pass);
+            itsDAL.setPassword(user.getUsername(), pass);
+            user.setPassword(pass);//not needed now since the idal does that for the user.
         }
 
         public void setPassword(User user)

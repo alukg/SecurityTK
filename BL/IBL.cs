@@ -11,7 +11,7 @@ namespace BL
 
     {
         bool verifyCardentials(string username, string password);
-        int findUsername(String username);
+        //int findUsername(String username);
         void setPassword(User user, string pass);
         void setPassword(User user);
         bool checkPassword(String password);
