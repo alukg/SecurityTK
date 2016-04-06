@@ -14,9 +14,9 @@ namespace DAL
         public void test_DAL()
         {
             // Each function here should test the matches function.
-            testGetLine();
-            testGetPassword();
-            testSetPassword();
+            //testGetLine();
+            //testGetPassword();
+            //testSetPassword();
 
             // Notifying the user that the code have passed all tests.
             if (testPassed)
@@ -42,7 +42,7 @@ namespace DAL
         /// <summary>
         /// Tests the getLone function.
         /// </summary>
-        private static void testGetLine()
+       /* private static void testGetLine()
         {
             IDAL testDal = new DAL_Excel();
 
@@ -54,12 +54,12 @@ namespace DAL
             {
                 test((e.Message).Equals("input is null"), "Should be thrown an Exception");
             }
-        }
+        }*/
 
         /// <summary>
         /// Tests the getPassword function.
         /// </summary>
-        private static void testGetPassword()
+   /*     private static void testGetPassword()
         {
             IDAL testDal = new DAL_Excel();
 
@@ -76,13 +76,13 @@ namespace DAL
             catch (Exception e)
             {
                 test((e.Message).Equals("There is no such user number"), "Should be thrown an Exception");
-            }
+            }*/
         }
 
         /// <summary>
         /// Tests the setPassword function.
         /// </summary>
-        private static void testSetPassword()
+     /*   private static void testSetPassword()
         {
             IDAL testDal = new DAL_Excel();
 
@@ -91,6 +91,6 @@ namespace DAL
             testDal.setPassword(4, "12341234");
             test(testDal.getPassword(4) == "12341234", "Value should be 12341234");
 
-        }
+        }*/
     }
-}
+
