@@ -35,13 +35,13 @@ namespace BL
             else
                return false;
          }
-        
+        //set user's password 
         public void setPassword(User user, string pass)
         {
             itsDAL.setPassword(user.getUsername(), pass);
-            user.setPassword(pass);//not needed now since the idal does that for the user.
         }
 
+        //create a random password 
         public void setPassword(User user)
         {
             string pass = "";
@@ -60,7 +60,8 @@ namespace BL
 
             setPassword(user, pass);
         }
-
+        
+        //check if thr password is legal
         public bool checkPassword(String password)
         {
             bool ans = false;

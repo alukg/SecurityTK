@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace SharedClasses
 {
-    class User
+    public class User
     {
             private string username;
             private string password;
-            private int line;
+          //  private int line;
 
             public User(string username)
             {
@@ -25,10 +25,10 @@ namespace SharedClasses
                 this.password = password;
             }
 
-            public int getLine()
+        /*    public int getLine()
             {
                   return line;
-            }
+            }*/
 
             public string getUsername()
             {
