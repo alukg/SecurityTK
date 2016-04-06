@@ -8,40 +8,31 @@ namespace SharedClasses
 {
     public class User
     {
-            private string username;
-            private string password;
-          //  private int line;
+        private string username;
+        private string password;
+        private int line;
 
-            public User(string username)
-            {
+        public User(string username, int line, string password)
+        {
+            this.username = username;
+            this.line = line;
+            this.password = password;
+        }
 
-                this.username = username;
-            }
 
+        public int getLine()
+        {
+            return line;
+        }
 
-            public User(string username, string password)
-            {
-                this.username = username;
-                this.password = password;
-            }
+        public string getPassword()
+        {
+            return password;
+        }
 
-        /*    public int getLine()
-            {
-                  return line;
-            }*/
-
-            public string getUsername()
-            {
-                return username;
-            }
-            public string getPassword()
-            {
-                return password;
-            }
-
-            public void setPassword(string pass)
-            {
-                password = pass;
-            }
+        public void setPassword(string pass)
+        {
+            password = pass;
+        }
     }
 }
