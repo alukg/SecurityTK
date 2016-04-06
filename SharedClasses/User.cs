@@ -19,6 +19,7 @@ namespace SharedClasses
             this.password = password;
         }
 
+
         public int getLine()
         {
             return line;

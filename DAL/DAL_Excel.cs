@@ -22,7 +22,7 @@ namespace DAL
             }
 
             Application app = new Microsoft.Office.Interop.Excel.Application();
-            Workbook excelWorkbook = app.Workbooks.Open(@"C:\Users\guyal\Desktop\SecurityTK\DAL\UsersDB.xlsx"); //opens the DB file, in that case the Excel file.
+            Workbook excelWorkbook = app.Workbooks.Open(@"SecurityTK/DAL/UsersDB.xlsx"); //opens the DB file, in that case the Excel file.
             Worksheet UsersDB = (Worksheet)excelWorkbook.Sheets[1]; //gets the right sheet from the Excel file.
 
             int lastRow = UsersDB.Cells.SpecialCells(XlCellType.xlCellTypeLastCell).Row;
@@ -52,7 +52,7 @@ namespace DAL
         public string getPassword(int line)
         {
             Application app = new Microsoft.Office.Interop.Excel.Application();
-            Workbook excelWorkbook = app.Workbooks.Open(@"C:\Users\guyal\Desktop\SecurityTK\DAL\UsersDB.xlsx"); //opens the DB file, in that case the Excel file.
+            Workbook excelWorkbook = app.Workbooks.Open(@"SecurityTK/DAL/UsersDB.xlsx");//opens the DB file, in that case the Excel file.
             Worksheet UsersDB = (Worksheet)excelWorkbook.Sheets[1]; //gets the right sheet from the Excel file.
 
             Object cell = UsersDB.get_Range("B" + line, "B" + line).Value; //gets the password of the requested user ID (line) from the DB.
@@ -77,10 +77,10 @@ namespace DAL
         public void setPassword(int line, string value)
         {
             Application app = new Microsoft.Office.Interop.Excel.Application();
-            Workbook excelWorkbook = app.Workbooks.Open(@"C:\Users\guyal\Desktop\SecurityTK\DAL\UsersDB.xlsx"); //opens the DB file, in that case the Excel file.
+            Workbook excelWorkbook = app.Workbooks.Open(@"SecurityTK/DAL/UsersDB.xlsx"); //opens the DB file, in that case the Excel file.
             Worksheet UsersDB = (Worksheet)excelWorkbook.Sheets[1]; //gets the right sheet from the Excel file.
 
-            UsersDB.Cells[line,2].Value = value; //sets the new password in the right place in the DB.
+            UsersDB.Cells[line,"B"].Value = value; //sets the new password in the right place in the DB.
             excelWorkbook.Close(true,"UsersDB",false); //closes the Excel file.
             app.Quit();
         }

@@ -69,9 +69,7 @@ namespace PL
             else if (isVerified)
             {
                 Console.WriteLine("Hello " + username);
-                User tempUser = new User(username,pass);
-
-                Console.Read(); // Keeps the console window open
+                User tempUser = new User(username, theBL.findUsername(username),password);
 
 
                 //change password
@@ -86,7 +84,7 @@ namespace PL
         }
         public void changePassStep1(String s)
         {
-            if(s.Length!=1 || s[0] != 1)
+            if(s.Length!=1 || s[0] != '1')
             {
                 Console.WriteLine("wrong input. press '1' to change your password");
                 changePassStep1(Console.ReadLine());
@@ -94,13 +92,13 @@ namespace PL
         }
 
 
-        public void changePassStep2(String s, User user)
+        public void changePassStep2(string s, User user)
         {
             if (s.Length == 1 && s[0] == '1')
             {
                 theBL.setPassword(user);
                 
-             //   Console.WriteLine("Your new password is:" +);
+             Console.WriteLine("Your new password is:" +user.getPassword());
             }
             else if (s.Length == 1 && s[0] == '2')
             {
@@ -119,6 +117,8 @@ namespace PL
                 Console.WriteLine("wrong input. press '1' for a random password, or press '2' to set yourself") ;
                 changePassStep2(Console.ReadLine(), user);
             }
+
+            Console.Read();//keeps the screen open
         }
     } 
 }
