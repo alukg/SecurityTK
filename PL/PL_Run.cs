@@ -9,14 +9,14 @@ using SharedClasses;
 
 namespace PL
 {
-    public class PL_Run: IPL
+    public class PL_Run : IPL
     {
         private IBL theBL;
 
         //constractor
         public PL_Run(IBL theBL)
         {
-            this.theBL= theBL;
+            this.theBL = theBL;
         }
 
 
@@ -34,7 +34,7 @@ namespace PL
 
             while (!isVerified)
             {
-                while (!theBL.verifyCardentials(username,password) && counter < NUM_OF_TRIES)
+                while (theBL.findUsername(username) == -1 && counter < NUM_OF_TRIES)
                 {
                     counter++;
                     Console.WriteLine("The entered username does not exist in our system, please re-enter your credentials:");
@@ -49,7 +49,8 @@ namespace PL
                     Environment.Exit(0);
                     counter = 1;
                 }
-                else {
+                else
+                {
                     isVerified = theBL.verifyCardentials(username, password);
                     if (!isVerified)
                     {
@@ -70,9 +71,7 @@ namespace PL
             else if (isVerified)
             {
                 Console.WriteLine("Hello " + username);
-
-                User tempUser = new User(username, theBL.findUsername(username),password);
-
+                User tempUser = new User(username, theBL.findUsername(username), password);
 
 
                 //change password
@@ -82,11 +81,9 @@ namespace PL
 
                 Console.WriteLine("press '1' for a random password, or press '2' to set yourself");
                 changePassStep2(Console.ReadLine(), tempUser);
-                Console.Read(); // Keeps the console window open
             }
 
         }
-        // check if the user enter illegal input
         public void changePassStep1(String s)
         {
 
@@ -95,7 +92,7 @@ namespace PL
                 Console.WriteLine("Thank you, and goodbye");
                 Environment.Exit(0);
             }
-            if (s.Length!=1 || s[0] != '1')
+            if (s.Length != 1 || s[0] != '1')
             {
                 Console.WriteLine("wrong input. press '1' to change your password or '0'to exit");
                 changePassStep1(Console.ReadLine());
@@ -104,39 +101,30 @@ namespace PL
         }
 
 
-        // check user's second input
-
         public void changePassStep2(string s, User user)
-
         {
-            //change user password to a random one
             if (s.Length == 1 && s[0] == '1')
             {
                 theBL.setPassword(user);
-                Console.WriteLine("Your new password is:" +user.getPassword());
-            }
 
-            //change user password to a new one
+                Console.WriteLine("Your new password is:" + user.getPassword());
+            }
             else if (s.Length == 1 && s[0] == '2')
             {
                 Console.WriteLine("please enter a new password. the password should contain 8 characters and at least one number");
                 string newPass = Console.ReadLine();
                 bool ans = this.theBL.checkPassword(newPass);
-                //check if the user enter illegal password
                 while (!ans)
                 {
                     Console.WriteLine("illegal password, please enter a new one. The password should contain 8 characters and at least one number");
                     newPass = Console.ReadLine();
                 }
-
-                theBL.setPassword(user,newPass);
+                theBL.setPassword(user, newPass);
                 Console.WriteLine("Your password was successfuly changed!");
-
             }
-            //check if the user enter illegal input
             else
             {
-                Console.WriteLine("wrong input. press '1' for a random password, or press '2' to set yourself") ;
+                Console.WriteLine("wrong input. press '1' for a random password, or press '2' to set yourself");
                 changePassStep2(Console.ReadLine(), user);
             }
             Console.WriteLine("Press 0 to exit");
@@ -148,5 +136,5 @@ namespace PL
             }
             Console.Read();//keeps the screen open
         }
-    } 
+    }
 }

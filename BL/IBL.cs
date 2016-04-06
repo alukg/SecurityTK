@@ -10,6 +10,7 @@ namespace BL
    public interface IBL
 
     {
+        int findUsername(string username);
         bool verifyCardentials(string username, string password);
         //int findUsername(String username);
         void setPassword(User user, string pass);
