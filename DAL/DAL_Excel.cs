@@ -81,7 +81,9 @@ namespace DAL
             Worksheet UsersDB = (Worksheet)excelWorkbook.Sheets[1]; //gets the right sheet from the Excel file.
 
             UsersDB.Cells[line,"B"].Value = value; //sets the new password in the right place in the DB.
-            excelWorkbook.Close(true,"UsersDB",false); //closes the Excel file.
+            excelWorkbook.Save();
+            excelWorkbook.Close();
+           // excelWorkbook.Close(true,"UsersDB",false); //closes the Excel file.
             app.Quit();
         }
          

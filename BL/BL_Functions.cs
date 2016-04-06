@@ -65,11 +65,12 @@ namespace BL
         public bool checkPassword(String password)
         {
             bool ans = false;
+            byte[] ASCIIValues = Encoding.ASCII.GetBytes(password);
             if (password.Length == 8)
             {
                 for (int i = 0; i < password.Length && !ans; i++)
                 {
-                    if (password[i] >= 48 || password[i] <= 57)
+                    if (ASCIIValues[i] >= 48 || ASCIIValues[i] <= 57)
                         ans = true;
                 }
             }

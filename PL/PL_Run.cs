@@ -29,7 +29,7 @@ namespace PL
             string password = Console.ReadLine();
 
             int NUM_OF_TRIES = 5;
-            int counter = 0;
+            int counter = 1;
             bool isVerified = false;
 
             while (!isVerified)
@@ -37,7 +37,7 @@ namespace PL
                 while (theBL.findUsername(username) == -1 && counter < NUM_OF_TRIES)
                 {
                     counter++;
-                    Console.WriteLine("The entered username does not exist in our system, please re-renter your credentials:");
+                    Console.WriteLine("The entered username does not exist in our system, please re-enter your credentials:");
                     Console.WriteLine("Please enter your username:");
                     username = Console.ReadLine();
                     Console.WriteLine("Please enter your password:");
@@ -47,14 +47,15 @@ namespace PL
                 if (counter >= NUM_OF_TRIES)
                 {
                     Environment.Exit(0);
-                    counter = 0;
+                    counter = 1;
                 }
                 else {
                     isVerified = theBL.verifyCardentials(username, password);
                     if (!isVerified)
                     {
                         counter++;
-                        Console.WriteLine("Please enter your username:");
+                        Console.WriteLine("The password is incorrect");
+                        Console.WriteLine("Please re-enter your username:");
                         username = Console.ReadLine();
                         Console.WriteLine("Please enter your password:");
                         password = Console.ReadLine();
@@ -74,7 +75,7 @@ namespace PL
 
                 //change password
                 Console.WriteLine("user area:");
-                Console.WriteLine("press '1' to change your password");
+                Console.WriteLine("press '1' to change your password or '0'to exit");
                 changePassStep1(Console.ReadLine());
 
                 Console.WriteLine("press '1' for a random password, or press '2' to set yourself");
@@ -84,11 +85,18 @@ namespace PL
         }
         public void changePassStep1(String s)
         {
-            if(s.Length!=1 || s[0] != '1')
+
+            if (s[0] == '0')
             {
-                Console.WriteLine("wrong input. press '1' to change your password");
+                Console.WriteLine("Thank you, and goodbye");
+                Environment.Exit(0);
+            }
+            if (s.Length!=1 || s[0] != '1')
+            {
+                Console.WriteLine("wrong input. press '1' to change your password or '0'to exit");
                 changePassStep1(Console.ReadLine());
             }
+
         }
 
 
@@ -111,13 +119,20 @@ namespace PL
                     newPass = Console.ReadLine();
                 }
                 theBL.setPassword(user,newPass);
+                Console.WriteLine("Your password was successfuly changed!");
             }
             else
             {
                 Console.WriteLine("wrong input. press '1' for a random password, or press '2' to set yourself") ;
                 changePassStep2(Console.ReadLine(), user);
             }
-
+            Console.WriteLine("Press 0 to exit");
+            string exit = Console.ReadLine();
+            if (exit.Equals("0"))
+            {
+                Console.WriteLine("Thank you, and goodbye");
+                Environment.Exit(0);
+            }
             Console.Read();//keeps the screen open
         }
     } 
