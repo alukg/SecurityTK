@@ -37,12 +37,14 @@ namespace BL
                 return false;
         }
 
+        //change user password
         public void setPassword(User user, string pass)
         {
             itsDAL.setPassword(user.getLine(), pass);
             user.setPassword(pass);
         }
 
+        //create a new random pasword
         public void setPassword(User user)
         {
             string pass = "";
@@ -63,6 +65,7 @@ namespace BL
             setPassword(user, pass);
         }
 
+        //check if the new password is legal
         public bool checkPassword(String password)
         {
             bool ans = false;
