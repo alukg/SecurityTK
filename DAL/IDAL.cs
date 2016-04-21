@@ -11,9 +11,10 @@ namespace DAL
     /// </summary>
     public interface IDAL
     {
-        ///
-        int getLine(string userName);
-        string getPassword(int line);
-        void setPassword(int line, string value);
+        string getRole(string userName);
+        string getPassword(string userName);
+        void setPassword(string userName, string value);
+        void setRole(string userName, string value);
+        void setNewUser(string userName, string password, string role);
     }
 }
