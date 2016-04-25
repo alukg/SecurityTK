@@ -10,6 +10,23 @@ namespace DAL
 {
     public class DAL_SQL : IDAL
     {
+        public int checkUserName(string userName)
+        {
+            SqlConnection connection = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\guyal\\Desktop\\SecurityTK\\DAL\\SecurityTK_DB.mdf;Integrated Security=True");
+            SqlCommand cmd = new SqlCommand("SELECT count(*) FROM Users WHERE UserName = '" + userName + "'", connection);
+            try
+            {
+                connection.Open();
+                int ans = (int)cmd.ExecuteScalar();
+                connection.Close();
+                return ans;
+            }
+            catch
+            {
+                throw new Exception("connection faild");
+            }
+        }
+
         public string getPassword(string userName)
         {
             SqlConnection connection = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\guyal\\Desktop\\SecurityTK\\DAL\\SecurityTK_DB.mdf;Integrated Security=True");
@@ -105,8 +122,65 @@ namespace DAL
 
         public void setRole(string userName, string value)
         {
+            value = value.First().ToString().ToUpper() + value.Substring(1).ToString().ToLower();
             SqlConnection connection = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\guyal\\Desktop\\SecurityTK\\DAL\\SecurityTK_DB.mdf;Integrated Security=True");
             SqlCommand cmd = new SqlCommand("UPDATE Users SET Role ='" + value + "' WHERE UserName = '" + userName + "'", connection);
+            try
+            {
+                connection.Open();
+                cmd.ExecuteNonQuery();
+                connection.Close();
+            }
+            catch
+            {
+                Console.WriteLine("connection faild");
+            }
+        }
+
+        public void writeToLog(string action, string performed, string affected)
+        {
+            string dateTime = DateTime.Now.ToString("yyMMdd HH:mm:ss");
+            SqlConnection connection = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\guyal\\Desktop\\SecurityTK\\DAL\\SecurityTK_DB.mdf;Integrated Security=True");
+            SqlCommand cmd = new SqlCommand("INSERT INTO Log(Action, DateTime, Executer, Affected) VALUES('" + action + "','" + dateTime + "','" + performed + "','" + affected + "')", connection);
+            try
+            {
+                connection.Open();
+                cmd.ExecuteNonQuery();
+                connection.Close();
+            }
+            catch
+            {
+                Console.WriteLine("connection faild");
+            }
+        }
+
+        public List<string> getLog()
+        {
+            SqlConnection connection = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\guyal\\Desktop\\SecurityTK\\DAL\\SecurityTK_DB.mdf;Integrated Security=True");
+            SqlCommand cmd = new SqlCommand("SELECT * FROM Log", connection);
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+                List<string> logList = new List<string>();
+                while (reader.Read())
+                {
+                    logList.Add(reader.GetValue(0).ToString() + ", " + reader.GetValue(1).ToString() + ", " + reader.GetValue(2).ToString() + ", " + reader.GetValue(3).ToString());
+                }
+                reader.Close();
+                connection.Close();
+                return logList;
+            }
+            catch
+            {
+                throw new Exception("connection faild");
+            }
+        }
+
+        public void removeUser(string userName)
+        {
+            SqlConnection connection = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\guyal\\Desktop\\SecurityTK\\DAL\\SecurityTK_DB.mdf;Integrated Security=True");
+            SqlCommand cmd = new SqlCommand("DELETE FROM Users WHERE UserName = '" + userName + "'", connection);
             try
             {
                 connection.Open();
