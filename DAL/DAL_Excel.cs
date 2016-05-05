@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Office.Interop.Excel;
+using System.Reflection;
+using System.IO;
 
 namespace DAL
 {
@@ -21,27 +23,24 @@ namespace DAL
                 throw new Exception("input is null");
             }
 
-            Application app = new Microsoft.Office.Interop.Excel.Application();
-            Workbook excelWorkbook = app.Workbooks.Open(@"SecurityTK/DAL/UsersDB.xlsx"); //opens the DB file, in that case the Excel file.
-            Worksheet UsersDB = (Worksheet)excelWorkbook.Sheets[1]; //gets the right sheet from the Excel file.
+            string path = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+            path = path + "\\UsersDB.csv";
 
-            int lastRow = UsersDB.Cells.SpecialCells(XlCellType.xlCellTypeLastCell).Row;
-
-            for(int line=1; line<lastRow ;line++) //runs all the usernames in the DB.
+            TextReader sw = new StreamReader(path);
+            string[] nextUser = sw.ReadLine().Split(',');
+            for(int line=1; nextUser[0]!=""; line++) //runs all the usernames in the DB.
             {
-                Object currentUserName = UsersDB.get_Range("A" + line, "A" + line).Value; //gets a username for check.
-                if (currentUserName.ToString().Equals(userName)) //if the required username found in the DB.
+                if (nextUser[0].Equals(userName)) //if the required username found in the DB.
                 {
-                    excelWorkbook.Close(false); //closing the Excel file.
-                    app.Workbooks.Close();
-                    app.Quit();
+                    sw.Close(); //closing the CSV file.
                     return line;
                 }
+                nextUser = sw.ReadLine().Split(',');
             }
             //The loop reached to the end of the usernames column, that means that the username doesn't exists in the DB.
-            excelWorkbook.Close(false); //closing the Excel file.
-            app.Quit();
+            sw.Close(); //closing the CSV file.
             return -1; //the returning value when the username not found.
+
         }
 
         /// <summary>
@@ -51,11 +50,27 @@ namespace DAL
         /// <returns></returns>
         public string getPassword(int line)
         {
-            Application app = new Microsoft.Office.Interop.Excel.Application();
-            Workbook excelWorkbook = app.Workbooks.Open(@"SecurityTK/DAL/UsersDB.xlsx");//opens the DB file, in that case the Excel file.
-            Worksheet UsersDB = (Worksheet)excelWorkbook.Sheets[1]; //gets the right sheet from the Excel file.
+            string path = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+            path = path + "\\UsersDB.csv";
 
-            Object cell = UsersDB.get_Range("B" + line, "B" + line).Value; //gets the password of the requested user ID (line) from the DB.
+            TextReader sw = new StreamReader(path);
+            //gets the password of the requested user ID (line) from the DB.
+            string password = (sw.ReadLine().Split(','))[1]; ;
+            for(int i = 1; i <= line; i++)
+            {
+                password = (sw.ReadLine().Split(','))[1];
+            }
+
+            for (int line = 1; nextUser[0] != ""; line++) //runs all the usernames in the DB.
+            {
+                if (nextUser[0].Equals(userName)) //if the required username found in the DB.
+                {
+                    sw.Close(); //closing the CSV file.
+                    return line;
+                }
+                nextUser = sw.ReadLine().Split(',');
+            }
+
             if (cell == null) //the requested ID isn't exists.
             {
                 excelWorkbook.Close(false); //closing the Excel file.
@@ -77,7 +92,11 @@ namespace DAL
         public void setPassword(int line, string value)
         {
             Application app = new Microsoft.Office.Interop.Excel.Application();
-            Workbook excelWorkbook = app.Workbooks.Open(@"SecurityTK/DAL/UsersDB.xlsx"); //opens the DB file, in that case the Excel file.
+
+            string path = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+            path = path + "\\UsersDB.csv";
+
+            Workbook excelWorkbook = app.Workbooks.Open(path); //opens the DB file, in that case the Excel file.
             Worksheet UsersDB = (Worksheet)excelWorkbook.Sheets[1]; //gets the right sheet from the Excel file.
 
             UsersDB.Cells[line,"B"].Value = value; //sets the new password in the right place in the DB.
