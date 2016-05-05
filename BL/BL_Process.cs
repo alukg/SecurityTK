@@ -4,8 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DAL;
-using BL.UserManagment;
-using BL.UserManagment.Users;
+using BL.BL_Tests;
+using BL.BL_Tests.Users;
 
 namespace BL
 {

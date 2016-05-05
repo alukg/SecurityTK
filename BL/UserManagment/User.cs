@@ -4,20 +4,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BL.UserManagment
+namespace BL.BL_Tests
 {
     public abstract class User
     {
         protected string userName;
         protected string password;
-        protected UserManagment userM;
+        protected UserFunctions userM;
 
         //Constractor
         public User(string userName, string password)
         {
             this.userName = userName;
             this.password = password;
-            userM = new UserManagment();
+            userM = new UserFunctions();
         }
 
         //Getters

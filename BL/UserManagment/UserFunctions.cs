@@ -6,13 +6,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BL.UserManagment
+namespace BL.BL_Tests
 {
-    public class UserManagment
+    public class UserFunctions
     {
         public IDAL itsDAL;
 
-        public UserManagment()
+        public UserFunctions()
         {
             itsDAL = new DAL_SQL();
         }

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BL.UserManagment.Users
+namespace BL.BL_Tests.Users
 {
     public class Employee : User
     {
