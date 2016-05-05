@@ -1,6 +1,5 @@
 C:\Users\guyal\Desktop\SecurityTK\SharedClasses\bin\Debug\SharedClasses.dll
 C:\Users\guyal\Desktop\SecurityTK\SharedClasses\bin\Debug\SharedClasses.pdb
-C:\Users\guyal\Desktop\SecurityTK\SharedClasses\obj\Debug\SharedClasses.csprojResolveAssemblyReference.cache
 C:\Users\guyal\Desktop\SecurityTK\SharedClasses\obj\Debug\SharedClasses.dll
 C:\Users\guyal\Desktop\SecurityTK\SharedClasses\obj\Debug\SharedClasses.pdb
 C:\Users\rOTEM\Documents\SecurityTK\SharedClasses\bin\Debug\SharedClasses.dll

@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace DAL
 {
@@ -11,7 +7,7 @@ namespace DAL
     /// </summary>
     public interface IDAL
     {
-        int checkUserName(string userName);
+        bool userNameExists(string userName);
         string getRole(string userName);
         string getPassword(string userName);
         void setPassword(string userName, string value);

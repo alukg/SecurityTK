@@ -1,25 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DAL
 {
     public class DAL_SQL : IDAL
     {
-        public int checkUserName(string userName)
+        public bool userNameExists(string userName)
         {
             SqlConnection connection = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\guyal\\Desktop\\SecurityTK\\DAL\\SecurityTK_DB.mdf;Integrated Security=True");
             SqlCommand cmd = new SqlCommand("SELECT count(*) FROM Users WHERE UserName = '" + userName + "'", connection);
             try
             {
                 connection.Open();
-                int ans = (int)cmd.ExecuteScalar();
+                int ans = Convert.ToInt32(cmd.ExecuteScalar());
                 connection.Close();
-                return ans;
+                if (ans == 0) return false;
+                else return true;
             }
             catch
             {
@@ -42,33 +40,6 @@ namespace DAL
             {
                 return ("connection faild");
             }
-
-            /*
-            SqlConnection connection = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\guyal\\Desktop\\SecurityTK\\DAL\\SecurityTK_DB.mdf;Integrated Security=True");
-            SqlCommand cmd = new SqlCommand("getPassword", connection);
-            cmd.CommandType = CommandType.StoredProcedure;
-            try
-            {
-                connection.Open();
-                //creating and adding a return parameter:
-                SqlParameter parm = new SqlParameter("@password", SqlDbType.VarChar);
-                parm.Direction = ParameterDirection.Output;
-                cmd.Parameters.Add(parm);
-
-                //adding the userName parameter:
-                cmd.Parameters.Add(new SqlParameter("@UserName", userName));
-
-                //excute the query:
-                cmd.ExecuteNonQuery();
-                string ans = (string)parm.Value;
-                connection.Close();
-                return "ans";
-            }
-            catch
-            {
-                return ("connection faild");
-            }
-            */
         }
 
         public string getRole(string userName)
