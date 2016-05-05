@@ -10,19 +10,19 @@ namespace SharedClasses
     {
         private string username;
         private string password;
-        private int line;
+        private int id;
 
-        public User(string username, int line, string password)
+        public User(string username, int id, string password)
         {
             this.username = username;
-            this.line = line;
+            this.id = id;
             this.password = password;
         }
 
 
-        public int getLine()
+        public int getId()
         {
-            return line;
+            return id;
         }
 
         public string getPassword()

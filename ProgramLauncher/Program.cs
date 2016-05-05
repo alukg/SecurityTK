@@ -20,7 +20,7 @@ namespace ProgramLauncher
     {
         static void Main(string[] args)
         {
-            IDAL theDAL = new DAL_Excel();
+            IDAL theDAL = new DAL_SQL();
             IBL theBL = new BL_Functions(theDAL);
             IPL thePL = new PL_Run(theBL);
             thePL.Run();

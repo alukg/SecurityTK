@@ -28,3 +28,5 @@ C:\Users\rOTEM\Documents\SecurityTK\ProgramLauncher\obj\Debug\ProgramLauncher.cs
 C:\Users\rOTEM\Documents\SecurityTK\ProgramLauncher\obj\Debug\ProgramLauncher.exe
 C:\Users\rOTEM\Documents\SecurityTK\ProgramLauncher\obj\Debug\ProgramLauncher.pdb
 C:\Users\Barak\Documents\SecurityTK\ProgramLauncher\bin\Debug\ProgramLauncher.exe.config
+C:\Users\guyal\Desktop\SecurityTK\ProgramLauncher\bin\Debug\Security_DB.mdf
+C:\Users\guyal\Desktop\SecurityTK\ProgramLauncher\bin\Debug\Security_DB_log.ldf

@@ -123,6 +123,7 @@ namespace PL
                 {
                     Console.WriteLine("illegal password, please enter a new one. The password should contain 8 characters and at least one number");
                     newPass = Console.ReadLine();
+                    ans = this.theBL.checkPassword(newPass);
                 }
                 theBL.setPassword(user, newPass);
                 Console.WriteLine("Your password was successfuly changed!");

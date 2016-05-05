@@ -19,8 +19,7 @@ namespace BL
         // checks if the username is in the database.
         public int findUsername(string username)
         {
-            return itsDAL.getLine(username);
-
+            return itsDAL.getId(username);
         }
 
         public bool verifyCardentials(string username, string enteredPassword)
@@ -29,8 +28,8 @@ namespace BL
                 throw new Exception("The username is null");
             if (enteredPassword == null)
                 throw new Exception("The password is null");
-            int line = findUsername(username);
-            String currentPassword = itsDAL.getPassword(line);
+            int id = findUsername(username);
+            String currentPassword = itsDAL.getPassword(id);
             if (currentPassword.Equals(enteredPassword))
                 return true;
             else
@@ -40,7 +39,7 @@ namespace BL
         //change user password
         public void setPassword(User user, string pass)
         {
-            itsDAL.setPassword(user.getLine(), pass);
+            itsDAL.setPassword(user.getId(), pass);
             user.setPassword(pass);
         }
 

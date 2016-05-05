@@ -16,3 +16,5 @@ C:\Users\rOTEM\Documents\SecurityTK\DAL\bin\Debug\SharedClasses.pdb
 C:\Users\rOTEM\Documents\SecurityTK\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
 C:\Users\rOTEM\Documents\SecurityTK\DAL\obj\Debug\DAL.dll
 C:\Users\rOTEM\Documents\SecurityTK\DAL\obj\Debug\DAL.pdb
+C:\Users\guyal\Desktop\SecurityTK\DAL\bin\Debug\Security_DB.mdf
+C:\Users\guyal\Desktop\SecurityTK\DAL\bin\Debug\Security_DB_log.ldf
