@@ -21,12 +21,12 @@ namespace BL
         public bool userVarification(string userName, string enteredPassword)
         {
             if (userName == null)
-                throw new Exception("The username is null");
+                throw new ArgumentNullException("The username is null");
             if (enteredPassword == null)
-                throw new Exception("The password is null");
+                throw new ArgumentNullException("The password is null");
             if (!itsDAL.userNameExists(userName)) return false; //There is no such user
             string currentPassword = itsDAL.getPassword(userName);
-            if (currentPassword == enteredPassword)
+            if (currentPassword.Equals(enteredPassword))
             {
                 string userRole = itsDAL.getRole(userName);
                 currUser = new User(userName, currentPassword, userRole);
@@ -40,14 +40,15 @@ namespace BL
         {
             if (currUser.role.Equals("Administrator")){
                 if (userName == null)
-                    throw new Exception("The username is null");
+                    throw new ArgumentNullException("The username is null");
                 if (newRole == null)
-                    throw new Exception("The role is null");
+                    throw new ArgumentNullException("The role is null");
                 if (!itsDAL.userNameExists(userName)) return "Username don't exits";
                 newRole = newRole.First().ToString().ToUpper() + newRole.Substring(1).ToString().ToLower();
                 if (itsDAL.getRole(userName) == newRole) return "This user already in this role";
                 itsDAL.setRole(userName, newRole);
                 itsDAL.writeToLog("Changing role", currUser.userName, userName);
+                if (currUser.userName.Equals(userName)) currUser = new User(currUser.userName,currUser.password,newRole);
                 return "Role changed successfully";
             }
             else
@@ -56,11 +57,11 @@ namespace BL
             }
         }
 
-        public string removeUser(string userName)
+        public string removeUser(string userName) //need to check what happen with the admin when he erase himself, what to do with the current user???????
         {
             if (currUser.role.Equals("Administrator") || currUser.role.Equals("Manager"))
             {
-                if (userName == null) throw new Exception("Username input is null");
+                if (userName == null) throw new ArgumentNullException("Username input is null");
                 if (!itsDAL.userNameExists(userName)) return "Username does not exist";
                 if (currUser.role.Equals("Manager") && !(itsDAL.getRole(userName).Equals("Employee")))
                     return "There is no permissions to remove this user";
@@ -97,9 +98,9 @@ namespace BL
             }
             else
             {
-                if (userName == null) throw new Exception("Username input is null");
-                if (pass == null) throw new Exception("Password input is null");
-                if (role == null) throw new Exception("Role input is null");
+                if (userName == null) throw new ArgumentNullException("Username input is null");
+                if (pass == null) throw new ArgumentNullException("Password input is null");
+                if (role == null) throw new ArgumentNullException("Role input is null");
                 if (itsDAL.userNameExists(userName)) return "That Username already taken";
                 if (!checkPassword(pass)) return "Password is not good";
                 role = role.First().ToString().ToUpper() + role.Substring(1).ToString().ToLower();
@@ -136,14 +137,15 @@ namespace BL
 
         public string changePass(string userName, string pass)
         {
-            if (userName == null) return "Username input is null";
-            if (pass == null) return "Username input is null";
+            if (userName == null) throw new ArgumentNullException("Username input is null");
+            if (pass == null) throw new ArgumentNullException("Password input is null");
             if (!checkPassword(pass)) return "Password is not good";
             if (!itsDAL.userNameExists(userName)) return "Username does not exist";
             if (currUser.userName == userName)
             {
                 itsDAL.setPassword(userName, pass);
                 itsDAL.writeToLog("Changing password", currUser.userName, userName);
+                currUser = new User(currUser.userName, pass, currUser.role);
                 return "Password changed successfully. The new password is: " + pass;
             }
             else
