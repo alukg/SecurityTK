@@ -9,6 +9,7 @@ namespace DAL
     {
         public bool userNameExists(string userName)
         {
+            userName = userName.ToLower();
             SqlConnection connection = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\guyal\\Desktop\\SecurityTK\\DAL\\SecurityTK_DB.mdf;Integrated Security=True");
             SqlCommand cmd = new SqlCommand("SELECT count(*) FROM Users WHERE UserName = '" + userName + "'", connection);
             try
@@ -27,12 +28,14 @@ namespace DAL
 
         public string getPassword(string userName)
         {
+            userName = userName.ToLower();
             SqlConnection connection = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\guyal\\Desktop\\SecurityTK\\DAL\\SecurityTK_DB.mdf;Integrated Security=True");
             SqlCommand cmd = new SqlCommand("SELECT Password FROM Users WHERE UserName = '" + userName + "'", connection);
             try
             {
                 connection.Open();
-                string ans = (string)cmd.ExecuteScalar();
+                string ans = Convert.ToString(cmd.ExecuteScalar());
+                ans = ans.TrimEnd('\r','\n');
                 connection.Close();
                 return ans;
             }
@@ -44,12 +47,14 @@ namespace DAL
 
         public string getRole(string userName)
         {
+            userName = userName.ToLower();
             SqlConnection connection = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\guyal\\Desktop\\SecurityTK\\DAL\\SecurityTK_DB.mdf;Integrated Security=True");
             SqlCommand cmd = new SqlCommand("SELECT Role FROM Users WHERE UserName = '" + userName + "'", connection);
             try
             {
                 connection.Open();
-                string ans = (string)cmd.ExecuteScalar();
+                string ans = Convert.ToString(cmd.ExecuteScalar());
+                ans = ans.TrimEnd('\r', '\n');
                 connection.Close();
                 return ans;
             }
@@ -61,6 +66,8 @@ namespace DAL
 
         public void setNewUser(string userName, string password, string role)
         {
+            userName = userName.ToLower();
+            role = role.First().ToString().ToUpper() + role.Substring(1).ToString().ToLower();
             SqlConnection connection = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\guyal\\Desktop\\SecurityTK\\DAL\\SecurityTK_DB.mdf;Integrated Security=True");
             SqlCommand cmd = new SqlCommand("INSERT INTO Users(UserName, Password, Role) VALUES('" + userName + "','" + password + "','" + role + "')", connection);
             try
@@ -77,6 +84,7 @@ namespace DAL
 
         public void setPassword(string userName, string value)
         {
+            userName = userName.ToLower();
             SqlConnection connection = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\guyal\\Desktop\\SecurityTK\\DAL\\SecurityTK_DB.mdf;Integrated Security=True");
             SqlCommand cmd = new SqlCommand("UPDATE Users SET Password ='" + value + "' WHERE UserName = '" + userName + "'", connection);
             try
@@ -93,6 +101,7 @@ namespace DAL
 
         public void setRole(string userName, string value)
         {
+            userName = userName.ToLower();
             value = value.First().ToString().ToUpper() + value.Substring(1).ToString().ToLower();
             SqlConnection connection = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\guyal\\Desktop\\SecurityTK\\DAL\\SecurityTK_DB.mdf;Integrated Security=True");
             SqlCommand cmd = new SqlCommand("UPDATE Users SET Role ='" + value + "' WHERE UserName = '" + userName + "'", connection);
@@ -150,6 +159,7 @@ namespace DAL
 
         public void removeUser(string userName)
         {
+            userName = userName.ToLower();
             SqlConnection connection = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\guyal\\Desktop\\SecurityTK\\DAL\\SecurityTK_DB.mdf;Integrated Security=True");
             SqlCommand cmd = new SqlCommand("DELETE FROM Users WHERE UserName = '" + userName + "'", connection);
             try
@@ -163,5 +173,6 @@ namespace DAL
                 Console.WriteLine("connection faild");
             }
         }
+
     }
 }

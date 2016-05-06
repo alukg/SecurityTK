@@ -18,5 +18,5 @@ C:\Users\rOTEM\Documents\SecurityTK\DAL\obj\Debug\DAL.dll
 C:\Users\rOTEM\Documents\SecurityTK\DAL\obj\Debug\DAL.pdb
 C:\Users\guyal\Desktop\SecurityTK\DAL\bin\Debug\SecurityTK_DB.mdf
 C:\Users\guyal\Desktop\SecurityTK\DAL\bin\Debug\SecurityTK_DB_log.ldf
-C:\Users\guyal\Desktop\SecurityTK\DAL\bin\Debug\DAL.dll.config
 C:\Users\guyal\Desktop\SecurityTK\DAL\bin\Debug\nunit.framework.dll
+C:\Users\guyal\Desktop\SecurityTK\DAL\bin\Debug\nunit.framework.xml

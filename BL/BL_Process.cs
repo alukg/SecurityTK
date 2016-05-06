@@ -10,7 +10,7 @@ namespace BL
     public class BL_Process : IBL
     {
         private IDAL itsDAL;
-        private User currUser;
+        internal User currUser;
 
         public BL_Process(IDAL itsDAL)
         {
@@ -24,6 +24,7 @@ namespace BL
                 throw new ArgumentNullException("The username is null");
             if (enteredPassword == null)
                 throw new ArgumentNullException("The password is null");
+            userName = userName.ToLower();
             if (!itsDAL.userNameExists(userName)) return false; //There is no such user
             string currentPassword = itsDAL.getPassword(userName);
             if (currentPassword.Equals(enteredPassword))
@@ -43,9 +44,11 @@ namespace BL
                     throw new ArgumentNullException("The username is null");
                 if (newRole == null)
                     throw new ArgumentNullException("The role is null");
+                userName = userName.ToLower();
+                if (!(newRole == "Administrator" || newRole == "Manager" || newRole == "Employee")) return "There is no such role";
                 if (!itsDAL.userNameExists(userName)) return "Username don't exits";
                 newRole = newRole.First().ToString().ToUpper() + newRole.Substring(1).ToString().ToLower();
-                if (itsDAL.getRole(userName) == newRole) return "This user already in this role";
+                if (itsDAL.getRole(userName) == newRole) return "This user already in that role";
                 itsDAL.setRole(userName, newRole);
                 itsDAL.writeToLog("Changing role", currUser.userName, userName);
                 if (currUser.userName.Equals(userName)) currUser = new User(currUser.userName,currUser.password,newRole);
@@ -62,6 +65,7 @@ namespace BL
             if (currUser.role.Equals("Administrator") || currUser.role.Equals("Manager"))
             {
                 if (userName == null) throw new ArgumentNullException("Username input is null");
+                userName = userName.ToLower();
                 if (!itsDAL.userNameExists(userName)) return "Username does not exist";
                 if (currUser.role.Equals("Manager") && !(itsDAL.getRole(userName).Equals("Employee")))
                     return "There is no permissions to remove this user";
@@ -101,6 +105,7 @@ namespace BL
                 if (userName == null) throw new ArgumentNullException("Username input is null");
                 if (pass == null) throw new ArgumentNullException("Password input is null");
                 if (role == null) throw new ArgumentNullException("Role input is null");
+                userName = userName.ToLower();
                 if (itsDAL.userNameExists(userName)) return "That Username already taken";
                 if (!checkPassword(pass)) return "Password is not good";
                 role = role.First().ToString().ToUpper() + role.Substring(1).ToString().ToLower();
@@ -120,7 +125,7 @@ namespace BL
                         return "User added successfully. The password is: " + pass;
                     }
                     else
-                        return "There is no permission for that role";
+                        return "There is no permission to add user with that role";
                 }
                 else
                 {
@@ -139,8 +144,10 @@ namespace BL
         {
             if (userName == null) throw new ArgumentNullException("Username input is null");
             if (pass == null) throw new ArgumentNullException("Password input is null");
-            if (!checkPassword(pass)) return "Password is not good";
+            userName = userName.ToLower();
             if (!itsDAL.userNameExists(userName)) return "Username does not exist";
+            if (!checkPassword(pass)) return "Password is not good";
+            if (pass.Equals(itsDAL.getPassword(userName))) return "The new password identical to the current one";
             if (currUser.userName == userName)
             {
                 itsDAL.setPassword(userName, pass);
@@ -212,12 +219,12 @@ namespace BL
             byte[] ASCIIValues = Encoding.ASCII.GetBytes(pass);
             for (int i = 0; i < pass.Length; i++)
             {
-                if (ASCIIValues[i] >= 48 || ASCIIValues[i] <= 57) ans = true;
-                else if (ASCIIValues[i] >= 65 || ASCIIValues[i] <= 90) continue;
-                else if (ASCIIValues[i] >= 97 || ASCIIValues[i] <= 122) continue;
+                if (ASCIIValues[i] >= 48 && ASCIIValues[i] <= 57) ans = true;
+                else if (ASCIIValues[i] >= 65 && ASCIIValues[i] <= 90) continue;
+                else if (ASCIIValues[i] >= 97 && ASCIIValues[i] <= 122) continue;
                 else
                 {
-                    throw new Exception("there is illegal char in the password");
+                    return false;
                 }
             }
             return ans;
