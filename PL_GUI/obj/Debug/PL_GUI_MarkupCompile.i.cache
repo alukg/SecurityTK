@@ -10,11 +10,15 @@ none
 false
 DEBUG;TRACE
 
-1-1137058625
+4-2134350171
 
+<<<<<<< HEAD
 10-1626591417
+=======
+13-823746923
+>>>>>>> Barak'sGUI
 15-634826644
-MainMenu.xaml;
+DataLeakageWindow.xaml;CryptoWindow.xaml;LoginWindow.xaml;MainMenu.xaml;
 
 True
 
