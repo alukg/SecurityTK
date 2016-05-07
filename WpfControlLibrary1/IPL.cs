@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PL
+namespace PL_GUI
 {
-    class GUI
+    interface IPL
     {
+        void Run();
     }
 }
