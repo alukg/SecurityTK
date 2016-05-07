@@ -1,0 +1,2 @@
+C:\Users\Barak\Documents\SecurityTK\GUI Launcher\bin\Debug\GUI Launcher.exe.config
+C:\Users\Keren\Documents\SecurityTK\GUI Launcher\bin\Debug\GUI Launcher.exe.config
