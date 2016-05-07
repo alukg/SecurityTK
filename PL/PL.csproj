@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GUI.cs" />
     <Compile Include="IPL.cs" />
     <Compile Include="PL_Run.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
