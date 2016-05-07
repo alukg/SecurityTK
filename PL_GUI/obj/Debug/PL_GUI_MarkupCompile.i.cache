@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 
-42134366205
+4-2134350171
 
-13-845803539
+13-823746923
 15-634826644
-DataLeakageWindow.xaml;KryptoWindow.xaml;LoginWindow.xaml;MainMenu.xaml;
+DataLeakageWindow.xaml;CryptoWindow.xaml;LoginWindow.xaml;MainMenu.xaml;
 
-False
+True
 
