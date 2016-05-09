@@ -1,14 +1,15 @@
-﻿
-namespace SharedClasses
+﻿namespace SharedClasses
 {
+    public enum Role { Administrator, Manager, Employee };
+
     public class User
     {
         public readonly string userName;
         public readonly string password;
-        public readonly string role;
+        public readonly Role role;
 
         //Constractor
-        public User(string userName, string password, string role)
+        public User(string userName, string password, Role role)
         {
             this.userName = userName;
             this.password = password;

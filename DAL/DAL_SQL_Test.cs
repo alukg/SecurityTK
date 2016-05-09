@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using NUnit.Framework;
+using SharedClasses;
 
 namespace DAL
 {
@@ -34,17 +35,17 @@ namespace DAL
         [TestCase]
         public void getRoleTest()
         {
-            Assert.AreEqual("Employee", db.getRole("superMan"));
-            Assert.AreNotEqual("employee", db.getRole("superMan"));
+            Assert.AreEqual(Role.Employee, db.getRole("superMan"));
+            Assert.AreNotEqual(Role.Manager, db.getRole("superMan"));
         }
 
         [TestCase]
         public void setAndRemoveUserTest()
         {
-            db.setNewUser("Guy", "guy12345", "Employee");
+            db.setNewUser("Guy", "guy12345", Role.Employee);
             Assert.AreEqual(true, db.userNameExists("guy"));
             Assert.AreEqual("guy12345", db.getPassword("gUy"));
-            Assert.AreEqual("Employee", db.getRole("Guy"));
+            Assert.AreEqual(Role.Employee, db.getRole("Guy"));
             db.removeUser("Guy");
             Assert.AreEqual(false, db.userNameExists("guy"));
         }
@@ -64,12 +65,12 @@ namespace DAL
         [TestCase]
         public void setRoleTest()
         {
-            Assert.AreEqual("Administrator", db.getRole("snake"));
-            Assert.AreNotEqual("Employee", db.getRole("snake"));
-            db.setRole("snake", "Employee");
-            Assert.AreEqual("Employee", db.getRole("snake"));
-            db.setRole("snake", "Administrator");
-            Assert.AreEqual("Administrator", db.getRole("snake"));
+            Assert.AreEqual(Role.Administrator, db.getRole("snake"));
+            Assert.AreNotEqual(Role.Employee, db.getRole("snake"));
+            db.setRole("snake", Role.Employee);
+            Assert.AreEqual(Role.Employee, db.getRole("snake"));
+            db.setRole("snake", Role.Administrator);
+            Assert.AreEqual(Role.Administrator, db.getRole("snake"));
         }
     }
 }

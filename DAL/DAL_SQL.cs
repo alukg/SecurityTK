@@ -2,11 +2,17 @@
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
+using SharedClasses;
 
 namespace DAL
 {
     public class DAL_SQL : IDAL
     {
+        /// <summary>
+        /// checks if the user is in the DB.
+        /// </summary>
+        /// <param name="userName"></param>
+        /// <returns></returns>
         public bool userNameExists(string userName)
         {
             userName = userName.ToLower();
@@ -15,17 +21,22 @@ namespace DAL
             try
             {
                 connection.Open();
-                int ans = Convert.ToInt32(cmd.ExecuteScalar());
+                int ans = Convert.ToInt32(cmd.ExecuteScalar()); //convert the answer to int.
                 connection.Close();
-                if (ans == 0) return false;
+                if (ans == 0) return false; //if there is no rows with that username.
                 else return true;
             }
-            catch
+            catch //if there is connection problem to the DB.
             {
                 throw new Exception("connection faild");
             }
         }
 
+        /// <summary>
+        /// get password of user from the DB.
+        /// </summary>
+        /// <param name="userName"></param>
+        /// <returns></returns>
         public string getPassword(string userName)
         {
             userName = userName.ToLower();
@@ -34,7 +45,7 @@ namespace DAL
             try
             {
                 connection.Open();
-                string ans = Convert.ToString(cmd.ExecuteScalar());
+                string ans = Convert.ToString(cmd.ExecuteScalar()); //execute the SQL command ans convert the password ro string.
                 ans = ans.TrimEnd('\r','\n');
                 connection.Close();
                 return ans;
@@ -45,7 +56,12 @@ namespace DAL
             }
         }
 
-        public string getRole(string userName)
+        /// <summary>
+        /// get role of user from the DB.
+        /// </summary>
+        /// <param name="userName"></param>
+        /// <returns></returns>
+        public Role getRole(string userName)
         {
             userName = userName.ToLower();
             SqlConnection connection = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\guyal\\Desktop\\SecurityTK\\DAL\\SecurityTK_DB.mdf;Integrated Security=True");
@@ -56,20 +72,31 @@ namespace DAL
                 string ans = Convert.ToString(cmd.ExecuteScalar());
                 ans = ans.TrimEnd('\r', '\n');
                 connection.Close();
-                return ans;
+                //The DB works with strings, so recive the answer and convert it to enum Role.
+                if(ans.Equals("Administrator")) return Role.Administrator;
+                else if (ans.Equals("Manager")) return Role.Manager;
+                else
+                {
+                    return Role.Employee;
+                }
             }
             catch
             {
-                return ("connection faild");
+                throw new Exception("connection faild");
             }
         }
 
-        public void setNewUser(string userName, string password, string role)
+        /// <summary>
+        /// set new user in the DB.
+        /// </summary>
+        /// <param name="userName"></param>
+        /// <param name="password"></param>
+        /// <param name="role"></param>
+        public void setNewUser(string userName, string password, Role role)
         {
             userName = userName.ToLower();
-            role = role.First().ToString().ToUpper() + role.Substring(1).ToString().ToLower();
             SqlConnection connection = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\guyal\\Desktop\\SecurityTK\\DAL\\SecurityTK_DB.mdf;Integrated Security=True");
-            SqlCommand cmd = new SqlCommand("INSERT INTO Users(UserName, Password, Role) VALUES('" + userName + "','" + password + "','" + role + "')", connection);
+            SqlCommand cmd = new SqlCommand("INSERT INTO Users(UserName, Password, Role) VALUES('" + userName + "','" + password + "','" + role.ToString() + "')", connection);
             try
             {
                 connection.Open();
@@ -82,6 +109,11 @@ namespace DAL
             }
         }
 
+        /// <summary>
+        /// set password for user in the DB.
+        /// </summary>
+        /// <param name="userName"></param>
+        /// <param name="value"></param>
         public void setPassword(string userName, string value)
         {
             userName = userName.ToLower();
@@ -99,12 +131,16 @@ namespace DAL
             }
         }
 
-        public void setRole(string userName, string value)
+        /// <summary>
+        /// set rassword for user in the DB.
+        /// </summary>
+        /// <param name="userName"></param>
+        /// <param name="value"></param>
+        public void setRole(string userName, Role value)
         {
             userName = userName.ToLower();
-            value = value.First().ToString().ToUpper() + value.Substring(1).ToString().ToLower();
             SqlConnection connection = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\guyal\\Desktop\\SecurityTK\\DAL\\SecurityTK_DB.mdf;Integrated Security=True");
-            SqlCommand cmd = new SqlCommand("UPDATE Users SET Role ='" + value + "' WHERE UserName = '" + userName + "'", connection);
+            SqlCommand cmd = new SqlCommand("UPDATE Users SET Role ='" + value.ToString() + "' WHERE UserName = '" + userName + "'", connection);
             try
             {
                 connection.Open();
@@ -117,6 +153,12 @@ namespace DAL
             }
         }
 
+        /// <summary>
+        /// write to the log table in the DB.
+        /// </summary>
+        /// <param name="action"></param>
+        /// <param name="performed"></param>
+        /// <param name="affected"></param>
         public void writeToLog(string action, string performed, string affected)
         {
             string dateTime = DateTime.Now.ToString("yyMMdd HH:mm:ss");
@@ -157,6 +199,10 @@ namespace DAL
             }
         }
 
+        /// <summary>
+        /// remove user from the DB.
+        /// </summary>
+        /// <param name="userName"></param>
         public void removeUser(string userName)
         {
             userName = userName.ToLower();

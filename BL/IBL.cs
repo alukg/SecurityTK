@@ -1,14 +1,18 @@
 ﻿using System.Collections.Generic;
+using SharedClasses;
 
 namespace BL
 {
+    /// <summary>
+    /// interface for the logic layer. user managment.
+    /// </summary>
     public interface IBL
     {
         bool userVarification(string userName, string enteredPassword);
-        string changeRole(string userName, string newRole);
+        string changeRole(string userName, Role newRole);
         string removeUser(string userName);
-        string addUser(string userName, string role);
-        string addUser(string userName, string pass, string role);
+        string addUser(string userName, Role role);
+        string addUser(string userName, string pass, Role role);
         string changePass(string userName);
         string changePass(string userName, string pass);
         List<string> readLog();
