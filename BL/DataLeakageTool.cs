@@ -7,30 +7,17 @@ using System.IO;
 using System.Collections.Generic;
 using System.IO.MemoryMappedFiles;
 
+
 namespace BL
 {
     class DataLeakageTool
     {
-        private Dictionary<string,double> mapping;
+        private DataLeakageDictionary dictionary;
 
         //building the mapping dictionary
         public DataLeakageTool()
         {
-            mapping.Add("classified", 1);
-            mapping.Add("secret", 1);
-            mapping.Add("password", 1);
-            mapping.Add("restricted", 1);
-            mapping.Add("private", 0.9);
-            mapping.Add("sensitive", 0.8);
-            mapping.Add("encrypt", 0.8);
-            mapping.Add("pin", 0.8);
-            mapping.Add("key", 0.8);
-            mapping.Add("hash", 0.75);
-            mapping.Add("break-in", 0.6);
-            mapping.Add("credential", 0.6);
-            mapping.Add("admin", 0.6);
-            mapping.Add("virus", 0.6);
-            mapping.Add("worm", 0.4);
+            dictionary = new DataLeakageDictionary();
         }
 
         /*
@@ -79,52 +66,72 @@ namespace BL
         public double scanDocument(StreamReader sr)
         {
             double score = 0;
+            int numberOfWords = 0;
             while(!sr.EndOfStream)
             {
                 string line = sr.ReadLine();
+                line = removesCharsAtEnd(line);
+                string[] wordsOfSentence=line.Split(' ');
+                numberOfWords += wordsOfSentence.Length;
 
                 //we wish to check if one of the dangerous words appear in some form in the line
-                bool contatins = false;
-                foreach(var item in mapping)
-                {
-                    if (line.Contains(item.Key))
-                        contatins = true;
-                }
-
                 //only if one of the word may appear in the current line, check it.
-                if (contatins)
+                if (checkIfSensitiveSentence(line))
                 {
-                    byte[] asciiLine = Encoding.ASCII.GetBytes(line); // converting the line to ascci
-                    int i = 0;
-                    while (i < line.Length)
+                    for (int i = 0; i < wordsOfSentence.Length; i++)
                     {
-                        string word = "";
-
-                        //as long as there are letters, add them to the word
-                        while (asciiLine[i] >= 65 && asciiLine[i] <= 90 || asciiLine[i] >= 97 && asciiLine[i] <= 122 && i < line.Length)
-                        {
-                            word += line[i];
-                            i++;
-                        }
-                        score += getScore(word); // getting the score of each word in the document
-
-                        //as long as the next character in the line is not a line, ignore it
-                        while (asciiLine[i] <= 65 && asciiLine[i] >= 90 || asciiLine[i] <= 97 && asciiLine[i] >= 122 && i < line.Length)
-                            i++;
-                    }
+                        wordsOfSentence[i] = removesCharsAtEnd(wordsOfSentence[i]);
+                        wordsOfSentence[i] = removesCharsInWord(wordsOfSentence[i]);
+                        score += dictionary.getWordScore(wordsOfSentence[i]);
+                    }      
                 }
             }
-            return score;
+            return calculateScore(numberOfWords,score);
+        }
+    
+        /* The function gets a string, and removes the last character if it is
+         * not a letter or a number.
+         */
+        public string removesCharsAtEnd(string s)
+        {
+            char lastChar = s[s.Length - 1];
+            byte lastCharAscci = (byte)lastChar;
+            if ((lastCharAscci >= 33 && lastCharAscci <= 47) || (lastCharAscci >= 91 && lastCharAscci <= 96))
+                return s.Substring(0, s.Length - 1);
+            else
+                return s;
+        }
+
+        public string removesCharsInWord(string word)
+        {
+            byte[] asciiWord = Encoding.ASCII.GetBytes(word); // converting the word to ascci
+            int i = 0, wordLength = word.Length;
+            while(i< wordLength)
+            {
+                if ((asciiWord[i] >= 33 && asciiWord[i] <= 47) || (asciiWord[i] >= 91 && asciiWord[i] <= 96))
+                {
+                    string tempWord = word;
+                    word = word.Substring(0, i) + tempWord.Substring(i + 1, wordLength - i + 1);
+                    wordLength = word.Length;
+                }
+            }
+            return word;
+        }
+
+        //checking if the sentence contains one of the dangerous words.
+        public bool checkIfSensitiveSentence(string sentence)
+        {
+            return dictionary.isDangerousSentence(sentence);
         }
 
 
-        //The function calulates the score of a word
-        public double getScore(string word)
+
+        // The function calculates the score of a document
+        public double calculateScore(int numOfWords, double wordsScore)
         {
-            double score = 0.0;
-            if (mapping.ContainsKey(word)) //if a word is one of the dangerous words, get the score
-                score = mapping[word]; 
-            return score;
+            double d = 1 / Math.Abs(numOfWords);
+            return wordsScore * d;
         }
     }
 }
+
