@@ -7,6 +7,8 @@ using PL;
 using BL;
 using DAL;
 
+
+
 /*
 Rotem Avni 204247852
 Guy Aluk 305051260
@@ -18,13 +20,14 @@ namespace ProgramLauncher
 {
     class Program
     {
-        static void Main(string[] args)
-        {
-            IDAL theDAL = new DAL_Excel();
-            IBL theBL = new BL_Functions(theDAL);
-            IPL thePL = new PL_Run(theBL);
-            thePL.Run();
-            
-        }
+          static void Main(string[] args)
+           {
+               IDAL theDAL = new DAL_Excel();
+               IBL theBL = new BL_Functions(theDAL);
+               IPL thePL = new PL_Run(theBL);
+               thePL.Run();
+
+           }
+
     }
 }

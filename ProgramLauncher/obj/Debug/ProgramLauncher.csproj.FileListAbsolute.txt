@@ -28,3 +28,7 @@ C:\Users\rOTEM\Documents\SecurityTK\ProgramLauncher\obj\Debug\ProgramLauncher.cs
 C:\Users\rOTEM\Documents\SecurityTK\ProgramLauncher\obj\Debug\ProgramLauncher.exe
 C:\Users\rOTEM\Documents\SecurityTK\ProgramLauncher\obj\Debug\ProgramLauncher.pdb
 C:\Users\Barak\Documents\SecurityTK\ProgramLauncher\bin\Debug\ProgramLauncher.exe.config
+C:\Users\rOTEM\Documents\SecurityTK\ProgramLauncher\bin\Debug\SecurityTK_DB.mdf
+C:\Users\rOTEM\Documents\SecurityTK\ProgramLauncher\bin\Debug\SecurityTK_DB_log.ldf
+C:\Users\rOTEM\Documents\SecurityTK\ProgramLauncher\bin\Debug\nunit.framework.dll
+C:\Users\rOTEM\Documents\SecurityTK\ProgramLauncher\bin\Debug\nunit.framework.xml

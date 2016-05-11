@@ -17,6 +17,7 @@ namespace BL
             mapping.Add("classified", 1);
             mapping.Add("secret", 1);
             mapping.Add("secrets", 1);
+            mapping.Add("secretive", 1);
             mapping.Add("secret's", 1);
             mapping.Add("password", 1);
             mapping.Add("passwords", 1);
@@ -44,7 +45,6 @@ namespace BL
             mapping.Add("break-in", 0.6);
             mapping.Add("breaks-in", 0.6);
             mapping.Add("breaked-in", 0.6);
-            mapping.Add("break-in", 0.6);
             mapping.Add("credential", 0.6);
             mapping.Add("credentials", 0.6);
             mapping.Add("credential's", 0.6);
@@ -54,7 +54,7 @@ namespace BL
             mapping.Add("viruses", 0.6);
             mapping.Add("virus's", 0.6);
             mapping.Add("worm", 0.4);
-            mapping.Add("wormes", 0.4);
+            mapping.Add("worms", 0.4);
             mapping.Add("worm's", 0.4);
         }
 
