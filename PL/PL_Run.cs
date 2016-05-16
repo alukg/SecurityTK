@@ -7,7 +7,7 @@ using BL;
 using SharedClasses;
 
 
-namespace PL
+/*namespace PL
 {
     public class PL_Run : IPL
     {
@@ -143,4 +143,4 @@ namespace PL
             Console.Read();//keeps the screen open
         }
     }
-}
+}*/

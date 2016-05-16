@@ -20,3 +20,7 @@ C:\Users\guyal\Desktop\SecurityTK\BL\bin\Debug\SecurityTK_DB.mdf
 C:\Users\guyal\Desktop\SecurityTK\BL\bin\Debug\SecurityTK_DB_log.ldf
 C:\Users\guyal\Desktop\SecurityTK\BL\bin\Debug\nunit.framework.dll
 C:\Users\guyal\Desktop\SecurityTK\BL\bin\Debug\nunit.framework.xml
+C:\Users\rOTEM\Documents\SecurityTK\BL\bin\Debug\SecurityTK_DB.mdf
+C:\Users\rOTEM\Documents\SecurityTK\BL\bin\Debug\SecurityTK_DB_log.ldf
+C:\Users\rOTEM\Documents\SecurityTK\BL\bin\Debug\nunit.framework.dll
+C:\Users\rOTEM\Documents\SecurityTK\BL\bin\Debug\nunit.framework.xml
