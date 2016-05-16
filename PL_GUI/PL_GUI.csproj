@@ -52,8 +52,8 @@
       <DependentUpon>DataLeakageWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="IPL.cs" />
-    <Compile Include="KryptoWindow.xaml.cs">
-      <DependentUpon>KryptoWindow.xaml</DependentUpon>
+    <Compile Include="CryptoWindow.xaml.cs">
+      <DependentUpon>CryptoWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="LoginWindow.xaml.cs">
       <DependentUpon>LoginWindow.xaml</DependentUpon>
@@ -90,7 +90,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="KryptoWindow.xaml">
+    <Page Include="CryptoWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
