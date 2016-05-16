@@ -78,7 +78,7 @@ namespace BL
             }               
         }
 
-        private bool isPathLegal(string path)
+        public bool isPathLegal(string path)
         {
             if (!Directory.Exists(path))
                 throw new DirectoryNotFoundException("The path does not exist");
@@ -89,7 +89,7 @@ namespace BL
         }
 
         // The function recieves a stream. It separates the text into words and calculate the score of each word.
-        private double scanDocument(StreamReader sr)
+        public double scanDocument(StreamReader sr)
         {
             double score = 0;
             int numberOfWords = 0;
@@ -124,7 +124,7 @@ namespace BL
          * for example if they were separated by a charachter other then space.
          * The function returns the number of words in the sentence. 
          */
-        private int countWordsInLine(string[] wordsOfSentence)
+        public int countWordsInLine(string[] wordsOfSentence)
         {
             int count = wordsOfSentence.Length;
             for (int i = 0; i < wordsOfSentence.Length; i++)
@@ -140,7 +140,7 @@ namespace BL
         /*
          * The function gets a string and separates it to different words, if there are any.
          */
-        private int removesCharsInWord(string word)
+        public int removesCharsInWord(string word)
         {
             //if the word is actully one illegal char
             if (word.Length == 1)
@@ -169,7 +169,7 @@ namespace BL
          * The function gets a sentence and separates it better, according to chars
          * that are not a space.
          */
-        private string [] getNewSentence(string[] sentence, int numOfWords)
+        public string [] getNewSentence(string[] sentence, int numOfWords)
         {
             //initializing the new array
             string[] newSentence = new string[numOfWords];
@@ -203,7 +203,7 @@ namespace BL
 
 
         //checking if the sentence contains one of the dangerous words.
-        private bool checkIfSensitiveSentence(string sentence)
+        public bool checkIfSensitiveSentence(string sentence)
         {
             return dictionary.isDangerousSentence(sentence);
         }
@@ -211,7 +211,7 @@ namespace BL
 
 
         // The function calculates the score of a document
-        private double calculateScore(int numOfWords, double wordsScore)
+        public double calculateScore(int numOfWords, double wordsScore)
         {
             double d = 1.0 / (Math.Abs(numOfWords));
             return wordsScore * d;
@@ -223,19 +223,19 @@ namespace BL
          * The function finds the most similar value to our input in order to be able
          * to insert it to the dictionary
          */
-        private double findSimilarValue(double score)
+        public double findSimilarValue(double score)
         {
             while (calculatedScore.ContainsKey(score))
                 score=score+ 0.000000000001;
             return score;
         }
 
-        private char[] getSeparators()
+        public char[] getSeparators()
         {
             return this.separators;
         }
 
-        private SortedDictionary<double,FileInfo> getDictionary()
+        public SortedDictionary<double,FileInfo> getDictionary()
         {
             return this.calculatedScore;
         }
