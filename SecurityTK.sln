@@ -13,8 +13,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "DAL\DAL.csproj", "{1
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharedClasses", "SharedClasses\SharedClasses.csproj", "{D35D230D-FACF-4A87-B385-DE60E7851245}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SecurityTK.Test", "SecurityTK_Test.Test\SecurityTK.Test.csproj", "{BF48AE88-8DF3-4AA5-8E6E-23499D1EFD2F}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -41,10 +39,6 @@ Global
 		{D35D230D-FACF-4A87-B385-DE60E7851245}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D35D230D-FACF-4A87-B385-DE60E7851245}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D35D230D-FACF-4A87-B385-DE60E7851245}.Release|Any CPU.Build.0 = Release|Any CPU
-		{BF48AE88-8DF3-4AA5-8E6E-23499D1EFD2F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BF48AE88-8DF3-4AA5-8E6E-23499D1EFD2F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BF48AE88-8DF3-4AA5-8E6E-23499D1EFD2F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BF48AE88-8DF3-4AA5-8E6E-23499D1EFD2F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
