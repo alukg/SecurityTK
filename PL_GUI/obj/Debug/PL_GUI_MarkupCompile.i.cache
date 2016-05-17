@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 
-4-2134350171
+101154460069
 
-13-823746923
+1936637069
 15-634826644
-DataLeakageWindow.xaml;CryptoWindow.xaml;LoginWindow.xaml;MainMenu.xaml;
+AddUserWindow.xaml;AdministratorManagment.xaml;ChangePasswordWindow.xaml;ChangeRoleWindow.xaml;DataLeakageWindow.xaml;EmployManagment.xaml;LoginWindow.xaml;MainMenu.xaml;ManagerManagment.xaml;RemoveUserWindow.xaml;
 
-False
+True
 
