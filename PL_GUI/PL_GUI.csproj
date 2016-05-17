@@ -60,6 +60,9 @@
     <Compile Include="ChangeRoleWindow.xaml.cs">
       <DependentUpon>ChangeRoleWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="CryptoWindow.xaml.cs">
+      <DependentUpon>CryptoWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DataLeakageWindow.xaml.cs">
       <DependentUpon>DataLeakageWindow.xaml</DependentUpon>
     </Compile>
@@ -117,6 +120,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ChangeRoleWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CryptoWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

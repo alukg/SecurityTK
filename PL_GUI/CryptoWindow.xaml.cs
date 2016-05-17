@@ -15,11 +15,11 @@ using System.Windows.Shapes;
 namespace PL_GUI
 {
     /// <summary>
-    /// Interaction logic for KryptoWindow.xaml
+    /// Interaction logic for CryptoWindow.xaml
     /// </summary>
-    public partial class KryptoWindow : Window
+    public partial class CryptoWindow : Window
     {
-        public KryptoWindow()
+        public CryptoWindow()
         {
             InitializeComponent();
         }
