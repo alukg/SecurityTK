@@ -16,5 +16,5 @@ DEBUG;TRACE
 15-824001162
 AddUserWindow.xaml;AdministratorManagment.xaml;ChangePasswordWindow.xaml;ChangeRoleWindow.xaml;DataLeakageWindow.xaml;EmployManagment.xaml;LoginWindow.xaml;MainMenu.xaml;ManagerManagment.xaml;RemoveUserWindow.xaml;
 
-True
+False
 
