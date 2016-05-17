@@ -7,6 +7,11 @@
         mc:Ignorable="d"
         Title="AdministratorManagment" Height="400" Width="400">
     <Grid>
-        <Button FontSize="20" Margin="206,131,30.333,162.667">change password</Button>        <Button FontSize="20" Margin="10,27,226.333,266.667">add user</Button>        <Button FontSize="20" Margin="10,131,226.333,162.667">remove user</Button>        <Button FontSize="20" Margin="206,27,30.333,266.667">change role</Button>        <Button FontSize="20" Margin="108,237,128.333,56.667">read log</Button>
+        <Button FontSize="20" Margin="206,131,30.333,162.667">change password</Button>
+        <Button FontSize="20" Margin="10,27,226.333,266.667">add user</Button>
+        <Button FontSize="20" Margin="10,131,226.333,162.667">remove user</Button>
+        <Button FontSize="20" Margin="206,27,30.333,266.667">change role</Button>
+        <Button FontSize="20" Margin="108,237,128.333,56.667">read log</Button>
+
     </Grid>
 </Window>
