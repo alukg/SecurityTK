@@ -5,8 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PL_GUI"
         mc:Ignorable="d"
-        Title="LoginWindow" Height="300" Width="300">
+        Title="LoginWindow" Height="400" Width="400">
     <Grid>
-        
+        <StackPanel Margin="15">
+            <Label>Username:</Label>
+            <TextBox />
+            <Label>Password:</Label>
+            <PasswordBox MaxLength="8"/>
+        </StackPanel>
     </Grid>
 </Window>
