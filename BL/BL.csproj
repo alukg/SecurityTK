@@ -49,9 +49,9 @@
     <Compile Include="DataLeakageDictionary.cs" />
     <Compile Include="DataLeakageTool.cs" />
     <Compile Include="DataLeakageTool_Test.cs" />
+    <Compile Include="FileCryptoTool.cs" />
     <Compile Include="IBL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Score.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DAL\DAL.csproj">
