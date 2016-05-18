@@ -9,6 +9,8 @@ namespace DAL
     {
         public bool userNameExists(string userName)
         {
+            //long time = 
+
             SqlConnection connection = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\guyal\\Desktop\\SecurityTK\\DAL\\SecurityTK_DB.mdf;Integrated Security=True");
             SqlCommand cmd = new SqlCommand("SELECT count(*) FROM Users WHERE UserName = '" + userName + "'", connection);
             try
@@ -21,7 +23,8 @@ namespace DAL
             }
             catch
             {
-                throw new Exception("connection faild");
+                return true;
+               // throw new Exception("connection faild");         // להסדיר מול גיא
             }
         }
 
@@ -38,6 +41,7 @@ namespace DAL
             }
             catch
             {
+                //להסדיר עם גיא
                 return ("connection faild");
             }
         }

@@ -25,7 +25,10 @@ namespace BL
             if (enteredPassword == null)
                 throw new Exception("The password is null");
             if (!itsDAL.userNameExists(userName)) return false; //There is no such user
+            
             string currentPassword = itsDAL.getPassword(userName);
+            Console.WriteLine(currentPassword);
+           // Console.WriteLine(enteredPassword);
             if (currentPassword == enteredPassword)
             {
                 string userRole = itsDAL.getRole(userName);

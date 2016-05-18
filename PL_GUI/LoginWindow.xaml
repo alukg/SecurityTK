@@ -9,9 +9,12 @@
     <Grid>
         <StackPanel Margin="15">
             <Label>Username:</Label>
-            <TextBox />
+            <TextBox Name="Username" />
             <Label>Password:</Label>
-            <PasswordBox MaxLength="8"/>
+            <PasswordBox Name="Password" MaxLength="8" />
         </StackPanel>
+        <Button FontSize="20" Click="Left_Enter_Button_Click" Margin="37,123,221.333,195.667" Content="Enter"/>
+        <Button FontSize="20" Click="Left_Refresh_Button_Click" Margin="217,123,41.333,195.667" Content="Refresh"/>
+
     </Grid>
 </Window>

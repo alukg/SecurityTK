@@ -27,7 +27,7 @@ namespace GUI_Launcher
         {
         IDAL theDAL = new DAL_SQL();
         IBL theBL = new BL_Process(theDAL);
-        IPL thePL = new MainMenu(theBL);
+        IPL thePL = new LoginWindow(theBL);
         thePL.Run();
        }
     }

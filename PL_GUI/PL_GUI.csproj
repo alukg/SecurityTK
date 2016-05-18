@@ -79,7 +79,6 @@
     <Compile Include="ManagerManagment.xaml.cs">
       <DependentUpon>ManagerManagment.xaml</DependentUpon>
     </Compile>
-    <Compile Include="PL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -95,6 +94,9 @@
     </Compile>
     <Compile Include="RemoveUserWindow.xaml.cs">
       <DependentUpon>RemoveUserWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WrongInputWindow.xaml.cs">
+      <DependentUpon>WrongInputWindow.xaml</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -148,6 +150,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="RemoveUserWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WrongInputWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

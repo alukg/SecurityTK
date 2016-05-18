@@ -4,17 +4,17 @@
 library
 C#
 .cs
-C:\Users\Barak\Documents\SecurityTK\PL_GUI\obj\Debug\
+C:\Users\Keren\Documents\SecurityTK\PL_GUI\obj\Debug\
 PL_GUI
 none
 false
 DEBUG;TRACE
 
-11-2049765265
+12-1486811948
 
-20127833616
-15-634826644
-AddUserWindow.xaml;AdministratorManagment.xaml;ChangePasswordWindow.xaml;ChangeRoleWindow.xaml;CryptoWindow.xaml;DataLeakageWindow.xaml;EmployManagment.xaml;LoginWindow.xaml;MainMenu.xaml;ManagerManagment.xaml;RemoveUserWindow.xaml;
+20-1632689025
+15-824001162
+AddUserWindow.xaml;AdministratorManagment.xaml;ChangePasswordWindow.xaml;ChangeRoleWindow.xaml;CryptoWindow.xaml;DataLeakageWindow.xaml;EmployManagment.xaml;LoginWindow.xaml;MainMenu.xaml;ManagerManagment.xaml;RemoveUserWindow.xaml;WrongInputWindow.xaml;
 
-False
+True
 
