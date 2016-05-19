@@ -10,21 +10,29 @@ namespace BL
     public class FileCryptoTool
     {
         private RijndaelManaged crypto;
+
+        //constructor
         public FileCryptoTool()
         {
-            this.crypto = new RijndaelManaged();
-            crypto.Padding=PaddingMode.PKCS7;
+            crypto = new RijndaelManaged();
         }
 
+        /*the function gets a file to encrypt, the destination path to save the file to
+         * and a password (will be the encryption key).
+         * The function creates a new encrypted file.
+         */
         public void encrypt(string filePath,string destinationPath,string password)
         {
             try
             {
+                crypto.Padding = PaddingMode.PKCS7;
                 FileInfo origin = new FileInfo(@filePath);
-                destinationPath = destinationPath +"\\encrypted_"+ origin.Name;
-                byte[] passwordByte = System.Text.Encoding.Unicode.GetBytes(password);
-                passwordByte = createValidKey(passwordByte, password); //getting a valid sized key
 
+                //creating the path of the encrypted file
+                destinationPath = destinationPath +"\\encrypted_"+ origin.Name; 
+
+                byte[] passwordByte = ASCIIEncoding.ASCII.GetBytes(password);
+                passwordByte = createValidKey(passwordByte, password); //getting a valid sized key
              
                 using (FileStream destinationFile = new FileStream(destinationPath, FileMode.Create))
                 {
@@ -32,9 +40,9 @@ namespace BL
                     {
                         using (FileStream originFile = new FileStream(@filePath, FileMode.Open))
                         {
-                            int counter;
-                            while ((counter = originFile.ReadByte()) != -1)
-                                cryptoStream.WriteByte((byte)counter);
+                            int b;
+                            while ((b = originFile.ReadByte()) != -1)
+                                cryptoStream.WriteByte((byte)b);
                         }
                         
                     }
@@ -42,7 +50,10 @@ namespace BL
             }
             catch (Exception e)
             {
-                Console.WriteLine(e.Message);
+                if (e.Message.Contains("Padding"))
+                    Console.WriteLine("The decryption key is invalid, please enter the correct key");
+                else
+                    Console.WriteLine(e.Message);
             }
 
         }
@@ -53,24 +64,30 @@ namespace BL
         {
             try
             {
+                crypto.Padding = PaddingMode.PKCS7;
                 FileInfo origin = new FileInfo(@filePath);
+
+                //checking if the input file is encrypted.
                 if (!origin.Name.Contains("encrypted_"))
                     throw new Exception("The file is not encrypted");
-                destinationPath = destinationPath + "\\" + origin.Name.Substring(10);
 
-                byte[] passwordByte = System.Text.Encoding.Unicode.GetBytes(password);
+                //creating the path of the encrypted file
+                destinationPath = destinationPath + "\\decrypted_" + origin.Name.Substring(10);
+
+                byte[] passwordByte = ASCIIEncoding.ASCII.GetBytes(password);
+
                 passwordByte = createValidKey(passwordByte, password); //getting a valid sized key
 
 
                 using (FileStream destinationFile = new FileStream(destinationPath, FileMode.Create))
                 {
-                    using (CryptoStream cryptoStream = new CryptoStream(destinationFile, crypto.CreateDecryptor(passwordByte, passwordByte), CryptoStreamMode.Read))
+                    using (CryptoStream cryptoStream = new CryptoStream(destinationFile, crypto.CreateDecryptor(passwordByte, passwordByte), CryptoStreamMode.Write))
                     {
                         using (FileStream originFile = new FileStream(@filePath, FileMode.Open))
                         {
-                            int counter;
-                            while ((counter = originFile.ReadByte()) != -1)
-                                cryptoStream.WriteByte((byte)counter);
+                            int b;
+                            while ((b = originFile.ReadByte()) != -1)
+                                cryptoStream.WriteByte((byte)b);
                         }
 
                     }
@@ -78,23 +95,26 @@ namespace BL
             }
             catch(Exception e)
             {
-                Console.WriteLine(e.Message);
+                if (e.Message.Contains("Padding"))
+                    Console.WriteLine("The decryption key is invalid, please enter the correct key");
+                else
+                    Console.WriteLine(e.Message);
             }
         }
         /*
          * The function recieves a byte array and password. if the password size is not
          * 128/196/256 bits then the function converts it into a valid size.
          */ 
-        private byte[] createValidKey(Byte[] passwordByte,String password)
+        private byte[] createValidKey(byte[] passwordByte,String password)
         {
             BitArray ba = new BitArray(passwordByte);
             int n = ba.Length;
             if (ba.Length > 256)
             {
-                int difference = (ba.Length - 256) / 16;
+                int difference = (ba.Length - 256) / 8;
                 password = password.Substring(difference);
                 Console.WriteLine(password);
-                passwordByte = System.Text.Encoding.Unicode.GetBytes(password);
+                passwordByte = ASCIIEncoding.ASCII.GetBytes(password);
             }
             else
             {
@@ -102,23 +122,21 @@ namespace BL
                 {
                     int difference = 0;
                     if (ba.Length < 128)
-                        difference = (128 - ba.Length) / 16;
+                        difference = (128 - ba.Length) / 8;
                     else if (ba.Length > 128 && ba.Length < 196)
-                        difference = (196 - ba.Length) / 16;
+                        difference = (196 - ba.Length) / 8;
                     else if (ba.Length > 196 && ba.Length < 256)
-                        difference = (256 - ba.Length) / 16;
+                        difference = (256 - ba.Length) / 8;
 
                     for (int i = 0; i < difference; i++)
                     {
                         password += password[i % password.Length];
-                        passwordByte = System.Text.Encoding.Unicode.GetBytes(password);
+                        passwordByte = ASCIIEncoding.ASCII.GetBytes(password);
                         ba = new BitArray(passwordByte);
                     }
                 }
             }
             return passwordByte;
-
-
         }
 
 

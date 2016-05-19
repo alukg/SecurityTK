@@ -9,7 +9,7 @@ using SharedClasses;
 
 namespace PL
 {
-  /*  public class PL_Run : IPL
+    public class PL_Run : IPL
     {
         private IBL theBL;
 
@@ -142,5 +142,5 @@ namespace PL
             }
             Console.Read();//keeps the screen open
         }
-    }*/
+    }
 }

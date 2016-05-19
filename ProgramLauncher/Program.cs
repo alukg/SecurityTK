@@ -22,13 +22,10 @@ namespace ProgramLauncher
     {
           static void Main(string[] args)
            {
-            /*IDAL theDAL = new DAL_Excel();
+            IDAL theDAL = new DAL_Excel();
             IBL theBL = new BL_Functions(theDAL);
             IPL thePL = new PL_Run(theBL);
-            thePL.Run();*/
-            FileCryptoTool fct = new FileCryptoTool();
-            fct.encrypt(@"C:\Users\rOTEM\Documents\School\Semester_B\Intro_to_Software_Engineering\Milestone_2\file1.txt", @"C: \Users\rOTEM\Documents\School\Semester_B\Intro_to_Software_Engineering\Milestone_2", "rotemavn");
-            fct.decrypt(@"C:\Users\rOTEM\Documents\School\Semester_B\Intro_to_Software_Engineering\Milestone_2\encrypted_file1.txt", @"C: \Users\rOTEM\Documents\School\Semester_B\Intro_to_Software_Engineering\Milestone_2", "rotemavn");
+            thePL.Run();
 
         }
 

@@ -20,5 +20,3 @@ C:\Users\rOTEM\Documents\SecurityTK\PL\bin\Debug\DAL.dll
 C:\Users\rOTEM\Documents\SecurityTK\PL\bin\Debug\DAL.pdb
 C:\Users\rOTEM\Documents\SecurityTK\PL\bin\Debug\nunit.framework.dll
 C:\Users\rOTEM\Documents\SecurityTK\PL\bin\Debug\nunit.framework.xml
-C:\Users\rOTEM\Documents\SecurityTK\PL\bin\Debug\SecurityTK_DB.mdf
-C:\Users\rOTEM\Documents\SecurityTK\PL\bin\Debug\SecurityTK_DB_log.ldf
