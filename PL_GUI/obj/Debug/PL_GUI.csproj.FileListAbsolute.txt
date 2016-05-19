@@ -10,7 +10,6 @@ C:\Users\Keren\Documents\SecurityTK\PL_GUI\obj\Debug\LoginWindow.g.cs
 C:\Users\Keren\Documents\SecurityTK\PL_GUI\obj\Debug\MainMenu.g.cs
 C:\Users\Keren\Documents\SecurityTK\PL_GUI\obj\Debug\ManagerManagment.g.cs
 C:\Users\Keren\Documents\SecurityTK\PL_GUI\obj\Debug\RemoveUserWindow.g.cs
-C:\Users\Keren\Documents\SecurityTK\PL_GUI\obj\Debug\WrongInputWindow.g.cs
 C:\Users\Keren\Documents\SecurityTK\PL_GUI\obj\Debug\PL_GUI_MarkupCompile.cache
 C:\Users\Keren\Documents\SecurityTK\PL_GUI\obj\Debug\PL_GUI_MarkupCompile.lref
 C:\Users\Keren\Documents\SecurityTK\PL_GUI\bin\Debug\PL_GUI.dll
@@ -32,11 +31,12 @@ C:\Users\Keren\Documents\SecurityTK\PL_GUI\obj\Debug\LoginWindow.baml
 C:\Users\Keren\Documents\SecurityTK\PL_GUI\obj\Debug\MainMenu.baml
 C:\Users\Keren\Documents\SecurityTK\PL_GUI\obj\Debug\ManagerManagment.baml
 C:\Users\Keren\Documents\SecurityTK\PL_GUI\obj\Debug\RemoveUserWindow.baml
-C:\Users\Keren\Documents\SecurityTK\PL_GUI\obj\Debug\WrongInputWindow.baml
 C:\Users\Keren\Documents\SecurityTK\PL_GUI\obj\Debug\PL_GUI.g.resources
 C:\Users\Keren\Documents\SecurityTK\PL_GUI\obj\Debug\PL_GUI.Properties.Resources.resources
 C:\Users\Keren\Documents\SecurityTK\PL_GUI\obj\Debug\PL_GUI.csproj.GenerateResource.Cache
 C:\Users\Keren\Documents\SecurityTK\PL_GUI\obj\Debug\PL_GUI.dll
 C:\Users\Keren\Documents\SecurityTK\PL_GUI\obj\Debug\PL_GUI.pdb
+C:\Users\Keren\Documents\SecurityTK\PL_GUI\obj\Debug\ReadLogWindow.g.cs
+C:\Users\Keren\Documents\SecurityTK\PL_GUI\obj\Debug\ReadLogWindow.baml
 C:\Users\Keren\Documents\SecurityTK\PL_GUI\bin\Debug\SecurityTK_DB.mdf
 C:\Users\Keren\Documents\SecurityTK\PL_GUI\bin\Debug\SecurityTK_DB_log.ldf

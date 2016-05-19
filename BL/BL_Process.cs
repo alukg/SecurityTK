@@ -18,6 +18,11 @@ namespace BL
             currUser = null;
         }
 
+        public User getUser()
+        {
+            return currUser;
+        }
+
         public bool userVarification(string userName, string enteredPassword)
         {
             if (userName == null)

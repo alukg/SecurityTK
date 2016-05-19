@@ -11,5 +11,4 @@ C:\Users\Keren\Documents\SecurityTK\SharedClasses\bin\Debug\SharedClasses.dll
 C:\Users\Keren\Documents\SecurityTK\SharedClasses\bin\Debug\SharedClasses.pdb
 C:\Users\Keren\Documents\SecurityTK\SharedClasses\obj\Debug\SharedClasses.dll
 C:\Users\Keren\Documents\SecurityTK\SharedClasses\obj\Debug\SharedClasses.pdb
-C:\Users\Keren\Documents\SecurityTK\SharedClasses\bin\Debug\SharedClasses.dll.CodeAnalysisLog.xml
-C:\Users\Keren\Documents\SecurityTK\SharedClasses\bin\Debug\SharedClasses.dll.lastcodeanalysissucceeded
+C:\Users\Keren\Documents\SecurityTK\SharedClasses\obj\Debug\SharedClasses.csprojResolveAssemblyReference.cache

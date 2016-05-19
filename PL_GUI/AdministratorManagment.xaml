@@ -7,11 +7,12 @@
         mc:Ignorable="d"
         Title="AdministratorManagment" Height="400" Width="400">
     <Grid>
-        <Button FontSize="20" Margin="206,131,30.333,162.667">change password</Button>
-        <Button FontSize="20" Margin="10,27,226.333,266.667">add user</Button>
-        <Button FontSize="20" Margin="10,131,226.333,162.667">remove user</Button>
-        <Button FontSize="20" Margin="206,27,30.333,266.667">change role</Button>
-        <Button FontSize="20" Margin="108,237,128.333,56.667">read log</Button>
+        <Button x:Name="ChangePassword" FontSize="20" Click="ChangePassword_Button_Click" Margin="206,131,30.333,162.667" >change password</Button>
+        <Button x:Name="AddUser" FontSize="20" Click="AddUser_Button_Click" Margin="10,27,226.333,266.667" Visibility="Hidden">add user</Button>
+        <Button x:Name="RemoveUser" FontSize="20" Click="RemoveUser_Button_Click" Margin="10,131,226.333,162.667" Visibility="Hidden">remove user</Button>
+        <Button x:Name="ChangeRole" FontSize="20" Click="ChangeRole_Button_Click" Margin="206,27,30.333,266.667" Visibility="Hidden">change role</Button>
+        <Button x:Name="ReadLog" FontSize="20" Click="ReadLog_Button_Click" Margin="108,237,128.333,56.667" Visibility="Hidden">read log</Button>
+        <Button x:Name="MainMenu" FontSize="10" Click="MainMenu_Click"  Margin="314,10,10.333,338.667">Main Menu</Button>
 
     </Grid>
 </Window>

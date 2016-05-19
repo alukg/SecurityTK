@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 
-12-1486811948
+11184392314
 
-20-1632689025
+19-1392962752
 15-824001162
-AddUserWindow.xaml;AdministratorManagment.xaml;ChangePasswordWindow.xaml;ChangeRoleWindow.xaml;CryptoWindow.xaml;DataLeakageWindow.xaml;EmployManagment.xaml;LoginWindow.xaml;MainMenu.xaml;ManagerManagment.xaml;RemoveUserWindow.xaml;WrongInputWindow.xaml;
+AddUserWindow.xaml;AdministratorManagment.xaml;ChangePasswordChoose.xaml;ChangePasswordWindow.xaml;ChangeRoleWindow.xaml;CryptoWindow.xaml;DataLeakageWindow.xaml;LoginWindow.xaml;MainMenu.xaml;ReadLogWindow.xaml;RemoveUserWindow.xaml;
 
-True
+False
 
