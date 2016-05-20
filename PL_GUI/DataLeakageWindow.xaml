@@ -9,7 +9,6 @@
     <Window.Resources>
         <Style TargetType="{x:Type GridViewColumnHeader}">
             <Setter Property="HorizontalContentAlignment" Value="Left" />
-            <Setter Property="HorizontalContentAlignment" Value="Right" />  
         </Style>
     </Window.Resources>
     <Grid>
@@ -20,12 +19,11 @@
             <TextBlock x:Name="Sensitivity_Text" Text=""></TextBlock>
         </StackPanel>
         <Grid Margin="0,0,0.2,9.8">
-            <ListView Margin="10,164,10.2,-0.2" Name="lvUsers">
+            <ListView Margin="10,164,10.2,-0.2" Name="sensitivityBox">
                 <ListView.View>
                     <GridView>
                         <GridViewColumn Header="Name" Width="55" DisplayMemberBinding="{Binding Name}" />
                         <GridViewColumn Header="Score" Width="45" DisplayMemberBinding="{Binding Age}" />
-                        <GridViewColumn Header="Text" Width="50" DisplayMemberBinding="{Binding Age}" />
                     </GridView>
                 </ListView.View>
             </ListView>

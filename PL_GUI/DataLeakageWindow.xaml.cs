@@ -24,11 +24,14 @@ namespace PL_GUI
     {
         IBL theBL;
         string urlAdress;
+        List<DataFile> files;
 
         public DataLeakageWindow(IBL theBL)
         {
             this.theBL = theBL;
             InitializeComponent();
+            files = new List<DataFile>();
+            sensitivityBox.ItemsSource = files;
         }
 
         public void Run()
@@ -43,12 +46,19 @@ namespace PL_GUI
                 urlAdress = File.ReadAllText(openFileDialog.FileName);
             else urlAdress = null;
             DataLeakageTool dlt = new DataLeakageTool();
-            SortedDictionary < double, FileInfo > dictionary = dlt.checkSensitivity(urlAdress);
-            foreach(var item in dictionary.Reverse())
+            SortedDictionary<double, FileInfo> dictionary = dlt.checkSensitivity(urlAdress);
+            foreach (var item in dictionary.Reverse())
             {
-                Sensitivity_Text.Text = Sensitivity_Text.Text + item.Value.Name + "," + item.Key;
+                DataFile currVar = new DataFile()
+                {
+                    name = item.Value.Name,
+                    score = item.Key,
+                    text = ""
+                };
+                files.Add(currVar);
+                //Sensitivity_Text.Text = Sensitivity_Text.Text + item.Value.Name + "," + item.Key;
             }
-            
+
         }
 
         private void Back_To_Main_Menu_Left_Button_Click(object sender, RoutedEventArgs e)
@@ -57,5 +67,12 @@ namespace PL_GUI
             mm.Run();
             mm.Close();
         }
+    }
+
+    public class DataFile
+    {
+        public String name { get; set; }
+        public double score { get; set; }
+        public String text { get; set; }
     }
 }
