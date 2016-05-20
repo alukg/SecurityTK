@@ -28,7 +28,8 @@ namespace DAL
             }
             catch //if there is connection problem to the DB.
             {
-                throw new Exception("connection faild");
+                return true;
+               // throw new Exception("connection faild");         // להסדיר מול גיא
             }
         }
 
@@ -52,6 +53,7 @@ namespace DAL
             }
             catch
             {
+                //להסדיר עם גיא
                 return ("connection faild");
             }
         }

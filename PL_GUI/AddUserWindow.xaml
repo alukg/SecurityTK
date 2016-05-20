@@ -1,0 +1,29 @@
+﻿<Window x:Class="PL_GUI.AddUserWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PL_GUI"
+        mc:Ignorable="d"
+        Title="AddUserWindow" Height="400" Width="400">
+    <Grid>
+        <StackPanel Margin="15,15,10.333,14.667">
+            <Label>Username:</Label>
+            <TextBox x:Name="UserNameBox" Margin="0,0,205.333,0" />
+            <Label Content="Role:" Margin="0,0,0.333,0"/>
+            <ComboBox x:Name="RoleBox" Margin="0,0,205.333,0">
+                <ComboBoxItem x:Name="Employee" Content="Employee"/>
+                <ComboBoxItem x:Name="Manager" Content="Manager"/>
+                <ComboBoxItem x:Name="Administrator" Visibility="Hidden" Content="Administrator"/>
+            </ComboBox>
+            <Label x:Name="Password" Content="Password:" Margin="0,0,0.333,0" Height="27"/>
+            <PasswordBox x:Name="PasswordBox" MaxLength="8" Margin="246,0,10,0" Visibility="Hidden"/>
+        </StackPanel>
+        <Button x:Name="Add" FontSize="10" Click="Add_Click"  Margin="290,157,60.333,195.667" Visibility="Hidden">Add</Button>
+        <Button x:Name="MainMenu" FontSize="10" Click="MainMenu_Button_Click"  Margin="314,10,10.333,338.667">Main Menu</Button>
+        <Button x:Name="Random" FontSize="10" Click="Random_Click"  Margin="15,133,236.333,218.667">Add With Random Password</Button>
+        <Button x:Name="YourOwn" FontSize="10" Click="YourOwn_Click"  Margin="180,133,141.333,218.667">Your Own</Button>
+
+
+    </Grid>
+</Window>

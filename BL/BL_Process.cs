@@ -25,6 +25,12 @@ namespace BL
             currUser = null;
         }
 
+        
+        public User getUser()
+        {
+            return currUser;
+        }
+
         /// <summary>
         /// varify the login of the user.
         /// </summary>

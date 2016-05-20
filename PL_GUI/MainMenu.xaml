@@ -1,0 +1,15 @@
+﻿<Window x:Class="PL_GUI.MainMenu"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PL_GUI"
+        mc:Ignorable="d"
+        Title="MainMenu" Height="400" Width="400" Background="#FFE5E2D0">
+    <Grid>
+        <Label>Please choose an action to proceed </Label>
+        <Button x:Name="Data_Leakage" FontSize="20" Click="Data_Leakage_Left_Button_Click" Margin="15,110,217.2,172.8" Content="Data-Leakage" Background="#FFB88A46"/>
+        <Button x:Name="User_Management" FontSize="20" Click="User_Management_Left_Button_Click" Margin="202,110,18.2,172.8" Content="User Management" Background="#FFB88A46"/>
+        <Button x:Name="File_Crypto" FontSize="20" Click="File_Crypto_Left_Button_Click" Margin="107,237,108.2,53.8" Content="File Crypto" Background="#FFB88A46"/>
+    </Grid>
+</Window>

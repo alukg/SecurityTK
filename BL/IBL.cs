@@ -8,6 +8,7 @@ namespace BL
     /// </summary>
     public interface IBL
     {
+        User getUser();
         bool userVarification(string userName, string enteredPassword);
         string changeRole(string userName, Role newRole);
         string removeUser(string userName);

@@ -16,6 +16,7 @@ C:\Users\rOTEM\Documents\SecurityTK\BL\bin\Debug\SharedClasses.pdb
 C:\Users\rOTEM\Documents\SecurityTK\BL\obj\Debug\BL.csprojResolveAssemblyReference.cache
 C:\Users\rOTEM\Documents\SecurityTK\BL\obj\Debug\BL.dll
 C:\Users\rOTEM\Documents\SecurityTK\BL\obj\Debug\BL.pdb
+<<<<<<< HEAD
 C:\Users\guyal\Desktop\SecurityTK\BL\bin\Debug\SecurityTK_DB.mdf
 C:\Users\guyal\Desktop\SecurityTK\BL\bin\Debug\SecurityTK_DB_log.ldf
 C:\Users\guyal\Desktop\SecurityTK\BL\bin\Debug\nunit.framework.dll
@@ -24,3 +25,16 @@ C:\Users\rOTEM\Documents\SecurityTK\BL\bin\Debug\SecurityTK_DB.mdf
 C:\Users\rOTEM\Documents\SecurityTK\BL\bin\Debug\SecurityTK_DB_log.ldf
 C:\Users\rOTEM\Documents\SecurityTK\BL\bin\Debug\nunit.framework.dll
 C:\Users\rOTEM\Documents\SecurityTK\BL\bin\Debug\nunit.framework.xml
+=======
+C:\Users\Keren\Documents\SecurityTK\BL\bin\Debug\SecurityTK_DB.mdf
+C:\Users\Keren\Documents\SecurityTK\BL\bin\Debug\SecurityTK_DB_log.ldf
+C:\Users\Keren\Documents\SecurityTK\BL\bin\Debug\BL.dll
+C:\Users\Keren\Documents\SecurityTK\BL\bin\Debug\BL.pdb
+C:\Users\Keren\Documents\SecurityTK\BL\bin\Debug\DAL.dll
+C:\Users\Keren\Documents\SecurityTK\BL\bin\Debug\SharedClasses.dll
+C:\Users\Keren\Documents\SecurityTK\BL\bin\Debug\DAL.pdb
+C:\Users\Keren\Documents\SecurityTK\BL\bin\Debug\SharedClasses.pdb
+C:\Users\Keren\Documents\SecurityTK\BL\obj\Debug\BL.csprojResolveAssemblyReference.cache
+C:\Users\Keren\Documents\SecurityTK\BL\obj\Debug\BL.dll
+C:\Users\Keren\Documents\SecurityTK\BL\obj\Debug\BL.pdb
+>>>>>>> GUI

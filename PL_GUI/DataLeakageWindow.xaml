@@ -1,0 +1,17 @@
+﻿<Window x:Class="PL_GUI.DataLeakageWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PL_GUI"
+        mc:Ignorable="d"
+        Title="DataLeakageWindow" Height="400" Width="400">
+    <Grid>
+        <Button x:Name="Open_File"  Margin="113,27,123.2,266.8" Click="Open_File_Left_Button_Click"  RenderTransformOrigin="0.5,0.5" Content="Open File" />
+        <Button x:Name="Back_To_Main_Menu"  Margin="10,10,308.2,340.8" Click="Back_To_Main_Menu_Left_Button_Click"  RenderTransformOrigin="0.5,0.5" Content="Main Menu" />
+        <StackPanel Margin="27,133,31.2,28.8">
+            <Label Content="Sensitivity:" Margin="128,0,134.8,0"/>
+            <TextBlock x:Name="Sensitivity_Text" Text=""></TextBlock>
+        </StackPanel>
+    </Grid>
+</Window>

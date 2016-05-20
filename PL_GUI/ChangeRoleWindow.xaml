@@ -1,0 +1,24 @@
+﻿<Window x:Class="PL_GUI.ChangeRoleWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PL_GUI"
+        mc:Ignorable="d"
+        Title="ChangeRoleWindow" Height="400" Width="400">
+    <Grid>
+        <StackPanel Margin="15">
+            <Label x:Name="Username">Username:</Label>
+            <TextBox x:Name="UsernameBox" Margin="0,0,205.333,0" />
+            <Label x:Name="role">New role:</Label>
+            <ComboBox x:Name="RoleBox" Margin="0,0,205.333,0">
+                <ComboBoxItem x:Name="Employee" Content="Employee"/>
+                <ComboBoxItem x:Name="Manager" Content="Manager"/>
+                <ComboBoxItem x:Name="Administrator" Visibility="Hidden" Content="Administrator"/>
+            </ComboBox>
+        </StackPanel>
+        <Button x:Name="MainMenu" FontSize="10" Click="MainMenu_Click"  Margin="314,10,10.333,338.667">Main Menu</Button>
+        <Button x:Name="Change" FontSize="14" Click="Change_Click"  Margin="180,133,128.333,208.667">Change</Button>
+        <Button x:Name="Back" FontSize="10" Click="Back_Click"  Margin="314,51,10.333,297.667">Back</Button>
+    </Grid>
+</Window>
