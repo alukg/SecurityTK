@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using BL;
+using SharedClasses;
 
 namespace PL_GUI
 {
@@ -20,11 +21,11 @@ namespace PL_GUI
     /// </summary>
     public partial class LoginWindow : Window, IPL
     {
-        IBL theIBL;
+        IBL theBL;
 
         public LoginWindow(IBL bl)
         {
-            theIBL = bl;
+            theBL = bl;
             InitializeComponent();
         }
 
@@ -36,15 +37,15 @@ namespace PL_GUI
 
         private void Left_Enter_Button_Click(object sender, RoutedEventArgs e)
         {
-            if (theIBL.userVarification(Username.Text, Password.Password))
+            if (theBL.userVarification(Username.Text, Password.Password))
             {
-                MainMenu mm = new MainMenu(theIBL);
+                MainMenu mm = new MainMenu(theBL);
                 mm.Run();
                 this.Close();
             }
             else
             {
-                MessageBox.Show("Wrong Username/Password");
+                MessageBox.Show("Wrong Username/Password. Please try again.");
                 Left_Refresh_Button_Click(sender, e);
             }
         }

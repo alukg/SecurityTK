@@ -54,6 +54,9 @@
     <Compile Include="AdministratorManagment.xaml.cs">
       <DependentUpon>AdministratorManagment.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ChangePasswordChoose.xaml.cs">
+      <DependentUpon>ChangePasswordChoose.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ChangePasswordWindow.xaml.cs">
       <DependentUpon>ChangePasswordWindow.xaml</DependentUpon>
     </Compile>
@@ -66,18 +69,12 @@
     <Compile Include="DataLeakageWindow.xaml.cs">
       <DependentUpon>DataLeakageWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="EmployManagment.xaml.cs">
-      <DependentUpon>EmployManagment.xaml</DependentUpon>
-    </Compile>
     <Compile Include="IPL.cs" />
     <Compile Include="LoginWindow.xaml.cs">
       <DependentUpon>LoginWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainMenu.xaml.cs">
       <DependentUpon>MainMenu.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="ManagerManagment.xaml.cs">
-      <DependentUpon>ManagerManagment.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
@@ -92,11 +89,11 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="ReadLogWindow.xaml.cs">
+      <DependentUpon>ReadLogWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="RemoveUserWindow.xaml.cs">
       <DependentUpon>RemoveUserWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="WrongInputWindow.xaml.cs">
-      <DependentUpon>WrongInputWindow.xaml</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -117,6 +114,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="ChangePasswordChoose.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ChangePasswordWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -133,10 +134,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="EmployManagment.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="LoginWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -145,15 +142,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ManagerManagment.xaml">
+    <Page Include="ReadLogWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="RemoveUserWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="WrongInputWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

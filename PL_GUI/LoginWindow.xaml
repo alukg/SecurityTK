@@ -7,14 +7,14 @@
         mc:Ignorable="d"
         Title="LoginWindow" Height="400" Width="400">
     <Grid>
-        <StackPanel Margin="15">
+        <StackPanel Margin="15,20,19.333,14.667">
             <Label>Username:</Label>
-            <TextBox Name="Username" />
+            <TextBox x:Name="Username" Margin="0,0,161.333,0" />
             <Label>Password:</Label>
-            <PasswordBox Name="Password" MaxLength="8" />
+            <PasswordBox Name="Password" MaxLength="8" Margin="0,0,162.333,0" />
         </StackPanel>
-        <Button FontSize="20" Click="Left_Enter_Button_Click" Margin="37,123,221.333,195.667" Content="Enter"/>
-        <Button FontSize="20" Click="Left_Refresh_Button_Click" Margin="217,123,41.333,195.667" Content="Refresh"/>
+        <Button FontSize="20" Click="Left_Enter_Button_Click" Margin="68,131,218.333,205.667" Content="Login"/>
+        <Button FontSize="20" Click="Left_Refresh_Button_Click" Margin="208,131,78.333,205.667" Content="Refresh"/>
 
     </Grid>
 </Window>

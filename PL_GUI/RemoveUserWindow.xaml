@@ -7,10 +7,13 @@
         mc:Ignorable="d"
         Title="RemoveUserWindow" Height="400" Width="400">
     <Grid>
-        <StackPanel Margin="15">
-            <Label>Username:</Label>
-            <TextBox />
-
-        </StackPanel>
+        <DockPanel Margin="10">
+            <StackPanel DockPanel.Dock="Right" Margin="5,0,0,-0.333" Width="151">
+                <Button x:Name="Remove" FontSize="10" Click="Remove_Click"  Margin="20,133,0,218.667" Height="32" Content="Remove" HorizontalAlignment="Left" Width="110"/>
+            </StackPanel>
+            <ListBox x:Name="usersList"></ListBox>
+        </DockPanel>
+        <Button x:Name="MainMenu" FontSize="10" Click="MainMenu_Click"  Margin="306,10,15.333,338.667">Main Menu</Button>
+        <Button x:Name="Back" FontSize="10" Click="Back_Click"  Margin="306,37,15.333,311.667">Back</Button>
     </Grid>
 </Window>
