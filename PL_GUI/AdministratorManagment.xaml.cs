@@ -21,15 +21,9 @@ namespace PL_GUI
     public partial class AdministratorManagment : Window, IPL
     {
         IBL theBL;
-<<<<<<< HEAD
-        public AdministratorManagment(IBL theBL)
-        {
-            this.theBL = theBL;
-=======
         public AdministratorManagment(IBL bl)
         {
             theBL = bl;
->>>>>>> Keren'sGUI
             InitializeComponent();
             if(theBL.getUser().role == "Administrator" || theBL.getUser().role == "Employee")
             {
@@ -97,11 +91,6 @@ namespace PL_GUI
             MainMenu mm = new MainMenu(theBL);
             mm.Run();
             this.Close();
-        }
-
-        public void Run()
-        {
-            this.Show();
         }
     }
 }
