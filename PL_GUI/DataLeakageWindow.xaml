@@ -6,6 +6,11 @@
         xmlns:local="clr-namespace:PL_GUI"
         mc:Ignorable="d"
         Title="DataLeakageWindow" Height="400" Width="400">
+    <Window.Resources>
+        <Style TargetType="{x:Type GridViewColumnHeader}">
+            <Setter Property="HorizontalContentAlignment" Value="Left" />
+        </Style>
+    </Window.Resources>
     <Grid>
         <Button x:Name="Open_File"  Margin="113,27,123.2,266.8" Click="Open_File_Left_Button_Click"  RenderTransformOrigin="0.5,0.5" Content="Open File" />
         <Button x:Name="Back_To_Main_Menu"  Margin="10,10,308.2,340.8" Click="Back_To_Main_Menu_Left_Button_Click"  RenderTransformOrigin="0.5,0.5" Content="Main Menu" />
@@ -13,5 +18,15 @@
             <Label Content="Sensitivity:" Margin="128,0,134.8,0"/>
             <TextBlock x:Name="Sensitivity_Text" Text=""></TextBlock>
         </StackPanel>
+        <Grid Margin="0,0,0.2,9.8">
+            <ListView Margin="10,164,10.2,-0.2" Name="sensitivityBox">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Name" Width="55" DisplayMemberBinding="{Binding Name}" />
+                        <GridViewColumn Header="Score" Width="45" DisplayMemberBinding="{Binding Age}" />
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </Grid>
     </Grid>
 </Window>
