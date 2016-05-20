@@ -38,37 +38,21 @@ namespace PL_GUI
         {
             DataLeakageWindow dl = new DataLeakageWindow(theBL);
             dl.Run();
-            dl.Close();
+            this.Close();
         }
 
         private void User_Management_Left_Button_Click(object sender, RoutedEventArgs e)
         {
-            if (theBL.getUser().role == "Employee")
-            {
-                EmployManagment em = new EmployManagment(theBL);
-                em.Run();
-                em.Close();
-
-            }
-            else if (theBL.getUser().role == "Manager")
-            {
-                ManagerManagment mm = new ManagerManagment(theBL);
-                mm.Run();
-                mm.Close();
-            }
-            else if (theBL.getUser().role == "Administrator")
-            {
-                AdministratorManagment am = new AdministratorManagment(theBL);
-                am.Run();
-                am.Close();
-            }
+            AdministratorManagment am = new AdministratorManagment(theBL);
+            am.Run();
+            this.Close();
         }
 
         private void File_Crypto_Left_Button_Click(object sender, RoutedEventArgs e)
         {
             CryptoWindow cw = new CryptoWindow(theBL);
             cw.Run();
-            cw.Close();
+            this.Close();
         }
     }
 }
