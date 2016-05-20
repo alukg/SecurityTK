@@ -29,8 +29,7 @@ namespace DAL
             }
             catch //if there is connection problem to the DB.
             {
-                return true;
-               // throw new Exception("connection faild");         // להסדיר מול גיא
+                throw new Exception("connection faild");
             }
         }
 
@@ -55,7 +54,6 @@ namespace DAL
             }
             catch
             {
-                //להסדיר עם גיא
                 return ("connection faild");
             }
         }
@@ -111,7 +109,7 @@ namespace DAL
             }
             catch
             {
-                Console.WriteLine("connection faild");
+                throw new Exception("connection faild");
             }
         }
 
@@ -134,7 +132,7 @@ namespace DAL
             }
             catch
             {
-                Console.WriteLine("connection faild");
+                throw new Exception("connection faild");
             }
         }
 
@@ -157,7 +155,7 @@ namespace DAL
             }
             catch
             {
-                Console.WriteLine("connection faild");
+                throw new Exception("connection faild");
             }
         }
 
@@ -171,7 +169,7 @@ namespace DAL
         {
             string dateTime = DateTime.Now.ToString("yyMMdd HH:mm:ss");
             string path = Directory.GetCurrentDirectory(); //gets the runtime folder
-            SqlConnection connection = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=" + path + "\\Security_DB.mdf;Integrated Security=True");
+            SqlConnection connection = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=" + path + "\\SecurityTK_DB.mdf;Integrated Security=True");
             SqlCommand cmd = new SqlCommand("INSERT INTO Log(Action, DateTime, Executer, Affected) VALUES('" + action + "','" + dateTime + "','" + performed + "','" + affected + "')", connection);
             try
             {
@@ -181,14 +179,14 @@ namespace DAL
             }
             catch
             {
-                Console.WriteLine("connection faild");
+                throw new Exception("connection faild");
             }
         }
 
         public List<string> getLog()
         {
             string path = Directory.GetCurrentDirectory(); //gets the runtime folder
-            SqlConnection connection = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=" + path + "\\Security_DB.mdf;Integrated Security=True");
+            SqlConnection connection = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=" + path + "\\SecurityTK_DB.mdf;Integrated Security=True");
             SqlCommand cmd = new SqlCommand("SELECT * FROM Log", connection);
             try
             {
@@ -217,7 +215,7 @@ namespace DAL
         {
             userName = userName.ToLower();
             string path = Directory.GetCurrentDirectory(); //gets the runtime folder
-            SqlConnection connection = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=" + path + "\\Security_DB.mdf;Integrated Security=True");
+            SqlConnection connection = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=" + path + "\\SecurityTK_DB.mdf;Integrated Security=True");
             SqlCommand cmd = new SqlCommand("DELETE FROM Users WHERE UserName = '" + userName + "'", connection);
             try
             {
@@ -227,7 +225,7 @@ namespace DAL
             }
             catch
             {
-                Console.WriteLine("connection faild");
+                throw new Exception("connection faild");
             }
         }
 

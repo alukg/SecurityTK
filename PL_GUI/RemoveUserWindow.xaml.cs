@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using BL;
+using SharedClasses;
 
 namespace PL_GUI
 {
@@ -31,7 +32,7 @@ namespace PL_GUI
         public void Run()
         {
             this.Show();
-            if(theBL.getUser().role == "Administrator")
+            if(theBL.getUser().role == Role.Administrator)
             {
                 //usersList.DataContext = 
             }

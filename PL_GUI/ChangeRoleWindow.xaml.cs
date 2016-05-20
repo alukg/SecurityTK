@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using BL;
+using SharedClasses;
 
 namespace PL_GUI
 {
@@ -42,8 +43,8 @@ namespace PL_GUI
 
         private void Change_Click(object sender, RoutedEventArgs e)
         {
-            String changeRole = RoleBox.SelectedItem.ToString();
-            MessageBox.Show(changeRole);
+            Role newRole = theBL.convertRole(RoleBox.SelectedItem.ToString());
+            MessageBox.Show(theBL.changeRole(UsernameBox.Text,newRole));
         }
 
         private void Back_Click(object sender, RoutedEventArgs e)

@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using BL;
+using SharedClasses;
 
 namespace PL_GUI
 {
@@ -35,12 +36,12 @@ namespace PL_GUI
 
         private void Add_Click(object sender, RoutedEventArgs e)
         {
-            if(theBL.getUser().role == "Administrator")
+            if(theBL.getUser().role == Role.Administrator)
             {
                 Administrator.Visibility = Visibility.Visible;
                
             }
-            String role = RoleBox.SelectedItem.ToString();
+            Role role = theBL.convertRole(RoleBox.SelectedItem.ToString());
             String ans = theBL.addUser(UserNameBox.Text, PasswordBox.Password, role);
             MessageBox.Show(ans);
         }
@@ -54,7 +55,8 @@ namespace PL_GUI
 
         private void Random_Click(object sender, RoutedEventArgs e)
         {
-            String ans = theBL.addUser(UserNameBox.Text, RoleBox.SelectedItem.ToString());
+            Role role = theBL.convertRole(RoleBox.SelectedItem.ToString());
+            String ans = theBL.addUser(UserNameBox.Text, role);
             MessageBox.Show(ans);
         }
 

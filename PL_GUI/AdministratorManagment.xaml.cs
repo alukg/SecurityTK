@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using BL;
+using SharedClasses;
 
 namespace PL_GUI
 {
@@ -25,11 +26,11 @@ namespace PL_GUI
         {
             theBL = bl;
             InitializeComponent();
-            if(theBL.getUser().role == "Administrator" || theBL.getUser().role == "Employee")
+            if(theBL.getUser().role == Role.Administrator || theBL.getUser().role == Role.Employee)
             {
                 AddUser.Visibility = Visibility.Visible;
                 RemoveUser.Visibility = Visibility.Visible;
-                if(theBL.getUser().role == "Administrator")
+                if(theBL.getUser().role == Role.Administrator)
                 {
                     ChangeRole.Visibility = Visibility.Visible;
                     ReadLog.Visibility = Visibility.Visible;
@@ -45,7 +46,7 @@ namespace PL_GUI
 
         private void ChangePassword_Button_Click(object sender, RoutedEventArgs e)
         {
-            if(theBL.getUser().role == "Employee")
+            if(theBL.getUser().role == Role.Employee)
             {
                 ChangePasswordWindow cpw = new ChangePasswordWindow(theBL, 0);
                 cpw.Run();

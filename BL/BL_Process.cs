@@ -25,10 +25,25 @@ namespace BL
             currUser = null;
         }
 
-        
+        /// <summary>
+        /// returns object of the current user.
+        /// </summary>
+        /// <returns> current connected user </returns>
         public User getUser()
         {
             return currUser;
+        }
+
+        /// <summary>
+        /// convert role from string to Role enum
+        /// </summary>
+        /// <param name="role"></param>
+        /// <returns> Role object with the suitable role </returns>
+        public Role convertRole(string role)
+        {
+            if (role == "Administrator") return Role.Administrator;
+            else if (role == "Employee") return Role.Employee;
+            else return Role.Manager;
         }
 
         /// <summary>
@@ -218,6 +233,10 @@ namespace BL
             }
         }
 
+        /// <summary>
+        /// return the software log
+        /// </summary>
+        /// <returns> list of log strings </returns>
         public List<string> readLog()
         {
             if(currUser.role.Equals(Role.Administrator))
