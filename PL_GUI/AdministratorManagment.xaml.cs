@@ -11,17 +11,25 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using BL;
 
 namespace PL_GUI
 {
     /// <summary>
     /// Interaction logic for AdministratorManagment.xaml
     /// </summary>
-    public partial class AdministratorManagment : Window
+    public partial class AdministratorManagment : Window, IPL
     {
-        public AdministratorManagment()
+        IBL theBL;
+        public AdministratorManagment(IBL theBL)
         {
+            this.theBL = theBL;
             InitializeComponent();
+        }
+
+        public void Run()
+        {
+            this.Show();
         }
     }
 }

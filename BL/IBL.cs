@@ -1,9 +1,11 @@
 ﻿using System.Collections.Generic;
+using SharedClasses;
 
 namespace BL
 {
     public interface IBL
     {
+        User getUser();
         bool userVarification(string userName, string enteredPassword);
         string changeRole(string userName, string newRole);
         string removeUser(string userName);

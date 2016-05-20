@@ -18,6 +18,11 @@ namespace BL
             currUser = null;
         }
 
+        public User getUser()
+        {
+            return currUser;
+        }
+
         public bool userVarification(string userName, string enteredPassword)
         {
             if (userName == null)
@@ -25,10 +30,10 @@ namespace BL
             if (enteredPassword == null)
                 throw new Exception("The password is null");
             if (!itsDAL.userNameExists(userName)) return false; //There is no such user
-            
+
             string currentPassword = itsDAL.getPassword(userName);
             Console.WriteLine(currentPassword);
-           // Console.WriteLine(enteredPassword);
+            // Console.WriteLine(enteredPassword);
             if (currentPassword == enteredPassword)
             {
                 string userRole = itsDAL.getRole(userName);
@@ -41,7 +46,8 @@ namespace BL
 
         public string changeRole(string userName, string newRole)
         {
-            if (currUser.role.Equals("Administrator")){
+            if (currUser.role.Equals("Administrator"))
+            {
                 if (userName == null)
                     throw new Exception("The username is null");
                 if (newRole == null)
@@ -113,9 +119,9 @@ namespace BL
                     itsDAL.writeToLog("Adding a new user", currUser.userName, userName);
                     return "User added successfully. The password is: " + pass;
                 }
-                else if(role == "Administrator")
+                else if (role == "Administrator")
                 {
-                    if(currUser.role == "Administrator")
+                    if (currUser.role == "Administrator")
                     {
                         itsDAL.setNewUser(userName, pass, role);
                         itsDAL.writeToLog("Adding a new user", currUser.userName, userName);
@@ -151,8 +157,8 @@ namespace BL
             }
             else
             {
-                if(currUser.role == "Employee") return "There is no permissions";
-                else if(currUser.role == "Manager" && !(itsDAL.getRole(userName) == "Employee"))
+                if (currUser.role == "Employee") return "There is no permissions";
+                else if (currUser.role == "Manager" && !(itsDAL.getRole(userName) == "Employee"))
                 {
                     return "There is no permissions";
                 }
@@ -167,7 +173,7 @@ namespace BL
 
         public List<string> readLog()
         {
-            if(currUser.role == "Administrator")
+            if (currUser.role == "Administrator")
             {
                 return itsDAL.getLog();
             }

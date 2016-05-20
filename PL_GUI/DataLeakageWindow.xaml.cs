@@ -11,17 +11,48 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Microsoft.Win32;
+using System.IO;
+using BL;
 
 namespace PL_GUI
 {
     /// <summary>
     /// Interaction logic for DataLeakageWindow.xaml
     /// </summary>
-    public partial class DataLeakageWindow : Window
+    public partial class DataLeakageWindow : Window, IPL
     {
-        public DataLeakageWindow()
+        IBL theBL;
+        string urlAdress;
+
+        public DataLeakageWindow(IBL theBL)
         {
+            this.theBL = theBL;
             InitializeComponent();
+        }
+
+        public void Run()
+        {
+            this.Show();
+        }
+
+        private void Open_File_Left_Button_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            if (openFileDialog.ShowDialog() == true)
+                urlAdress = File.ReadAllText(openFileDialog.FileName);
+            else urlAdress = null;
+            DataLeakageTool dlt = new DataLeakageTool();
+            SortedDictionary <FileInfo,double> =     dlt.checkSensitivity(urlAdress);
+            
+            
+        }
+
+        private void Back_To_Main_Menu_Left_Button_Click(object sender, RoutedEventArgs e)
+        {
+            MainMenu mm = new MainMenu(theBL);
+            mm.Run();
+            mm.Close();
         }
     }
 }

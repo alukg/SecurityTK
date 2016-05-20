@@ -5,10 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PL_GUI"
         mc:Ignorable="d"
-        Title="MainMenu" Height="400" Width="400">
+        Title="MainMenu" Height="400" Width="400" Background="#FFE5E2D0">
     <Grid>
-        <Button FontSize="20" Margin="10,27,222.333,255.667" Content="Data-Leakage"/>
-        <Button FontSize="20" Margin="197,27,23.333,255.667" Content="User Management"/>
-        <Button FontSize="20" Margin="99,147,116.333,143.667" Content="File Crypto"/>
+        <Label>Please choose an action to proceed </Label>
+        <Button x:Name="Data_Leakage" FontSize="20" Click="Data_Leakage_Left_Button_Click" Margin="15,110,217.2,172.8" Content="Data-Leakage" Background="#FFB88A46"/>
+        <Button x:Name="User_Management" FontSize="20" Click="User_Management_Left_Button_Click" Margin="202,110,18.2,172.8" Content="User Management" Background="#FFB88A46"/>
+        <Button x:Name="File_Crypto" FontSize="20" Click="File_Crypto_Left_Button_Click" Margin="107,237,108.2,53.8" Content="File Crypto" Background="#FFB88A46"/>
     </Grid>
 </Window>

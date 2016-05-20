@@ -9,7 +9,7 @@ using System.IO.MemoryMappedFiles;
 
 namespace BL
 {
-    class DataLeakageTool
+    public class DataLeakageTool
     {
         private Dictionary<string,double> mapping;
 

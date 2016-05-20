@@ -19,3 +19,5 @@ C:\Users\Keren\Documents\SecurityTK\GUI Launcher\obj\Debug\GUI_Launcher.Properti
 C:\Users\Keren\Documents\SecurityTK\GUI Launcher\obj\Debug\GUI Launcher.csproj.GenerateResource.Cache
 C:\Users\Keren\Documents\SecurityTK\GUI Launcher\obj\Debug\GUI Launcher.exe
 C:\Users\Keren\Documents\SecurityTK\GUI Launcher\obj\Debug\GUI Launcher.pdb
+C:\Users\Barak\Documents\SecurityTK\GUI Launcher\obj\Debug\GUI Launcher.exe
+C:\Users\Barak\Documents\SecurityTK\GUI Launcher\obj\Debug\GUI Launcher.pdb

@@ -11,17 +11,25 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using BL;
 
 namespace PL_GUI
 {
     /// <summary>
     /// Interaction logic for ManagerManagment.xaml
     /// </summary>
-    public partial class ManagerManagment : Window
+    public partial class ManagerManagment : Window, IPL
     {
-        public ManagerManagment()
+        IBL theBL;
+        public ManagerManagment(IBL theBL)
         {
+            this.theBL = theBL;
             InitializeComponent();
+        }
+
+        public void Run()
+        {
+            this.Show();
         }
     }
 }

@@ -11,17 +11,25 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using BL;
 
 namespace PL_GUI
 {
     /// <summary>
     /// Interaction logic for EmployManagment.xaml
     /// </summary>
-    public partial class EmployManagment : Window
+    public partial class EmployManagment : Window, IPL
     {
-        public EmployManagment()
+        IBL theBL;
+        public EmployManagment(IBL theBL)
         {
+            this.theBL = theBL;
             InitializeComponent();
+        }
+
+        public void Run()
+        {
+            this.Show();
         }
     }
 }

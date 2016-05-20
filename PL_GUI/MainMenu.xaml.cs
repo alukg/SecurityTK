@@ -21,17 +21,54 @@ namespace PL_GUI
     /// </summary>
     public partial class MainMenu : Window , IPL
     {
-        IBL theIBL;
+        IBL theBL;
 
         public MainMenu(IBL bl)
         {
-            theIBL = bl;
+            theBL = bl;
             InitializeComponent();
         }
 
         public void Run()
         {
             this.Show();
+        }
+
+        private void Data_Leakage_Left_Button_Click(object sender, RoutedEventArgs e)
+        {
+            DataLeakageWindow dl = new DataLeakageWindow(theBL);
+            dl.Run();
+            dl.Close();
+        }
+
+        private void User_Management_Left_Button_Click(object sender, RoutedEventArgs e)
+        {
+            if (theBL.getUser().role == "Employee")
+            {
+                EmployManagment em = new EmployManagment(theBL);
+                em.Run();
+                em.Close();
+
+            }
+            else if (theBL.getUser().role == "Manager")
+            {
+                ManagerManagment mm = new ManagerManagment(theBL);
+                mm.Run();
+                mm.Close();
+            }
+            else if (theBL.getUser().role == "Administrator")
+            {
+                AdministratorManagment am = new AdministratorManagment(theBL);
+                am.Run();
+                am.Close();
+            }
+        }
+
+        private void File_Crypto_Left_Button_Click(object sender, RoutedEventArgs e)
+        {
+            CryptoWindow cw = new CryptoWindow(theBL);
+            cw.Run();
+            cw.Close();
         }
     }
 }
