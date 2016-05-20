@@ -43,8 +43,11 @@ namespace PL_GUI
                 urlAdress = File.ReadAllText(openFileDialog.FileName);
             else urlAdress = null;
             DataLeakageTool dlt = new DataLeakageTool();
-            SortedDictionary <FileInfo,double> =     dlt.checkSensitivity(urlAdress);
-            
+            SortedDictionary < double, FileInfo > dictionary = dlt.checkSensitivity(urlAdress);
+            foreach(var item in dictionary.Reverse())
+            {
+                Sensitivity_Text.Text = Sensitivity_Text.Text + item.Value.Name + "," + item.Key;
+            }
             
         }
 
