@@ -31,7 +31,9 @@ namespace PL_GUI
             this.theBL = theBL;
             InitializeComponent();
             files = new List<DataFile>();
-            sensitivityBox.ItemsSource = files;
+            Files_List.ItemsSource = files;
+            CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(files);
+
         }
 
         public void Run()
@@ -53,11 +55,13 @@ namespace PL_GUI
                 {
                     name = item.Value.Name,
                     score = item.Key,
-                    text = ""
+                    text = "",
+                    url = urlAdress
+
                 };
                 files.Add(currVar);
                 //Sensitivity_Text.Text = Sensitivity_Text.Text + item.Value.Name + "," + item.Key;
-            }
+            };
 
         }
 
@@ -67,6 +71,30 @@ namespace PL_GUI
             mm.Run();
             mm.Close();
         }
+
+        private void LoadText_Left_Click_Button(object sender, RoutedEventArgs e)
+        {
+            List<String> theList = new List<String>();
+            DataFile currDF =  (DataFile)Files_List.SelectedItem; 
+            using (StreamReader reader = new StreamReader(currDF.url))
+            {
+
+                theList.Add(reader.ReadLine());
+            }
+            Text_Block.ItemsSource = theList; //לפתוח URL של קובץ נתון
+                                        //DataContext? מקבל ליסט
+        }
+
+/*        private void Row_DoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            DataGridRow row = sender as DataGridRow;
+            DataFile selected = (DataFile)row.DataContext;
+            String s = System.IO.File.ReadAllText(@	File + "\\" + selected.file);
+            fileshow.Text = s;
+        }
+        
+        לבדוק גם לגבי הפונקציה במסך עצמו
+        */
     }
 
     public class DataFile
@@ -74,5 +102,6 @@ namespace PL_GUI
         public String name { get; set; }
         public double score { get; set; }
         public String text { get; set; }
+        public String url { get; set; }
     }
 }
