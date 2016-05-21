@@ -24,7 +24,7 @@ namespace PL_GUI
             InitializeComponent();
             files = new List<DataFile>();
             Files_List.ItemsSource = files;
-            CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(files);
+            //CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(files);
 
         }
 

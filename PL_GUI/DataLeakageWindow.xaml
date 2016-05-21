@@ -43,9 +43,6 @@
                         <GridViewColumn Header="Score" Width="45" DisplayMemberBinding="{Binding Age}" />
                     </GridView>
                 </ListView.View>
-                <Style TargetType="DataGridRow">
-                    <EventSetter Event="MouseDoubleClick" Handler="Row_DoubleClick"/>
-                </Style>
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <Grid>
