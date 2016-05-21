@@ -39,17 +39,17 @@ namespace PL_GUI
         {
             //OpenFileDialog openFileDialog = new OpenFileDialog()
             FolderBrowserDialog fbd = new FolderBrowserDialog();
-            DialogResult result = fbd.ShowDialog();
+           // DialogResult result = fbd.ShowDialog();
             // if (fbd.ShowDialog() == DialogResult.ok)
-            //     urlAdress = File.ReadAllText(fbd.SelectedPath);
+                 urlAdress = File.ReadAllText(fbd.SelectedPath);
             // else urlAdress = null;
-            if (!string.IsNullOrWhiteSpace(fbd.SelectedPath))
+          /*  if (!string.IsNullOrWhiteSpace(fbd.SelectedPath))
             {
                 string[] files1 = Directory.GetFiles(fbd.SelectedPath);
 
                 //System.Windows.Forms.MessageBox.Show("Files found: " + files.Length.ToString(), "Message");
 
-            }
+            }*/
             DataLeakageTool dlt = new DataLeakageTool();
             SortedDictionary<double, FileInfo> dictionary = dlt.checkSensitivity(urlAdress);
             foreach (var item in dictionary.Reverse())

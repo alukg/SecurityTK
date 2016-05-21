@@ -49,3 +49,4 @@ C:\Users\guyal\Desktop\SecurityTK\DAL\obj\Debug\DAL.csprojResolveAssemblyReferen
 C:\Users\guyal\Desktop\SecurityTK\DAL\obj\Debug\DAL.dll
 C:\Users\guyal\Desktop\SecurityTK\DAL\obj\Debug\DAL.pdb
 >>>>>>> 33b302982990fb9c2e0ff674acaf5610d00fe29c
+C:\Users\Barak\Documents\SecurityTK\DAL\bin\Debug\Microsoft.SharePoint.Client.Runtime.dll

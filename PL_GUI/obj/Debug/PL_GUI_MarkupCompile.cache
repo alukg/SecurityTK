@@ -4,11 +4,7 @@
 library
 C#
 .cs
-<<<<<<< HEAD
 C:\Users\Barak\Documents\SecurityTK\PL_GUI\obj\Debug\
-=======
-C:\Users\Keren\Documents\SecurityTK\PL_GUI\obj\Debug\
->>>>>>> 33b302982990fb9c2e0ff674acaf5610d00fe29c
 PL_GUI
 none
 false
@@ -17,11 +13,7 @@ DEBUG;TRACE
 11184392314
 
 1556806722
-<<<<<<< HEAD
-661400632908
-=======
-15-824001162
->>>>>>> 33b302982990fb9c2e0ff674acaf5610d00fe29c
+67-1125472066
 AddUserWindow.xaml;AdministratorManagment.xaml;ChangePasswordChoose.xaml;ChangePasswordWindow.xaml;ChangeRoleWindow.xaml;CryptoWindow.xaml;DataLeakageWindow.xaml;LoginWindow.xaml;MainMenu.xaml;ReadLogWindow.xaml;RemoveUserWindow.xaml;
 
 False
