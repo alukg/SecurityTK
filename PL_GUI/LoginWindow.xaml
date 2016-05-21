@@ -7,14 +7,22 @@
         mc:Ignorable="d"
         Title="LoginWindow" Height="400" Width="400">
     <Grid>
-        <StackPanel Margin="15,20,19.333,14.667">
-            <Label>Username:</Label>
-            <TextBox x:Name="Username" Margin="0,0,161.333,0" />
-            <Label>Password:</Label>
+
+        <Grid.Background>
+            <ImageBrush Stretch="Fill" ImageSource="background.png"/>
+        </Grid.Background>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0*"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Margin="9,20,19.333,14.667" Grid.Column="1">
+            <Label FontSize="18" Foreground="White" FontFamily="Tahoma" Margin="0,0,258.333,0">Username:</Label>
+            <TextBox x:Name="Username" Margin="0,0,158.333,0" />
+            <Label FontSize="18" Foreground="White" FontFamily="Tahoma">Password:</Label>
             <PasswordBox Name="Password" MaxLength="8" Margin="0,0,162.333,0" />
         </StackPanel>
-        <Button FontSize="20" Click="Left_Enter_Button_Click" Margin="68,131,218.333,205.667" Content="Login"/>
-        <Button FontSize="20" Click="Left_Refresh_Button_Click" Margin="208,131,78.333,205.667" Content="Refresh"/>
+        <Button FontSize="18" Foreground="White" FontFamily="Tahoma" Background="Transparent" BorderThickness="2" BorderBrush="WhiteSmoke" Click="Left_Enter_Button_Click" Margin="65,162,215.333,174.667" Content="Login" Grid.Column="1"/>
+        <Button FontSize="18" Foreground="White" FontFamily="Tahoma" Background="Transparent" BorderThickness="2" BorderBrush="WhiteSmoke" Click="Left_Refresh_Button_Click" Margin="207,162,73.333,174.667" Content="Refresh" Grid.Column="1"/>
 
     </Grid>
 </Window>

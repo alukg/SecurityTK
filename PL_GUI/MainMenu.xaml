@@ -5,11 +5,23 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PL_GUI"
         mc:Ignorable="d"
-        Title="MainMenu" Height="400" Width="400" Background="#FFE5E2D0">
+        Title="MainMenu" Height="400" Width="400" >
     <Grid>
-        <Label>Please choose an action to proceed </Label>
-        <Button x:Name="Data_Leakage" FontSize="20" Click="Data_Leakage_Left_Button_Click" Margin="15,110,217.2,172.8" Content="Data-Leakage" Background="#FFB88A46"/>
-        <Button x:Name="User_Management" FontSize="20" Click="User_Management_Left_Button_Click" Margin="202,110,18.2,172.8" Content="User Management" Background="#FFB88A46"/>
-        <Button x:Name="File_Crypto" FontSize="20" Click="File_Crypto_Left_Button_Click" Margin="107,237,108.2,53.8" Content="File Crypto" Background="#FFB88A46"/>
+        <Grid.Background>
+            <ImageBrush Stretch="Fill" ImageSource="PL_GUI/background.png" />
+        </Grid.Background>
+        <Label FontSize="24" Foreground="White" FontFamily="Tahoma" Margin="2,33,-1.667,291.667" RenderTransformOrigin="0.5,0.5">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleX="0.776"/>
+                    <RotateTransform/>
+                    <TranslateTransform X="2.514"/>
+                </TransformGroup>
+            </Label.RenderTransform> Please choose an action to proceed
+        </Label>
+        <Button x:Name="Data_Leakage" FontSize="18" Foreground="White" FontFamily="Tahoma" Background="Transparent" BorderThickness="2" BorderBrush="WhiteSmoke" Click="Data_Leakage_Left_Button_Click" Margin="15,110,217.2,172.8" Content="Data-Leakage"/>
+        <Button x:Name="User_Management" FontSize="18" Foreground="White" FontFamily="Tahoma" Background="Transparent" BorderThickness="2" BorderBrush="WhiteSmoke" Click="User_Management_Left_Button_Click" Margin="202,110,18.2,172.8" Content="User Management"/>
+        <Button x:Name="File_Crypto" FontSize="18" Foreground="White" FontFamily="Tahoma" Background="Transparent" BorderThickness="2" BorderBrush="WhiteSmoke" Click="File_Crypto_Left_Button_Click" Margin="107,237,108.2,53.8" Content="File Crypto"/>
     </Grid>
 </Window>
