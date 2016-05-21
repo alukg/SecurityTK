@@ -12,20 +12,47 @@
         </Style>
     </Window.Resources>
     <Grid>
-        <Button x:Name="Open_File"  Margin="113,27,123.2,266.8" Click="Open_File_Left_Button_Click"  RenderTransformOrigin="0.5,0.5" Content="Open File" />
+        <Button x:Name="Open_File"  Margin="10,37,308.2,310.8" Click="Open_File_Left_Button_Click"  RenderTransformOrigin="0.5,0.5" Content="Open File" />
         <Button x:Name="Back_To_Main_Menu"  Margin="10,10,308.2,340.8" Click="Back_To_Main_Menu_Left_Button_Click"  RenderTransformOrigin="0.5,0.5" Content="Main Menu" />
+        <Button x:Name="Load"  Margin="10,84,308.2,266.8" Click="LoadText_Left_Click_Button"  RenderTransformOrigin="0.5,0.5" Content="Load Text" />
         <StackPanel Margin="27,133,31.2,28.8">
             <Label Content="Sensitivity:" Margin="128,0,134.8,0"/>
             <TextBlock x:Name="Sensitivity_Text" Text=""></TextBlock>
         </StackPanel>
         <Grid Margin="0,0,0.2,9.8">
-            <ListView Margin="10,164,10.2,-0.2" Name="sensitivityBox">
+            <ListView Margin="141,10,10,0" Name="Text_Block" RenderTransformOrigin="0.5,0.5">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Text" Width="55" DisplayMemberBinding="{Binding Name}" />
+                    </GridView>
+                </ListView.View>
+                <ListView.GroupStyle>
+                    <GroupStyle>
+                        <GroupStyle.HeaderTemplate>
+                            <DataTemplate>
+                                <TextBlock Name="Text_TextBlock" FontSize="20" Text="jksdfbdsjkbjds"/>
+                            </DataTemplate>
+                        </GroupStyle.HeaderTemplate>
+                    </GroupStyle>
+                </ListView.GroupStyle>
+            </ListView>
+            <ListView Margin="10,114,275,0" Name="Files_List">
                 <ListView.View>
                     <GridView>
                         <GridViewColumn Header="Name" Width="55" DisplayMemberBinding="{Binding Name}" />
                         <GridViewColumn Header="Score" Width="45" DisplayMemberBinding="{Binding Age}" />
                     </GridView>
                 </ListView.View>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="100" />
+                            </Grid.ColumnDefinitions>
+                        </Grid>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
             </ListView>
         </Grid>
     </Grid>
