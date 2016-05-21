@@ -11,7 +11,7 @@ namespace DAL
     [TestFixture]
     public class DAL_SQL_Test
     {
-        IDAL db = new DAL_SQL();
+        private IDAL db = new DAL_SQL();
 
         [TestCase]
         public void userNameExistsTest()

@@ -46,10 +46,9 @@
   <ItemGroup>
     <Compile Include="BL_Process.cs" />
     <Compile Include="BL_Process_Test.cs" />
-    <Compile Include="DataLeakageDictionary.cs" />
-    <Compile Include="DataLeakageTool.cs" />
-    <Compile Include="DataLeakageTool_Test.cs" />
-    <Compile Include="FileCryptoTool.cs" />
+    <Compile Include="UserTools\DataLeakageDictionary.cs" />
+    <Compile Include="UserTools\DataLeakageTool.cs" />
+    <Compile Include="UserTools\FileCryptoTool.cs" />
     <Compile Include="IBL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
