@@ -43,3 +43,6 @@ C:\Users\guyal\Desktop\SecurityTK\GUI Launcher\bin\Debug\SharedClasses.pdb
 C:\Users\guyal\Desktop\SecurityTK\GUI Launcher\bin\Debug\nunit.framework.xml
 C:\Users\guyal\Desktop\SecurityTK\GUI Launcher\obj\Debug\GUI Launcher.exe
 C:\Users\guyal\Desktop\SecurityTK\GUI Launcher\obj\Debug\GUI Launcher.pdb
+C:\Users\rOTEM\Documents\SecurityTK\GUI Launcher\bin\Debug\GUI Launcher.exe.config
+C:\Users\rOTEM\Documents\SecurityTK\GUI Launcher\obj\Debug\GUI Launcher.exe
+C:\Users\rOTEM\Documents\SecurityTK\GUI Launcher\obj\Debug\GUI Launcher.pdb
