@@ -46,4 +46,7 @@ C:\Users\guyal\Desktop\SecurityTK\GUI Launcher\obj\Debug\GUI Launcher.pdb
 C:\Users\rOTEM\Documents\SecurityTK\GUI Launcher\bin\Debug\GUI Launcher.exe.config
 C:\Users\rOTEM\Documents\SecurityTK\GUI Launcher\obj\Debug\GUI Launcher.exe
 C:\Users\rOTEM\Documents\SecurityTK\GUI Launcher\obj\Debug\GUI Launcher.pdb
->>>>>>> d4a43da4eb86e955b054a8c3f286b176f413542e
+C:\Users\Barak\Documents\securityTK\GUI Launcher\obj\Debug\App.g.cs
+C:\Users\Barak\Documents\securityTK\GUI Launcher\obj\Debug\GUI Launcher_MarkupCompile.cache
+C:\Users\Barak\Documents\securityTK\GUI Launcher\obj\Debug\GUI_Launcher.Properties.Resources.resources
+C:\Users\Barak\Documents\securityTK\GUI Launcher\obj\Debug\GUI Launcher.csproj.GenerateResource.Cache
