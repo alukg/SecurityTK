@@ -32,15 +32,14 @@ namespace PL_GUI
         public void Run()
         {
             this.Show();
+            if(theBL.getUser().role == Role.Administrator)
+            {
+                Administrator.Visibility = Visibility.Visible;
+            }
         }
 
         private void Add_Click(object sender, RoutedEventArgs e)
         {
-            if(theBL.getUser().role == Role.Administrator)
-            {
-                Administrator.Visibility = Visibility.Visible;
-               
-            }
             Role role = theBL.convertRole(RoleBox.SelectedItem.ToString());
             String ans = theBL.addUser(UserNameBox.Text, PasswordBox.Password, role);
             MessageBox.Show(ans);

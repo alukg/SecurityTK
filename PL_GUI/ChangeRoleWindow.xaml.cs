@@ -32,6 +32,10 @@ namespace PL_GUI
         public void Run()
         {
             this.Show();
+            if (theBL.getUser().role == Role.Administrator)
+            {
+                Administrator.Visibility = Visibility.Visible;
+            }
         }
 
         private void MainMenu_Click(object sender, RoutedEventArgs e)

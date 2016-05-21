@@ -7,7 +7,15 @@
         mc:Ignorable="d"
         Title="ReadLogWindow" Height="400" Width="400">
     <Grid>
-        <TextBlock x:Name="log" Margin="0,37,0.333,-0.333"></TextBlock>
+        <ListBox Margin="20,62,20,20" Name="LogBox">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding}" />
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
         <Button x:Name="MainMenu" FontSize="10" Click="MainMenu_Click"  Margin="306,0,15.333,338.667" Height="22" VerticalAlignment="Bottom">Main Menu</Button>
         <Button x:Name="Back" FontSize="10" Click="Back_Click"  Margin="306,37,15.333,311.667">Back</Button>
     </Grid>

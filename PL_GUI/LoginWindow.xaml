@@ -13,8 +13,8 @@
             <Label>Password:</Label>
             <PasswordBox Name="Password" MaxLength="8" Margin="0,0,162.333,0" />
         </StackPanel>
-        <Button FontSize="20" Click="Left_Enter_Button_Click" Margin="68,131,218.333,205.667" Content="Login"/>
-        <Button FontSize="20" Click="Left_Refresh_Button_Click" Margin="208,131,78.333,205.667" Content="Refresh"/>
+        <Button FontSize="18" Click="Left_Enter_Button_Click" Margin="68,131,218,193" Content="Login"/>
+        <Button FontSize="18" Click="Left_Refresh_Button_Click" Margin="208,131,78,193" Content="Refresh"/>
 
     </Grid>
 </Window>

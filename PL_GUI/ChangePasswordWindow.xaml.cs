@@ -58,19 +58,16 @@ namespace PL_GUI
 
             New_Password.Visibility = Visibility.Visible;
             PasswordBox.Visibility = Visibility.Visible;
-
-            String newPass;
-            if (choose == 0)
-            {
-              newPass = theBL.changePass(theBL.getUser().userName, PasswordBox.Password);
-              MessageBox.Show(newPass);
-              MainMenu_Button_Click(sender, e);
-            }
-            else
+            EnterYourOwn.Visibility = Visibility.Visible;
+            if (choose == 1)
+            
+       //       newPass = theBL.changePass(theBL.getUser().userName, PasswordBox.Password);
+     //         MessageBox.Show(newPass);
+        //      MainMenu_Button_Click(sender, e);
+            
             {
                 UserName.Visibility = Visibility.Visible;
                 UserNameBox.Visibility = Visibility.Visible;
-                EnterYourOwn.Visibility = Visibility.Visible;
             }
         }
 
@@ -90,7 +87,15 @@ namespace PL_GUI
 
         private void EnterYourOwn_Click(object sender, RoutedEventArgs e)
         {
-            String newPass = theBL.changePass(UserNameBox.Text, PasswordBox.Password);
+            String newPass = "";
+            if(choose == 0)
+            {
+                newPass = theBL.changePass(theBL.getUser().userName, PasswordBox.Password);
+            }
+            else
+            {
+                newPass = theBL.changePass(UserNameBox.Text, PasswordBox.Password);
+            }
             MessageBox.Show(newPass);
             MainMenu_Button_Click(sender, e);
         }

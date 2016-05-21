@@ -11,8 +11,8 @@
             <Label>Username:</Label>
             <TextBox x:Name="UserNameBox" Margin="0,0,205.333,0" />
             <Label Content="Role:" Margin="0,0,0.333,0"/>
-            <ComboBox x:Name="RoleBox" Margin="0,0,205.333,0">
-                <ComboBoxItem x:Name="Employee" Content="Employee"/>
+            <ComboBox x:Name="RoleBox" Margin="0,0,205.333,0" >
+                <ComboBoxItem x:Name="Employee" IsSelected="True" Content="Employee"/>
                 <ComboBoxItem x:Name="Manager" Content="Manager"/>
                 <ComboBoxItem x:Name="Administrator" Visibility="Hidden" Content="Administrator"/>
             </ComboBox>
@@ -23,7 +23,5 @@
         <Button x:Name="MainMenu" FontSize="10" Click="MainMenu_Button_Click"  Margin="314,10,10.333,338.667">Main Menu</Button>
         <Button x:Name="Random" FontSize="10" Click="Random_Click"  Margin="15,133,236.333,218.667">Add With Random Password</Button>
         <Button x:Name="YourOwn" FontSize="10" Click="YourOwn_Click"  Margin="180,133,141.333,218.667">Your Own</Button>
-
-
     </Grid>
 </Window>

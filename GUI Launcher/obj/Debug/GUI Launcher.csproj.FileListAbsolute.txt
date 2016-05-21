@@ -46,4 +46,3 @@ C:\Users\guyal\Desktop\SecurityTK\GUI Launcher\obj\Debug\GUI Launcher.pdb
 C:\Users\rOTEM\Documents\SecurityTK\GUI Launcher\bin\Debug\GUI Launcher.exe.config
 C:\Users\rOTEM\Documents\SecurityTK\GUI Launcher\obj\Debug\GUI Launcher.exe
 C:\Users\rOTEM\Documents\SecurityTK\GUI Launcher\obj\Debug\GUI Launcher.pdb
->>>>>>> d4a43da4eb86e955b054a8c3f286b176f413542e

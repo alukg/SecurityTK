@@ -23,3 +23,16 @@ C:\Users\Keren\Documents\SecurityTK\DAL\bin\Debug\SharedClasses.pdb
 C:\Users\Keren\Documents\SecurityTK\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
 C:\Users\Keren\Documents\SecurityTK\DAL\obj\Debug\DAL.dll
 C:\Users\Keren\Documents\SecurityTK\DAL\obj\Debug\DAL.pdb
+C:\Users\guyal\Desktop\SecurityTK\DAL\bin\Debug\SecurityTK_DB.mdf
+C:\Users\guyal\Desktop\SecurityTK\DAL\bin\Debug\SecurityTK_DB_log.ldf
+C:\Users\guyal\Desktop\SecurityTK\DAL\bin\Debug\DAL.dll
+C:\Users\guyal\Desktop\SecurityTK\DAL\bin\Debug\DAL.pdb
+C:\Users\guyal\Desktop\SecurityTK\DAL\bin\Debug\Microsoft.Office.Client.Education.dll
+C:\Users\guyal\Desktop\SecurityTK\DAL\bin\Debug\nunit.framework.dll
+C:\Users\guyal\Desktop\SecurityTK\DAL\bin\Debug\SharedClasses.dll
+C:\Users\guyal\Desktop\SecurityTK\DAL\bin\Debug\Microsoft.SharePoint.Client.Runtime.dll
+C:\Users\guyal\Desktop\SecurityTK\DAL\bin\Debug\SharedClasses.pdb
+C:\Users\guyal\Desktop\SecurityTK\DAL\bin\Debug\nunit.framework.xml
+C:\Users\guyal\Desktop\SecurityTK\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
+C:\Users\guyal\Desktop\SecurityTK\DAL\obj\Debug\DAL.dll
+C:\Users\guyal\Desktop\SecurityTK\DAL\obj\Debug\DAL.pdb
