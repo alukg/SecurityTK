@@ -34,9 +34,6 @@ C:\Users\Keren\Documents\SecurityTK\PL_GUI\obj\Debug\PL_GUI.dll
 C:\Users\Keren\Documents\SecurityTK\PL_GUI\obj\Debug\PL_GUI.pdb
 C:\Users\Keren\Documents\SecurityTK\PL_GUI\obj\Debug\ReadLogWindow.g.cs
 C:\Users\Keren\Documents\SecurityTK\PL_GUI\obj\Debug\ReadLogWindow.baml
-C:\Users\Keren\Documents\SecurityTK\PL_GUI\bin\Debug\SecurityTK_DB.mdf
-C:\Users\Keren\Documents\SecurityTK\PL_GUI\bin\Debug\SecurityTK_DB_log.ldf
-<<<<<<< HEAD
 C:\Users\Barak\Documents\securityTK\PL_GUI\bin\Debug\PL_GUI.dll
 C:\Users\Barak\Documents\securityTK\PL_GUI\bin\Debug\PL_GUI.pdb
 C:\Users\Barak\Documents\securityTK\PL_GUI\bin\Debug\BL.dll
@@ -77,7 +74,6 @@ C:\Users\Barak\Documents\securityTK\PL_GUI\obj\Debug\PL_GUI.Properties.Resources
 C:\Users\Barak\Documents\securityTK\PL_GUI\obj\Debug\PL_GUI.csproj.GenerateResource.Cache
 C:\Users\Barak\Documents\securityTK\PL_GUI\obj\Debug\PL_GUI.dll
 C:\Users\Barak\Documents\securityTK\PL_GUI\obj\Debug\PL_GUI.pdb
-=======
 C:\Users\guyal\Desktop\SecurityTK\PL_GUI\bin\Debug\PL_GUI.dll
 C:\Users\guyal\Desktop\SecurityTK\PL_GUI\bin\Debug\PL_GUI.pdb
 C:\Users\guyal\Desktop\SecurityTK\PL_GUI\bin\Debug\BL.dll
@@ -120,4 +116,3 @@ C:\Users\guyal\Desktop\SecurityTK\PL_GUI\obj\Debug\PL_GUI.dll
 C:\Users\guyal\Desktop\SecurityTK\PL_GUI\obj\Debug\PL_GUI.pdb
 C:\Users\Keren\Documents\SecurityTK\PL_GUI\obj\Debug\ChangePasswordChoose.g.cs
 C:\Users\Keren\Documents\SecurityTK\PL_GUI\obj\Debug\ChangePasswordChoose.baml
->>>>>>> 33b302982990fb9c2e0ff674acaf5610d00fe29c

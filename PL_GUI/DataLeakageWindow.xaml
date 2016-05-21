@@ -36,13 +36,14 @@
                     </GroupStyle>
                 </ListView.GroupStyle>
             </ListView>
-            <ListView Margin="10,114,275,0" Name="Files_List">
+            <ListView Margin="10,114,275,0" Name="Files_List" ItemsSource="{Binding}">
                 <ListView.View>
                     <GridView>
-                        <GridViewColumn Header="Name" Width="55" DisplayMemberBinding="{Binding Name}" />
-                        <GridViewColumn Header="Score" Width="45" DisplayMemberBinding="{Binding Age}" />
-                    </GridView>
+                            <GridViewColumn Header="Name" Width="55" DisplayMemberBinding="{Binding Name}" />
+                            <GridViewColumn Header="Score" Width="45" DisplayMemberBinding="{Binding Age}" />
+                        </GridView>
                 </ListView.View>
+                <TextBlock Text="{Binding}" />
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <Grid>

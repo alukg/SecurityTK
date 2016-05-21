@@ -7,15 +7,11 @@ C:\Users\Keren\Documents\SecurityTK\SharedClasses\bin\Debug\SharedClasses.dll
 C:\Users\Keren\Documents\SecurityTK\SharedClasses\bin\Debug\SharedClasses.pdb
 C:\Users\Keren\Documents\SecurityTK\SharedClasses\obj\Debug\SharedClasses.dll
 C:\Users\Keren\Documents\SecurityTK\SharedClasses\obj\Debug\SharedClasses.pdb
-C:\Users\Keren\Documents\SecurityTK\SharedClasses\obj\Debug\SharedClasses.csprojResolveAssemblyReference.cache
-<<<<<<< HEAD
 C:\Users\Barak\Documents\securityTK\SharedClasses\bin\Debug\SharedClasses.dll
 C:\Users\Barak\Documents\securityTK\SharedClasses\bin\Debug\SharedClasses.pdb
 C:\Users\Barak\Documents\securityTK\SharedClasses\obj\Debug\SharedClasses.dll
 C:\Users\Barak\Documents\securityTK\SharedClasses\obj\Debug\SharedClasses.pdb
-=======
 C:\Users\guyal\Desktop\SecurityTK\SharedClasses\bin\Debug\SharedClasses.dll
 C:\Users\guyal\Desktop\SecurityTK\SharedClasses\bin\Debug\SharedClasses.pdb
 C:\Users\guyal\Desktop\SecurityTK\SharedClasses\obj\Debug\SharedClasses.dll
 C:\Users\guyal\Desktop\SecurityTK\SharedClasses\obj\Debug\SharedClasses.pdb
->>>>>>> 33b302982990fb9c2e0ff674acaf5610d00fe29c

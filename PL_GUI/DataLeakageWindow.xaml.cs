@@ -37,14 +37,19 @@ namespace PL_GUI
 
         private void Open_File_Left_Button_Click(object sender, RoutedEventArgs e)
         {
+            //Files_List.ItemsSource = files;
             //OpenFileDialog openFileDialog = new OpenFileDialog()
             FolderBrowserDialog fbd = new FolderBrowserDialog();
-           // DialogResult result = fbd.ShowDialog();
+            DialogResult result = fbd.ShowDialog();
+            //fbd.SelectedPath = sourceFol
+            urlAdress = fbd.SelectedPath;
+            //urlAdress = File.ReadAllText(fbd.SelectedPath);
+
             // if (fbd.ShowDialog() == DialogResult.ok)
-                 urlAdress = File.ReadAllText(fbd.SelectedPath);
             // else urlAdress = null;
-          /*  if (!string.IsNullOrWhiteSpace(fbd.SelectedPath))
+           /* if (!string.IsNullOrWhiteSpace(fbd.SelectedPath))
             {
+                urlAdress = File.ReadAllText(fbd.SelectedPath);
                 string[] files1 = Directory.GetFiles(fbd.SelectedPath);
 
                 //System.Windows.Forms.MessageBox.Show("Files found: " + files.Length.ToString(), "Message");

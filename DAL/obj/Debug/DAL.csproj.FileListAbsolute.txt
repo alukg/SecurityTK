@@ -22,7 +22,6 @@ C:\Users\Keren\Documents\SecurityTK\DAL\bin\Debug\SharedClasses.pdb
 C:\Users\Keren\Documents\SecurityTK\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
 C:\Users\Keren\Documents\SecurityTK\DAL\obj\Debug\DAL.dll
 C:\Users\Keren\Documents\SecurityTK\DAL\obj\Debug\DAL.pdb
-<<<<<<< HEAD
 C:\Users\Barak\Documents\securityTK\DAL\bin\Debug\SecurityTK_DB.mdf
 C:\Users\Barak\Documents\securityTK\DAL\bin\Debug\SecurityTK_DB_log.ldf
 C:\Users\Barak\Documents\securityTK\DAL\bin\Debug\DAL.dll
@@ -34,7 +33,6 @@ C:\Users\Barak\Documents\securityTK\DAL\bin\Debug\nunit.framework.xml
 C:\Users\Barak\Documents\securityTK\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
 C:\Users\Barak\Documents\securityTK\DAL\obj\Debug\DAL.dll
 C:\Users\Barak\Documents\securityTK\DAL\obj\Debug\DAL.pdb
-=======
 C:\Users\guyal\Desktop\SecurityTK\DAL\bin\Debug\SecurityTK_DB.mdf
 C:\Users\guyal\Desktop\SecurityTK\DAL\bin\Debug\SecurityTK_DB_log.ldf
 C:\Users\guyal\Desktop\SecurityTK\DAL\bin\Debug\DAL.dll
@@ -48,5 +46,4 @@ C:\Users\guyal\Desktop\SecurityTK\DAL\bin\Debug\nunit.framework.xml
 C:\Users\guyal\Desktop\SecurityTK\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
 C:\Users\guyal\Desktop\SecurityTK\DAL\obj\Debug\DAL.dll
 C:\Users\guyal\Desktop\SecurityTK\DAL\obj\Debug\DAL.pdb
->>>>>>> 33b302982990fb9c2e0ff674acaf5610d00fe29c
 C:\Users\Barak\Documents\SecurityTK\DAL\bin\Debug\Microsoft.SharePoint.Client.Runtime.dll
