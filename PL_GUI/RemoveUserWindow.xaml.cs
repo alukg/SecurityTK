@@ -32,20 +32,8 @@ namespace PL_GUI
         public void Run()
         {
             this.Show();
-            if(theBL.getUser().role == Role.Administrator)
-            {
-                //usersList.DataContext = 
-            }
-            else
-            {
-
-            }
         }
 
-        private void Remove_Click(object sender, RoutedEventArgs e)
-        {
-        //    theBL.removeUser()
-        }
 
         private void MainMenu_Click(object sender, RoutedEventArgs e)
         {
@@ -59,6 +47,13 @@ namespace PL_GUI
             AdministratorManagment am = new AdministratorManagment(theBL);
             am.Show();
             this.Close();
+        }
+
+        private void Remove_Click(object sender, RoutedEventArgs e)
+        {
+            String ans = theBL.removeUser(Username.Text);
+            MessageBox.Show(ans);
+            Username.Text = "";
         }
     }
 }

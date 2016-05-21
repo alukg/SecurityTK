@@ -31,7 +31,7 @@ namespace PL_GUI
         public void Run()
         {
             this.Show();
-            log.DataContext = theBL.readLog();
+            LogBox.ItemsSource = theBL.readLog();
         }
 
         private void MainMenu_Click(object sender, RoutedEventArgs e)

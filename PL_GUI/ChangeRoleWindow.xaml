@@ -12,7 +12,7 @@
             <TextBox x:Name="UsernameBox" Margin="0,0,205.333,0" />
             <Label x:Name="role">New role:</Label>
             <ComboBox x:Name="RoleBox" Margin="0,0,205.333,0">
-                <ComboBoxItem x:Name="Employee" Content="Employee"/>
+                <ComboBoxItem x:Name="Employee" IsSelected="True" Content="Employee"/>
                 <ComboBoxItem x:Name="Manager" Content="Manager"/>
                 <ComboBoxItem x:Name="Administrator" Visibility="Hidden" Content="Administrator"/>
             </ComboBox>

@@ -138,6 +138,8 @@ namespace BL
             {
                 return "No permission to perform the operation";
             }
+            else if (userName.Equals(""))
+                return "Please enter a Username";
             else
             {
                 return addUser(userName, getRandomPass(), role); //choose random password, and send for addUser function with that pass.

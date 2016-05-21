@@ -1,12 +1,12 @@
-﻿using NUnit.Framework;
+﻿
 using DAL;
 using SharedClasses;
 
 namespace BL
 {
-    [TestFixture]
+  //  [TestFixture]
     public class BL_Process_Test
-    {
+    {/*
         private BL_Process blp = new BL_Process(new DAL_SQL());
         private DAL_SQL db = new DAL_SQL();
 
@@ -73,6 +73,6 @@ namespace BL
             db.removeUser("Guy2");
             Assert.AreEqual(false, db.userNameExists("guy"));
             Assert.AreEqual(false, db.userNameExists("guy2"));
-        }
+        }*/
     }
 }
