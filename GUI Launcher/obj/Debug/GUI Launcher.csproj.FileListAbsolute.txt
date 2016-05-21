@@ -21,3 +21,25 @@ C:\Users\Keren\Documents\SecurityTK\GUI Launcher\obj\Debug\GUI Launcher.exe
 C:\Users\Keren\Documents\SecurityTK\GUI Launcher\obj\Debug\GUI Launcher.pdb
 C:\Users\Barak\Documents\SecurityTK\GUI Launcher\obj\Debug\GUI Launcher.exe
 C:\Users\Barak\Documents\SecurityTK\GUI Launcher\obj\Debug\GUI Launcher.pdb
+C:\Users\guyal\Desktop\SecurityTK\GUI Launcher\obj\Debug\GUI Launcher.csprojResolveAssemblyReference.cache
+C:\Users\guyal\Desktop\SecurityTK\GUI Launcher\obj\Debug\App.g.cs
+C:\Users\guyal\Desktop\SecurityTK\GUI Launcher\obj\Debug\GUI Launcher_MarkupCompile.cache
+C:\Users\guyal\Desktop\SecurityTK\GUI Launcher\obj\Debug\GUI_Launcher.Properties.Resources.resources
+C:\Users\guyal\Desktop\SecurityTK\GUI Launcher\obj\Debug\GUI Launcher.csproj.GenerateResource.Cache
+C:\Users\guyal\Desktop\SecurityTK\GUI Launcher\bin\Debug\SecurityTK_DB.mdf
+C:\Users\guyal\Desktop\SecurityTK\GUI Launcher\bin\Debug\SecurityTK_DB_log.ldf
+C:\Users\guyal\Desktop\SecurityTK\GUI Launcher\bin\Debug\GUI Launcher.exe.config
+C:\Users\guyal\Desktop\SecurityTK\GUI Launcher\bin\Debug\GUI Launcher.exe
+C:\Users\guyal\Desktop\SecurityTK\GUI Launcher\bin\Debug\GUI Launcher.pdb
+C:\Users\guyal\Desktop\SecurityTK\GUI Launcher\bin\Debug\BL.dll
+C:\Users\guyal\Desktop\SecurityTK\GUI Launcher\bin\Debug\DAL.dll
+C:\Users\guyal\Desktop\SecurityTK\GUI Launcher\bin\Debug\PL_GUI.dll
+C:\Users\guyal\Desktop\SecurityTK\GUI Launcher\bin\Debug\SharedClasses.dll
+C:\Users\guyal\Desktop\SecurityTK\GUI Launcher\bin\Debug\nunit.framework.dll
+C:\Users\guyal\Desktop\SecurityTK\GUI Launcher\bin\Debug\BL.pdb
+C:\Users\guyal\Desktop\SecurityTK\GUI Launcher\bin\Debug\DAL.pdb
+C:\Users\guyal\Desktop\SecurityTK\GUI Launcher\bin\Debug\PL_GUI.pdb
+C:\Users\guyal\Desktop\SecurityTK\GUI Launcher\bin\Debug\SharedClasses.pdb
+C:\Users\guyal\Desktop\SecurityTK\GUI Launcher\bin\Debug\nunit.framework.xml
+C:\Users\guyal\Desktop\SecurityTK\GUI Launcher\obj\Debug\GUI Launcher.exe
+C:\Users\guyal\Desktop\SecurityTK\GUI Launcher\obj\Debug\GUI Launcher.pdb
