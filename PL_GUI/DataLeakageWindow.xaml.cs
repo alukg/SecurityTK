@@ -5,7 +5,6 @@ using System.Windows;
 using Microsoft.Win32;
 using System.IO;
 using BL;
-using BL.DataLeakageTool;
 
 namespace PL_GUI
 {
