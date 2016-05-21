@@ -18,7 +18,7 @@ namespace BL
         public DataLeakageTool()
         {
             dictionary = new DataLeakageDictionary();
-            separators = new char[] { ' ', '!', '\"', '#', '$', '%', '^', '&', '*', '(', ')', '-', '_', '+', '=', '/', '.','?','<','>',';', ',','~','`','|' , '\\' , '{', '}','[',']', ',','@',':'};
+            separators = new char[] { ' ', '!', '\"', '#', '$', '%', '^', '&', '*', '(', ')', '-', '_', '+', '=', '/', '.','?','<','>',';', ',','~','`','|' , '\\' , '{', '}','[',']', ',','@',':','\''};
             calculatedScore= new SortedDictionary<double, FileInfo>();
         }
 

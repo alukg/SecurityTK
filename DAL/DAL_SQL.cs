@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using SharedClasses;
-using System.IO;
 
 namespace DAL
 {
@@ -16,7 +15,7 @@ namespace DAL
         public bool userNameExists(string userName)
         {
             userName = userName.ToLower();
-            string path = Directory.GetCurrentDirectory(); //gets the runtime folder
+            string path = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
             SqlConnection connection = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=" + path + "\\SecurityTK_DB.mdf;Integrated Security=True");
             SqlCommand cmd = new SqlCommand("SELECT count(*) FROM Users WHERE UserName = '" + userName + "'", connection);
             try
@@ -41,7 +40,7 @@ namespace DAL
         public string getPassword(string userName)
         {
             userName = userName.ToLower();
-            string path = Directory.GetCurrentDirectory(); //gets the runtime folder
+            string path = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
             SqlConnection connection = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=" + path + "\\SecurityTK_DB.mdf;Integrated Security=True");
             SqlCommand cmd = new SqlCommand("SELECT Password FROM Users WHERE UserName = '" + userName + "'", connection);
             try
@@ -66,7 +65,7 @@ namespace DAL
         public Role getRole(string userName)
         {
             userName = userName.ToLower();
-            string path = Directory.GetCurrentDirectory(); //gets the runtime folder
+            string path = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
             SqlConnection connection = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=" + path + "\\SecurityTK_DB.mdf;Integrated Security=True");
             SqlCommand cmd = new SqlCommand("SELECT Role FROM Users WHERE UserName = '" + userName + "'", connection);
             try
@@ -98,7 +97,7 @@ namespace DAL
         public void setNewUser(string userName, string password, Role role)
         {
             userName = userName.ToLower();
-            string path = Directory.GetCurrentDirectory(); //gets the runtime folder
+            string path = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
             SqlConnection connection = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=" + path + "\\SecurityTK_DB.mdf;Integrated Security=True");
             SqlCommand cmd = new SqlCommand("INSERT INTO Users(UserName, Password, Role) VALUES('" + userName + "','" + password + "','" + role.ToString() + "')", connection);
             try
@@ -121,7 +120,7 @@ namespace DAL
         public void setPassword(string userName, string value)
         {
             userName = userName.ToLower();
-            string path = Directory.GetCurrentDirectory(); //gets the runtime folder
+            string path = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
             SqlConnection connection = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=" + path + "\\SecurityTK_DB.mdf;Integrated Security=True");
             SqlCommand cmd = new SqlCommand("UPDATE Users SET Password ='" + value + "' WHERE UserName = '" + userName + "'", connection);
             try
@@ -144,7 +143,7 @@ namespace DAL
         public void setRole(string userName, Role value)
         {
             userName = userName.ToLower();
-            string path = Directory.GetCurrentDirectory(); //gets the runtime folder
+            string path = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
             SqlConnection connection = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=" + path + "\\SecurityTK_DB.mdf;Integrated Security=True");
             SqlCommand cmd = new SqlCommand("UPDATE Users SET Role ='" + value.ToString() + "' WHERE UserName = '" + userName + "'", connection);
             try
@@ -168,7 +167,7 @@ namespace DAL
         public void writeToLog(string action, string performed, string affected)
         {
             string dateTime = DateTime.Now.ToString("yyMMdd HH:mm:ss");
-            string path = Directory.GetCurrentDirectory(); //gets the runtime folder
+            string path = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
             SqlConnection connection = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=" + path + "\\SecurityTK_DB.mdf;Integrated Security=True");
             SqlCommand cmd = new SqlCommand("INSERT INTO Log(Action, DateTime, Executer, Affected) VALUES('" + action + "','" + dateTime + "','" + performed + "','" + affected + "')", connection);
             try
@@ -183,9 +182,13 @@ namespace DAL
             }
         }
 
+        /// <summary>
+        /// returns the software log.
+        /// </summary>
+        /// <returns></returns>
         public List<string> getLog()
         {
-            string path = Directory.GetCurrentDirectory(); //gets the runtime folder
+            string path = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
             SqlConnection connection = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=" + path + "\\SecurityTK_DB.mdf;Integrated Security=True");
             SqlCommand cmd = new SqlCommand("SELECT * FROM Log", connection);
             try
@@ -214,7 +217,7 @@ namespace DAL
         public void removeUser(string userName)
         {
             userName = userName.ToLower();
-            string path = Directory.GetCurrentDirectory(); //gets the runtime folder
+            string path = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
             SqlConnection connection = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=" + path + "\\SecurityTK_DB.mdf;Integrated Security=True");
             SqlCommand cmd = new SqlCommand("DELETE FROM Users WHERE UserName = '" + userName + "'", connection);
             try
