@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using NUnit.Framework;
 using SharedClasses;
 
 namespace DAL
 {
-    [TestFixture]
+    //[TestFixture]
     public class DAL_SQL_Test
     {
+        /*
         private IDAL db = new DAL_SQL();
 
         [TestCase]
@@ -72,5 +72,6 @@ namespace DAL
             db.setRole("snake", Role.Administrator);
             Assert.AreEqual(Role.Administrator, db.getRole("snake"));
         }
+        */
     }
 }

@@ -13,7 +13,6 @@ C:\Users\rOTEM\Documents\SecurityTK\DAL\bin\Debug\nunit.framework.dll
 C:\Users\rOTEM\Documents\SecurityTK\DAL\bin\Debug\nunit.framework.xml
 C:\Users\Keren\Documents\SecurityTK\DAL\bin\Debug\SecurityTK_DB.mdf
 C:\Users\Keren\Documents\SecurityTK\DAL\bin\Debug\SecurityTK_DB_log.ldf
-C:\Users\Keren\Documents\SecurityTK\DAL\bin\Debug\DAL.dll.config
 C:\Users\Keren\Documents\SecurityTK\DAL\bin\Debug\DAL.dll
 C:\Users\Keren\Documents\SecurityTK\DAL\bin\Debug\DAL.pdb
 C:\Users\Keren\Documents\SecurityTK\DAL\bin\Debug\Microsoft.Office.Client.Education.dll
