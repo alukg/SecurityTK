@@ -105,9 +105,8 @@ namespace BL
                 if (checkIfSensitiveSentence(line))
                 {
                     //if there are "hidden" words in the sentence, separate them.
-                    if (tempCount > wordsOfSentence.Length)
+                    if (tempCount != wordsOfSentence.Length)
                         wordsOfSentence = getNewSentence(wordsOfSentence,tempCount);
-
                     //for each word in line, calculate its score.
                     for (int i = 0; i < wordsOfSentence.Length; i++)
                         score += dictionary.getWordScore(wordsOfSentence[i]);    
@@ -149,14 +148,18 @@ namespace BL
 
             string[] separatedWord = word.Split(separators, StringSplitOptions.RemoveEmptyEntries);
             int count = separatedWord.Length;
+            if (count == 0)
+                return 0;
             if (count < 2 || separatedWord == null)
+            {
                 return 1;
+            }
             else
             {
                 if (separatedWord[0].Equals(""))
                     count--;
-                    for (int i = 0; i < separatedWord.Length - 1; i++)
-                        if (separatedWord[i + 1].Equals(""))
+                for (int i = 0; i < separatedWord.Length - 1; i++)
+                    if (separatedWord[i + 1].Equals(""))
                         count = count - 1;
             }
             return count;
@@ -170,7 +173,6 @@ namespace BL
         {
             //initializing the new array
             string[] newSentence = new string[numOfWords];
-
             int index = 0;
             for(int i=0; i<sentence.Length; i++)
             {
@@ -190,6 +192,8 @@ namespace BL
                 }
                 else if(numOfSubWords!=0)
                 {
+                    String []temp=sentence[i].Split(separators, StringSplitOptions.RemoveEmptyEntries);
+                    sentence[i] = temp[0];
                     newSentence[index] = sentence[i];
                     index++;
                 }
@@ -236,6 +240,8 @@ namespace BL
         {
             return this.calculatedScore;
         }
+
+        
 
     }
 }
