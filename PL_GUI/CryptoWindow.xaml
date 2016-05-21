@@ -7,6 +7,8 @@
         mc:Ignorable="d"
         Title="CryptoWindow" Height="300" Width="300">
     <Grid>
-        
+        <Button x:Name="encrypt" Content="Encrypt" HorizontalAlignment="Left" Margin="169,133,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="decript" Content="Decrypt" HorizontalAlignment="Left" Margin="87,133,0,0" VerticalAlignment="Top" Width="75"/>
+
     </Grid>
 </Window>

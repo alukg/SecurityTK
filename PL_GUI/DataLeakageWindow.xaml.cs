@@ -6,6 +6,8 @@ using Microsoft.Win32;
 using System.IO;
 using BL;
 using BL.UserTools;
+using System.Windows.Forms;
+
 
 namespace PL_GUI
 {
@@ -35,10 +37,19 @@ namespace PL_GUI
 
         private void Open_File_Left_Button_Click(object sender, RoutedEventArgs e)
         {
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            if (openFileDialog.ShowDialog() == true)
-                urlAdress = File.ReadAllText(openFileDialog.FileName);
-            else urlAdress = null;
+            //OpenFileDialog openFileDialog = new OpenFileDialog()
+            FolderBrowserDialog fbd = new FolderBrowserDialog();
+            DialogResult result = fbd.ShowDialog();
+            // if (fbd.ShowDialog() == DialogResult.ok)
+            //     urlAdress = File.ReadAllText(fbd.SelectedPath);
+            // else urlAdress = null;
+            if (!string.IsNullOrWhiteSpace(fbd.SelectedPath))
+            {
+                string[] files1 = Directory.GetFiles(fbd.SelectedPath);
+
+                //System.Windows.Forms.MessageBox.Show("Files found: " + files.Length.ToString(), "Message");
+
+            }
             DataLeakageTool dlt = new DataLeakageTool();
             SortedDictionary<double, FileInfo> dictionary = dlt.checkSensitivity(urlAdress);
             foreach (var item in dictionary.Reverse())
