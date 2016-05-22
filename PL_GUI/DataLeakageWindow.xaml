@@ -14,7 +14,6 @@
     <Grid>
         <Button x:Name="Open_File"  Margin="10,37,308.2,310.8" Click="Open_File_Left_Button_Click"  RenderTransformOrigin="0.5,0.5" Content="Open File" />
         <Button x:Name="Back_To_Main_Menu"  Margin="10,10,308.2,340.8" Click="Back_To_Main_Menu_Left_Button_Click"  RenderTransformOrigin="0.5,0.5" Content="Main Menu" />
-        <Button x:Name="Load"  Margin="10,84,308.2,266.8" Click="LoadText_Left_Click_Button"  RenderTransformOrigin="0.5,0.5" Content="Load Text" />
         <Grid Margin="0,0,0.2,9.8">
             <ListView Margin="141,10,10,0" Name="Text_Block" RenderTransformOrigin="0.5,0.5">
                 <TextBlock Name="Text_TextBlock" FontSize="20" Text=""></TextBlock>
