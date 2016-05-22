@@ -39,6 +39,7 @@ namespace PL_GUI
         {
             if (theBL.userVarification(Username.Text, Password.Password))
             {
+                MessageBox.Show("Welcome " + theBL.getUser().userName+"!");
                 MainMenu mm = new MainMenu(theBL);
                 mm.Run();
                 this.Close();

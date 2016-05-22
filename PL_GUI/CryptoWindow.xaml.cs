@@ -70,12 +70,6 @@ namespace PL_GUI
             pathFile = openFileDialog1.FileName;
         }
 
-        private void Back_Click(object sender, RoutedEventArgs e)
-        {
-            AdministratorManagment am = new AdministratorManagment(theBL);
-            am.Show();
-            this.Close();
-        }
 
         private void MainMenu_Click(object sender, RoutedEventArgs e)
         {
@@ -100,6 +94,7 @@ namespace PL_GUI
                 FileCryptoTool cryptoTool = new FileCryptoTool();
                 System.Windows.MessageBox.Show(cryptoTool.decrypt(pathFile, pathFolder, Password.Password));
             }
+            Password.Password = "";
         }
 
         private void Choose_Folder_Click(object sender, RoutedEventArgs e)

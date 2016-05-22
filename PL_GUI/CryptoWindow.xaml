@@ -5,19 +5,22 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PL_GUI"
         mc:Ignorable="d"
-        Title="CryptoWindow" Height="400" Width="400">
+        Title="SecurityTK/CryptoWindow" Height="400" Width="400">
     <Grid>
-        <StackPanel Margin="114,132,-51.667,174.667">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="56*"/>
+            <ColumnDefinition Width="141*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Margin="111,220,-48.666,86.667" Grid.ColumnSpan="2">
             <Label x:Name="PasswordN" Visibility="Hidden">Password:</Label>
             <PasswordBox Name="Password" Margin="0,0,162.333,0" Visibility="Hidden" />
         </StackPanel>
-        <Button x:Name="encrypt" Click="encrypt_Click" Content="Encrypt" HorizontalAlignment="Left" Margin="62,34,0,0" VerticalAlignment="Top" Width="105"/>
-        <Button x:Name="decrypt" Click="decrypt_Click" Content="Decrypt" HorizontalAlignment="Left" Margin="190,0,0,316.667" VerticalAlignment="Bottom" Width="103"/>
-        <Button x:Name="Choose_File" Click="Choose_File_Click"  Margin="241,89,47.333,243.667"  RenderTransformOrigin="0.5,0.5" Content="Choose File" Visibility="Hidden" />
-        <Button x:Name="Choose_Folder" Click="Choose_Folder_Click"  Margin="114,89,174.333,243.667"  RenderTransformOrigin="0.5,0.5" Content="Choose Folder" Visibility="Hidden" />
-        <Button FontSize="10" Name="MainMenu" Click="MainMenu_Click" Margin="306,10,15.333,338.667">Main Menu</Button>
-        <Button x:Name="Back" FontSize="10" Click="Back_Click"  Margin="306,39,15.333,309.667">Back</Button>
-        <Button FontSize="10" Name="Enter" Click="Enter_Click"  Margin="160,181,161.333,167.667" Visibility="Hidden">Enter</Button>
+        <Button x:Name="encrypt" Click="encrypt_Click" Content="Encrypt" HorizontalAlignment="Left" Margin="67,64,0,0" VerticalAlignment="Top" Width="105" Height="50" Grid.ColumnSpan="2"/>
+        <Button x:Name="decrypt" Click="decrypt_Click" Content="Decrypt" HorizontalAlignment="Left" Margin="94,0,0,256.667" VerticalAlignment="Bottom" Width="105" Height="50" Grid.Column="1"/>
+        <Button x:Name="Choose_File" Click="Choose_File_Click"  Margin="17,134,159.333,198.667"  RenderTransformOrigin="0.5,0.5" Content="Choose File" Grid.Column="1" Visibility="Hidden" />
+        <Button x:Name="Choose_Folder" Click="Choose_Folder_Click"  Margin="17,177,159.333,155.667"  RenderTransformOrigin="0.5,0.5" Content="Choose Folder" Grid.Column="1" Visibility="Hidden" />
+        <Button FontSize="10" Name="MainMenu" Click="MainMenu_Click" Margin="194.333,10,15.334,325.667" Grid.Column="1">Main Menu</Button>
+        <Button FontSize="10" Name="Enter" Click="Enter_Click"  Margin="32,284,177.333,48.667" Grid.Column="1" Visibility="Hidden">Enter</Button>
 
     </Grid>
 </Window>

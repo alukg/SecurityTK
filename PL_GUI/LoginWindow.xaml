@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PL_GUI"
         mc:Ignorable="d"
-        Title="LoginWindow" Height="400" Width="400">
+        Title="SecurityTK/LoginWindow" Height="400" Width="400">
     <Grid>
         <StackPanel Margin="15,20,19.333,14.667">
             <Label>Username:</Label>

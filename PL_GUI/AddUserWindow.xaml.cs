@@ -43,6 +43,10 @@ namespace PL_GUI
             Role role = theBL.convertRole(RoleBox.SelectedItem.ToString());
             String ans = theBL.addUser(UserNameBox.Text, PasswordBox.Password, role);
             MessageBox.Show(ans);
+            AddUserWindow auw = new AddUserWindow(theBL);
+            auw.Run();
+            this.Close();
+
         }
 
         private void MainMenu_Button_Click(object sender, RoutedEventArgs e)
