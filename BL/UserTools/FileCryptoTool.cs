@@ -20,7 +20,7 @@ namespace BL.UserTools
          * and a password (will be the encryption key).
          * The function creates a new encrypted file.
          */
-        public void encrypt(string filePath,string destinationPath,string password)
+        public string encrypt(string filePath,string destinationPath,string password)
         {
             try
             {
@@ -47,17 +47,15 @@ namespace BL.UserTools
                     }
                 }
             }
-            catch (Exception e)
-            {
-                if (e.Message.Contains("Padding"))
-                    Console.WriteLine("The decryption key is invalid, please enter the correct key");
-                else
-                    Console.WriteLine(e.Message);
+            catch (Exception)
+            { 
+                return "The encrytion was unsuccessful";
             }
+            return "The file was encrypted successfuly!";
 
         }
 
-        public void decrypt(string filePath, string destinationPath, string password)
+        public string decrypt(string filePath, string destinationPath, string password)
         {
             try
             {
@@ -93,10 +91,11 @@ namespace BL.UserTools
             catch(Exception e)
             {
                 if (e.Message.Contains("Padding"))
-                    Console.WriteLine("The decryption key is invalid, please enter the correct key");
+                    return "The password was incorrect";
                 else
-                    Console.WriteLine(e.Message);
+                    return "Could not decrypt the file";
             }
+            return "The file was dencrypted successfuly!";
         }
         /*
          * The function recieves a byte array and password. if the password size is not
