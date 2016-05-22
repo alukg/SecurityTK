@@ -115,7 +115,8 @@ namespace PL_GUI
             openFileDialog1.Filter = "Text Files (.txt)|*.txt|All Files (*.*)|*.*";
             openFileDialog1.FilterIndex = 1;
             openFileDialog1.Multiselect = true; //??
-            openFileDialog1.
+            DialogResult result = openFileDialog1.ShowDialog();
+            path = openFileDialog1.
         }
     }
 }
