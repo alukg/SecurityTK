@@ -38,12 +38,10 @@ C:\Users\Barak\Documents\securityTK\GUI Launcher\bin\Debug\BL.dll
 C:\Users\Barak\Documents\securityTK\GUI Launcher\bin\Debug\DAL.dll
 C:\Users\Barak\Documents\securityTK\GUI Launcher\bin\Debug\PL_GUI.dll
 C:\Users\Barak\Documents\securityTK\GUI Launcher\bin\Debug\SharedClasses.dll
-C:\Users\Barak\Documents\securityTK\GUI Launcher\bin\Debug\nunit.framework.dll
 C:\Users\Barak\Documents\securityTK\GUI Launcher\bin\Debug\BL.pdb
 C:\Users\Barak\Documents\securityTK\GUI Launcher\bin\Debug\DAL.pdb
 C:\Users\Barak\Documents\securityTK\GUI Launcher\bin\Debug\PL_GUI.pdb
 C:\Users\Barak\Documents\securityTK\GUI Launcher\bin\Debug\SharedClasses.pdb
-C:\Users\Barak\Documents\securityTK\GUI Launcher\bin\Debug\nunit.framework.xml
 C:\Users\Barak\Documents\securityTK\GUI Launcher\obj\Debug\GUI Launcher.csprojResolveAssemblyReference.cache
 C:\Users\Keren\Documents\SecurityTK\GUI Launcher\bin\Debug\SecurityTK_DB.mdf
 C:\Users\Keren\Documents\SecurityTK\GUI Launcher\bin\Debug\GUI Launcher.exe.config

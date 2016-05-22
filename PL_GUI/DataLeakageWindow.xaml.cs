@@ -35,52 +35,75 @@ namespace PL_GUI
             this.Show();
         }
 
+        //after clicking the "open file" vutton
         private void Open_File_Left_Button_Click(object sender, RoutedEventArgs e)
         {
-            FolderBrowserDialog fbd = new FolderBrowserDialog();
-            DialogResult result = fbd.ShowDialog();
-            urlAdress = fbd.SelectedPath;
-            DataLeakageTool dlt = new DataLeakageTool();
-            SortedDictionary<double, FileInfo> dictionary = dlt.checkSensitivity(urlAdress);
-            foreach (var item in dictionary.Reverse())
-            {
-                double temp;
-                if (item.Key <= 0) temp = 0;
-                else temp = item.Key;
-                DataFile currVar = new DataFile()
+            try {
+                FolderBrowserDialog fbd = new FolderBrowserDialog();
+                DialogResult result = fbd.ShowDialog();
+                urlAdress = fbd.SelectedPath;
+                DataLeakageTool dlt = new DataLeakageTool();
+                SortedDictionary<double, FileInfo> dictionary = null;
+                try {
+                    dictionary = dlt.checkSensitivity(urlAdress);
+                    Open_File_Left_Button_Click(sender, e);
+                }
+                catch (Exception exc)
                 {
-                    fi = item.Value,
-                    name = item.Value.Name,
-                    score = temp,
-                    text = "",
-                    url = urlAdress
+                    System.Windows.MessageBox.Show(exc.Message);
 
+                }
+                foreach (var item in dictionary.Reverse())
+                {
+                    double temp;
+                    if (item.Key <= 0) temp = 0;
+                    else temp = item.Key;
+                    DataFile currVar = new DataFile()
+                    {
+                        name = item.Value.Name,
+                        score = temp,
+                        text = "",
+                        url = urlAdress
+
+                    };
+                    files.Add(currVar);
                 };
-                files.Add(currVar); 
-            };
-            dlt = null;
-            this.Files_List.ItemsSource = files;
+                dlt = null;
+                this.Files_List.ItemsSource = files;
+            }
+            catch (Exception exc){
+                System.Windows.MessageBox.Show("Error, please start-over");
+                this.Run();
+            }
         }
 
         private void Back_To_Main_Menu_Left_Button_Click(object sender, RoutedEventArgs e)
         {
             MainMenu mm = new MainMenu(theBL);
             mm.Run();
-            mm.Close();
+            this.Close();
         }
 
+        //after clicking twice on a txt file from the list
         private void Row_DoubleClick(object sender, MouseButtonEventArgs e)
         {
-            String theFile;
-            DataFile currDF = (DataFile)Files_List.SelectedItem;
-            theFile = System.IO.File.ReadAllText(@currDF.url + "\\" + currDF.name);
-            Text_TextBlock.Text = theFile;
+            try
+            {
+                String theFile;
+                DataFile currDF = (DataFile)Files_List.SelectedItem;
+                theFile = System.IO.File.ReadAllText(@currDF.url + "\\" + currDF.name);
+                Text_TextBlock.Text = theFile;
+            }
+            catch (Exception exc){
+                System.Windows.MessageBox.Show("Error, please start-over");
+                this.Run();
+            }
         }
     }
 
+    //a data stracture to save information about each .txt file
     public class DataFile
     {
-        public FileInfo fi { get; set; }
         public String name { get; set; }
         public double score { get; set; }
         public String text { get; set; }

@@ -12,14 +12,14 @@
         </Style>
     </Window.Resources>
     <Grid>
-        <Button x:Name="Open_File"  Margin="10,37,308.2,310.8" Click="Open_File_Left_Button_Click"  RenderTransformOrigin="0.5,0.5" Content="Open File" />
-        <Button x:Name="Back_To_Main_Menu"  Margin="10,10,308.2,340.8" Click="Back_To_Main_Menu_Left_Button_Click"  RenderTransformOrigin="0.5,0.5" Content="Main Menu" />
+        <Button x:Name="Open_File"  Margin="10,62,308.2,275.8" Click="Open_File_Left_Button_Click"  RenderTransformOrigin="0.5,0.5" Content="Open File" />
+        <Button x:Name="Back_To_Main_Menu"  Margin="10,10,308.2,325.8" Click="Back_To_Main_Menu_Left_Button_Click"  RenderTransformOrigin="0.5,0.5" Content="Main Menu" />
         <Grid Margin="0,0,0.2,9.8">
             <ListView Margin="141,10,10,0" Name="Text_Block" RenderTransformOrigin="0.5,0.5">
                 <TextBlock Name="Text_TextBlock" FontSize="20" Text=""></TextBlock>
                 <ListView.View>
                     <GridView>
-                        <GridViewColumn Header="Text" Width="55"/>
+                        <GridViewColumn Header="Text" Width="300"/>
                     </GridView>
                 </ListView.View>
             </ListView>
@@ -29,7 +29,7 @@
                     <GridView>
                         <GridViewColumn Header="Name" Width="55" DisplayMemberBinding="{Binding name}">
                         </GridViewColumn>
-                        <GridViewColumn Header="Score" Width="45" DisplayMemberBinding="{Binding score}" />
+                        <GridViewColumn Header="Score" Width="100" DisplayMemberBinding="{Binding score}" />
                     </GridView>
                 </ListView.View>
                 <ListView.ItemContainerStyle>

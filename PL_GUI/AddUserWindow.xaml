@@ -16,6 +16,7 @@
                 <ComboBoxItem x:Name="Manager" Content="Manager"/>
                 <ComboBoxItem x:Name="Administrator" Visibility="Hidden" Content="Administrator"/>
             </ComboBox>
+
             <Label x:Name="Password" Content="Password:" Height="38"/>
             <PasswordBox x:Name="PasswordBox" MaxLength="8" Margin="244,0,12,0" Height="27" RenderTransformOrigin="0.5,0.5" Visibility="Hidden">
                 <PasswordBox.RenderTransform>
@@ -32,5 +33,6 @@
         <Button x:Name="MainMenu" FontSize="10" Click="MainMenu_Button_Click"  Margin="314,10,10.333,330.667">Main Menu</Button>
         <Button x:Name="Random" FontSize="10" Click="Random_Click"  Margin="15,185,236.333,149.667">Add With Random Password</Button>
         <Button x:Name="YourOwn" FontSize="10" Click="YourOwn_Click"  Margin="178,185,143.333,149.667">Your Own</Button>
+
     </Grid>
 </Window>

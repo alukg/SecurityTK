@@ -72,8 +72,7 @@ namespace BL.UserTools
             }
             catch (Exception e)
             {
-                Console.WriteLine(e.Message);
-                return calculatedScore;
+                throw new Exception(e.Message);
             }               
         }
 
