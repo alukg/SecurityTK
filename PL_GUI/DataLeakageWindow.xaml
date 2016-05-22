@@ -43,7 +43,7 @@
                 </ListView.View>
                 <ListView.ItemContainerStyle>
                     <Style TargetType="ListViewItem">
-                        <EventSetter Event ="PreviewMouseLeftButtonDown"  Handler="Files_List_Click"></EventSetter>
+                        <EventSetter Event="MouseDoubleClick" Handler="Row_DoubleClick"></EventSetter>
                     </Style>
                 </ListView.ItemContainerStyle>
             </ListView>

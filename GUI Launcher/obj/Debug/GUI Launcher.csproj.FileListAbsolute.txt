@@ -46,8 +46,8 @@ C:\Users\Barak\Documents\securityTK\GUI Launcher\bin\Debug\SharedClasses.pdb
 C:\Users\Barak\Documents\securityTK\GUI Launcher\bin\Debug\nunit.framework.xml
 C:\Users\Barak\Documents\securityTK\GUI Launcher\obj\Debug\GUI Launcher.csprojResolveAssemblyReference.cache
 C:\Users\Keren\Documents\SecurityTK\GUI Launcher\bin\Debug\SecurityTK_DB.mdf
-C:\Users\Keren\Documents\SecurityTK\GUI Launcher\bin\Debug\SecurityTK_DB_log.ldf
 C:\Users\Keren\Documents\SecurityTK\GUI Launcher\bin\Debug\GUI Launcher.exe.config
+C:\Users\Keren\Documents\SecurityTK\GUI Launcher\bin\Debug\SecurityTK_DB_log.ldf
 C:\Users\Keren\Documents\SecurityTK\GUI Launcher\bin\Debug\GUI Launcher.exe
 C:\Users\Keren\Documents\SecurityTK\GUI Launcher\bin\Debug\GUI Launcher.pdb
 C:\Users\Keren\Documents\SecurityTK\GUI Launcher\bin\Debug\BL.dll

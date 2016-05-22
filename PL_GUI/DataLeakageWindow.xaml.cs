@@ -74,6 +74,7 @@ namespace PL_GUI
                 files.Add(currVar);
                 //Sensitivity_Text.Text = Sensitivity_Text.Text + item.Value.Name + "," + item.Key;
             };
+            dlt = null;
                this.Files_List.ItemsSource = files;
            // LogBox.ItemsSource = files;
 
@@ -114,6 +115,7 @@ namespace PL_GUI
 
         private void Files_List_Click(object sender, MouseButtonEventArgs e)
         {
+                //< EventSetter Event = "PreviewMouseLeftButtonDown"  Handler = "Files_List_Click" ></ EventSetter >
             var item = sender as System.Windows.Controls.ListViewItem;
             if(item != null && item.IsSelected)
             {
@@ -129,16 +131,20 @@ namespace PL_GUI
             }
         }
 
-        /*        private void Row_DoubleClick(object sender, MouseButtonEventArgs e)
+                private void Row_DoubleClick(object sender, MouseButtonEventArgs e)
                 {
-                    DataGridRow row = sender as DataGridRow;
-                    DataFile selected = (DataFile)row.DataContext;
-                    String s = System.IO.File.ReadAllText(@	File + "\\" + selected.file);
-                    fileshow.Text = s;
+                    String theFile;
+                    //DataGridRow row = sender as DataGridRow;
+                    DataFile currDF = (DataFile)Files_List.SelectedItem;
+                    //String s = System.IO.File.ReadAllText(@currDF.url + "\\" + currDF.name);
+                    StreamReader reader = currDF.fi.OpenText();
+                    using (reader)
+                    {
+                        theFile = reader.ReadToEnd();
+                        //theList.Add(reader.ReadLine());
+                    }
+                     Text_TextBlock.Text = theFile;
                 }
-
-                לבדוק גם לגבי הפונקציה במסך עצמו
-                */
     }
 
     public class DataFile
