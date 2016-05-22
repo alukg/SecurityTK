@@ -60,11 +60,6 @@ namespace PL_GUI
             PasswordBox.Visibility = Visibility.Visible;
             EnterYourOwn.Visibility = Visibility.Visible;
             if (choose == 1)
-            
-       //       newPass = theBL.changePass(theBL.getUser().userName, PasswordBox.Password);
-     //         MessageBox.Show(newPass);
-        //      MainMenu_Button_Click(sender, e);
-            
             {
                 UserName.Visibility = Visibility.Visible;
                 UserNameBox.Visibility = Visibility.Visible;

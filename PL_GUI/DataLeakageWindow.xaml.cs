@@ -7,7 +7,10 @@ using System.IO;
 using BL;
 using BL.UserTools;
 using System.Windows.Forms;
-
+using System.Collections.ObjectModel;
+using System.Windows.Data;
+using System.Windows.Controls;
+using System.Windows.Input;
 
 namespace PL_GUI
 {
@@ -18,15 +21,15 @@ namespace PL_GUI
     {
         IBL theBL;
         string urlAdress;
-        List<DataFile> files;
-
+        //    List<DataFile> files;
+        ObservableCollection<DataFile> files;
         public DataLeakageWindow(IBL theBL)
         {
             this.theBL = theBL;
             InitializeComponent();
-            files = new List<DataFile>();
-            Files_List.ItemsSource = files;
-            //CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(files);
+            files = new ObservableCollection<DataFile>();
+
+            CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(files);
 
         }
 
@@ -61,6 +64,7 @@ namespace PL_GUI
             {
                 DataFile currVar = new DataFile()
                 {
+                    fi = item.Value,
                     name = item.Value.Name,
                     score = item.Key,
                     text = "",
@@ -70,6 +74,10 @@ namespace PL_GUI
                 files.Add(currVar);
                 //Sensitivity_Text.Text = Sensitivity_Text.Text + item.Value.Name + "," + item.Key;
             };
+               this.Files_List.ItemsSource = files;
+           // LogBox.ItemsSource = files;
+
+
 
         }
 
@@ -82,31 +90,60 @@ namespace PL_GUI
 
         private void LoadText_Left_Click_Button(object sender, RoutedEventArgs e)
         {
-            List<String> theList = new List<String>();
-            DataFile currDF =  (DataFile)Files_List.SelectedItem; 
-            using (StreamReader reader = new StreamReader(currDF.url))
-            {
-
-                theList.Add(reader.ReadLine());
+            String theFile;
+            //DataGridRow row = sender as DataGridRow;
+            // List<String> theList = new List<String>();
+            // DataFile currDF = (DataFile)LogBox.SelectedItem;
+            DataFile currDF =  (DataFile)Files_List.SelectedItem;
+            //DataFile currDF = (DataFile)row.DataContext;
+            // System.Windows.MessageBox.Show(currDF.url);
+            //String theFile = System.IO.File.ReadAllText(@currDF.url + "\\" + currDF.name);
+            //FileInfo fl = new FileInfo(currDF.url + "\\" + currDF.name);
+            //StreamReader reader = new StreamReader(@currDF.url + "\\" + currDF.name);
+            //if (currDF.url + "\\" + currDF.name
+            StreamReader reader = currDF.fi.OpenText();
+             using (reader)
+             {
+                theFile = reader.ReadToEnd();
+                //theList.Add(reader.ReadLine());
             }
-            Text_Block.ItemsSource = theList; //לפתוח URL של קובץ נתון
-                                        //DataContext? מקבל ליסט
+            // Text_Block.ItemsSource = theList; //לפתוח URL של קובץ נתון
+            //DataContext? מקבל ליסט
+            Text_TextBlock.Text = theFile;
         }
 
-/*        private void Row_DoubleClick(object sender, MouseButtonEventArgs e)
+        private void Files_List_Click(object sender, MouseButtonEventArgs e)
         {
-            DataGridRow row = sender as DataGridRow;
-            DataFile selected = (DataFile)row.DataContext;
-            String s = System.IO.File.ReadAllText(@	File + "\\" + selected.file);
-            fileshow.Text = s;
+            var item = sender as System.Windows.Controls.ListViewItem;
+            if(item != null && item.IsSelected)
+            {
+                String theFile;
+                DataFile currDF = (DataFile)Files_List.SelectedItem;
+                StreamReader reader = currDF.fi.OpenText();
+                using (reader)
+                {
+                    theFile = reader.ReadToEnd();
+                    //theList.Add(reader.ReadLine());
+                }
+                Text_TextBlock.Text = theFile;
+            }
         }
-        
-        לבדוק גם לגבי הפונקציה במסך עצמו
-        */
+
+        /*        private void Row_DoubleClick(object sender, MouseButtonEventArgs e)
+                {
+                    DataGridRow row = sender as DataGridRow;
+                    DataFile selected = (DataFile)row.DataContext;
+                    String s = System.IO.File.ReadAllText(@	File + "\\" + selected.file);
+                    fileshow.Text = s;
+                }
+
+                לבדוק גם לגבי הפונקציה במסך עצמו
+                */
     }
 
     public class DataFile
     {
+        public FileInfo fi { get; set; }
         public String name { get; set; }
         public double score { get; set; }
         public String text { get; set; }
