@@ -39,7 +39,7 @@ namespace BL.UserTools
 
                 if (fileNames.Length == 0)
                     throw new IOException("There are no text files in the folder");
-                
+
                 //Going over all the file names in the folder
                 for (int i = 0; i < fileNames.Length; i++)
                 {
@@ -64,8 +64,9 @@ namespace BL.UserTools
                     }
                     sr.Close();
                     stream.Close();
+                    mappedFile.Dispose();
                 }
-                
+
                 return calculatedScore;
 
             }
