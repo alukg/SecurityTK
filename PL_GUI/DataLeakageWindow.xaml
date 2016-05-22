@@ -23,14 +23,6 @@
                         <GridViewColumn Header="Text" Width="55"/>
                     </GridView>
                 </ListView.View>
-                <ListView.GroupStyle>
-                    <GroupStyle>
-                        <GroupStyle.HeaderTemplate>
-                            <DataTemplate>
-                            </DataTemplate>
-                        </GroupStyle.HeaderTemplate>
-                    </GroupStyle>
-                </ListView.GroupStyle>
             </ListView>
 
             <ListView Margin="10,114,0,-0.133" Name="Files_List" ItemsSource="{Binding files}" HorizontalAlignment="Left" Width="108">

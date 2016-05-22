@@ -23,7 +23,6 @@ namespace PL_GUI
         string urlAdress;
         //    List<DataFile> files;
         ObservableCollection<DataFile> files;
-        FileInfo fi1;
 
         public DataLeakageWindow(IBL theBL)
         {
@@ -31,7 +30,7 @@ namespace PL_GUI
             InitializeComponent();
             files = new ObservableCollection<DataFile>();
 
-            CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(files);
+            //CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(files);
 
         }
 
@@ -115,44 +114,42 @@ namespace PL_GUI
             Text_TextBlock.Text = theFile;
         }
 
-        private void Files_List_Click(object sender, MouseButtonEventArgs e)
-        {
-                //< EventSetter Event = "PreviewMouseLeftButtonDown"  Handler = "Files_List_Click" ></ EventSetter >
-            var item = sender as System.Windows.Controls.ListViewItem;
-            if(item != null && item.IsSelected)
-            {
-                String theFile;
-                DataFile currDF = (DataFile)Files_List.SelectedItem;
-                StreamReader reader = currDF.fi.OpenText();
-                using (reader)
+        /*        private void Files_List_Click(object sender, MouseButtonEventArgs e)
                 {
-                    theFile = reader.ReadToEnd();
-                    //theList.Add(reader.ReadLine());
-                }
-                Text_TextBlock.Text = theFile;
-            }
-        }
-
-                private void Row_DoubleClick(object sender, MouseButtonEventArgs e)
-                {
-
-                 String theFile;
-            System.Windows.Controls.ListViewItem row = sender as System.Windows.Controls.ListViewItem;
-            //   DataFile currDF = (DataFile)Files_List.SelectedItem;
-            DataFile currDF = (DataFile) row.DataContext;
-                    theFile = System.IO.File.ReadAllText(@currDF.url + "\\" + currDF.name);
-            //FileStream file = new FileStream(currDF.name, FileMode.Open, FileAccess.Read);
-            //  Stream stream = currDF.fi.OpenRead();
-            //   Stream stream = currDF.url.OpenText();
-            /*StreamReader reader = currDF.fi.OpenText();
-                    using (reader)
+                        //< EventSetter Event = "PreviewMouseLeftButtonDown"  Handler = "Files_List_Click" ></ EventSetter >
+                    var item = sender as System.Windows.Controls.ListViewItem;
+                    if(item != null && item.IsSelected)
                     {
-                        theFile = reader.ReadToEnd();
-                        //theList.Add(reader.ReadLine());
-                    }*/
-                    
-                     Text_TextBlock.Text = theFile;
-                }
+                        String theFile;
+                        DataFile currDF = (DataFile)Files_List.SelectedItem;
+                        StreamReader reader = currDF.fi.OpenText();
+                        using (reader)
+                        {
+                            theFile = reader.ReadToEnd();
+
+                        }
+                        Text_TextBlock.Text = theFile;
+                    }
+                }*/
+
+                        private void Row_DoubleClick(object sender, MouseButtonEventArgs e)
+                        {
+            LoadText_Left_Click_Button(sender, e);
+            /*
+                         String theFile;
+                    System.Windows.Controls.ListViewItem row = sender as System.Windows.Controls.ListViewItem;
+                    //DataFile currDF = (DataFile)Files_List.SelectedItem;
+                    DataFile currDF = (DataFile) row.DataContext;
+                    theFile = System.IO.File.ReadAllText(@currDF.url + "\\" + currDF.name);
+                    /*StreamReader reader = currDF.fi.OpenText();
+                            using (reader)
+                            {
+                                theFile = reader.ReadToEnd();
+                                //theList.Add(reader.ReadLine());
+                            }
+
+                             Text_TextBlock.Text = theFile;*/
+                        }
     }
 
     public class DataFile
