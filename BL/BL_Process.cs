@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using DAL;
 using SharedClasses;
+using BL.UserTools;
 
 namespace BL
 {
@@ -13,6 +14,8 @@ namespace BL
     public class BL_Process : IBL
     {
         private IDAL itsDAL;
+        internal FileCryptoTool fileCryptoTool;
+        internal DataLeakageTool dataLeakageTool;
         internal User currUser;
 
         /// <summary>
@@ -23,6 +26,8 @@ namespace BL
         {
             this.itsDAL = itsDAL;
             currUser = null;
+            fileCryptoTool = new FileCryptoTool();
+            dataLeakageTool = new DataLeakageTool();
         }
 
         /// <summary>

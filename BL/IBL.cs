@@ -18,8 +18,6 @@ namespace BL
         string changePass(string userName);
         string changePass(string userName, string pass);
         List<string> readLog();
-        
-        // data-leakage tool function
     }
 
 }
