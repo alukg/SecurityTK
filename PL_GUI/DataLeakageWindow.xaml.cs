@@ -23,6 +23,8 @@ namespace PL_GUI
         string urlAdress;
         //    List<DataFile> files;
         ObservableCollection<DataFile> files;
+        FileInfo fi1;
+
         public DataLeakageWindow(IBL theBL)
         {
             this.theBL = theBL;
@@ -71,7 +73,7 @@ namespace PL_GUI
                     url = urlAdress
 
                 };
-                files.Add(currVar);
+                files.Add(currVar); 
                 //Sensitivity_Text.Text = Sensitivity_Text.Text + item.Value.Name + "," + item.Key;
             };
             dlt = null;
@@ -133,16 +135,22 @@ namespace PL_GUI
 
                 private void Row_DoubleClick(object sender, MouseButtonEventArgs e)
                 {
-                    String theFile;
-                    //DataGridRow row = sender as DataGridRow;
-                    DataFile currDF = (DataFile)Files_List.SelectedItem;
-                    //String s = System.IO.File.ReadAllText(@currDF.url + "\\" + currDF.name);
-                    StreamReader reader = currDF.fi.OpenText();
+
+                 String theFile;
+            System.Windows.Controls.ListViewItem row = sender as System.Windows.Controls.ListViewItem;
+            //   DataFile currDF = (DataFile)Files_List.SelectedItem;
+            DataFile currDF = (DataFile) row.DataContext;
+                    theFile = System.IO.File.ReadAllText(@currDF.url + "\\" + currDF.name);
+            //FileStream file = new FileStream(currDF.name, FileMode.Open, FileAccess.Read);
+            //  Stream stream = currDF.fi.OpenRead();
+            //   Stream stream = currDF.url.OpenText();
+            /*StreamReader reader = currDF.fi.OpenText();
                     using (reader)
                     {
                         theFile = reader.ReadToEnd();
                         //theList.Add(reader.ReadLine());
-                    }
+                    }*/
+                    
                      Text_TextBlock.Text = theFile;
                 }
     }

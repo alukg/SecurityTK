@@ -62,7 +62,10 @@ namespace BL.UserTools
                     {
                         calculatedScore.Add(score, file); // adding to our sorted dictionary the score of the file
                     }
+                    sr.Close();
+                    stream.Close();
                 }
+                
                 return calculatedScore;
 
             }
