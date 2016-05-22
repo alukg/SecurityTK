@@ -46,11 +46,11 @@ namespace PL_GUI
                 SortedDictionary<double, FileInfo> dictionary = null;
                 try {
                     dictionary = dlt.checkSensitivity(urlAdress);
-                    Open_File_Left_Button_Click(sender, e);
                 }
                 catch (Exception exc)
                 {
                     System.Windows.MessageBox.Show(exc.Message);
+                    Open_File_Left_Button_Click(sender, e);
 
                 }
                 foreach (var item in dictionary.Reverse())

@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="ChangeRoleWindow" Height="400" Width="400">
     <Grid>
-        <StackPanel Margin="15">
+        <StackPanel Margin="10,73,20.333,-43.333">
             <Label x:Name="Username">Username:</Label>
             <TextBox x:Name="UsernameBox" Margin="0,0,205.333,0" />
             <Label x:Name="role">New role:</Label>
@@ -17,8 +17,8 @@
                 <ComboBoxItem x:Name="Administrator" Visibility="Hidden" Content="Administrator"/>
             </ComboBox>
         </StackPanel>
-        <Button x:Name="MainMenu" FontSize="10" Click="MainMenu_Click"  Margin="314,10,10.333,338.667">Main Menu</Button>
-        <Button x:Name="Change" FontSize="14" Click="Change_Click"  Margin="180,133,128.333,208.667">Change</Button>
-        <Button x:Name="Back" FontSize="10" Click="Back_Click"  Margin="314,51,10.333,297.667">Back</Button>
+        <Button x:Name="MainMenu" FontSize="10" Click="MainMenu_Click"  Margin="314,10,10.333,329.667">Main Menu</Button>
+        <Button x:Name="Change" FontSize="14" Click="Change_Click"  Margin="151,192,157.333,149.667">Change</Button>
+        <Button x:Name="Back" FontSize="10" Click="Back_Click"  Margin="10,10,314.333,329.667">Back</Button>
     </Grid>
 </Window>

@@ -16,7 +16,7 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <Button x:Name="MainMenu" FontSize="10" Click="MainMenu_Click"  Margin="306,0,15.333,338.667" Height="22" VerticalAlignment="Bottom">Main Menu</Button>
-        <Button x:Name="Back" FontSize="10" Click="Back_Click"  Margin="306,37,15.333,311.667">Back</Button>
+        <Button x:Name="MainMenu" FontSize="10" Click="MainMenu_Click"  Margin="306,0,15.333,329.667" Height="31" VerticalAlignment="Bottom">Main Menu</Button>
+        <Button x:Name="Back" FontSize="10" Click="Back_Click"  Margin="10,10,311.333,329.667">Back</Button>
     </Grid>
 </Window>

@@ -43,7 +43,7 @@ namespace PL_GUI
             {
                 newPass = theBL.changePass(theBL.getUser().userName);
                 MessageBox.Show(newPass);
-                MainMenu_Button_Click(sender, e);
+                
             }
             else
             {
@@ -77,7 +77,7 @@ namespace PL_GUI
         {
             String newPass = theBL.changePass(UserNameBox.Text);
             MessageBox.Show(newPass);
-            MainMenu_Button_Click(sender, e);
+            
         }
 
         private void EnterYourOwn_Click(object sender, RoutedEventArgs e)
@@ -92,7 +92,7 @@ namespace PL_GUI
                 newPass = theBL.changePass(UserNameBox.Text, PasswordBox.Password);
             }
             MessageBox.Show(newPass);
-            MainMenu_Button_Click(sender, e);
+            
         }
 
         private void Back_Click(object sender, RoutedEventArgs e)

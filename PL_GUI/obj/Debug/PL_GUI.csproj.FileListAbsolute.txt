@@ -116,3 +116,5 @@ C:\Users\Keren\Documents\SecurityTK\PL_GUI\obj\Debug\PL_GUI.dll
 C:\Users\Keren\Documents\SecurityTK\PL_GUI\obj\Debug\PL_GUI.pdb
 C:\Users\Barak\Documents\SecurityTK\PL_GUI\bin\Debug\SecurityTK_DB.mdf
 C:\Users\Barak\Documents\SecurityTK\PL_GUI\bin\Debug\SecurityTK_DB_log.ldf
+C:\Users\Keren\Documents\SecurityTK\PL_GUI\bin\Debug\nunit.framework.dll
+C:\Users\Keren\Documents\SecurityTK\PL_GUI\bin\Debug\nunit.framework.xml
