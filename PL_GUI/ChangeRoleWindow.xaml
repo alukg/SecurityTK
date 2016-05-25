@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PL_GUI"
         mc:Ignorable="d"
-        Title="ChangeRoleWindow" Height="400" Width="400">
+        Title="SecurityTK/ChangeRole" Height="400" Width="400">
     <Grid>
         <StackPanel Margin="10,73,20.333,-43.333">
             <Label x:Name="Username">Username:</Label>

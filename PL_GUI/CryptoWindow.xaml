@@ -16,7 +16,7 @@
             <PasswordBox Name="Password" Margin="0,0,162.333,0" Visibility="Hidden" />
         </StackPanel>
         <Button x:Name="encrypt" Click="encrypt_Click" Content="Encrypt" HorizontalAlignment="Left" Margin="67,64,0,0" VerticalAlignment="Top" Width="105" Height="50" Grid.ColumnSpan="2"/>
-        <Button x:Name="decrypt" Click="decrypt_Click" Content="Decrypt" HorizontalAlignment="Left" Margin="94,0,0,256.667" VerticalAlignment="Bottom" Width="105" Height="50" Grid.Column="1"/>
+        <Button x:Name="decrypt" Click="decrypt_Click" Content="Decrypt" HorizontalAlignment="Left" Margin="95,0,0,247.667" VerticalAlignment="Bottom" Width="105" Height="50" Grid.Column="1"/>
         <Button x:Name="Choose_File" Click="Choose_File_Click"  Margin="17,134,159.333,198.667"  RenderTransformOrigin="0.5,0.5" Content="Choose File" Grid.Column="1" Visibility="Hidden" />
         <Button x:Name="Choose_Folder" Click="Choose_Folder_Click"  Margin="17,177,159.333,155.667"  RenderTransformOrigin="0.5,0.5" Content="Choose Folder" Grid.Column="1" Visibility="Hidden" />
         <Button FontSize="10" Name="MainMenu" Click="MainMenu_Click" Margin="194.333,10,15.334,325.667" Grid.Column="1">Main Menu</Button>

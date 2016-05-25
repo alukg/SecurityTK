@@ -50,6 +50,9 @@ namespace PL_GUI
                 UserName.Visibility = Visibility.Visible;
                 UserNameBox.Visibility = Visibility.Visible;
                 EnterRandom.Visibility = Visibility.Visible;
+                EnterYourOwn.Visibility = Visibility.Hidden;
+                New_Password.Visibility = Visibility.Hidden;
+                PasswordBox.Visibility = Visibility.Hidden;
             }
         }
 

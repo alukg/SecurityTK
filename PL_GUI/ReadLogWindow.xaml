@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PL_GUI"
         mc:Ignorable="d"
-        Title="ReadLogWindow" Height="400" Width="400">
+        Title="SecurityTK/ReadLog" Height="400" Width="400">
     <Grid>
         <ListBox Margin="20,62,20,20" Name="LogBox">
             <ListBox.ItemTemplate>
