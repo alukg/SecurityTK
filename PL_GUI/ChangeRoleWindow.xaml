@@ -5,20 +5,50 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PL_GUI"
         mc:Ignorable="d"
-        Title="SecurityTK/ChangeRole" Height="400" Width="400">
+        Title="SecurityTK/ChangeRole" Height="600" Width="600">
     <Grid>
-        <StackPanel Margin="10,73,20.333,-43.333">
-            <Label x:Name="Username">Username:</Label>
-            <TextBox x:Name="UsernameBox" Margin="0,0,205.333,0" />
-            <Label x:Name="role">New role:</Label>
-            <ComboBox x:Name="RoleBox" Margin="0,0,205.333,0">
+        <Grid.Background>
+            <ImageBrush ImageSource="Image/background.png"/>
+        </Grid.Background>
+        <StackPanel Margin="180,124,73.333,266.667">
+            <Label x:Name="Username" FontSize="24" FontFamily="Broadway" Foreground="White" Height="52">Username:</Label>
+            <TextBox x:Name="UsernameBox" Margin="0,0,129,0" Height="30" />
+            <Label x:Name="role" FontSize="24" Foreground="White" FontFamily="Broadway" Height="50">New role:</Label>
+            <ComboBox x:Name="RoleBox" Margin="0,0,129,0" Height="30">
+                <ComboBox.Background>
+                    <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                        <GradientStop Color="#FFF0F0F0" Offset="0.029"/>
+                        <GradientStop Color="#FFE5E5E5" Offset="1"/>
+                    </LinearGradientBrush>
+                </ComboBox.Background>
+                <ComboBox.BorderBrush>
+                    <SolidColorBrush Color="#FFACACAC" Opacity="0"/>
+                </ComboBox.BorderBrush>
                 <ComboBoxItem x:Name="Employee" IsSelected="True" Content="Employee"/>
                 <ComboBoxItem x:Name="Manager" Content="Manager"/>
                 <ComboBoxItem x:Name="Administrator" Visibility="Hidden" Content="Administrator"/>
             </ComboBox>
         </StackPanel>
-        <Button x:Name="MainMenu" FontSize="10" Click="MainMenu_Click"  Margin="314,10,10.333,329.667">Main Menu</Button>
-        <Button x:Name="Change" FontSize="14" Click="Change_Click"  Margin="151,192,157.333,149.667">Change</Button>
-        <Button x:Name="Back" FontSize="10" Click="Back_Click"  Margin="10,10,314.333,329.667">Back</Button>
+        <Button x:Name="MainMenu" FontSize="16" Click="MainMenu_Click"  Margin="489,0,0.333,517.667" Foreground="White" FontFamily="Broadway">
+            <Button.BorderBrush>
+                <SolidColorBrush Color="#FF707070" Opacity="0"/>
+            </Button.BorderBrush>
+            <Button.Background>
+                <SolidColorBrush Color="#FFDDDDDD" Opacity="0"/>
+            </Button.Background> Main Menu</Button>
+        <Button x:Name="Change" FontSize="36" Click="Change_Click"  Margin="180,309,201.333,182.667" Foreground="White" FontFamily="Broadway">
+            <Button.BorderBrush>
+                <SolidColorBrush Color="#FF707070" Opacity="0"/>
+            </Button.BorderBrush>
+            <Button.Background>
+                <SolidColorBrush Color="#FFDDDDDD" Opacity="0"/>
+            </Button.Background> Change</Button>
+        <Button x:Name="Back" FontSize="16" Click="Back_Click"  Margin="0,0,481.333,517.667" Foreground="White" FontFamily="Broadway">
+            <Button.BorderBrush>
+                <SolidColorBrush Color="#FF707070" Opacity="0"/>
+            </Button.BorderBrush>
+            <Button.Background>
+                <SolidColorBrush Color="#FFDDDDDD" Opacity="0"/>
+            </Button.Background> Back</Button>
     </Grid>
 </Window>

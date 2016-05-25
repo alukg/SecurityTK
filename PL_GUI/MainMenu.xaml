@@ -5,11 +5,41 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PL_GUI"
         mc:Ignorable="d"
-        Title="SecurityTK/MainMenu" Height="400" Width="400" Background="#FFE5E2D0">
+        Title="SecurityTK/MainMenu" Height="600" Width="600">
+    <Window.Background>
+        <ImageBrush ImageSource="Image/background.png"/>
+    </Window.Background>
+
+
     <Grid>
-        <Label Background="White" HorizontalAlignment="Left" Margin="0,0,0,-0.333" Width="393">Please choose an action to proceed</Label>
-        <Button x:Name="Data_Leakage" FontSize="20" Click="Data_Leakage_Left_Button_Click" Margin="112,144,108.333,138.667" Content="Data-Leakage" Background="#FFDDDDDD"/>
-        <Button x:Name="User_Management" FontSize="20" Click="User_Management_Left_Button_Click" Margin="112,34,108.333,248.667" Content="User Management" Background="#FFDDDDDD"/>
-        <Button x:Name="File_Crypto" FontSize="20" Click="File_Crypto_Left_Button_Click" Margin="112,256,108.333,26.667" Content="File Crypto" Background="#FFDDDDDD"/>
+        <Label HorizontalAlignment="Left" Margin="0,10,0,511.667" Width="331" Foreground="White" FontFamily="Broadway" FontSize="16">
+            <Label.Background>
+                <SolidColorBrush Color="White" Opacity="0"/>
+            </Label.Background> Please choose an action to proceed
+        </Label>
+        <Button x:Name="Data_Leakage" FontSize="36" Click="Data_Leakage_Left_Button_Click" Margin="112,397,108.333,79.667" Content="Data-Leakage" FontFamily="Broadway" Foreground="White">
+            <Button.Background>
+                <SolidColorBrush Color="#FFDDDDDD" Opacity="0"/>
+            </Button.Background>
+            <Button.BorderBrush>
+                <SolidColorBrush Color="#FF707070" Opacity="0"/>
+            </Button.BorderBrush>
+        </Button>
+        <Button x:Name="User_Management" FontSize="36" Click="User_Management_Left_Button_Click" Margin="112,110,108.333,366.667" Content="User Management" FontFamily="Broadway" Foreground="White">
+            <Button.BorderBrush>
+                <SolidColorBrush Color="#FF707070" Opacity="0"/>
+            </Button.BorderBrush>
+            <Button.Background>
+                <SolidColorBrush Color="#FFDDDDDD" Opacity="0"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="File_Crypto" FontSize="36" Click="File_Crypto_Left_Button_Click" Margin="112,255,108.333,221.667" Content="File Crypto" Foreground="White" FontFamily="Broadway">
+            <Button.Background>
+                <SolidColorBrush Color="#FFDDDDDD" Opacity="0"/>
+            </Button.Background>
+            <Button.BorderBrush>
+                <SolidColorBrush Color="#FF707070" Opacity="0"/>
+            </Button.BorderBrush>
+        </Button>
     </Grid>
 </Window>

@@ -5,20 +5,38 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PL_GUI"
         mc:Ignorable="d"
-        Title="SecurityTK/AddUser" Height="400" Width="400">
+        Title="SecurityTK/AddUser" Height="600" Width="600">
     <Grid>
-        <StackPanel Margin="15,35,10.333,23.667">
-            <Label Content="Username:" Height="33"/>
-            <TextBox x:Name="UserNameBox" Margin="0,0,205.333,0" />
-            <Label Content="Role:" Height="34"/>
-            <ComboBox x:Name="RoleBox" Margin="0,0,205,0" Height="32" >
+        <Grid.Background>
+            <ImageBrush ImageSource="Image/background.png"/>
+        </Grid.Background>
+        <StackPanel Margin="40,55,-29.667,77.667" RenderTransformOrigin="0.654,0.505">
+            <Label Content="Username:" Height="55" FontSize="20" Foreground="#FFF7F7F7" FontFamily="Broadway" Margin="0,0,0.333,0"/>
+            <TextBox x:Name="UserNameBox" Margin="0,0,310,0" Height="36" />
+            <Label Content="Role:" Height="50" Foreground="#FFF7F7F7" FontSize="20" FontFamily="Broadway" Margin="0,0,0.333,0"/>
+            <ComboBox x:Name="RoleBox" Margin="0,0,310.333,0" Height="36" >
                 <ComboBoxItem x:Name="Employee" IsSelected="True" Content="Employee"/>
                 <ComboBoxItem x:Name="Manager" Content="Manager"/>
                 <ComboBoxItem x:Name="Administrator" Visibility="Hidden" Content="Administrator"/>
             </ComboBox>
-
-            <Label x:Name="Password" Content="Password:" Height="38"/>
-            <PasswordBox x:Name="PasswordBox" MaxLength="8" Margin="244,0,12,0" Height="27" RenderTransformOrigin="0.5,0.5" Visibility="Hidden">
+            <Label x:Name="Password" Content="Password:" Height="50" Foreground="#FFF7F7F7" FontSize="20" FontFamily="Broadway" Margin="0,0,310.333,0"/>
+            <Button x:Name="Random" FontSize="16" Click="Random_Click"  Margin="0,0,310,0" Foreground="#FFF7F7F7" FontFamily="Broadway" Content="Add With Random Password" Height="55">
+                <Button.BorderBrush>
+                    <SolidColorBrush Color="#FF707070" Opacity="0"/>
+                </Button.BorderBrush>
+                <Button.Background>
+                    <SolidColorBrush Color="#FFDDDDDD" Opacity="0"/>
+                </Button.Background>
+            </Button>
+            <Button x:Name="YourOwn" FontSize="16" Click="YourOwn_Click"  Margin="0,0,310.333,0" Foreground="#FFF7F7F7" FontFamily="Broadway" Content="Your Own" Height="52" HorizontalAlignment="Right" Width="273">
+                <Button.BorderBrush>
+                    <SolidColorBrush Color="#FF707070" Opacity="0"/>
+                </Button.BorderBrush>
+                <Button.Background>
+                    <SolidColorBrush Color="#FFDDDDDD" Opacity="0"/>
+                </Button.Background>
+            </Button>
+            <PasswordBox x:Name="PasswordBox" MaxLength="8" Margin="0,0,356.333,0" Height="36" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Right" Width="193" Visibility="Hidden">
                 <PasswordBox.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform ScaleY="-1"/>
@@ -29,10 +47,22 @@
                 </PasswordBox.RenderTransform>
             </PasswordBox>
         </StackPanel>
-        <Button x:Name="Add" FontSize="10" Click="Add_Click"  Margin="284,232,47.333,108.667" Visibility="Hidden">Add</Button>
-        <Button x:Name="MainMenu" FontSize="10" Click="MainMenu_Button_Click"  Margin="314,10,10.333,330.667">Main Menu</Button>
-        <Button x:Name="Random" FontSize="10" Click="Random_Click"  Margin="15,185,236.333,149.667">Add With Random Password</Button>
-        <Button x:Name="YourOwn" FontSize="10" Click="YourOwn_Click"  Margin="178,185,143.333,149.667">Your Own</Button>
+        <Button x:Name="Add" FontSize="20" Click="Add_Click"  Margin="281,384,217.333,134.667" Foreground="#FFF7F7F7" FontFamily="Broadway" Visibility="Hidden">
+            <Button.BorderBrush>
+                <SolidColorBrush Color="#FF707070" Opacity="0"/>
+            </Button.BorderBrush>
+            <Button.Background>
+                <SolidColorBrush Color="#FFDDDDDD" Opacity="0"/>
+            </Button.Background> Add
+        </Button>
+        <Button x:Name="MainMenu" FontSize="18" Click="MainMenu_Button_Click"  Margin="439,0,0.333,515.667" Foreground="#FFF7F7F7" FontFamily="Broadway">
+            <Button.BorderBrush>
+                <SolidColorBrush Color="#FF707070" Opacity="0"/>
+            </Button.BorderBrush>
+            <Button.Background>
+                <SolidColorBrush Color="#FFDDDDDD" Opacity="0"/>
+            </Button.Background> Main Menu
+        </Button>
 
     </Grid>
 </Window>

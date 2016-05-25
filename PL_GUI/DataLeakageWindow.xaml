@@ -5,17 +5,35 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PL_GUI"
         mc:Ignorable="d"
-        Title="SecurityTK/DataLeakage" Height="400" Width="400">
+        Title="SecurityTK/DataLeakage" Height="600" Width="600">
     <Window.Resources>
         <Style TargetType="{x:Type GridViewColumnHeader}">
             <Setter Property="HorizontalContentAlignment" Value="Left" />
         </Style>
     </Window.Resources>
+    <Window.Background>
+        <ImageBrush ImageSource="Image/background.png"/>
+    </Window.Background>
     <Grid>
-        <Button x:Name="Open_File"  Margin="10,62,308.2,275.8" Click="Open_File_Left_Button_Click"  RenderTransformOrigin="0.5,0.5" Content="Open File" />
-        <Button x:Name="Back_To_Main_Menu"  Margin="10,10,308.2,325.8" Click="Back_To_Main_Menu_Left_Button_Click"  RenderTransformOrigin="0.5,0.5" Content="Main Menu" />
-        <Grid Margin="0,0,0.2,9.8">
-            <ListView Margin="141,10,10,0" Name="Text_Block" RenderTransformOrigin="0.5,0.5">
+        <Button x:Name="Back_To_Main_Menu"  Margin="425,1,0.333,522.667" Click="Back_To_Main_Menu_Left_Button_Click"  RenderTransformOrigin="0.5,0.5" Content="Main Menu" Foreground="White" FontFamily="Broadway" FontSize="18" >
+            <Button.BorderBrush>
+                <SolidColorBrush Color="#FF707070" Opacity="0"/>
+            </Button.BorderBrush>
+            <Button.Background>
+                <SolidColorBrush Color="#FFDDDDDD" Opacity="0"/>
+            </Button.Background>
+        </Button>
+        <Grid Margin="6,29,4.333,15.667">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="9*"/>
+                <ColumnDefinition Width="460*"/>
+                <ColumnDefinition Width="43*"/>
+                <ColumnDefinition Width="72*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.Background>
+                <ImageBrush/>
+            </Grid.Background>
+            <ListView Margin="137.333,35,8.334,0" Name="Text_Block" RenderTransformOrigin="0.5,0.5" Grid.Column="1" Grid.ColumnSpan="3">
                 <TextBlock Name="Text_TextBlock" FontSize="20" Text=""></TextBlock>
                 <ListView.View>
                     <GridView>
@@ -24,7 +42,7 @@
                 </ListView.View>
             </ListView>
 
-            <ListView Margin="10,114,0,-0.133" Name="Files_List" ItemsSource="{Binding files}" HorizontalAlignment="Left" Width="108">
+            <ListView Margin="4.333,114,0,0" Name="Files_List" ItemsSource="{Binding files}" HorizontalAlignment="Left" Width="108" Grid.Column="1">
                 <ListView.View>
                     <GridView>
                         <GridViewColumn Header="Name" Width="55" DisplayMemberBinding="{Binding name}">
@@ -38,6 +56,14 @@
                     </Style>
                 </ListView.ItemContainerStyle>
             </ListView>
+            <Button x:Name="Open_File"  Margin="-5,24,328.667,426" Click="Open_File_Left_Button_Click"  RenderTransformOrigin="0.5,0.5" Content="Open File" Foreground="White" FontFamily="Broadway" FontSize="24" Grid.ColumnSpan="2" >
+                <Button.BorderBrush>
+                    <SolidColorBrush Color="#FF707070" Opacity="0"/>
+                </Button.BorderBrush>
+                <Button.Background>
+                    <SolidColorBrush Color="#FFDDDDDD" Opacity="0"/>
+                </Button.Background>
+            </Button>
         </Grid>
     </Grid>
 </Window>

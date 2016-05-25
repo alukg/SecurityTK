@@ -5,14 +5,35 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PL_GUI"
         mc:Ignorable="d"
-        Title="SecurityTK/RemoveUser" Height="400" Width="400">
+        Title="SecurityTK/RemoveUser" Height="600" Width="600">
     <Grid>
-        <StackPanel Margin="15,59,19.333,211.667">
-            <Label>Username:</Label>
-            <TextBox x:Name="Username" Margin="0,0,161.333,0" />
+        <Grid.Background>
+            <ImageBrush ImageSource="Image/background.png"/>
+        </Grid.Background>
+        <StackPanel Margin="161,166,84.333,313.667">
+            <Label Foreground="White" FontFamily="Broadway" FontSize="36" Height="52">Username:</Label>
+            <TextBox x:Name="Username" Margin="0,0,89,0" Height="37" />
         </StackPanel>
-        <Button x:Name="MainMenu" FontSize="10" Click="MainMenu_Click"  Margin="306,10,15.333,329.667">Main Menu</Button>
-        <Button x:Name="Back" FontSize="10" Click="Back_Click"  Margin="15,10,306.333,329.667">Back</Button>
-        <Button x:Name="Remove" FontSize="10" Click="Remove_Click"  Margin="250,83,71.333,265.667">Remove</Button>
+        <Button x:Name="MainMenu" FontSize="16" Click="MainMenu_Click"  Margin="477,10,15.333,511.667" Foreground="White" FontFamily="Broadway">
+            <Button.BorderBrush>
+                <SolidColorBrush Color="#FF707070" Opacity="0"/>
+            </Button.BorderBrush>
+            <Button.Background>
+                <SolidColorBrush Color="#FFDDDDDD" Opacity="0"/>
+            </Button.Background> Main Menu</Button>
+        <Button x:Name="Back" FontSize="16" Click="Back_Click"  Margin="15,10,447.333,511.667" Foreground="White" FontFamily="Broadway">
+            <Button.Background>
+                <SolidColorBrush Color="#FFDDDDDD" Opacity="0"/>
+            </Button.Background>
+            <Button.BorderBrush>
+                <SolidColorBrush Color="#FF707070" Opacity="0"/>
+            </Button.BorderBrush> Back</Button>
+        <Button x:Name="Remove" FontSize="36" Click="Remove_Click"  Margin="191,294,211.333,214.667" RenderTransformOrigin="0.56,6.198" Foreground="White" FontFamily="Broadway">
+            <Button.BorderBrush>
+                <SolidColorBrush Color="#FF707070" Opacity="0"/>
+            </Button.BorderBrush>
+            <Button.Background>
+                <SolidColorBrush Color="#FFDDDDDD" Opacity="0"/>
+            </Button.Background> Remove</Button>
     </Grid>
 </Window>

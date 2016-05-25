@@ -5,14 +5,59 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PL_GUI"
         mc:Ignorable="d"
-        Title="SecurityTK/UserManagement" Height="400" Width="400">
+        Title="SecurityTK/UserManagement" Height="600" Width="600">
     <Grid>
-        <Button x:Name="ChangePassword" FontSize="20" Click="ChangePassword_Button_Click" Margin="83,76,84.333,247.667" >change password</Button>
-        <Button x:Name="AddUser" FontSize="20" Click="AddUser_Button_Click" Margin="83,180,84.333,143.667">add user</Button>
-        <Button x:Name="RemoveUser" FontSize="20" Click="RemoveUser_Button_Click" Margin="83,232,84.333,91.667">remove user</Button>
-        <Button x:Name="ChangeRole" FontSize="20" Click="ChangeRole_Button_Click" Margin="0,128,84.333,195.667" HorizontalAlignment="Right" Width="219">change role</Button>
-        <Button x:Name="ReadLog" FontSize="20" Click="ReadLog_Button_Click" Margin="83,284,84.333,39.667">read log</Button>
-        <Button x:Name="MainMenu" FontSize="10" Click="MainMenu_Click"  Margin="314,10,10.333,331.667">Main Menu</Button>
+        <Grid.Background>
+            <ImageBrush ImageSource="Image/background.png"/>
+        </Grid.Background>
+        <Button x:Name="ChangePassword" FontSize="36" Click="ChangePassword_Button_Click" Margin="122,62,105.333,424.667" Foreground="#FFF7F7F7" FontFamily="Broadway" >
+            <Button.BorderBrush>
+                <SolidColorBrush Color="#FF707070" Opacity="0"/>
+            </Button.BorderBrush>
+            <Button.Background>
+                <SolidColorBrush Color="#FFDDDDDD" Opacity="0"/>
+            </Button.Background> change password
+        </Button>
+        <Button x:Name="AddUser" FontSize="36" Click="AddUser_Button_Click" Margin="122,230,105.333,251.667" Foreground="#FFF7F7F7" FontFamily="Broadway">
+            <Button.BorderBrush>
+                <SolidColorBrush Color="#FF707070" Opacity="0"/>
+            </Button.BorderBrush>
+            <Button.Background>
+                <SolidColorBrush Color="#FFDDDDDD" Opacity="0"/>
+            </Button.Background> add user
+        </Button>
+        <Button x:Name="RemoveUser" FontSize="36" Click="RemoveUser_Button_Click" Margin="122,319,105.333,167.667" Foreground="#FFF7F7F7" FontFamily="Broadway">
+            <Button.BorderBrush>
+                <SolidColorBrush Color="#FF707070" Opacity="0"/>
+            </Button.BorderBrush>
+            <Button.Background>
+                <SolidColorBrush Color="#FFDDDDDD" Opacity="0"/>
+            </Button.Background> remove user
+        </Button>
+        <Button x:Name="ChangeRole" FontSize="36" Click="ChangeRole_Button_Click" Margin="0,146,105.333,340.667" HorizontalAlignment="Right" Width="366" Foreground="#FFF7F7F7" FontFamily="Broadway">
+            <Button.BorderBrush>
+                <SolidColorBrush Color="#FF707070" Opacity="0"/>
+            </Button.BorderBrush>
+            <Button.Background>
+                <SolidColorBrush Color="#FFDDDDDD" Opacity="0"/>
+            </Button.Background> change role
+        </Button>
+        <Button x:Name="ReadLog" FontSize="36" Click="ReadLog_Button_Click" Margin="122,403,105.333,83.667" Foreground="#FFF7F7F7" FontFamily="Broadway">
+            <Button.BorderBrush>
+                <SolidColorBrush Color="#FF707070" Opacity="0"/>
+            </Button.BorderBrush>
+            <Button.Background>
+                <SolidColorBrush Color="#FFDDDDDD" Opacity="0"/>
+            </Button.Background> read log
+        </Button>
+        <Button x:Name="MainMenu" FontSize="10" Click="MainMenu_Click"  Margin="504,0,0.333,530.667" Foreground="#FFF7F7F7" FontFamily="Broadway" RenderTransformOrigin="1.068,0.023">
+            <Button.BorderBrush>
+                <SolidColorBrush Color="#FF707070" Opacity="0"/>
+            </Button.BorderBrush>
+            <Button.Background>
+                <SolidColorBrush Color="#FFDDDDDD" Opacity="0"/>
+            </Button.Background> Main Menu
+        </Button>
 
     </Grid>
 </Window>

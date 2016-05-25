@@ -5,16 +5,40 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PL_GUI"
         mc:Ignorable="d"
-        Title="SecurityTK/LoginWindow" Height="400" Width="400">
-    <Grid>
-        <StackPanel Margin="15,20,19.333,14.667">
-            <Label>Username:</Label>
-            <TextBox x:Name="Username" Margin="0,0,161.333,0" />
-            <Label>Password:</Label>
-            <PasswordBox Name="Password" MaxLength="8" Margin="0,0,162.333,0" />
+        Title="SecurityTK/LoginWindow" Height="600" Width="600">
+    <Window.Background>
+        <ImageBrush ImageSource="image/background.png"/>
+    </Window.Background>
+
+    <Grid Margin="0,0,0.333,-0.333">
+        <StackPanel Margin="186,110,-118.667,-86.333">
+            <Label Foreground="White" FontFamily="Broadway" Height="40" FontSize="20">Username:</Label>
+            <TextBox x:Name="Username" Margin="0,0,300.333,0" Height="33" />
+            <Label Foreground="White" Height="39" FontFamily="Broadway" FontSize="22">Password:</Label>
+            <PasswordBox x:Name="Password" MaxLength="8" Margin="0,0,300,0" Height="33" />
         </StackPanel>
-        <Button FontSize="18" Click="Left_Enter_Button_Click" Margin="68,131,218,193" Content="Login"/>
-        <Button FontSize="18" Click="Left_Refresh_Button_Click" Margin="208,131,78,193" Content="Refresh"/>
+        <Button FontSize="36" Click="Left_Enter_Button_Click" Margin="125,320,295.333,178.667" Content="Login" Foreground="White" FontFamily="Broadway">
+            <Button.BorderBrush>
+                <SolidColorBrush Color="White" Opacity="0"/>
+            </Button.BorderBrush>
+            <Button.Background>
+                <SolidColorBrush Color="#FFDDDDDD" Opacity="0"/>
+            </Button.Background>
+        </Button>
+        <Button FontSize="36"  Click="Left_Refresh_Button_Click" Margin="303,320,117.333,178.667" Content="Refresh" FontFamily="Broadway" Foreground="White">
+            <Button.BorderBrush>
+                <SolidColorBrush Color="#FFD85050" Opacity="0"/>
+            </Button.BorderBrush>
+            <Button.Background>
+                <SolidColorBrush Color="#FF11100A" Opacity="0"/>
+            </Button.Background>
+            <Button.OpacityMask>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black" Offset="0"/>
+                    <GradientStop Color="White" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.OpacityMask>
+        </Button>
 
     </Grid>
 </Window>

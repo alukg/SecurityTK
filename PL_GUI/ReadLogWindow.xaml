@@ -5,9 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PL_GUI"
         mc:Ignorable="d"
-        Title="SecurityTK/ReadLog" Height="400" Width="400">
+        Title="SecurityTK/ReadLog" Height="600" Width="600">
     <Grid>
-        <ListBox Margin="20,62,20,20" Name="LogBox">
+        <Grid.Background>
+            <ImageBrush ImageSource="Image/background.png"/>
+        </Grid.Background>
+        <ListBox Margin="12,53,8.333,9.667" Name="LogBox">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
@@ -16,7 +19,19 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <Button x:Name="MainMenu" FontSize="10" Click="MainMenu_Click"  Margin="306,0,15.333,329.667" Height="31" VerticalAlignment="Bottom">Main Menu</Button>
-        <Button x:Name="Back" FontSize="10" Click="Back_Click"  Margin="10,10,311.333,329.667">Back</Button>
+        <Button x:Name="MainMenu" FontSize="16" Click="MainMenu_Click"  Margin="457,0,0.333,522.667" Height="48" VerticalAlignment="Bottom" Foreground="White" FontFamily="Broadway">
+            <Button.BorderBrush>
+                <SolidColorBrush Color="#FF707070" Opacity="0"/>
+            </Button.BorderBrush>
+            <Button.Background>
+                <SolidColorBrush Color="#FFDDDDDD" Opacity="0"/>
+            </Button.Background> Main Menu</Button>
+        <Button x:Name="Back" FontSize="16" Click="Back_Click"  Margin="0,0,493.333,522.667" Foreground="White" FontFamily="Broadway">
+            <Button.BorderBrush>
+                <SolidColorBrush Color="#FF707070" Opacity="0"/>
+            </Button.BorderBrush>
+            <Button.Background>
+                <SolidColorBrush Color="#FFDDDDDD" Opacity="0"/>
+            </Button.Background> Back</Button>
     </Grid>
 </Window>
