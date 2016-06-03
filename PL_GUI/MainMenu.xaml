@@ -17,7 +17,7 @@
                 <SolidColorBrush Color="White" Opacity="0"/>
             </Label.Background> Please choose an action to proceed
         </Label>
-        <Button x:Name="Data_Leakage" FontSize="36" Click="Data_Leakage_Left_Button_Click" Margin="112,397,108.333,79.667" Content="Data-Leakage" FontFamily="Broadway" Foreground="White">
+        <Button x:Name="Data_Leakage" FontSize="36" Click="Data_Leakage_Left_Button_Click" Margin="112,333,108.333,143.667" Content="Data-Leakage" FontFamily="Broadway" Foreground="White">
             <Button.Background>
                 <SolidColorBrush Color="#FFDDDDDD" Opacity="0"/>
             </Button.Background>
@@ -33,13 +33,21 @@
                 <SolidColorBrush Color="#FFDDDDDD" Opacity="0"/>
             </Button.Background>
         </Button>
-        <Button x:Name="File_Crypto" FontSize="36" Click="File_Crypto_Left_Button_Click" Margin="112,255,108.333,221.667" Content="File Crypto" Foreground="White" FontFamily="Broadway">
+        <Button x:Name="File_Crypto" FontSize="36" Click="File_Crypto_Left_Button_Click" Margin="112,209,108.333,267.667" Content="File Crypto" Foreground="White" FontFamily="Broadway">
             <Button.Background>
                 <SolidColorBrush Color="#FFDDDDDD" Opacity="0"/>
             </Button.Background>
             <Button.BorderBrush>
                 <SolidColorBrush Color="#FF707070" Opacity="0"/>
             </Button.BorderBrush>
+        </Button>
+        <Button x:Name="Process_Monitor" FontSize="36" Click="Process_Monitor_Left_Button_Click" Content="Process Monitor" FontFamily="Broadway" Foreground="White" Margin="112,453,122.333,37.667">
+            <Button.BorderBrush>
+                <SolidColorBrush Color="#FF707070" Opacity="0"/>
+            </Button.BorderBrush>
+            <Button.Background>
+                <SolidColorBrush Color="#FFDDDDDD" Opacity="0"/>
+            </Button.Background>
         </Button>
     </Grid>
 </Window>
