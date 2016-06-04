@@ -42,6 +42,15 @@ namespace BL
         }
 
         /// <summary>
+        /// User log off from the system.
+        /// </summary>
+        public void logOff()
+        {
+            itsDAL.writeToLog("User log off", currUser.userName, null);
+            currUser = null;
+        }
+
+        /// <summary>
         /// convert role from string to Role enum
         /// </summary>
         /// <param name="role"></param>

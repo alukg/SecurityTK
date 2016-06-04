@@ -41,5 +41,6 @@
                 <SolidColorBrush Color="#FF707070" Opacity="0"/>
             </Button.BorderBrush>
         </Button>
+        <Button x:Name="Log_off" Content="Log off" HorizontalAlignment="Left" Height="47" Margin="483,10,0,0" VerticalAlignment="Top" Width="99" FontFamily="Broadway" FontSize="16" Background="White"/>
     </Grid>
 </Window>

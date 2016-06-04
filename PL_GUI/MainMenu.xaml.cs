@@ -54,5 +54,13 @@ namespace PL_GUI
             cw.Run();
             this.Close();
         }
+
+        private void Log_off_Left_Button_Click(object sender, RoutedEventArgs e)
+        {
+            theBL.logOff();
+            LoginWindow lw = new LoginWindow(theBL);
+            lw.Run();
+            this.Close();
+        }
     }
 }

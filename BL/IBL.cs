@@ -10,6 +10,7 @@ namespace BL
     public interface IBL
     {
         User getUser();
+        void logOff();
         Role convertRole(string role);
         bool userVarification(string userName, string enteredPassword);
         string changeRole(string userName, Role newRole);
