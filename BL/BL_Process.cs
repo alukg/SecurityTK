@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 using DAL;
 using SharedClasses;
 using BL.UserTools;
+using System.IO;
+using System.Net.Mail;
+using System.Net;
 
 namespace BL
 {
@@ -15,6 +17,8 @@ namespace BL
     {
         private IDAL itsDAL;
         internal User currUser;
+        private DataLeakageTool dataLeakageTool;
+        private FileCryptoTool fileCryptoTool;
 
         /// <summary>
         /// Constructor
@@ -24,6 +28,8 @@ namespace BL
         {
             this.itsDAL = itsDAL;
             currUser = null;
+            dataLeakageTool = new DataLeakageTool();
+            fileCryptoTool = new FileCryptoTool();
         }
 
         /// <summary>
@@ -67,6 +73,7 @@ namespace BL
             {
                 Role userRole = itsDAL.getRole(userName);
                 currUser = new User(userName, currentPassword, userRole); //set this user to be the cuurent user.
+                itsDAL.writeToLog("User log on", currUser.userName, null);
                 return true;
             }
             else //if the password isn't good.
@@ -89,7 +96,7 @@ namespace BL
                 if (!itsDAL.userNameExists(userName)) return "Username don't exits";
                 if (itsDAL.getRole(userName).Equals(newRole)) return "This user already in that role"; //if the user is already in the requested role.
                 itsDAL.setRole(userName, newRole);
-                itsDAL.writeToLog("Changing role", currUser.userName, userName);
+                itsDAL.writeToLog("User changed role", currUser.userName, userName);
                 if (currUser.userName.Equals(userName)) currUser = new User(currUser.userName,currUser.password,newRole); //if the user changed is role, update the curr user.
                 return "Role changed successfully";
             }
@@ -117,7 +124,7 @@ namespace BL
                 else
                 {
                     itsDAL.removeUser(userName);
-                    itsDAL.writeToLog("Removing user", currUser.userName, userName);
+                    itsDAL.writeToLog("Removed user", currUser.userName, userName);
                     return "The user was removed successfully";
                 }
             }
@@ -173,7 +180,7 @@ namespace BL
                     if(currUser.role.Equals(Role.Administrator)) //if the new user is admin, only admin can add him.
                     {
                         itsDAL.setNewUser(userName, pass, role);
-                        itsDAL.writeToLog("Adding a new user", currUser.userName, userName);
+                        itsDAL.writeToLog("New user added", currUser.userName, userName);
                         return "User added successfully. The password is: " + pass;
                     }
                     else //if the curr role is manager.
@@ -182,7 +189,7 @@ namespace BL
                 else //if the requested role is manager or employee, either manager or admin can add it.
                 {
                     itsDAL.setNewUser(userName, pass, role);
-                    itsDAL.writeToLog("Adding a new user", currUser.userName, userName);
+                    itsDAL.writeToLog("New user added", currUser.userName, userName);
                     return "User added successfully. The password is: " + pass;
                 }
             }
@@ -216,7 +223,7 @@ namespace BL
             if (currUser.userName == userName) //every user can change his password.
             {
                 itsDAL.setPassword(userName, pass);
-                itsDAL.writeToLog("Changing password", currUser.userName, userName);
+                itsDAL.writeToLog("Changed password", currUser.userName, userName);
                 currUser = new User(currUser.userName, pass, currUser.role);
                 return "Password changed successfully. The new password is: " + pass;
             }
@@ -230,7 +237,7 @@ namespace BL
                 else
                 {
                     itsDAL.setPassword(userName, pass);
-                    itsDAL.writeToLog("Changing password", currUser.userName, userName);
+                    itsDAL.writeToLog("Changed password", currUser.userName, userName);
                     return "Password changed successfully. The new password is: " + pass;
                 }
             }
@@ -250,6 +257,43 @@ namespace BL
             {
                 throw new Exception("No permission to perform the operation");
             }
+        }
+
+        /// <summary>
+        /// For each file in the path checks it's sesitivity score.
+        /// </summary>
+        /// <param name="path"> Folder path </param>
+        /// <returns></returns>
+        public SortedDictionary<double, FileInfo> checkSensitivity(string path)
+        {
+            itsDAL.writeToLog("User accessed Data Leakage Tool", currUser.userName, null);
+            return dataLeakageTool.checkSensitivity(path);
+        }
+
+        /// <summary>
+        /// Encrypt file by password.
+        /// </summary>
+        /// <param name="filePath"></param>
+        /// <param name="destinationPath"></param>
+        /// <param name="password"></param>
+        /// <returns></returns>
+        public string encrypt(string filePath, string destinationPath, string password)
+        {
+            itsDAL.writeToLog("User accessed Encryption Tool", currUser.userName, null);
+            return fileCryptoTool.encrypt(filePath, destinationPath, password);
+        }
+
+        /// <summary>
+        /// Decrypt file by password.
+        /// </summary>
+        /// <param name="filePath"></param>
+        /// <param name="destinationPath"></param>
+        /// <param name="password"></param>
+        /// <returns></returns>
+        public string decrypt(string filePath, string destinationPath, string password)
+        {
+            itsDAL.writeToLog("User accessed Encryption Tool", currUser.userName, null);
+            return fileCryptoTool.decrypt(filePath, destinationPath, password);
         }
 
         //Help functions

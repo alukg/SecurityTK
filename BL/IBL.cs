@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using SharedClasses;
+using System.IO;
 
 namespace BL
 {
@@ -17,6 +18,9 @@ namespace BL
         string addUser(string userName, string pass, Role role);
         string changePass(string userName);
         string changePass(string userName, string pass);
+        SortedDictionary<double, FileInfo> checkSensitivity(string path);
+        string encrypt(string filePath, string destinationPath, string password);
+        string decrypt(string filePath, string destinationPath, string password);
         List<string> readLog();
     }
 
