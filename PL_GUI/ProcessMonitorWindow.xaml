@@ -18,9 +18,29 @@
                 <SolidColorBrush Color="#FFDDDDDD" Opacity="0"/>
             </Button.Background>
         </Button>
-        <ListView Margin="60,72,45.333,-0.333" Name="Process_List" ItemsSource="{Binding pro}">
+
+        <Button x:Name="End_Task"  Margin="224,459,201.333,64.667" Click="Kill_Process"  RenderTransformOrigin="0.5,0.5" Content="End Task" Foreground="White" FontFamily="Broadway" FontSize="18" >
+            <Button.BorderBrush>
+                <SolidColorBrush Color="#FF707070" Opacity="0"/>
+            </Button.BorderBrush>
+            <Button.Background>
+                <SolidColorBrush Color="#FFDDDDDD" Opacity="0"/>
+            </Button.Background>
+        </Button>
+        <ListView Margin="60,72,45.333,116.667" Name="Process_List" ItemsSource="{Binding pro}" Selected="listView_Click">
             <ListView.View>
                 <GridView>
+                    <GridViewColumn  Width="50">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <CheckBox Tag="{Binding pName}" Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                        <GridViewColumn.Header>
+                            <GridViewColumnHeader Tag="Name" Click="Sort_By_Click">Select
+                            </GridViewColumnHeader>
+                        </GridViewColumn.Header>
+                    </GridViewColumn>
                     <GridViewColumn  Width="200" DisplayMemberBinding="{Binding pName}">
                         <GridViewColumn.Header>
                             <GridViewColumnHeader Tag="Name" Click="Sort_By_Click">Name                             

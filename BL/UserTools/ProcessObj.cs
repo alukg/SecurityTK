@@ -11,23 +11,26 @@ namespace BL.UserTools
     public class ProcessObj
     {
         private Process process;
-        private float cpu;
-        private float memory;  
+        private double cpu;
+        private double memory;  
 
         //constructor
-        public ProcessObj(Process process, PerformanceCounter cpu, float memory)
+        public ProcessObj(Process process, PerformanceCounter cpu, long memory)
         {
-            ifqASDES
             this.process = process;
-            /* cpu.NextValue();
-             Thread.Sleep(1000);
-             this.cpu = cpu.NextValue();*/
-
-            CounterSample cs1 = cpu.NextSample();
-            //Thread.Sleep(100);
-            CounterSample cs2 = cpu.NextSample();
-            this.cpu = CounterSample.Calculate(cs1, cs2);
-            this.memory = memory;
+            try
+            {
+                CounterSample cs1 = cpu.NextSample();
+                Thread.Sleep(300);
+                CounterSample cs2 = cpu.NextSample();
+                this.cpu = CounterSample.Calculate(cs1, cs2);
+            }
+            catch(Exception e)
+            {
+                
+            }
+            this.memory = memory/ (1024f) / 1024f;
+                
         }
 
         //get process
@@ -37,13 +40,13 @@ namespace BL.UserTools
         }
 
         //get cpu
-        public float getCPU()
+        public double getCPU()
         {
             return this.cpu;
         }
 
         //get memory
-        public float getMemory()
+        public double getMemory()
         {
             return this.memory;
         }

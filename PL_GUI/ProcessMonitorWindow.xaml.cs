@@ -17,6 +17,8 @@ namespace PL_GUI
         IBL theBL;
         private GridViewColumnHeader lastHeaderClicked = null;
         private ListSortDirection lastDirection = ListSortDirection.Ascending;
+        private List<Process> toKill;
+        private ProcessMonitor pm;
 
         //constructor
         public ProcessMonitorWindow(IBL theBL)
@@ -24,7 +26,7 @@ namespace PL_GUI
             this.theBL = theBL;
             InitializeComponent();
             pro = new ObservableCollection<Proc>();
-            ProcessMonitor pm = new ProcessMonitor();
+            pm = new ProcessMonitor();
             List<ProcessObj> processes = pm.getProcessList();
 
             // initializing the content of the list
@@ -32,6 +34,7 @@ namespace PL_GUI
             {
                 Proc proc = new Proc()
                 {
+                    process=p.getProcess(),
                     pName = p.getProcess().ProcessName,
                     cpu = Convert.ToDouble(p.getCPU()),
                     memory = Convert.ToDouble(p.getMemory())
@@ -40,6 +43,7 @@ namespace PL_GUI
                 pro.Add(proc);
             }
             this.Process_List.ItemsSource = pro;
+            this.toKill = new List<Process>();
 
         }
 
@@ -77,6 +81,12 @@ namespace PL_GUI
 
         }
 
+        private void Kill_Process(object sender, RoutedEventArgs e)
+        {
+            pm.killProcess(toKill);
+
+        }
+
 
         //the function performs the list sorting by the desired direction
         private void Sort(string sortBy, ListSortDirection direction)
@@ -88,10 +98,33 @@ namespace PL_GUI
             dataView.SortDescriptions.Add(sD);
             dataView.Refresh();
         }
+
+        private void CheckBox_Checked(object sender, RoutedEventArgs e)
+        {
+            Process[] p = Process.GetProcessesByName(e.Source as string);
+            foreach(Process p1 in p)
+            {
+                toKill.Add(p1);
+            }
+
+        }
+
+        private void CheckBox_Unchecked(object sender, RoutedEventArgs e)
+        {
+            toKill.Remove(e.Source as Process);
+
+        }
+
+        private void listView_Click(object sender, RoutedEventArgs e)
+        {
+            var item = (sender as ListView).SelectedItem;
+            toKill.Add(item.process);
+        }
     }
 
         public class Proc
     {
+        public Process process { get; set; }
         public string pName { get; set; }
         public double cpu { get; set; }
         public double memory { get; set; }

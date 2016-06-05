@@ -17,11 +17,13 @@ namespace BL.UserTools
 
             foreach(Process p in allProcesses)
             {
-                
                 var cpu = new PerformanceCounter("Process", "% Processor Time", p.ProcessName);
                 var mem = p.WorkingSet64;
-                ProcessObj process = new ProcessObj(p, cpu, mem);
-                processes.Add(process);
+                if (p.ProcessName != "Idle")
+                {
+                    ProcessObj process = new ProcessObj(p, cpu, mem);
+                    processes.Add(process);
+                }
             }
 
 
@@ -31,12 +33,6 @@ namespace BL.UserTools
         public List<ProcessObj> getProcessList()
         {
             return this.processes;
-        }
-
-        // kills a single process
-        public void killProcess(Process toKill)
-        {
-            toKill.Kill();
         }
 
         //kills several processes
