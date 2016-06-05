@@ -36,10 +36,9 @@ namespace BL.UserTools
         }
 
         //kills several processes
-        public void killProcess(List<Process> toKill)
+        public void killProcess(Process toKill)
         {
-            foreach (var process in toKill)
-                process.Kill();
+            toKill.Kill();
         }
     }
 }

@@ -27,13 +27,13 @@
                 <SolidColorBrush Color="#FFDDDDDD" Opacity="0"/>
             </Button.Background>
         </Button>
-        <ListView Margin="60,72,45.333,116.667" Name="Process_List" ItemsSource="{Binding pro}" Selected="listView_Click">
+        <ListView Margin="60,72,45.333,116.667" Name="Process_List" ItemsSource="{Binding pro}">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn  Width="50">
+                    <GridViewColumn  Width="45">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <CheckBox Tag="{Binding pName}" Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked"/>
+                                <CheckBox IsChecked="{Binding process ,Mode=TwoWay}" Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked"/>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                         <GridViewColumn.Header>
@@ -47,9 +47,9 @@
                             </GridViewColumnHeader>
                         </GridViewColumn.Header>
                     </GridViewColumn>
-                    <GridViewColumn  Width="100" DisplayMemberBinding="{Binding cpu}">
+                    <GridViewColumn  Width="70" DisplayMemberBinding="{Binding cpu}" >
                         <GridViewColumn.Header>
-                            <GridViewColumnHeader Tag="CPU" Click="Sort_By_Click">CPU (%)
+                            <GridViewColumnHeader Name ="cpu" Tag="CPU" Click="Sort_By_Click">CPU (%)
                             </GridViewColumnHeader>
                         </GridViewColumn.Header>
                     </GridViewColumn>

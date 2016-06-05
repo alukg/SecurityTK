@@ -26,9 +26,7 @@ namespace BL.UserTools
                 this.cpu = CounterSample.Calculate(cs1, cs2);
             }
             catch(Exception e)
-            {
-                
-            }
+            {            }
             this.memory = memory/ (1024f) / 1024f;
                 
         }

@@ -17,7 +17,7 @@ namespace PL_GUI
         IBL theBL;
         private GridViewColumnHeader lastHeaderClicked = null;
         private ListSortDirection lastDirection = ListSortDirection.Ascending;
-        private List<Process> toKill;
+        private List<Proc> toKill;
         private ProcessMonitor pm;
 
         //constructor
@@ -43,7 +43,7 @@ namespace PL_GUI
                 pro.Add(proc);
             }
             this.Process_List.ItemsSource = pro;
-            this.toKill = new List<Process>();
+            this.toKill = new List<Proc>();
 
         }
 
@@ -81,13 +81,6 @@ namespace PL_GUI
 
         }
 
-        private void Kill_Process(object sender, RoutedEventArgs e)
-        {
-            pm.killProcess(toKill);
-
-        }
-
-
         //the function performs the list sorting by the desired direction
         private void Sort(string sortBy, ListSortDirection direction)
         {
@@ -99,28 +92,37 @@ namespace PL_GUI
             dataView.Refresh();
         }
 
+        /*The function kills all the processes that were marked by the user
+         */
+        private void Kill_Process(object sender, RoutedEventArgs e)
+        {
+            foreach (var item in toKill)
+            {
+                pm.killProcess(item.process);
+                pro.Remove(item); // removing the processes from the list
+            }
+            toKill.Clear(); // updating the marked processes list
+
+        }
+
+        // The function recieves a checkbox checked event and adds the process to a list
         private void CheckBox_Checked(object sender, RoutedEventArgs e)
         {
-            Process[] p = Process.GetProcessesByName(e.Source as string);
-            foreach(Process p1 in p)
-            {
-                toKill.Add(p1);
-            }
-
+            var temp1=e.Source as CheckBox;
+            toKill.Add(temp1.DataContext as Proc);
         }
 
+        //The function recieves a checkbox unchecked event and removes the process from a list
         private void CheckBox_Unchecked(object sender, RoutedEventArgs e)
         {
-            toKill.Remove(e.Source as Process);
+            var temp1 = e.Source as CheckBox;
+            toKill.Remove(temp1.DataContext as Proc);
 
         }
 
-        private void listView_Click(object sender, RoutedEventArgs e)
-        {
-            var item = (sender as ListView).SelectedItem;
-            toKill.Add(item.process);
-        }
     }
+
+    // an objeck to aid us with displaying the process list
 
         public class Proc
     {
