@@ -1,0 +1,67 @@
+﻿<Window x:Class="PL_GUI.ProcessMonitorWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PL_GUI"
+        mc:Ignorable="d"
+        Title="ProcessMonitor" Height="600" Width="600">
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="Image/background.png"/>
+        </Grid.Background>
+        <Button x:Name="Back_To_Main_Menu"  Margin="425,1,0.333,522.667" Click="Back_To_Main_Menu_Left_Button_Click"  RenderTransformOrigin="0.5,0.5" Content="Main Menu" Foreground="White" FontFamily="Broadway" FontSize="18" >
+            <Button.BorderBrush>
+                <SolidColorBrush Color="#FF707070" Opacity="0"/>
+            </Button.BorderBrush>
+            <Button.Background>
+                <SolidColorBrush Color="#FFDDDDDD" Opacity="0"/>
+            </Button.Background>
+        </Button>
+
+        <Button x:Name="End_Task"  Margin="224,459,201.333,64.667" Click="Kill_Process"  RenderTransformOrigin="0.5,0.5" Content="End Task" Foreground="White" FontFamily="Broadway" FontSize="18" >
+            <Button.BorderBrush>
+                <SolidColorBrush Color="#FF707070" Opacity="0"/>
+            </Button.BorderBrush>
+            <Button.Background>
+                <SolidColorBrush Color="#FFDDDDDD" Opacity="0"/>
+            </Button.Background>
+        </Button>
+        <ListView Margin="60,72,45.333,116.667" Name="Process_List" ItemsSource="{Binding pro}">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn  Width="45">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <CheckBox IsChecked="{Binding process ,Mode=TwoWay}" Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                        <GridViewColumn.Header>
+                            <GridViewColumnHeader Tag="Name" Click="Sort_By_Click">Select
+                            </GridViewColumnHeader>
+                        </GridViewColumn.Header>
+                    </GridViewColumn>
+                    <GridViewColumn  Width="200" DisplayMemberBinding="{Binding pName}">
+                        <GridViewColumn.Header>
+                            <GridViewColumnHeader Tag="Name" Click="Sort_By_Click">Name                             
+                            </GridViewColumnHeader>
+                        </GridViewColumn.Header>
+                    </GridViewColumn>
+                    <GridViewColumn  Width="70" DisplayMemberBinding="{Binding cpu}" >
+                        <GridViewColumn.Header>
+                            <GridViewColumnHeader Name ="cpu" Tag="CPU" Click="Sort_By_Click">CPU (%)
+                            </GridViewColumnHeader>
+                        </GridViewColumn.Header>
+                    </GridViewColumn>
+                    <GridViewColumn  Width="150" DisplayMemberBinding="{Binding memory}">
+                        <GridViewColumn.Header>
+                            <GridViewColumnHeader Tag="Memory" Click="Sort_By_Click">Memory Usage (MB)
+                            </GridViewColumnHeader>
+                        </GridViewColumn.Header>
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+
+        </ListView>
+    </Grid>
+</Window>
