@@ -9,8 +9,7 @@ namespace DAL
 {
     public class DAL_SQL : IDAL
     {
-
-        private string connectionString = "Data Source=GUY; Initial Catalog=Security_DB; Integrated Security=SSPI";
+        private string connectionString = "Data Source=ISE-SQL12; Initial Catalog=aluk; Integrated Security=SSPI";
 
         /// <summary>
         /// checks if the user is in the DB.
@@ -163,11 +162,8 @@ namespace DAL
         /// <param name="action"></param>
         /// <param name="performed"></param>
         /// <param name="affected"></param>
-        public void writeToLog(string action, string performed, String affected)
+        public void writeLogToDB(string dateTime, string action, string performed, String affected)
         {
-            string dateTime = DateTime.Now.ToString("yyMMdd HH:mm:ss");
-            if(action == "User accessed Data Leakage Tool" || action == "User accessed Encryption Tool" || action == "User accessed Process Monitor" || action == "User changed password" || action == "User log on" || action == "User log off")
-                sendLiveAlerts(action + ", " + dateTime + ", " + performed + ", " + affected, action);
             SqlConnection connection = new SqlConnection(connectionString);
             SqlCommand cmd;
             if (affected == null)
@@ -239,50 +235,10 @@ namespace DAL
         }
 
         /// <summary>
-        /// send log entry for the administrators who accepts live alerts
-        /// </summary>
-        /// <param name="messege"> the messege to send </param>
-        private void sendLiveAlerts(string logEntry, string action)
-        {
-            /*
-            List<string> emailList = getLiveAlertsMailsForAction(action);
-
-            MailAddress fromAddress = new MailAddress("");
-            const string fromPassword = "";
-            const string subject = "Live Alert";
-            string body = logEntry;
-
-            var smtp = new SmtpClient
-            {
-                Host = "smtp.gmail.com",
-                Port = 587,
-                EnableSsl = true,
-                DeliveryMethod = SmtpDeliveryMethod.Network,
-                UseDefaultCredentials = false,
-                Credentials = new NetworkCredential(fromAddress.Address, fromPassword)
-            };
-
-            foreach (var email in emailList)
-            {
-                MailAddress toAddress = new MailAddress(email);
-
-                using (var message = new MailMessage(fromAddress, toAddress)
-                {
-                    Subject = subject,
-                    Body = body
-                })
-                {
-                    smtp.Send(message);
-                }
-            }
-            */
-        }
-
-        /// <summary>
         /// returns the software log.
         /// </summary>
         /// <returns></returns>
-        private List<string> getLiveAlertsMailsForAction(string action)
+        public List<string> getLiveAlertsMailsForAction(string action)
         {
             SqlConnection connection = new SqlConnection(connectionString);
             SqlCommand cmd = new SqlCommand("SELECT Email FROM Users WHERE Role = 'Administrator' AND GetUpdate = '1' AND [" + action.ToString() + "] = '1'", connection);

@@ -15,7 +15,8 @@ namespace DAL
         void setRole(string userName, Role value);
         void setNewUser(string userName, string password, Role role);
         void removeUser(string userName);
-        void writeToLog(string action, string performed, string affected);
+        void writeLogToDB(string dateTime, string action, string performed, string affected);
         List<string> getLog();
+        List<string> getLiveAlertsMailsForAction(string action);
     }
 }
