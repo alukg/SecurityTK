@@ -12,12 +12,16 @@
 
 
     <Grid>
-        <Label HorizontalAlignment="Left" Margin="0,10,0,511.667" Width="331" Foreground="White" FontFamily="Broadway" FontSize="16">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="7*"/>
+        </Grid.ColumnDefinitions>
+        <Label HorizontalAlignment="Left" Margin="0,10,0,511.667" Width="331" Foreground="White" FontFamily="Broadway" FontSize="16" Grid.ColumnSpan="2">
             <Label.Background>
                 <SolidColorBrush Color="White" Opacity="0"/>
             </Label.Background> Please choose an action to proceed
         </Label>
-        <Button x:Name="Data_Leakage" FontSize="36" Click="Data_Leakage_Left_Button_Click" Margin="112,397,108.333,79.667" Content="Data-Leakage" FontFamily="Broadway" Foreground="White">
+        <Button x:Name="Data_Leakage" FontSize="36" Click="Data_Leakage_Left_Button_Click" Margin="112,333,108.334,143.667" Content="Data-Leakage" FontFamily="Broadway" Foreground="White" Grid.ColumnSpan="2">
             <Button.Background>
                 <SolidColorBrush Color="#FFDDDDDD" Opacity="0"/>
             </Button.Background>
@@ -25,7 +29,7 @@
                 <SolidColorBrush Color="#FF707070" Opacity="0"/>
             </Button.BorderBrush>
         </Button>
-        <Button x:Name="User_Management" FontSize="36" Click="User_Management_Left_Button_Click" Margin="112,110,108.333,366.667" Content="User Management" FontFamily="Broadway" Foreground="White">
+        <Button x:Name="User_Management" FontSize="36" Click="User_Management_Left_Button_Click" Margin="112,110,108.334,366.667" Content="User Management" FontFamily="Broadway" Foreground="White" Grid.ColumnSpan="2">
             <Button.BorderBrush>
                 <SolidColorBrush Color="#FF707070" Opacity="0"/>
             </Button.BorderBrush>
@@ -33,7 +37,7 @@
                 <SolidColorBrush Color="#FFDDDDDD" Opacity="0"/>
             </Button.Background>
         </Button>
-        <Button x:Name="File_Crypto" FontSize="36" Click="File_Crypto_Left_Button_Click" Margin="112,255,108.333,221.667" Content="File Crypto" Foreground="White" FontFamily="Broadway">
+        <Button x:Name="File_Crypto" FontSize="36" Click="File_Crypto_Left_Button_Click" Margin="112,209,108.334,267.667" Content="File Crypto" Foreground="White" FontFamily="Broadway" Grid.ColumnSpan="2">
             <Button.Background>
                 <SolidColorBrush Color="#FFDDDDDD" Opacity="0"/>
             </Button.Background>
@@ -42,5 +46,13 @@
             </Button.BorderBrush>
         </Button>
         <Button x:Name="Log_off" Click="Log_off_Left_Button_Click" Content="Log off" HorizontalAlignment="Left" Height="47" Margin="483,10,0,0" VerticalAlignment="Top" Width="99" FontFamily="Broadway" FontSize="20" Background="#00000000" BorderBrush="#00707070" Foreground="White"/>
+            <Button x:Name="Process_Monitor" FontSize="36" Click="Process_Monitor_Left_Button_Click" Content="Process Monitor" FontFamily="Broadway" Foreground="White" Margin="112,453,122.334,37.667" Grid.ColumnSpan="2">
+                <Button.BorderBrush>
+                    <SolidColorBrush Color="#FF707070" Opacity="0"/>
+                </Button.BorderBrush>
+                <Button.Background>
+                    <SolidColorBrush Color="#FFDDDDDD" Opacity="0"/>
+                </Button.Background>
+            </Button>
     </Grid>
 </Window>
