@@ -41,7 +41,7 @@ namespace PL_GUI {
     public partial class AdministratorManagment : System.Windows.Window, System.Windows.Markup.IComponentConnector {
         
         
-        #line 13 "..\..\AdministratorManagment.xaml"
+        #line 14 "..\..\AdministratorManagment.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Button ChangePassword;
         
@@ -49,7 +49,7 @@ namespace PL_GUI {
         #line hidden
         
         
-        #line 21 "..\..\AdministratorManagment.xaml"
+        #line 22 "..\..\AdministratorManagment.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Button AddUser;
         
@@ -57,7 +57,7 @@ namespace PL_GUI {
         #line hidden
         
         
-        #line 29 "..\..\AdministratorManagment.xaml"
+        #line 30 "..\..\AdministratorManagment.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Button RemoveUser;
         
@@ -65,7 +65,7 @@ namespace PL_GUI {
         #line hidden
         
         
-        #line 37 "..\..\AdministratorManagment.xaml"
+        #line 38 "..\..\AdministratorManagment.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Button ChangeRole;
         
@@ -73,7 +73,7 @@ namespace PL_GUI {
         #line hidden
         
         
-        #line 45 "..\..\AdministratorManagment.xaml"
+        #line 46 "..\..\AdministratorManagment.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Button ReadLog;
         
@@ -81,7 +81,7 @@ namespace PL_GUI {
         #line hidden
         
         
-        #line 53 "..\..\AdministratorManagment.xaml"
+        #line 54 "..\..\AdministratorManagment.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Button MainMenu;
         
@@ -121,7 +121,7 @@ namespace PL_GUI {
             case 1:
             this.ChangePassword = ((System.Windows.Controls.Button)(target));
             
-            #line 13 "..\..\AdministratorManagment.xaml"
+            #line 14 "..\..\AdministratorManagment.xaml"
             this.ChangePassword.Click += new System.Windows.RoutedEventHandler(this.ChangePassword_Button_Click);
             
             #line default
@@ -130,7 +130,7 @@ namespace PL_GUI {
             case 2:
             this.AddUser = ((System.Windows.Controls.Button)(target));
             
-            #line 21 "..\..\AdministratorManagment.xaml"
+            #line 22 "..\..\AdministratorManagment.xaml"
             this.AddUser.Click += new System.Windows.RoutedEventHandler(this.AddUser_Button_Click);
             
             #line default
@@ -139,7 +139,7 @@ namespace PL_GUI {
             case 3:
             this.RemoveUser = ((System.Windows.Controls.Button)(target));
             
-            #line 29 "..\..\AdministratorManagment.xaml"
+            #line 30 "..\..\AdministratorManagment.xaml"
             this.RemoveUser.Click += new System.Windows.RoutedEventHandler(this.RemoveUser_Button_Click);
             
             #line default
@@ -148,7 +148,7 @@ namespace PL_GUI {
             case 4:
             this.ChangeRole = ((System.Windows.Controls.Button)(target));
             
-            #line 37 "..\..\AdministratorManagment.xaml"
+            #line 38 "..\..\AdministratorManagment.xaml"
             this.ChangeRole.Click += new System.Windows.RoutedEventHandler(this.ChangeRole_Button_Click);
             
             #line default
@@ -157,7 +157,7 @@ namespace PL_GUI {
             case 5:
             this.ReadLog = ((System.Windows.Controls.Button)(target));
             
-            #line 45 "..\..\AdministratorManagment.xaml"
+            #line 46 "..\..\AdministratorManagment.xaml"
             this.ReadLog.Click += new System.Windows.RoutedEventHandler(this.ReadLog_Button_Click);
             
             #line default
@@ -166,7 +166,7 @@ namespace PL_GUI {
             case 6:
             this.MainMenu = ((System.Windows.Controls.Button)(target));
             
-            #line 53 "..\..\AdministratorManagment.xaml"
+            #line 54 "..\..\AdministratorManagment.xaml"
             this.MainMenu.Click += new System.Windows.RoutedEventHandler(this.MainMenu_Click);
             
             #line default

@@ -1,0 +1,39 @@
+﻿using BL;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Shapes;
+
+namespace PL_GUI
+{
+    /// <summary>
+    /// Interaction logic for AddEmailForAdmin.xaml
+    /// </summary>
+    public partial class AddEmailForAdmin : Window
+    {
+        IBL theBL;
+        
+        public AddEmailForAdmin(IBL bl)
+        {
+            theBL = bl;
+            InitializeComponent();
+            if()
+        }
+
+        public void Run()
+        {
+            this.Show();
+
+        }
+
+    }
+}

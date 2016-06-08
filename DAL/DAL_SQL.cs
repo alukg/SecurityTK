@@ -4,6 +4,7 @@ using System.Data.SqlClient;
 using SharedClasses;
 using System.Net.Mail;
 using System.Net;
+using System.Collections;
 
 namespace DAL
 {
@@ -295,6 +296,34 @@ namespace DAL
                 reader.Close();
                 connection.Close();
                 return emailList;
+            }
+            catch
+            {
+                throw new Exception("connection faild");
+            }
+        }
+
+        public String[] getLineForUsername(string username)
+        {
+            //Hashtable table = new Hashtable();
+            string path = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
+            SqlConnection connection = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=" + path + "\\SecurityTK_DB.mdf;Integrated Security=True");
+            SqlCommand cmd = new SqlCommand("SELECT * FROM Users WHERE Role = 'Administrator' AND UserName = " + username, connection);
+
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+                //Hashtable table = new Hashtable();
+                string[] table = new string[7];
+                while (reader.Read())
+                {
+                    table line = reader.GetValue(0);
+                    
+                }
+                reader.Close();
+                connection.Close();
+                return ;
             }
             catch
             {
