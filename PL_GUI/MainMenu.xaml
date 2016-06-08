@@ -45,14 +45,15 @@
                 <SolidColorBrush Color="#FF707070" Opacity="0"/>
             </Button.BorderBrush>
         </Button>
-        <Button x:Name="Log_off" Click="Log_off_Left_Button_Click" Content="Log off" HorizontalAlignment="Left" Height="47" Margin="483,10,0,0" VerticalAlignment="Top" Width="99" FontFamily="Broadway" FontSize="20" Background="#00000000" BorderBrush="#00707070" Foreground="White"/>
-            <Button x:Name="Process_Monitor" FontSize="36" Click="Process_Monitor_Left_Button_Click" Content="Process Monitor" FontFamily="Broadway" Foreground="White" Margin="112,453,122.334,37.667" Grid.ColumnSpan="2">
-                <Button.BorderBrush>
-                    <SolidColorBrush Color="#FF707070" Opacity="0"/>
-                </Button.BorderBrush>
-                <Button.Background>
-                    <SolidColorBrush Color="#FFDDDDDD" Opacity="0"/>
-                </Button.Background>
-            </Button>
+
+        <Button x:Name="Process_Monitor" FontSize="36" Click="Process_Monitor_Left_Button_Click" Content="Process Monitor" FontFamily="Broadway" Foreground="White" Margin="112,453,122.334,37.667" Grid.ColumnSpan="2">
+            <Button.BorderBrush>
+                <SolidColorBrush Color="#FF707070" Opacity="0"/>
+            </Button.BorderBrush>
+            <Button.Background>
+                <SolidColorBrush Color="#FFDDDDDD" Opacity="0"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="Log_off" Content="Log off" Click="Log_off_Left_Button_Click" Grid.Column="1" HorizontalAlignment="Left" Height="47" Margin="350,10,0,0" VerticalAlignment="Top" Width="100" Background="#00DDDDDD" BorderBrush="#00707070" Foreground="White" FontFamily="Broadway" FontSize="18"/>
     </Grid>
 </Window>

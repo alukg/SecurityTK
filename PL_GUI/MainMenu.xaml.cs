@@ -60,6 +60,7 @@ namespace PL_GUI
             theBL.logOff();
             LoginWindow lw = new LoginWindow(theBL);
             lw.Run();
+            this.Close();
         }
         private void Process_Monitor_Left_Button_Click(object sender, RoutedEventArgs e)
         {
