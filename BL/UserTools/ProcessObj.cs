@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
+using System;
 using System.Diagnostics;
-using System.Threading;
+
 
 namespace BL.UserTools
 {
@@ -15,19 +12,19 @@ namespace BL.UserTools
         private double memory;  
 
         //constructor
-        public ProcessObj(Process process, PerformanceCounter cpu, long memory)
+        public ProcessObj(Process process, double cpu, long memory)
         {
             this.process = process;
-            try
-            {
-                CounterSample cs1 = cpu.NextSample();
-                Thread.Sleep(300);
-                CounterSample cs2 = cpu.NextSample();
-                this.cpu = CounterSample.Calculate(cs1, cs2);
-            }
-            catch(Exception e)
-            {            }
-            this.memory = memory/ (1024f) / 1024f;
+            if (cpu > 100) // if the process takes more than 100%, divide it by the number of cores
+               cpu = cpu / Environment.ProcessorCount;
+
+            //making the doubles show only two digits after the decimical point
+            string tempcpu= String.Format("{0:0.00}", cpu);
+            cpu = Convert.ToDouble(tempcpu);
+            this.cpu = cpu;
+
+            string tempMemory= String.Format("{0:0.00}", memory / (1024f) / 1024f);
+            this.memory =Convert.ToDouble(tempMemory) ;
                 
         }
 

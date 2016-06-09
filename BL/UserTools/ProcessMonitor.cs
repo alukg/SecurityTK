@@ -14,16 +14,24 @@ namespace BL.UserTools
         {
             processes = new List<ProcessObj>();
             Process[] allProcesses = Process.GetProcesses(); // array of current proccesses
+            CounterSample[] firstSample = new CounterSample[allProcesses.Length];
+            CounterSample[] secondSample = new CounterSample[allProcesses.Length];
 
-            foreach(Process p in allProcesses)
+           for(int p=0; p<allProcesses.Length; p++)
             {
-                var cpu = new PerformanceCounter("Process", "% Processor Time", p.ProcessName);
-                var mem = p.WorkingSet64;
-                if (p.ProcessName != "Idle")
-                {
-                    ProcessObj process = new ProcessObj(p, cpu, mem);
-                    processes.Add(process);
-                }
+                var cpu = new PerformanceCounter("Process", "% Processor Time", allProcesses[p].ProcessName);
+                firstSample[p]= cpu.NextSample();
+            }
+
+            Thread.Sleep(300);
+
+            for (int p = 0; p < allProcesses.Length; p++)
+            {
+                var cpu = new PerformanceCounter("Process", "% Processor Time", allProcesses[p].ProcessName);
+                secondSample[p] = cpu.NextSample();
+                var mem = allProcesses[p].WorkingSet64;
+                ProcessObj process = new ProcessObj(allProcesses[p], CounterSample.Calculate(firstSample[p], secondSample[p]), mem);
+                processes.Add(process);
             }
 
 
