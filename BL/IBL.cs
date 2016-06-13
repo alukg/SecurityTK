@@ -24,8 +24,8 @@ namespace BL
         string encrypt(string filePath, string destinationPath, string password);
         string decrypt(string filePath, string destinationPath, string password);
         List<string> readLog();
-        Hashtable getLineForUsername(string username);
-        void updateEmailLine(Hashtable h);
+        Dictionary<string, object> getLineForUsername(string username);
+        void updateEmailLine(Dictionary<string, object> h);
     }
 
 }

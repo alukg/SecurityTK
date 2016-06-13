@@ -362,12 +362,12 @@ namespace BL
             return ans;
         }
 
-        public Hashtable getLineForUsername(string username){
+        public Dictionary<string, object> getLineForUsername(string username){
             return itsDAL.getLineForUsername(username);
         }
-        public void updateEmailLine(Hashtable h)
+        public void updateEmailLine(Dictionary<string, object> h)
         {
-            itsDAL.updateEmailLine(h);
+            itsDAL.updateEmailLine(h, currUser.userName);
         }
     }
 }

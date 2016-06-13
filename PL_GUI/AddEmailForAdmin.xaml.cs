@@ -31,15 +31,13 @@ namespace PL_GUI
         string processMonitorCheck;
         string EmailString;
 
-
-
         public AddEmailForAdmin(IBL bl)
         {
             theBL = bl;
             InitializeComponent();
 
             try {
-                Hashtable h = theBL.getLineForUsername(theBL.getUser().userName);
+                Dictionary<string, object> h = theBL.getLineForUsername(theBL.getUser().userName);
                 GetUpdateCheck = (string) h["GetUpdate"];
                 logOnCheck = (string) h["logOn"];
                 logOffCheck = (string) h["logOff"];
@@ -121,7 +119,7 @@ namespace PL_GUI
                 else processMonitorCheck = "0";
 
                 //
-                Hashtable h = new Hashtable();
+                Dictionary<string, object> h = new Dictionary<string, object>();
                 h.Add("GetUpdate", GetUpdateCheck);
                 h.Add("logOn", logOnCheck);
                 h.Add("logOff", logOffCheck);
@@ -132,7 +130,7 @@ namespace PL_GUI
                 h.Add("Email", EmailString);
                 theBL.updateEmailLine(h);
 
-                wrongEmailText.Visibility = System.Windows.Visibility.Visible;
+                wrongEmailText.Visibility = System.Windows.Visibility.Hidden;
                 MessageBox.Show("Setting updated.");
             }
             else {

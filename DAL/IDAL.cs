@@ -18,7 +18,7 @@ namespace DAL
         void removeUser(string userName);
         void writeToLog(string action, string performed, string affected);
         List<string> getLog();
-        Hashtable getLineForUsername(string username);
-        void updateEmailLine(Hashtable h);
+        Dictionary<string, object> getLineForUsername(string username);
+        void updateEmailLine(Dictionary<string, object> h, string username);
     }
 }
