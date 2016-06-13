@@ -10,6 +10,8 @@ namespace DAL
 {
     public class DAL_SQL : IDAL
     {
+        private string connectionString = "Data Source=ISE-SQL12; Initial Catalog=aluk; Integrated Security=SSPI";
+
         /// <summary>
         /// checks if the user is in the DB.
         /// </summary>
@@ -18,8 +20,7 @@ namespace DAL
         public bool userNameExists(string userName)
         {
             userName = userName.ToLower();
-            string path = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
-            SqlConnection connection = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=" + path + "\\SecurityTK_DB.mdf;Integrated Security=True");
+            SqlConnection connection = new SqlConnection(connectionString);
             SqlCommand cmd = new SqlCommand("SELECT count(*) FROM Users WHERE UserName = '" + userName + "'", connection);
             try
             {
@@ -43,8 +44,7 @@ namespace DAL
         public string getPassword(string userName)
         {
             userName = userName.ToLower();
-            string path = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
-            SqlConnection connection = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=" + path + "\\SecurityTK_DB.mdf;Integrated Security=True");
+            SqlConnection connection = new SqlConnection(connectionString);
             SqlCommand cmd = new SqlCommand("SELECT Password FROM Users WHERE UserName = '" + userName + "'", connection);
             try
             {
@@ -68,8 +68,7 @@ namespace DAL
         public Role getRole(string userName)
         {
             userName = userName.ToLower();
-            string path = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
-            SqlConnection connection = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=" + path + "\\SecurityTK_DB.mdf;Integrated Security=True");
+            SqlConnection connection = new SqlConnection(connectionString);
             SqlCommand cmd = new SqlCommand("SELECT Role FROM Users WHERE UserName = '" + userName + "'", connection);
             try
             {
@@ -100,8 +99,7 @@ namespace DAL
         public void setNewUser(string userName, string password, Role role)
         {
             userName = userName.ToLower();
-            string path = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
-            SqlConnection connection = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=" + path + "\\SecurityTK_DB.mdf;Integrated Security=True");
+            SqlConnection connection = new SqlConnection(connectionString);
             SqlCommand cmd = new SqlCommand("INSERT INTO Users(UserName, Password, Role) VALUES('" + userName + "','" + password + "','" + role.ToString() + "')", connection);
             try
             {
@@ -123,8 +121,7 @@ namespace DAL
         public void setPassword(string userName, string value)
         {
             userName = userName.ToLower();
-            string path = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
-            SqlConnection connection = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=" + path + "\\SecurityTK_DB.mdf;Integrated Security=True");
+            SqlConnection connection = new SqlConnection(connectionString);
             SqlCommand cmd = new SqlCommand("UPDATE Users SET Password ='" + value + "' WHERE UserName = '" + userName + "'", connection);
             try
             {
@@ -146,8 +143,7 @@ namespace DAL
         public void setRole(string userName, Role value)
         {
             userName = userName.ToLower();
-            string path = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
-            SqlConnection connection = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=" + path + "\\SecurityTK_DB.mdf;Integrated Security=True");
+            SqlConnection connection = new SqlConnection(connectionString);
             SqlCommand cmd = new SqlCommand("UPDATE Users SET Role ='" + value.ToString() + "' WHERE UserName = '" + userName + "'", connection);
             try
             {
@@ -167,14 +163,18 @@ namespace DAL
         /// <param name="action"></param>
         /// <param name="performed"></param>
         /// <param name="affected"></param>
-        public void writeToLog(string action, string performed, String affected)
+        public void writeLogToDB(string dateTime, string action, string performed, String affected)
         {
-            string dateTime = DateTime.Now.ToString("yyMMdd HH:mm:ss");
-            if(action == "User accessed Data Leakage Tool" || action == "User accessed Encryption Tool" || action == "User accessed Process Monitor" || action == "User changed password" || action == "User log on" || action == "User log off")
-                sendLiveAlerts(action + ", " + dateTime + ", " + performed + ", " + affected, action);
-            string path = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
-            SqlConnection connection = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=" + path + "\\SecurityTK_DB.mdf;Integrated Security=True");
-            SqlCommand cmd = new SqlCommand("INSERT INTO Log(Action, DateTime, Executer, Affected) VALUES('" + action + "','" + dateTime + "','" + performed + "','" + affected + "')", connection);
+            SqlConnection connection = new SqlConnection(connectionString);
+            SqlCommand cmd;
+            if (affected == null)
+            {
+                cmd = new SqlCommand("INSERT INTO Log(Action, DateTime, Executer) VALUES('" + action + "','" + dateTime + "','" + performed + "')", connection);
+            }
+            else
+            {
+                cmd = new SqlCommand("INSERT INTO Log(Action, DateTime, Executer, Affected) VALUES('" + action + "','" + dateTime + "','" + performed + "','" + affected + "')", connection);
+            }
             try
             {
                 connection.Open();
@@ -193,8 +193,7 @@ namespace DAL
         /// <returns></returns>
         public List<string> getLog()
         {
-            string path = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
-            SqlConnection connection = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=" + path + "\\SecurityTK_DB.mdf;Integrated Security=True");
+            SqlConnection connection = new SqlConnection(connectionString);
             SqlCommand cmd = new SqlCommand("SELECT * FROM Log", connection);
             try
             {
@@ -222,8 +221,7 @@ namespace DAL
         public void removeUser(string userName)
         {
             userName = userName.ToLower();
-            string path = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
-            SqlConnection connection = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=" + path + "\\SecurityTK_DB.mdf;Integrated Security=True");
+            SqlConnection connection = new SqlConnection(connectionString);
             SqlCommand cmd = new SqlCommand("DELETE FROM Users WHERE UserName = '" + userName + "'", connection);
             try
             {
@@ -238,52 +236,13 @@ namespace DAL
         }
 
         /// <summary>
-        /// send log entry for the administrators who accepts live alerts
-        /// </summary>
-        /// <param name="messege"> the messege to send </param>
-        private void sendLiveAlerts(string logEntry, string action)
-        {
-            List<string> emailList = getLiveAlertsMailsForAction(action);
-
-            MailAddress fromAddress = new MailAddress("guyaluk@gmail.com");
-            const string fromPassword = "";
-            const string subject = "Live Alert";
-            string body = logEntry;
-
-            var smtp = new SmtpClient
-            {
-                Host = "smtp.gmail.com",
-                Port = 587,
-                EnableSsl = true,
-                DeliveryMethod = SmtpDeliveryMethod.Network,
-                UseDefaultCredentials = false,
-                Credentials = new NetworkCredential(fromAddress.Address, fromPassword)
-            };
-
-            foreach (var email in emailList)
-            {
-                MailAddress toAddress = new MailAddress(email);
-
-                using (var message = new MailMessage(fromAddress, toAddress)
-                {
-                    Subject = subject,
-                    Body = body
-                })
-                {
-                    smtp.Send(message);
-                }
-            }
-        }
-
-        /// <summary>
         /// returns the software log.
         /// </summary>
         /// <returns></returns>
-        private List<string> getLiveAlertsMailsForAction(string action)
+        public List<string> getLiveAlertsMailsForAction(string action)
         {
-            string path = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
-            SqlConnection connection = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=" + path + "\\SecurityTK_DB.mdf;Integrated Security=True");
-            SqlCommand cmd = new SqlCommand("SELECT Email FROM Users WHERE Role = 'Administrator' AND GetUpdate = '1' AND " + action.ToString() + " = '1'", connection);
+            SqlConnection connection = new SqlConnection(connectionString);
+            SqlCommand cmd = new SqlCommand("SELECT Email FROM Users WHERE Role = 'Administrator' AND GetUpdate = '1' AND [" + action.ToString() + "] = '1'", connection);
             try
             {
                 connection.Open();

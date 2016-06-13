@@ -47,7 +47,7 @@ namespace BL
         /// </summary>
         public void logOff()
         {
-            itsDAL.writeToLog("User log off", currUser.userName, null);
+            writeToLog("User log off", currUser.userName, null);
             currUser = null;
         }
 
@@ -83,7 +83,7 @@ namespace BL
             {
                 Role userRole = itsDAL.getRole(userName);
                 currUser = new User(userName, currentPassword, userRole); //set this user to be the cuurent user.
-                itsDAL.writeToLog("User log on", currUser.userName, null);
+                writeToLog("User log on", currUser.userName, null);
                 return true;
             }
             else //if the password isn't good.
@@ -106,7 +106,7 @@ namespace BL
                 if (!itsDAL.userNameExists(userName)) return "Username don't exits";
                 if (itsDAL.getRole(userName).Equals(newRole)) return "This user already in that role"; //if the user is already in the requested role.
                 itsDAL.setRole(userName, newRole);
-                itsDAL.writeToLog("User changed role", currUser.userName, userName);
+                writeToLog("User changed role", currUser.userName, userName);
                 if (currUser.userName.Equals(userName)) currUser = new User(currUser.userName,currUser.password,newRole); //if the user changed is role, update the curr user.
                 return "Role changed successfully";
             }
@@ -134,7 +134,7 @@ namespace BL
                 else
                 {
                     itsDAL.removeUser(userName);
-                    itsDAL.writeToLog("Removed user", currUser.userName, userName);
+                    writeToLog("Removed user", currUser.userName, userName);
                     return "The user was removed successfully";
                 }
             }
@@ -190,7 +190,7 @@ namespace BL
                     if(currUser.role.Equals(Role.Administrator)) //if the new user is admin, only admin can add him.
                     {
                         itsDAL.setNewUser(userName, pass, role);
-                        itsDAL.writeToLog("New user added", currUser.userName, userName);
+                        writeToLog("New user added", currUser.userName, userName);
                         return "User added successfully. The password is: " + pass;
                     }
                     else //if the curr role is manager.
@@ -199,7 +199,7 @@ namespace BL
                 else //if the requested role is manager or employee, either manager or admin can add it.
                 {
                     itsDAL.setNewUser(userName, pass, role);
-                    itsDAL.writeToLog("New user added", currUser.userName, userName);
+                    writeToLog("New user added", currUser.userName, userName);
                     return "User added successfully. The password is: " + pass;
                 }
             }
@@ -233,7 +233,7 @@ namespace BL
             if (currUser.userName == userName) //every user can change his password.
             {
                 itsDAL.setPassword(userName, pass);
-                itsDAL.writeToLog("Changed password", currUser.userName, userName);
+                writeToLog("Changed password", currUser.userName, userName);
                 currUser = new User(currUser.userName, pass, currUser.role);
                 return "Password changed successfully. The new password is: " + pass;
             }
@@ -247,7 +247,7 @@ namespace BL
                 else
                 {
                     itsDAL.setPassword(userName, pass);
-                    itsDAL.writeToLog("Changed password", currUser.userName, userName);
+                    writeToLog("Changed password", currUser.userName, userName);
                     return "Password changed successfully. The new password is: " + pass;
                 }
             }
@@ -276,7 +276,7 @@ namespace BL
         /// <returns></returns>
         public SortedDictionary<double, FileInfo> checkSensitivity(string path)
         {
-            itsDAL.writeToLog("User accessed Data Leakage Tool", currUser.userName, null);
+            writeToLog("User accessed Data Leakage Tool", currUser.userName, null);
             return dataLeakageTool.checkSensitivity(path);
         }
 
@@ -289,7 +289,7 @@ namespace BL
         /// <returns></returns>
         public string encrypt(string filePath, string destinationPath, string password)
         {
-            itsDAL.writeToLog("User accessed Encryption Tool", currUser.userName, null);
+            writeToLog("User accessed Encryption Tool", currUser.userName, null);
             return fileCryptoTool.encrypt(filePath, destinationPath, password);
         }
 
@@ -302,7 +302,7 @@ namespace BL
         /// <returns></returns>
         public string decrypt(string filePath, string destinationPath, string password)
         {
-            itsDAL.writeToLog("User accessed Encryption Tool", currUser.userName, null);
+            writeToLog("User accessed Encryption Tool", currUser.userName, null);
             return fileCryptoTool.decrypt(filePath, destinationPath, password);
         }
 
@@ -368,6 +368,61 @@ namespace BL
         public void updateEmailLine(Dictionary<string, object> h)
         {
             itsDAL.updateEmailLine(h, currUser.userName);
+        }
+
+        /// <summary>
+        /// write to the log table in the DB.
+        /// </summary>
+        /// <param name="action"></param>
+        /// <param name="performed"></param>
+        /// <param name="affected"></param>
+        private void writeToLog(string action, string performed, String affected)
+        {
+            string dateTime = DateTime.Now.ToString("dd-MM-yy HH:mm:ss");
+            if (action == "User accessed Data Leakage Tool" || action == "User accessed Encryption Tool" || action == "User accessed Process Monitor" || action == "User changed password" || action == "User log on" || action == "User log off")
+                sendLiveAlerts(action + ", " + dateTime + ", " + performed + ", " + affected, action);
+            itsDAL.writeLogToDB(dateTime, action, performed, affected);
+        }
+
+        /// <summary>
+        /// send log entry for the administrators who accepts live alerts
+        /// </summary>
+        /// <param name="messege"> the messege to send </param>
+        private void sendLiveAlerts(string logEntry, string action)
+        {
+            List<string> emailList = itsDAL.getLiveAlertsMailsForAction(action);
+
+            MailAddress fromAddress = new MailAddress("bgu.software@gmail.com");
+            const string fromPassword = "bgu12345";
+            const string subject = "Live Alert";
+            string body = logEntry;
+
+            var smtp = new SmtpClient
+            {
+                Host = "smtp.gmail.com",
+                Port = 587,
+                EnableSsl = true,
+                DeliveryMethod = SmtpDeliveryMethod.Network,
+                UseDefaultCredentials = false,
+                Credentials = new NetworkCredential(fromAddress.Address, fromPassword)
+            };
+
+            foreach (var email in emailList)
+            {
+                if (email != null)
+                {
+                    MailAddress toAddress = new MailAddress(email);
+
+                    using (var message = new MailMessage(fromAddress, toAddress)
+                    {
+                        Subject = subject,
+                        Body = body
+                    })
+                    {
+                        smtp.Send(message);
+                    }
+                }
+            }
         }
     }
 }

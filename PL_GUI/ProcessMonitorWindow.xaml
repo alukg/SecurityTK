@@ -47,7 +47,7 @@
                             </GridViewColumnHeader>
                         </GridViewColumn.Header>
                     </GridViewColumn>
-                    <GridViewColumn  Width="70" DisplayMemberBinding="{Binding cpu}" >
+                    <GridViewColumn  Width="70" DisplayMemberBinding="{Binding cpu}">
                         <GridViewColumn.Header>
                             <GridViewColumnHeader Name ="cpu" Tag="CPU" Click="Sort_By_Click">CPU (%)
                             </GridViewColumnHeader>
