@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using SharedClasses;
 using System.IO;
+using System.Collections;
 
 namespace BL
 {
@@ -23,6 +24,8 @@ namespace BL
         string encrypt(string filePath, string destinationPath, string password);
         string decrypt(string filePath, string destinationPath, string password);
         List<string> readLog();
+        Hashtable getLineForUsername(string username);
+        void updateEmailLine(Hashtable h);
     }
 
 }

@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using SharedClasses;
+using System.Collections;
 
 namespace DAL
 {
@@ -17,5 +18,7 @@ namespace DAL
         void removeUser(string userName);
         void writeToLog(string action, string performed, string affected);
         List<string> getLog();
+        Hashtable getLineForUsername(string username);
+        void updateEmailLine(Hashtable h);
     }
 }

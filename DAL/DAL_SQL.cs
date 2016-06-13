@@ -303,9 +303,8 @@ namespace DAL
             }
         }
 
-        public String[] getLineForUsername(string username)
+        public Hashtable getLineForUsername(string username)
         {
-            //Hashtable table = new Hashtable();
             string path = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
             SqlConnection connection = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=" + path + "\\SecurityTK_DB.mdf;Integrated Security=True");
             SqlCommand cmd = new SqlCommand("SELECT * FROM Users WHERE Role = 'Administrator' AND UserName = " + username, connection);
@@ -314,21 +313,29 @@ namespace DAL
             {
                 connection.Open();
                 SqlDataReader reader = cmd.ExecuteReader();
-                //Hashtable table = new Hashtable();
-                string[] table = new string[7];
-                while (reader.Read())
-                {
-                    table line = reader.GetValue(0);
-                    
-                }
+                Hashtable table = new Hashtable();
+                table.Add("GetUpdate",reader["GetUpdate"]);
+                table.Add("logOn", reader["User log on"]);
+                table.Add("logOff", reader["User log off"]);
+                table.Add("changePassword", reader["User change password"]);
+                table.Add("encryption", reader["User accessed Encryption Tool"]);
+                table.Add("dataLeakage", reader["User accessed Data Leakage Tool"]);
+                table.Add("processMonitor", reader["User accessed Process Monitor"]);
+                table.Add("Email", reader["Email"]);
+
                 reader.Close();
                 connection.Close();
-                return ;
+                return table;
             }
             catch
             {
                 throw new Exception("connection faild");
             }
+        }
+
+        public void updateEmailLine(Hashtable h)
+        {
+            /
         }
 
     }

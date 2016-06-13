@@ -7,6 +7,7 @@ using BL.UserTools;
 using System.IO;
 using System.Net.Mail;
 using System.Net;
+using System.Collections;
 
 namespace BL
 {
@@ -361,5 +362,12 @@ namespace BL
             return ans;
         }
 
+        public Hashtable getLineForUsername(string username){
+            return itsDAL.getLineForUsername(username);
+        }
+        public void updateEmailLine(Hashtable h)
+        {
+            itsDAL.updateEmailLine(h);
+        }
     }
 }
