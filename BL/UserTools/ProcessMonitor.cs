@@ -1,4 +1,5 @@
 ﻿
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Threading;
@@ -44,9 +45,18 @@ namespace BL.UserTools
         }
 
         //kills several processes
-        public void killProcess(Process toKill)
+        public string killProcess(Process toKill)
         {
-            toKill.Kill();
+            try
+            {
+                toKill.Kill();
+                return "";
+            }
+            catch(Exception e)
+            {
+                string s = e.Message;
+                return "Could not kill process";
+            }
         }
     }
 }

@@ -73,6 +73,7 @@ namespace PL_GUI
             }
             catch (Exception exc){
                 System.Windows.MessageBox.Show("Error, please start-over");
+                string s = exc.Message;
                 this.Run();
             }
         }
@@ -96,6 +97,7 @@ namespace PL_GUI
             }
             catch (Exception exc){
                 System.Windows.MessageBox.Show("Error, please start-over");
+                string s = exc.Message;
                 this.Run();
             }
         }

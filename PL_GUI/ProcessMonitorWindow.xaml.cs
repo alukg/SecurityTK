@@ -98,8 +98,12 @@ namespace PL_GUI
         {
             foreach (var item in toKill)
             {
-                pm.killProcess(item.process);
-                pro.Remove(item); // removing the processes from the list
+                string confirmation;
+                confirmation=pm.killProcess(item.process);
+                if(confirmation.Equals(""))
+                    pro.Remove(item); // removing the processes from the list
+                else
+                    MessageBox.Show(confirmation);
             }
             toKill.Clear(); // updating the marked processes list
 
