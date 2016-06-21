@@ -46,6 +46,7 @@
   <ItemGroup>
     <Compile Include="BL_Process.cs" />
     <Compile Include="BL_Process_Test.cs" />
+    <Compile Include="SendEmail.cs" />
     <Compile Include="UserTools\DataLeakageDictionary.cs" />
     <Compile Include="UserTools\DataLeakageTool.cs" />
     <Compile Include="UserTools\FileCryptoTool.cs" />

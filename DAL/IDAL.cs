@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using SharedClasses;
+using System.Collections;
 
 namespace DAL
 {
@@ -17,6 +18,8 @@ namespace DAL
         void removeUser(string userName);
         void writeLogToDB(string dateTime, string action, string performed, string affected);
         List<string> getLog();
+        Dictionary<string, object> getLineForUsername(string username);
+        void updateEmailLine(Dictionary<string, object> h, string username);
         List<string> getLiveAlertsMailsForAction(string action);
     }
 }
