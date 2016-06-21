@@ -163,12 +163,16 @@ namespace PL_GUI
         }
         public void back_Click(object sender, RoutedEventArgs e)
         {
-
+            AdministratorManagment am = new AdministratorManagment(theBL);
+            am.Run();
+            this.Close();
         }
 
         private void MainMenu_Click(object sender, RoutedEventArgs e)
         {
-
+            MainMenu mm = new MainMenu(theBL);
+            mm.Run();
+            this.Close();
         }
         
         private void LogOnChecked(object sender, RoutedEventArgs e)
