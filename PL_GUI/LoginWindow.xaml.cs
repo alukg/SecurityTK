@@ -13,6 +13,9 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using BL;
 using SharedClasses;
+using System.Windows.Forms;
+
+
 
 namespace PL_GUI
 {
@@ -39,14 +42,14 @@ namespace PL_GUI
         {
             if (theBL.userVarification(Username.Text, Password.Password))
             {
-                MessageBox.Show("Welcome " + theBL.getUser().userName+"!");
+                System.Windows.Forms.MessageBox.Show("Welcome " + theBL.getUser().userName+"!");
                 MainMenu mm = new MainMenu(theBL);
                 mm.Run();
                 this.Close();
             }
             else
             {
-                MessageBox.Show("Wrong Username/Password. Please try again.");
+                System.Windows.Forms.MessageBox.Show("Wrong Username/Password. Please try again.");
                 Left_Refresh_Button_Click(sender, e);
             }
         }
@@ -56,5 +59,16 @@ namespace PL_GUI
            Username.Text = "";
            Password.Password = "";
         }
+
+
+        private void GuestEnter_Click(object sender, RoutedEventArgs e)
+        {
+            theBL.guestEnter();
+            System.Windows.MessageBox.Show("Welcome Guset");
+            MainMenu mm = new MainMenu(theBL);
+            mm.Run();
+            this.Close();
+        }
+        
     }
 }

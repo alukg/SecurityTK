@@ -10,7 +10,7 @@
         <Grid.Background>
             <ImageBrush ImageSource="Image/background.png"/>
         </Grid.Background>
-        <ListBox Margin="12,53,8.333,9.667" Name="LogBox">
+        <ListBox Margin="12,53,8.333,63.667" Name="LogBox">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
@@ -33,5 +33,16 @@
             <Button.Background>
                 <SolidColorBrush Color="#FFDDDDDD" Opacity="0"/>
             </Button.Background> Back</Button>
+
+        <Button x:Name="SavePDF" FontSize="16" Click="SavePDF_Click"  Margin="237,0,220.333,9.667" Height="48" VerticalAlignment="Bottom" Foreground="White" FontFamily="Broadway">
+            <Button.BorderBrush>
+                <SolidColorBrush Color="#FF707070" Opacity="0"/>
+            </Button.BorderBrush>
+            <Button.Background>
+                <SolidColorBrush Color="#FFDDDDDD" Opacity="0"/>
+            </Button.Background> Save as PDF 
+        </Button>
+        
+        
     </Grid>
 </Window>

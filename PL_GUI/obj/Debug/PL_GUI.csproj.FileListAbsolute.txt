@@ -118,6 +118,7 @@ C:\Users\Barak\Documents\SecurityTK\PL_GUI\bin\Debug\SecurityTK_DB.mdf
 C:\Users\Barak\Documents\SecurityTK\PL_GUI\bin\Debug\SecurityTK_DB_log.ldf
 C:\Users\Keren\Documents\SecurityTK\PL_GUI\bin\Debug\nunit.framework.dll
 C:\Users\Keren\Documents\SecurityTK\PL_GUI\bin\Debug\nunit.framework.xml
+<<<<<<< HEAD
 C:\Users\Barak\Documents\SecurityTK1\PL_GUI\bin\Debug\SecurityTK_DB.mdf
 C:\Users\Barak\Documents\SecurityTK1\PL_GUI\bin\Debug\SecurityTK_DB_log.ldf
 C:\Users\Barak\Documents\SecurityTK1\PL_GUI\bin\Debug\PL_GUI.dll
@@ -162,3 +163,12 @@ C:\Users\Barak\Documents\SecurityTK1\PL_GUI\obj\Debug\PL_GUI.Properties.Resource
 C:\Users\Barak\Documents\SecurityTK1\PL_GUI\obj\Debug\PL_GUI.csproj.GenerateResource.Cache
 C:\Users\Barak\Documents\SecurityTK1\PL_GUI\obj\Debug\PL_GUI.dll
 C:\Users\Barak\Documents\SecurityTK1\PL_GUI\obj\Debug\PL_GUI.pdb
+=======
+C:\Users\Keren\Documents\SecurityTK\PL_GUI\obj\Debug\ProcessMonitorWindow.g.cs
+C:\Users\Keren\Documents\SecurityTK\PL_GUI\obj\Debug\ProcessMonitorWindow.baml
+C:\Users\Keren\Documents\SecurityTK\PL_GUI\bin\Debug\itextsharp.dll
+C:\Users\Keren\Documents\SecurityTK\PL_GUI\bin\Debug\itextsharp.xml
+C:\Users\Keren\Documents\SecurityTK\PL_GUI\bin\Debug\SecurityTK_DB.mdf
+C:\Users\Keren\Documents\SecurityTK\PL_GUI\bin\Debug\SecurityTK_DB_log.ldf
+>>>>>>> guestLogin
+C:\Users\Keren\Documents\SecurityTK\PL_GUI\obj\Debug\AddEmailForAdmin.g.cs

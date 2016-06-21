@@ -2,6 +2,7 @@
 using SharedClasses;
 using System.IO;
 using System.Collections;
+using System.Collections.ObjectModel;
 
 namespace BL
 {
@@ -26,6 +27,9 @@ namespace BL
         List<string> readLog();
         Dictionary<string, object> getLineForUsername(string username);
         void updateEmailLine(Dictionary<string, object> h);
+        void guestEnter();
+        string createsPDFFile(string PDFName, string path);
+        string createsPDFDataLeakage(string PDFName, string path, ObservableCollection<DataFile> files);
     }
 
 }

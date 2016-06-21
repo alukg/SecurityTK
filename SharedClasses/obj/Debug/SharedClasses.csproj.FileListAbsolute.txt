@@ -15,8 +15,12 @@ C:\Users\Keren\Documents\SecurityTK\SharedClasses\bin\Debug\SharedClasses.dll
 C:\Users\Keren\Documents\SecurityTK\SharedClasses\bin\Debug\SharedClasses.pdb
 C:\Users\Keren\Documents\SecurityTK\SharedClasses\obj\Debug\SharedClasses.dll
 C:\Users\Keren\Documents\SecurityTK\SharedClasses\obj\Debug\SharedClasses.pdb
+<<<<<<< HEAD
 C:\Users\Barak\Documents\SecurityTK1\SharedClasses\bin\Debug\SharedClasses.dll
 C:\Users\Barak\Documents\SecurityTK1\SharedClasses\bin\Debug\SharedClasses.pdb
 C:\Users\Barak\Documents\SecurityTK1\SharedClasses\obj\Debug\SharedClasses.csprojResolveAssemblyReference.cache
 C:\Users\Barak\Documents\SecurityTK1\SharedClasses\obj\Debug\SharedClasses.dll
 C:\Users\Barak\Documents\SecurityTK1\SharedClasses\obj\Debug\SharedClasses.pdb
+=======
+C:\Users\Keren\Documents\SecurityTK\SharedClasses\obj\Debug\SharedClasses.csprojResolveAssemblyReference.cache
+>>>>>>> guestLogin
