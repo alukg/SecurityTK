@@ -54,7 +54,6 @@ C:\Users\Barak\Documents\SecurityTK1\DAL\bin\Debug\DAL.dll
 C:\Users\Barak\Documents\SecurityTK1\DAL\bin\Debug\DAL.pdb
 C:\Users\Barak\Documents\SecurityTK1\DAL\bin\Debug\nunit.framework.dll
 C:\Users\Barak\Documents\SecurityTK1\DAL\bin\Debug\SharedClasses.dll
-C:\Users\Barak\Documents\SecurityTK1\DAL\bin\Debug\Microsoft.SharePoint.Client.Runtime.dll
 C:\Users\Barak\Documents\SecurityTK1\DAL\bin\Debug\SharedClasses.pdb
 C:\Users\Barak\Documents\SecurityTK1\DAL\bin\Debug\nunit.framework.xml
 C:\Users\Barak\Documents\SecurityTK1\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache

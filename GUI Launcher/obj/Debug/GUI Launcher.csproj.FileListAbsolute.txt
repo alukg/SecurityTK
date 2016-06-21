@@ -65,11 +65,9 @@ C:\Users\Keren\Documents\SecurityTK\GUI Launcher\obj\Debug\GUI Launcher.exe
 C:\Users\Keren\Documents\SecurityTK\GUI Launcher\obj\Debug\GUI Launcher.pdb
 C:\Users\Keren\Documents\SecurityTK\GUI Launcher\bin\Debug\nunit.framework.dll
 C:\Users\Keren\Documents\SecurityTK\GUI Launcher\bin\Debug\nunit.framework.xml
-C:\Users\Barak\Documents\SecurityTK1\GUI Launcher\bin\Debug\GUI Launcher.exe.config
-C:\Users\Barak\Documents\SecurityTK1\GUI Launcher\obj\Debug\GUI Launcher.exe
-C:\Users\Barak\Documents\SecurityTK1\GUI Launcher\obj\Debug\GUI Launcher.pdb
 C:\Users\Barak\Documents\SecurityTK1\GUI Launcher\bin\Debug\SecurityTK_DB.mdf
 C:\Users\Barak\Documents\SecurityTK1\GUI Launcher\bin\Debug\SecurityTK_DB_log.ldf
+C:\Users\Barak\Documents\SecurityTK1\GUI Launcher\bin\Debug\GUI Launcher.exe.config
 C:\Users\Barak\Documents\SecurityTK1\GUI Launcher\bin\Debug\GUI Launcher.exe
 C:\Users\Barak\Documents\SecurityTK1\GUI Launcher\bin\Debug\GUI Launcher.pdb
 C:\Users\Barak\Documents\SecurityTK1\GUI Launcher\bin\Debug\BL.dll
@@ -87,3 +85,5 @@ C:\Users\Barak\Documents\SecurityTK1\GUI Launcher\obj\Debug\App.g.cs
 C:\Users\Barak\Documents\SecurityTK1\GUI Launcher\obj\Debug\GUI Launcher_MarkupCompile.cache
 C:\Users\Barak\Documents\SecurityTK1\GUI Launcher\obj\Debug\GUI_Launcher.Properties.Resources.resources
 C:\Users\Barak\Documents\SecurityTK1\GUI Launcher\obj\Debug\GUI Launcher.csproj.GenerateResource.Cache
+C:\Users\Barak\Documents\SecurityTK1\GUI Launcher\obj\Debug\GUI Launcher.exe
+C:\Users\Barak\Documents\SecurityTK1\GUI Launcher\obj\Debug\GUI Launcher.pdb

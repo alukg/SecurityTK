@@ -131,6 +131,7 @@ C:\Users\Barak\Documents\SecurityTK1\PL_GUI\bin\Debug\SharedClasses.pdb
 C:\Users\Barak\Documents\SecurityTK1\PL_GUI\bin\Debug\DAL.pdb
 C:\Users\Barak\Documents\SecurityTK1\PL_GUI\bin\Debug\nunit.framework.xml
 C:\Users\Barak\Documents\SecurityTK1\PL_GUI\obj\Debug\PL_GUI.csprojResolveAssemblyReference.cache
+C:\Users\Barak\Documents\SecurityTK1\PL_GUI\obj\Debug\AddEmailForAdmin.g.cs
 C:\Users\Barak\Documents\SecurityTK1\PL_GUI\obj\Debug\AddUserWindow.g.cs
 C:\Users\Barak\Documents\SecurityTK1\PL_GUI\obj\Debug\AdministratorManagment.g.cs
 C:\Users\Barak\Documents\SecurityTK1\PL_GUI\obj\Debug\ChangePasswordChoose.g.cs
@@ -145,6 +146,7 @@ C:\Users\Barak\Documents\SecurityTK1\PL_GUI\obj\Debug\ReadLogWindow.g.cs
 C:\Users\Barak\Documents\SecurityTK1\PL_GUI\obj\Debug\RemoveUserWindow.g.cs
 C:\Users\Barak\Documents\SecurityTK1\PL_GUI\obj\Debug\PL_GUI_MarkupCompile.cache
 C:\Users\Barak\Documents\SecurityTK1\PL_GUI\obj\Debug\PL_GUI_MarkupCompile.lref
+C:\Users\Barak\Documents\SecurityTK1\PL_GUI\obj\Debug\AddEmailForAdmin.baml
 C:\Users\Barak\Documents\SecurityTK1\PL_GUI\obj\Debug\AddUserWindow.baml
 C:\Users\Barak\Documents\SecurityTK1\PL_GUI\obj\Debug\AdministratorManagment.baml
 C:\Users\Barak\Documents\SecurityTK1\PL_GUI\obj\Debug\ChangePasswordChoose.baml

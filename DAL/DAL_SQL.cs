@@ -10,7 +10,7 @@ namespace DAL
 {
     public class DAL_SQL : IDAL
     {
-        private string connectionString = "Data Source=ISE-SQL12; Initial Catalog=aluk; Integrated Security=SSPI";
+        private string connectionString = "Data Source=HBARAK   ; Initial Catalog=Security_DB; Integrated Security=SSPI";
 
         /// <summary>
         /// checks if the user is in the DB.
@@ -264,8 +264,7 @@ namespace DAL
 
         public Dictionary<string, object> getLineForUsername(string username)
         {
-            string path = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
-            SqlConnection connection = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=" + path + "\\SecurityTK_DB.mdf;Integrated Security=True");
+            SqlConnection connection = new SqlConnection(connectionString);
             SqlCommand cmd = new SqlCommand("SELECT * FROM Users WHERE Role = 'Administrator' AND UserName = " + username, connection);
 
             try
@@ -295,8 +294,7 @@ namespace DAL
         public void updateEmailLine(Dictionary<string,object> h, string userName)
         {
             userName = userName.ToLower();
-            string path = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
-            SqlConnection connection = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=" + path + "\\SecurityTK_DB.mdf;Integrated Security=True");
+            SqlConnection connection = new SqlConnection(connectionString);
             foreach (KeyValuePair<string,object> a in h)
             {
                 string s;
