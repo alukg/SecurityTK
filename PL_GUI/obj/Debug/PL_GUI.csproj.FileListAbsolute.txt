@@ -118,3 +118,9 @@ C:\Users\Barak\Documents\SecurityTK\PL_GUI\bin\Debug\SecurityTK_DB.mdf
 C:\Users\Barak\Documents\SecurityTK\PL_GUI\bin\Debug\SecurityTK_DB_log.ldf
 C:\Users\Keren\Documents\SecurityTK\PL_GUI\bin\Debug\nunit.framework.dll
 C:\Users\Keren\Documents\SecurityTK\PL_GUI\bin\Debug\nunit.framework.xml
+C:\Users\Keren\Documents\SecurityTK\PL_GUI\obj\Debug\ProcessMonitorWindow.g.cs
+C:\Users\Keren\Documents\SecurityTK\PL_GUI\obj\Debug\ProcessMonitorWindow.baml
+C:\Users\Keren\Documents\SecurityTK\PL_GUI\bin\Debug\itextsharp.dll
+C:\Users\Keren\Documents\SecurityTK\PL_GUI\bin\Debug\itextsharp.xml
+C:\Users\Keren\Documents\SecurityTK\PL_GUI\bin\Debug\SecurityTK_DB.mdf
+C:\Users\Keren\Documents\SecurityTK\PL_GUI\bin\Debug\SecurityTK_DB_log.ldf

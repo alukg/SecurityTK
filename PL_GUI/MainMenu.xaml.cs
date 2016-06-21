@@ -27,6 +27,11 @@ namespace PL_GUI
         {
             theBL = bl;
             InitializeComponent();
+            if (theBL.getUser().role == Role.Guest)
+            {
+                Process_Monitor.Visibility = Visibility.Hidden;
+                User_Management.Visibility = Visibility.Hidden;
+            }
         }
 
         public void Run()

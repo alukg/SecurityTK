@@ -33,7 +33,7 @@
             <Grid.Background>
                 <ImageBrush/>
             </Grid.Background>
-            <ListView Margin="137.333,35,8.334,0" Name="Text_Block" RenderTransformOrigin="0.5,0.5" Grid.Column="1" Grid.ColumnSpan="3">
+            <ListView Margin="137.333,35,8.333,46" Name="Text_Block" RenderTransformOrigin="0.5,0.5" Grid.Column="1" Grid.ColumnSpan="3">
                 <TextBlock Name="Text_TextBlock" FontSize="20" Text=""></TextBlock>
                 <ListView.View>
                     <GridView>
@@ -65,5 +65,13 @@
                 </Button.Background>
             </Button>
         </Grid>
+        <Button x:Name="SavePDF" FontSize="16" Click="SavePDF_Click"  Margin="293,0,164.333,9.667" Height="48" VerticalAlignment="Bottom" Foreground="White" FontFamily="Broadway">
+            <Button.BorderBrush>
+                <SolidColorBrush Color="#FF707070" Opacity="0"/>
+            </Button.BorderBrush>
+            <Button.Background>
+                <SolidColorBrush Color="#FFDDDDDD" Opacity="0"/>
+            </Button.Background> Save as PDF
+        </Button>
     </Grid>
 </Window>

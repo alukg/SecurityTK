@@ -38,13 +38,15 @@ namespace PL_GUI
         //after clicking the "open file" vutton
         private void Open_File_Left_Button_Click(object sender, RoutedEventArgs e)
         {
-            try {
+            try
+            {
                 FolderBrowserDialog fbd = new FolderBrowserDialog();
                 DialogResult result = fbd.ShowDialog();
                 urlAdress = fbd.SelectedPath;
                 DataLeakageTool dlt = new DataLeakageTool();
                 SortedDictionary<double, FileInfo> dictionary = null;
-                try {
+                try
+                {
                     dictionary = dlt.checkSensitivity(urlAdress);
                 }
                 catch (Exception exc)
@@ -71,7 +73,8 @@ namespace PL_GUI
                 dlt = null;
                 this.Files_List.ItemsSource = files;
             }
-            catch (Exception exc){
+            catch (Exception exc)
+            {
                 System.Windows.MessageBox.Show("Error, please start-over");
                 this.Run();
             }
@@ -94,19 +97,30 @@ namespace PL_GUI
                 theFile = System.IO.File.ReadAllText(@currDF.url + "\\" + currDF.name);
                 Text_TextBlock.Text = theFile;
             }
-            catch (Exception exc){
+            catch (Exception exc)
+            {
                 System.Windows.MessageBox.Show("Error, please start-over");
                 this.Run();
             }
         }
+
+        private void SavePDF_Click(object sender, RoutedEventArgs e)
+        {
+            FolderBrowserDialog fbd = new FolderBrowserDialog();
+            DialogResult result = fbd.ShowDialog();
+            String pathFolder = fbd.SelectedPath;
+            string dateTime = DateTime.Now.ToString("ddMMyyHHmm");
+
+            System.Windows.MessageBox.Show(theBL.createsPDFDataLeakage("DataLeakage" + dateTime, pathFolder, files));
+        }
     }
 
     //a data stracture to save information about each .txt file
-    public class DataFile
+  /*  public class DataFile
     {
         public String name { get; set; }
         public double score { get; set; }
         public String text { get; set; }
         public String url { get; set; }
-    }
+    }*/
 }

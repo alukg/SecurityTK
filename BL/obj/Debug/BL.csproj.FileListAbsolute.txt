@@ -49,3 +49,7 @@ C:\Users\Keren\Documents\SecurityTK\BL\obj\Debug\BL.csprojResolveAssemblyReferen
 C:\Users\Keren\Documents\SecurityTK\BL\obj\Debug\BL.dll
 C:\Users\Keren\Documents\SecurityTK\BL\obj\Debug\BL.pdb
 C:\Users\Keren\Documents\SecurityTK\BL\bin\Debug\nunit.framework.xml
+C:\Users\Keren\Documents\SecurityTK\BL\bin\Debug\itextsharp.dll
+C:\Users\Keren\Documents\SecurityTK\BL\bin\Debug\itextsharp.pdfa.dll
+C:\Users\Keren\Documents\SecurityTK\BL\bin\Debug\itextsharp.xtra.dll
+C:\Users\Keren\Documents\SecurityTK\BL\bin\Debug\itextsharp.xml

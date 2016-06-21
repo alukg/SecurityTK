@@ -7,6 +7,11 @@ using BL.UserTools;
 using System.IO;
 using System.Net.Mail;
 using System.Net;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
+using System.Collections.ObjectModel;
+
+
 
 namespace BL
 {
@@ -89,6 +94,11 @@ namespace BL
                 return false;
         }
 
+        public void guestEnter()
+        {
+            currUser = new User("guest", "g1111111", Role.Guest); //set this user to be the current user.
+        }
+
         /// <summary>
         /// changes the role of the requested person.
         /// </summary>
@@ -106,7 +116,7 @@ namespace BL
                 if (itsDAL.getRole(userName).Equals(newRole)) return "This user already in that role"; //if the user is already in the requested role.
                 itsDAL.setRole(userName, newRole);
                 itsDAL.writeToLog("User changed role", currUser.userName, userName);
-                if (currUser.userName.Equals(userName)) currUser = new User(currUser.userName,currUser.password,newRole); //if the user changed is role, update the curr user.
+                if (currUser.userName.Equals(userName)) currUser = new User(currUser.userName, currUser.password, newRole); //if the user changed is role, update the curr user.
                 return "Role changed successfully";
             }
             else
@@ -184,9 +194,9 @@ namespace BL
                 if (itsDAL.userNameExists(userName)) return "That Username already taken"; //if that username is exists.
                 if (!checkPassword(pass)) return "Password is not good"; //checks if the password is legal.
 
-                if(role.Equals(Role.Administrator))
+                if (role.Equals(Role.Administrator))
                 {
-                    if(currUser.role.Equals(Role.Administrator)) //if the new user is admin, only admin can add him.
+                    if (currUser.role.Equals(Role.Administrator)) //if the new user is admin, only admin can add him.
                     {
                         itsDAL.setNewUser(userName, pass, role);
                         itsDAL.writeToLog("New user added", currUser.userName, userName);
@@ -238,8 +248,8 @@ namespace BL
             }
             else //if he wan't to change other user password.
             {
-                if(currUser.role.Equals(Role.Employee)) return "There is no permissions";
-                else if(currUser.role.Equals(Role.Manager) && !(itsDAL.getRole(userName).Equals(Role.Employee))) //Manager can change only his, and employee password.
+                if (currUser.role.Equals(Role.Employee)) return "There is no permissions";
+                else if (currUser.role.Equals(Role.Manager) && !(itsDAL.getRole(userName).Equals(Role.Employee))) //Manager can change only his, and employee password.
                 {
                     return "There is no permissions";
                 }
@@ -258,15 +268,78 @@ namespace BL
         /// <returns> list of log strings </returns>
         public List<string> readLog()
         {
-            if(currUser.role.Equals(Role.Administrator))
-            {
-                return itsDAL.getLog();
-            }
-            else
-            {
-                throw new Exception("No permission to perform the operation");
-            }
+            return itsDAL.getLog();
+
+             if(currUser.role.Equals(Role.Administrator))
+              {
+              return itsDAL.getLog();
+              }
+              else
+              {
+                  throw new Exception("No permission to perform the operation");
+              }
         }
+
+        public string createsPDFFile(String PDFName, String pathFolder)
+        {
+            Document doc = new Document(iTextSharp.text.PageSize.LETTER, 10, 10, 42, 35);
+            FileStream fs = new FileStream(pathFolder + "\\" + PDFName + ".pdf", FileMode.Create);
+            PdfWriter wri = PdfWriter.GetInstance(doc, fs);
+            doc.Open();
+
+            //Write PDF File.
+            
+            string dateTime = DateTime.Now.ToString("dd/MM/yy HH:mm:ss");
+            Paragraph par1 = new Paragraph("Read Log \nTime Created: " + dateTime + " \nCreated by: " + currUser.userName);
+            //  par1.Font = new Font(BaseFont.CreateFont(BaseFont.TIMES_ROMAN, BaseFont.CP1252, false), 5, Font.BOLD);
+
+            doc.Add(par1);
+            List<string> readLogList = readLog();
+            foreach (var i in readLogList)
+            {
+                Paragraph tempPar = new Paragraph(i);
+                doc.Add(tempPar);
+            }
+            doc.Close();
+            return ("saving PDF File end successfully");
+
+        }
+
+        public string createsPDFDataLeakage(String PDFName, String pathFolder, ObservableCollection<DataFile> files)
+        {
+            Document doc = new Document(iTextSharp.text.PageSize.LETTER, 10, 10, 42, 35);
+            FileStream fs = new FileStream(pathFolder + "\\" + PDFName + ".pdf", FileMode.Create);
+            PdfWriter wri = PdfWriter.GetInstance(doc, fs);
+            doc.Open();
+
+            PdfPTable table = new PdfPTable(2);
+
+            string dateTime = DateTime.Now.ToString("dd/MM/yy HH:mm:ss");
+            Paragraph par1 = new Paragraph("Data Leakage \nTime Created: " + dateTime + " \nCreated by: " + currUser.userName);
+            doc.Add(par1);
+
+            PdfPCell cell = new PdfPCell(new Phrase("Data Leakege"));
+
+            cell.Colspan = 2;
+            cell.Border = 0;
+            cell.HorizontalAlignment = 1;
+            table.AddCell("Name:");
+            table.AddCell("Score:");
+
+            //added the names and scores to the table.
+            foreach(var item in files)
+            {
+                table.AddCell(item.name);
+                string score = (item.score).ToString();
+                table.AddCell(score);
+            }
+
+            doc.Add(table);
+            doc.Close();
+
+            return ("saving PDF File end successfully");
+        }
+
 
         /// <summary>
         /// For each file in the path checks it's sesitivity score.
@@ -361,5 +434,13 @@ namespace BL
             return ans;
         }
 
+    }
+
+    public class DataFile
+    {
+        public String name { get; set; }
+        public double score { get; set; }
+        public String text { get; set; }
+        public String url { get; set; }
     }
 }

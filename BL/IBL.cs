@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using SharedClasses;
 using System.IO;
+using System.Collections.ObjectModel;
 
 namespace BL
 {
@@ -23,6 +24,9 @@ namespace BL
         string encrypt(string filePath, string destinationPath, string password);
         string decrypt(string filePath, string destinationPath, string password);
         List<string> readLog();
+        void guestEnter();
+        string createsPDFFile(string PDFName, string path);
+        string createsPDFDataLeakage(string PDFName, string path, ObservableCollection<DataFile> files);
     }
 
 }

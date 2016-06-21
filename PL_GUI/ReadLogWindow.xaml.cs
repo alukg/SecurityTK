@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using BL;
+using System.Windows.Forms;
+
 
 namespace PL_GUI
 {
@@ -46,6 +48,15 @@ namespace PL_GUI
             AdministratorManagment am = new AdministratorManagment(theBL);
             am.Show();
             this.Close();
+        }
+
+        private void SavePDF_Click(object sender, RoutedEventArgs e)
+        {
+            FolderBrowserDialog fbd = new FolderBrowserDialog();
+            DialogResult result = fbd.ShowDialog();
+            String pathFolder = fbd.SelectedPath;
+            string dateTime = DateTime.Now.ToString("ddMMyyHHmm");
+            System.Windows.MessageBox.Show(theBL.createsPDFFile("ReadLog"+dateTime, pathFolder));
         }
     }
 }
