@@ -21,7 +21,14 @@ namespace BL.UserTools
            for(int p=0; p<allProcesses.Length; p++)
             {
                 var cpu = new PerformanceCounter("Process", "% Processor Time", allProcesses[p].ProcessName);
-                firstSample[p]= cpu.NextSample();
+                try
+                {
+                    firstSample[p] = cpu.NextSample();
+                }
+                catch(Exception e)
+                {
+
+                }
             }
 
             Thread.Sleep(300);
@@ -29,10 +36,14 @@ namespace BL.UserTools
             for (int p = 0; p < allProcesses.Length; p++)
             {
                 var cpu = new PerformanceCounter("Process", "% Processor Time", allProcesses[p].ProcessName);
-                secondSample[p] = cpu.NextSample();
-                var mem = allProcesses[p].WorkingSet64;
-                ProcessObj process = new ProcessObj(allProcesses[p], CounterSample.Calculate(firstSample[p], secondSample[p]), mem);
-                processes.Add(process);
+                try
+                {
+                    secondSample[p] = cpu.NextSample();
+                    var mem = allProcesses[p].WorkingSet64;
+                    ProcessObj process = new ProcessObj(allProcesses[p], CounterSample.Calculate(firstSample[p], secondSample[p]), mem);
+                    processes.Add(process);
+                }
+                catch(Exception e) { }
             }
 
 
