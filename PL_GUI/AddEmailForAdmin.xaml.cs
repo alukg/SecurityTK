@@ -19,7 +19,7 @@ namespace PL_GUI
     /// <summary>
     /// Interaction logic for AddEmailForAdmin.xaml
     /// </summary>
-    public partial class AddEmailForAdmin : Window
+    public partial class AddEmailForAdmin : Window ,IPL
     {
         IBL theBL;
         string GetUpdateCheck;
@@ -139,12 +139,12 @@ namespace PL_GUI
 
         }
 
-        public void getUpdates_checked()
+        public void getUpdatesChecked(object sender, RoutedEventArgs e)
         {
             ifChecked.Visibility = System.Windows.Visibility.Visible;
         }
 
-        public void getUpdates_unChecked()
+        public void getUpdatesUnChecked(object sender, RoutedEventArgs e)
         {
             ifChecked.Visibility = System.Windows.Visibility.Hidden;
         }
@@ -161,5 +161,44 @@ namespace PL_GUI
                 return false;
             }
         }
+        public void back_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void MainMenu_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+        
+        private void LogOnChecked(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void LogOffChecked(object sender, RoutedEventArgs e)
+        {
+
+        }
+        private void changedPasswordChecked(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void encryptionChecked(object sender, RoutedEventArgs e)
+        {
+
+        }
+        private void dataLeakageChecked(object sender, RoutedEventArgs e)
+        {
+
+        }
+        private void processMonitorChecked(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+
+
     }
 }

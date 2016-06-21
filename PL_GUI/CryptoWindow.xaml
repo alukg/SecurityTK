@@ -50,7 +50,7 @@
                 <SolidColorBrush Color="#FFDDDDDD" Opacity="0"/>
             </Button.Background>
         </Button>
-        <Button FontSize="18" Name="MainMenu" Click="MainMenu_Click" Margin="428.667,0,-17.333,498.667" Foreground="White" FontFamily="Broadway" Grid.Column="1">
+        <Button FontSize="18" Name="MainMenu" Click="MainMenu_Click" Margin="428.2,0,-17.6,498.8" Foreground="White" FontFamily="Broadway" Grid.Column="1">
             <Button.BorderBrush>
                 <SolidColorBrush Color="#FF707070" Opacity="0"/>
             </Button.BorderBrush>
