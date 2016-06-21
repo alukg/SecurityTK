@@ -4,6 +4,7 @@ using System.Data.SqlClient;
 using SharedClasses;
 using System.Net.Mail;
 using System.Net;
+using System.Collections;
 
 namespace DAL
 {
@@ -258,6 +259,69 @@ namespace DAL
             catch
             {
                 throw new Exception("connection faild");
+            }
+        }
+
+        public Dictionary<string, object> getLineForUsername(string username)
+        {
+            string path = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
+            SqlConnection connection = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=" + path + "\\SecurityTK_DB.mdf;Integrated Security=True");
+            SqlCommand cmd = new SqlCommand("SELECT * FROM Users WHERE Role = 'Administrator' AND UserName = " + username, connection);
+
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+                Dictionary<string, object> table = new Dictionary<string, object>();
+                table.Add("GetUpdate",reader["GetUpdate"]);
+                table.Add("logOn", reader["User log on"]);
+                table.Add("logOff", reader["User log off"]);
+                table.Add("changePassword", reader["User change password"]);
+                table.Add("encryption", reader["User accessed Encryption Tool"]);
+                table.Add("dataLeakage", reader["User accessed Data Leakage Tool"]);
+                table.Add("processMonitor", reader["User accessed Process Monitor"]);
+                table.Add("Email", reader["Email"]);
+
+                reader.Close();
+                connection.Close();
+                return table;
+            }
+            catch
+            {
+                throw new Exception("connection faild");
+            }
+        }
+
+        public void updateEmailLine(Dictionary<string,object> h, string userName)
+        {
+            userName = userName.ToLower();
+            string path = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
+            SqlConnection connection = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=" + path + "\\SecurityTK_DB.mdf;Integrated Security=True");
+            foreach (KeyValuePair<string,object> a in h)
+            {
+                string s;
+
+                if (a.Key == "GetUpdate") s = "GetUpdate";
+                else if (a.Key == "logOn") s = "User log on";
+                else if (a.Key == "logOff") s = "User log off";
+                else if (a.Key == "changePassword") s = "User change password";
+                else if (a.Key == "encryption") s = "User accessed Encryption Tool";
+                else if (a.Key == "dataLeakage") s = "User accessed Data Leakage Tool";
+                else if (a.Key == "processMonitor") s = "User accessed Process Monitor";
+                else if (a.Key == "Email") s = "Email";
+                else throw new Exception();
+
+                SqlCommand cmd = new SqlCommand("UPDATE Users SET "+s+" ='" + a.Value.ToString() + "' WHERE UserName = '" + userName + "'", connection);
+                try
+                {
+                    connection.Open();
+                    cmd.ExecuteNonQuery();
+                    connection.Close();
+                }
+                catch
+                {
+                    throw new Exception("connection faild");
+                }
             }
         }
 

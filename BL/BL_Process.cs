@@ -7,6 +7,7 @@ using BL.UserTools;
 using System.IO;
 using System.Net.Mail;
 using System.Net;
+using System.Collections;
 
 namespace BL
 {
@@ -361,6 +362,14 @@ namespace BL
             return ans;
         }
 
+        public Dictionary<string, object> getLineForUsername(string username){
+            return itsDAL.getLineForUsername(username);
+        }
+        public void updateEmailLine(Dictionary<string, object> h)
+        {
+            itsDAL.updateEmailLine(h, currUser.userName);
+        }
+
         /// <summary>
         /// write to the log table in the DB.
         /// </summary>
@@ -414,7 +423,6 @@ namespace BL
                     }
                 }
             }
-        }
-
+        }   
     }
 }
