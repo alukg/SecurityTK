@@ -27,7 +27,7 @@ namespace BL.UserTools
                 }
                 catch(Exception e)
                 {
-
+                    string s = e.Message;
                 }
             }
 
@@ -43,7 +43,9 @@ namespace BL.UserTools
                     ProcessObj process = new ProcessObj(allProcesses[p], CounterSample.Calculate(firstSample[p], secondSample[p]), mem);
                     processes.Add(process);
                 }
-                catch(Exception e) { }
+                catch(Exception e) {
+                    string s = e.Message;
+                }
             }
 
 

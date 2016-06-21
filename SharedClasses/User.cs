@@ -1,6 +1,6 @@
 ﻿namespace SharedClasses
 {
-    public enum Role { Administrator, Manager, Employee };
+    public enum Role { Administrator, Manager, Employee, Guest };
 
     public class User
     {

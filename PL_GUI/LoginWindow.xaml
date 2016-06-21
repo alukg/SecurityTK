@@ -40,5 +40,17 @@
             </Button.OpacityMask>
         </Button>
 
+        <Button FontSize="36" Name="GuestEnter" Click="GuestEnter_Click" Margin="410,10,10,489" Content="Guest" Foreground="White" FontFamily="Broadway">
+            <Button.BorderBrush>
+                <SolidColorBrush Color="White" Opacity="0"/>
+            </Button.BorderBrush>
+            <Button.Background>
+                <SolidColorBrush Color="#FFDDDDDD" Opacity="0"/>
+            </Button.Background> 
+        </Button>
+
+
+       
+
     </Grid>
 </Window>
