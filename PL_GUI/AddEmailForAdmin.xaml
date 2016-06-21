@@ -11,27 +11,26 @@
     </Window.Background>
 
     <Grid>
-        <DockPanel Margin="0,0,0.2,253.8">
-            <Button Name="Back" FontSize="10" Click="back_Click"  Foreground="White" FontFamily="Broadway"  Content="Back" RenderTransformOrigin="0.455,0.684" Margin="25,0,223.2,0.2" Height="19" Width="61">
-                <Button.BorderBrush>
-                    <SolidColorBrush Color="#FF707070" Opacity="0"/>
-                </Button.BorderBrush>
-                <Button.Background>
-                    <SolidColorBrush Color="#FFDDDDDD" Opacity="0"/>
-                </Button.Background>
-            </Button>
-            <Button x:Name="MainMenu" FontSize="10" Click="MainMenu_Click"  Foreground="White" FontFamily="Broadway" Content="Main Menu" Margin="0,0,0,0.2" Width="38" RenderTransformOrigin="-0.54,0.411" >
-                <Button.BorderBrush>
-                    <SolidColorBrush Color="#FF707070" Opacity="0"/>
-                </Button.BorderBrush>
-                <Button.Background>
-                    <SolidColorBrush Color="#FFDDDDDD" Opacity="0"/>
-                </Button.Background>
-            </Button>
 
-        </DockPanel>
+        <Button Name="Back" FontSize="10" Click="back_Click"  Foreground="White" FontFamily="Broadway"  Content="Back" RenderTransformOrigin="0.449,0.084" Margin="0,0,257.2,253.8" Height="19">
+            <Button.BorderBrush>
+                <SolidColorBrush Color="#FF707070" Opacity="0"/>
+            </Button.BorderBrush>
+            <Button.Background>
+                <SolidColorBrush Color="#FFDDDDDD" Opacity="0"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="MainMenu" FontSize="10" Click="MainMenu_Click"  Foreground="White" FontFamily="Broadway" Content="Main Menu" Margin="219,0,0.2,253.8" RenderTransformOrigin="-0.54,0.411" >
+            <Button.BorderBrush>
+                <SolidColorBrush Color="#FF707070" Opacity="0"/>
+            </Button.BorderBrush>
+            <Button.Background>
+                <SolidColorBrush Color="#FFDDDDDD" Opacity="0"/>
+            </Button.Background>
+        </Button>
+
         <StackPanel HorizontalAlignment="Left" Height="273" VerticalAlignment="Top" Width="295" Margin="0,0,0,0">
-            <Label Foreground="White" FontFamily="Broadway" Height="23" FontSize="12" Margin="0,0,0,0" Content="Please enter you E-mail:" RenderTransformOrigin="0.436,-1.215"/>
+            <Label Foreground="White" FontFamily="Broadway" Height="23" FontSize="12" Margin="0,10,0,0" Content="Please enter you E-mail:" RenderTransformOrigin="0.436,-1.215"/>
             <TextBox x:Name="EmailBox" Height="26" TextWrapping="Wrap" Text="" Margin="52,0,52,0" FontSize="12"/>
             <TextBlock x:Name="wrongEmailText" TextWrapping="Wrap" Text="Email is not valid" Margin="52,0,52.2,0" Height="10" FontSize="8" Foreground="Red"/>
             <CheckBox x:Name="getUpdates" Content="I would like to get E-mail allerts." Margin="10,10,0.2,0" Foreground="White" FontSize="8"

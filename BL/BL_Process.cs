@@ -131,13 +131,13 @@ namespace BL
         /// </summary>
         /// <param name="userName"></param>
         /// <returns></returns>
-        public string removeUser(string userName) //need to check what happen with the admin when he erase himself, what to do with the current user???????
+        public string removeUser(string userName)
         {
             if (currUser.role.Equals(Role.Administrator) || currUser.role.Equals(Role.Manager)) //checks that the curr user is admin or manager
             {
                 if (userName == null) throw new ArgumentNullException("Username input is null");
                 userName = userName.ToLower();
-                if (currUser.userName.Equals(userName)) return "No permission to perform the operation"; //checks that user nor remove himself.
+                if (currUser.userName.Equals(userName)) return "No permission to perform the operation"; //checks that user not remove himself.
                 if (!itsDAL.userNameExists(userName)) return "Username does not exist";
                 if (currUser.role.Equals(Role.Manager) && !(itsDAL.getRole(userName).Equals(Role.Employee))) //if the curr user is manager, varify that can't remove someone isn't an employee.
                     return "There is no permissions to remove this user";
@@ -497,13 +497,5 @@ namespace BL
                 }
             }
         }   
-    }
-
-    public class DataFile
-    {
-        public String name { get; set; }
-        public double score { get; set; }
-        public String text { get; set; }
-        public String url { get; set; }
     }
 }

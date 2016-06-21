@@ -19,7 +19,7 @@
                 <SolidColorBrush Color="#FFDDDDDD" Opacity="0"/>
             </Button.Background> change password
         </Button>
-        <Button x:Name="AddUser" FontSize="36" Click="AddUser_Button_Click" Margin="122,230,105.333,251.667" Foreground="#FFF7F7F7" FontFamily="Broadway">
+        <Button x:Name="AddUser" FontSize="36" Click="AddUser_Button_Click" Margin="122,230,105.333,251.667" Foreground="#FFF7F7F7" FontFamily="Broadway" Visibility="Hidden">
             <Button.BorderBrush>
                 <SolidColorBrush Color="#FF707070" Opacity="0"/>
             </Button.BorderBrush>
@@ -27,7 +27,7 @@
                 <SolidColorBrush Color="#FFDDDDDD" Opacity="0"/>
             </Button.Background> add user
         </Button>
-        <Button x:Name="RemoveUser" FontSize="36" Click="RemoveUser_Button_Click" Margin="122,319,105.333,167.667" Foreground="#FFF7F7F7" FontFamily="Broadway">
+        <Button x:Name="RemoveUser" FontSize="36" Click="RemoveUser_Button_Click" Margin="122,319,105.333,167.667" Foreground="#FFF7F7F7" FontFamily="Broadway" Visibility="Hidden">
             <Button.BorderBrush>
                 <SolidColorBrush Color="#FF707070" Opacity="0"/>
             </Button.BorderBrush>
@@ -35,7 +35,7 @@
                 <SolidColorBrush Color="#FFDDDDDD" Opacity="0"/>
             </Button.Background> remove user
         </Button>
-        <Button x:Name="ChangeRole" FontSize="36" Click="ChangeRole_Button_Click" Margin="0,146,105.333,340.667" HorizontalAlignment="Right" Width="366" Foreground="#FFF7F7F7" FontFamily="Broadway">
+        <Button x:Name="ChangeRole" FontSize="36" Click="ChangeRole_Button_Click" Margin="0,146,105.333,340.667" HorizontalAlignment="Right" Width="366" Foreground="#FFF7F7F7" FontFamily="Broadway" Visibility="Hidden">
             <Button.BorderBrush>
                 <SolidColorBrush Color="#FF707070" Opacity="0"/>
             </Button.BorderBrush>
@@ -43,13 +43,21 @@
                 <SolidColorBrush Color="#FFDDDDDD" Opacity="0"/>
             </Button.Background> change role
         </Button>
-        <Button x:Name="ReadLog" FontSize="36" Click="ReadLog_Button_Click" Margin="122,403,105.333,83.667" Foreground="#FFF7F7F7" FontFamily="Broadway">
+        <Button x:Name="ReadLog" FontSize="36" Click="ReadLog_Button_Click" Margin="122,403,105.333,83.667" Foreground="#FFF7F7F7" FontFamily="Broadway" Visibility="Hidden">
             <Button.BorderBrush>
                 <SolidColorBrush Color="#FF707070" Opacity="0"/>
             </Button.BorderBrush>
             <Button.Background>
                 <SolidColorBrush Color="#FFDDDDDD" Opacity="0"/>
             </Button.Background> read log
+        </Button>
+        <Button x:Name="AddEmail" FontSize="36" Click="AddEmail_Click"  Margin="122,477,105.2,9.8" Foreground="#FFF7F7F7" FontFamily="Broadway" Visibility="Hidden">
+            <Button.BorderBrush>
+                <SolidColorBrush Color="#FF707070" Opacity="0"/>
+            </Button.BorderBrush>
+            <Button.Background>
+                <SolidColorBrush Color="#FFDDDDDD" Opacity="0"/>
+            </Button.Background> edit mail/alerts
         </Button>
         <Button x:Name="MainMenu" FontSize="10" Click="MainMenu_Click"  Margin="504,0,0.333,530.667" Foreground="#FFF7F7F7" FontFamily="Broadway" RenderTransformOrigin="1.068,0.023">
             <Button.BorderBrush>

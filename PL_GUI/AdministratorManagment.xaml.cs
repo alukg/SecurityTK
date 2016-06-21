@@ -34,6 +34,7 @@ namespace PL_GUI
                 {
                     ChangeRole.Visibility = Visibility.Visible;
                     ReadLog.Visibility = Visibility.Visible;
+                    AddEmail.Visibility = Visibility.Visible;
                 }
             } 
         }
@@ -91,6 +92,13 @@ namespace PL_GUI
         {
             MainMenu mm = new MainMenu(theBL);
             mm.Run();
+            this.Close();
+        }
+
+        private void AddEmail_Click(object sender, RoutedEventArgs e)
+        {
+            AddEmailForAdmin amfa = new AddEmailForAdmin(theBL);
+            amfa.Run();
             this.Close();
         }
     }
