@@ -38,7 +38,7 @@
                       Checked="getUpdates_checked" Unchecked="getUpdates_unChecked"/>
             <StackPanel x:Name="ifChecked" Height="137" Margin="10,10,00.2,0" Visibility="Visible">
                 <Label Foreground="White" FontFamily="Broadway" Height="22" FontSize="12" Margin="0,0,0,0" Content="Please choose your preffered subjects you" RenderTransformOrigin="0.436,-1.215"/>
-                <Label Foreground="White" FontFamily="Broadway" Height="22" FontSize="12" Margin="0,0,0,0" Content="would like to recieve an E-mail allert for:" RenderTransformOrigin="0.436,-1.215"/>
+                <Label Foreground="White" FontFamily="Broadway" Height="22" FontSize="12" Margin="0,0,-0.2,0" Content="would like to recieve an E-mail allert for:" RenderTransformOrigin="0.436,-1.215"/>
                 <CheckBox x:Name="logOn" IsChecked="false" Content= "User log on" Checked="LogOnChecked" Foreground="White"/>
                 <CheckBox x:Name="logOff" IsChecked="false" Content="User log off" Checked="LogOffChecked" Foreground="White"/>
                 <CheckBox x:Name="changePassword" IsChecked="false" Content="User changed password" Checked="changedPasswordChecked" Foreground="White"/>
