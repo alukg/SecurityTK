@@ -15,17 +15,20 @@ namespace BL.UserTools
         public ProcessObj(Process process, double cpu, long memory)
         {
             this.process = process;
-            if (cpu > 100) // if the process takes more than 100%, divide it by the number of cores
-               cpu = cpu / Environment.ProcessorCount;
+            if (process.ProcessName != "Idle")
+            {
+                if (cpu > 100) // if the process takes more than 100%, divide it by the number of cores
+                   cpu = cpu / Environment.ProcessorCount;
 
-            //making the doubles show only two digits after the decimical point
-            string tempcpu= String.Format("{0:0.00}", cpu);
-            cpu = Convert.ToDouble(tempcpu);
-            this.cpu = cpu;
+                //making the doubles show only two digits after the decimical point
+                string tempcpu= String.Format("{0:0.00}", cpu);
+                cpu = Convert.ToDouble(tempcpu);
+                this.cpu = cpu;
 
-            string tempMemory= String.Format("{0:0.00}", memory / (1024f) / 1024f);
-            this.memory =Convert.ToDouble(tempMemory) ;
-                
+                string tempMemory= String.Format("{0:0.00}", memory / (1024f) / 1024f);
+                this.memory =Convert.ToDouble(tempMemory) ;
+            }
+
         }
 
         //get process

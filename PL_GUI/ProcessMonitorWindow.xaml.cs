@@ -8,6 +8,7 @@ using System.Diagnostics;
 using System.Windows.Controls;
 using System.ComponentModel;
 using System.Windows.Data;
+using System.Threading;
 
 namespace PL_GUI
 {
@@ -25,20 +26,27 @@ namespace PL_GUI
         //constructor
         public ProcessMonitorWindow(IBL theBL)
         {
-            double totalc = 0;
-            double totalm = 0;
+            
             this.theBL = theBL;
             InitializeComponent();
             pro = new ObservableCollection<Proc>();
             pm = new ProcessMonitor();
-            List<ProcessObj> processes = pm.getProcessList();
+            initialize();
+        }
 
-            // initializing the content of the list
+        //The function initializes the content of the list
+
+        private void initialize()
+        {
+            List<ProcessObj> processes = pm.getProcessList();
+            double totalc = 0;
+            double totalm = 0;
+            
             foreach (var p in processes)
             {
                 Proc proc = new Proc()
                 {
-                    process=p.getProcess(),
+                    process = p.getProcess(),
                     pName = p.getProcess().ProcessName,
                     cpu = Convert.ToDouble(p.getCPU()),
                     memory = Convert.ToDouble(p.getMemory())
@@ -50,8 +58,18 @@ namespace PL_GUI
             }
             this.Process_List.ItemsSource = pro;
             this.toKill = new List<Proc>();
-            totalCPU="Total CPU Usage " + String.Format("{0:0.00}", totalc) + "%";
-            totalMemory = "Total Memory Usage" + String.Format("{0:0.00}", totalm) + "MB";
+            if (totalc > 100)
+            {
+                pm = new ProcessMonitor();
+                initialize();
+            }
+            else
+            {
+                totalCPU = "Total CPU Usage " + String.Format("{0:0.00}", totalc) + "%";
+                totalMemory = "Total Memory Usage: " + String.Format("{0:0.00}", totalm) + " MB";
+                lable1.Content = totalCPU;
+                lable2.Content = totalMemory;
+            }
 
         }
 
@@ -130,6 +148,14 @@ namespace PL_GUI
             var temp1 = e.Source as CheckBox;
             toKill.Remove(temp1.DataContext as Proc);
 
+        }
+
+        private void Refresh_Processes(object sender, RoutedEventArgs e)
+        {
+            pro.Clear();
+            pm = new ProcessMonitor();
+            Thread.Sleep(500);    
+            initialize();
         }
 
     }

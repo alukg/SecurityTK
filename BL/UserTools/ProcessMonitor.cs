@@ -31,7 +31,7 @@ namespace BL.UserTools
                 }
             }
 
-            Thread.Sleep(300);
+            Thread.Sleep(500);
 
             for (int p = 0; p < allProcesses.Length; p++)
             {

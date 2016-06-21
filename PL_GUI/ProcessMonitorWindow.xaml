@@ -18,13 +18,18 @@
                 <SolidColorBrush Color="#FFDDDDDD" Opacity="0"/>
             </Button.Background>
         </Button>
-        <TextBox Margin="0,10,357.333,498.667" Background="Transparent" Text="{Binding Path= totalCPU}" Foreground="White">
-
-        </TextBox>
-        <TextBox Margin="241,10,115.333,498.667" Background="Transparent" Text="{Binding Path= totalMemory}" Foreground="White">
-
-        </TextBox>
+        <Label Name="lable1" Margin="55,34,302.333,498.667" Background="Transparent" Foreground="White" RenderTransformOrigin="0.501,0.908"></Label>
+        <Label Name="lable2" Margin="296,34,60.333,498.667" Background="Transparent" Foreground="White"></Label>
+      
         <Button x:Name="End_Task"  Margin="224,459,201.333,64.667" Click="Kill_Process"  RenderTransformOrigin="0.5,0.5" Content="End Task" Foreground="White" FontFamily="Broadway" FontSize="18" >
+            <Button.BorderBrush>
+                <SolidColorBrush Color="#FF707070" Opacity="0"/>
+            </Button.BorderBrush>
+            <Button.Background>
+                <SolidColorBrush Color="#FFDDDDDD" Opacity="0"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="Refresh"  Margin="10,13,415.333,527.667" Click="Refresh_Processes"  RenderTransformOrigin="0.5,0.5" Content="Refresh" Foreground="White" FontFamily="Broadway" FontSize="18" >
             <Button.BorderBrush>
                 <SolidColorBrush Color="#FF707070" Opacity="0"/>
             </Button.BorderBrush>
