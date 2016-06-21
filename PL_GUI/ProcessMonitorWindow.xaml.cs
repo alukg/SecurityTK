@@ -19,10 +19,14 @@ namespace PL_GUI
         private ListSortDirection lastDirection = ListSortDirection.Ascending;
         private List<Proc> toKill;
         private ProcessMonitor pm;
+        public string totalCPU;
+        public string totalMemory;
 
         //constructor
         public ProcessMonitorWindow(IBL theBL)
         {
+            double totalc = 0;
+            double totalm = 0;
             this.theBL = theBL;
             InitializeComponent();
             pro = new ObservableCollection<Proc>();
@@ -41,9 +45,13 @@ namespace PL_GUI
 
                 };
                 pro.Add(proc);
+                totalc += p.getCPU();
+                totalm += p.getMemory();
             }
             this.Process_List.ItemsSource = pro;
             this.toKill = new List<Proc>();
+            totalCPU="Total CPU Usage " + String.Format("{0:0.00}", totalc) + "%";
+            totalMemory = "Total Memory Usage" + String.Format("{0:0.00}", totalm) + "MB";
 
         }
 
