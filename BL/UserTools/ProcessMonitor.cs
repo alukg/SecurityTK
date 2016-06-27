@@ -31,17 +31,27 @@ namespace BL.UserTools
                 }
             }
 
-            Thread.Sleep(500);
+            Thread.Sleep(300);
 
             for (int p = 0; p < allProcesses.Length; p++)
             {
                 var cpu = new PerformanceCounter("Process", "% Processor Time", allProcesses[p].ProcessName);
                 try
                 {
-                    secondSample[p] = cpu.NextSample();
-                    var mem = allProcesses[p].WorkingSet64;
-                    ProcessObj process = new ProcessObj(allProcesses[p], CounterSample.Calculate(firstSample[p], secondSample[p]), mem);
-                    processes.Add(process);
+                    if (allProcesses[p].ProcessName.Contains("GUI"))
+                    {
+                        secondSample[p] = cpu.NextSample();
+                        var mem = allProcesses[p].WorkingSet64;
+                        ProcessObj process = new ProcessObj(allProcesses[p], CounterSample.Calculate(firstSample[p], secondSample[p])/Environment.ProcessorCount, mem);
+                        processes.Add(process);
+                    }
+                    else
+                    {
+                        secondSample[p] = cpu.NextSample();
+                        var mem = allProcesses[p].WorkingSet64;
+                        ProcessObj process = new ProcessObj(allProcesses[p], CounterSample.Calculate(firstSample[p], secondSample[p]), mem);
+                        processes.Add(process);
+                    }
                 }
                 catch(Exception e) {
                     string s = e.Message;
