@@ -10,7 +10,7 @@ namespace DAL
 {
     public class DAL_SQL : IDAL
     {
-        private string connectionString = "Data Source=HBARAK   ; Initial Catalog=Security_DB; Integrated Security=SSPI";
+        private string connectionString = "Data Source=KERENHERMAN-PC   ; Initial Catalog=Security_DB; Integrated Security=SSPI";
 
         /// <summary>
         /// checks if the user is in the DB.

@@ -26,7 +26,7 @@ namespace PL_GUI
         {
             theBL = bl;
             InitializeComponent();
-            if(theBL.getUser().role == Role.Administrator || theBL.getUser().role == Role.Employee)
+            if(theBL.getUser().role == Role.Administrator || theBL.getUser().role == Role.Manager)
             {
                 AddUser.Visibility = Visibility.Visible;
                 RemoveUser.Visibility = Visibility.Visible;
