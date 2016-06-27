@@ -52,7 +52,10 @@ namespace BL
         /// </summary>
         public void logOff()
         {
-            writeToLog("User log off", currUser.userName, null);
+            if (currUser.role != Role.Guest)
+            {
+                writeToLog("User log off", currUser.userName, null);
+            }
             currUser = null;
         }
 
