@@ -265,12 +265,13 @@ namespace DAL
         public Dictionary<string, object> getLineForUsername(string username)
         {
             SqlConnection connection = new SqlConnection(connectionString);
-            SqlCommand cmd = new SqlCommand("SELECT * FROM Users WHERE Role = 'Administrator' AND UserName = " + username, connection);
+            SqlCommand cmd = new SqlCommand("SELECT * FROM Users WHERE UserName = '" + username + "'", connection);
 
             try
             {
                 connection.Open();
                 SqlDataReader reader = cmd.ExecuteReader();
+                if(! reader.Read()) throw new Exception("connection faild");
                 Dictionary<string, object> table = new Dictionary<string, object>();
                 table.Add("GetUpdate",reader["GetUpdate"]);
                 table.Add("logOn", reader["User log on"]);
@@ -295,20 +296,22 @@ namespace DAL
         {
             userName = userName.ToLower();
             SqlConnection connection = new SqlConnection(connectionString);
+            string s;
             foreach (KeyValuePair<string,object> a in h)
             {
-                string s;
+
 
                 if (a.Key == "GetUpdate") s = "GetUpdate";
-                else if (a.Key == "logOn") s = "User log on";
-                else if (a.Key == "logOff") s = "User log off";
-                else if (a.Key == "changePassword") s = "User change password";
-                else if (a.Key == "encryption") s = "User accessed Encryption Tool";
-                else if (a.Key == "dataLeakage") s = "User accessed Data Leakage Tool";
-                else if (a.Key == "processMonitor") s = "User accessed Process Monitor";
+                else if (a.Key == "changePassword") s = "[User change password]";
+                else if (a.Key == "logOn") s = "[User log on]";
+                else if (a.Key == "logOff") s = "[User log off]";
+                else if (a.Key == "encryption") s = "[User accessed Encryption Tool]";
+                else if (a.Key == "dataLeakage") s = "[User accessed Data Leakage Tool]";
+                else if (a.Key == "processMonitor") s = "[User accessed Process Monitor]";
                 else if (a.Key == "Email") s = "Email";
                 else throw new Exception();
-
+                object b = a.Value.ToString();
+                object c = a.Value;
                 SqlCommand cmd = new SqlCommand("UPDATE Users SET "+s+" ='" + a.Value.ToString() + "' WHERE UserName = '" + userName + "'", connection);
                 try
                 {
