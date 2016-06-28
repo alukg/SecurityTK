@@ -22,35 +22,35 @@ namespace PL_GUI
     public partial class AddEmailForAdmin : Window ,IPL
     {
         IBL theBL;
-        string GetUpdateCheck;
-        string logOnCheck;
-        string logOffCheck;
-        string changePasswordCheck;
-        string encryptionCheck;
-        string dataLeakageCheck;
-        string processMonitorCheck;
+        bool GetUpdateCheck;
+        bool logOnCheck;
+        bool logOffCheck;
+        bool changePasswordCheck;
+        bool encryptionCheck;
+        bool dataLeakageCheck;
+        bool processMonitorCheck;
         string EmailString;
 
         public AddEmailForAdmin(IBL bl)
         {
             theBL = bl;
-            InitializeComponent();
+            InitializeComponent();            
 
             try {
                 Dictionary<string, object> h = theBL.getLineForUsername(theBL.getUser().userName);
-                GetUpdateCheck = (string) h["GetUpdate"];
-                logOnCheck = (string) h["logOn"];
-                logOffCheck = (string) h["logOff"];
-                changePasswordCheck = (string) h["changePassword"];
-                encryptionCheck = (string) h["encryption"];
-                dataLeakageCheck = (string) h["dataLeakage"];
-                processMonitorCheck = (string) h["processMonitor"];
+                GetUpdateCheck = (bool)h["GetUpdate"];
+                logOnCheck = (bool) h["logOn"];
+                logOffCheck = (bool) h["logOff"];
+                changePasswordCheck = (bool) h["changePassword"];
+                encryptionCheck = (bool) h["encryption"];
+                dataLeakageCheck = (bool) h["dataLeakage"];
+                processMonitorCheck = (bool) h["processMonitor"];
                 EmailString = (string) h["Email"];
 
                 wrongEmailText.Visibility = System.Windows.Visibility.Hidden;
 
                 EmailBox.Text = EmailString;
-                if (GetUpdateCheck == "1") {
+                if (GetUpdateCheck) {
                     getUpdates.SetCurrentValue(CheckBox.IsCheckedProperty, true);
                     ifChecked.Visibility = System.Windows.Visibility.Visible;
                 }
@@ -60,22 +60,22 @@ namespace PL_GUI
                     ifChecked.Visibility = System.Windows.Visibility.Hidden;
                 }
 
-                if (logOnCheck == "1") logOn.SetCurrentValue(CheckBox.IsCheckedProperty, true);
+                if (logOnCheck) logOn.SetCurrentValue(CheckBox.IsCheckedProperty, true);
                 else logOn.SetCurrentValue(CheckBox.IsCheckedProperty, false);
 
-                if (logOffCheck == "1") logOff.SetCurrentValue(CheckBox.IsCheckedProperty, true);
+                if (logOffCheck) logOff.SetCurrentValue(CheckBox.IsCheckedProperty, true);
                 else logOff.SetCurrentValue(CheckBox.IsCheckedProperty, false);
 
-                if (changePasswordCheck == "1") changePassword.SetCurrentValue(CheckBox.IsCheckedProperty, true);
+                if (changePasswordCheck == true) changePassword.SetCurrentValue(CheckBox.IsCheckedProperty, true);
                 else changePassword.SetCurrentValue(CheckBox.IsCheckedProperty, false);
 
-                if (encryptionCheck == "1") encryption.SetCurrentValue(CheckBox.IsCheckedProperty, true);
+                if (encryptionCheck == true) encryption.SetCurrentValue(CheckBox.IsCheckedProperty, true);
                 else encryption.SetCurrentValue(CheckBox.IsCheckedProperty, false);
 
-                if (dataLeakageCheck == "1") dataLeakage.SetCurrentValue(CheckBox.IsCheckedProperty, true);
+                if (dataLeakageCheck == true) dataLeakage.SetCurrentValue(CheckBox.IsCheckedProperty, true);
                 else dataLeakage.SetCurrentValue(CheckBox.IsCheckedProperty, false);
 
-                if (processMonitorCheck == "1") processMonitor.SetCurrentValue(CheckBox.IsCheckedProperty, true);
+                if (processMonitorCheck == true) processMonitor.SetCurrentValue(CheckBox.IsCheckedProperty, true);
                 else processMonitor.SetCurrentValue(CheckBox.IsCheckedProperty, false);
 
             }
@@ -93,30 +93,41 @@ namespace PL_GUI
 
         private void update_Click(object sender, RoutedEventArgs e)
         {
-            if (IsValidEmail(EmailBox.Text))
+            if (IsValidEmail(EmailBox.Text) | EmailBox.Text.Equals(""))
             {
                 EmailString = EmailBox.Text;
 
-                if (getUpdates.IsChecked.Value == true) GetUpdateCheck = "1";
-                else GetUpdateCheck = "0";
+                if (getUpdates.IsChecked.Value == true)
+                {
+                    GetUpdateCheck = true;
 
-                if (logOn.IsChecked.Value == true) logOnCheck = "1";
-                else logOnCheck = "0";
+                    if (logOn.IsChecked.Value == true) logOnCheck = true;
+                    else logOnCheck = false;
 
-                if (logOff.IsChecked.Value == true) logOffCheck = "1";
-                else logOffCheck = "0";
+                    if (logOff.IsChecked.Value == true) logOffCheck = true;
+                    else logOffCheck = false;
 
-                if (changePassword.IsChecked.Value == true) changePasswordCheck = "1";
-                else changePasswordCheck = "0";
+                    if (changePassword.IsChecked.Value == true) changePasswordCheck = true;
+                    else changePasswordCheck = false;
 
-                if (encryption.IsChecked.Value == true) encryptionCheck = "1";
-                else encryptionCheck = "0";
+                    if (encryption.IsChecked.Value == true) encryptionCheck = true;
+                    else encryptionCheck = false;
 
-                if (dataLeakage.IsChecked.Value == true) dataLeakageCheck = "1";
-                else dataLeakageCheck = "0";
+                    if (dataLeakage.IsChecked.Value == true) dataLeakageCheck = true;
+                    else dataLeakageCheck = false;
 
-                if (processMonitor.IsChecked.Value == true) processMonitorCheck = "1";
-                else processMonitorCheck = "0";
+                    if (processMonitor.IsChecked.Value == true) processMonitorCheck = true;
+                    else processMonitorCheck = false;
+                }
+                else {
+                    GetUpdateCheck = false;
+                    logOnCheck = false;
+                    logOffCheck = false;
+                    changePasswordCheck = false;
+                    encryptionCheck = false;
+                    dataLeakageCheck = false;
+                    processMonitorCheck = false;
+                }
 
                 //
                 Dictionary<string, object> h = new Dictionary<string, object>();
