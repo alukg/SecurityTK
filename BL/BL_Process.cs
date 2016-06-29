@@ -272,16 +272,10 @@ namespace BL
         /// <returns> list of log strings </returns>
         public List<string> readLog()
         {
-            return itsDAL.getLog();
-
-             if(currUser.role.Equals(Role.Administrator))
-              {
-              return itsDAL.getLog();
-              }
-              else
-              {
-                  throw new Exception("No permission to perform the operation");
-              }
+            if (currUser.role.Equals(Role.Administrator))
+                return itsDAL.getLog();
+             else
+                throw new Exception("No permission to perform the operation");
         }
 
         public string createsPDFFile(String PDFName, String pathFolder)
