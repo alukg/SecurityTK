@@ -26,7 +26,7 @@ namespace PL_GUI
         //constructor
         public ProcessMonitorWindow(IBL theBL)
         {
-            
+
             this.theBL = theBL;
             InitializeComponent();
             pro = new ObservableCollection<Proc>();
@@ -41,7 +41,7 @@ namespace PL_GUI
             List<ProcessObj> processes = pm.getProcessList();
             double totalc = 0;
             double totalm = 0;
-            
+
             foreach (var p in processes)
             {
                 Proc proc = new Proc()
@@ -94,10 +94,10 @@ namespace PL_GUI
 
             if (clickedHeader != null)
             {
-                 if (lastDirection == ListSortDirection.Ascending)
-                        direction = ListSortDirection.Descending;
+                if (lastDirection == ListSortDirection.Ascending)
+                    direction = ListSortDirection.Descending;
                 else
-                     direction = ListSortDirection.Ascending;
+                    direction = ListSortDirection.Ascending;
             }
 
             string sortString = ((Binding)clickedHeader.Column.DisplayMemberBinding).Path.Path;
@@ -125,8 +125,8 @@ namespace PL_GUI
             foreach (var item in toKill)
             {
                 string confirmation;
-                confirmation=pm.killProcess(item.process);
-                if(confirmation.Equals(""))
+                confirmation = pm.killProcess(item.process);
+                if (confirmation.Equals(""))
                     pro.Remove(item); // removing the processes from the list
                 else
                     MessageBox.Show(confirmation);
@@ -138,7 +138,7 @@ namespace PL_GUI
         // The function recieves a checkbox checked event and adds the process to a list
         private void CheckBox_Checked(object sender, RoutedEventArgs e)
         {
-            var temp1=e.Source as CheckBox;
+            var temp1 = e.Source as CheckBox;
             toKill.Add(temp1.DataContext as Proc);
         }
 
@@ -154,7 +154,7 @@ namespace PL_GUI
         {
             pro.Clear();
             pm = new ProcessMonitor();
-            Thread.Sleep(500);    
+            Thread.Sleep(500);
             initialize();
         }
 
@@ -162,7 +162,7 @@ namespace PL_GUI
 
     // an objeck to aid us with displaying the process list
 
-        public class Proc
+    public class Proc
     {
         public Process process { get; set; }
         public string pName { get; set; }

@@ -18,14 +18,14 @@ namespace BL.UserTools
             CounterSample[] firstSample = new CounterSample[allProcesses.Length];
             CounterSample[] secondSample = new CounterSample[allProcesses.Length];
 
-           for(int p=0; p<allProcesses.Length; p++)
+            for (int p = 0; p < allProcesses.Length; p++)
             {
                 var cpu = new PerformanceCounter("Process", "% Processor Time", allProcesses[p].ProcessName);
                 try
                 {
                     firstSample[p] = cpu.NextSample();
                 }
-                catch(Exception e)
+                catch (Exception e)
                 {
                     string s = e.Message;
                 }
@@ -42,7 +42,7 @@ namespace BL.UserTools
                     {
                         secondSample[p] = cpu.NextSample();
                         var mem = allProcesses[p].WorkingSet64;
-                        ProcessObj process = new ProcessObj(allProcesses[p], CounterSample.Calculate(firstSample[p], secondSample[p])/Environment.ProcessorCount, mem);
+                        ProcessObj process = new ProcessObj(allProcesses[p], CounterSample.Calculate(firstSample[p], secondSample[p]) / Environment.ProcessorCount, mem);
                         processes.Add(process);
                     }
                     else
@@ -53,7 +53,8 @@ namespace BL.UserTools
                         processes.Add(process);
                     }
                 }
-                catch(Exception e) {
+                catch (Exception e)
+                {
                     string s = e.Message;
                 }
             }
@@ -75,7 +76,7 @@ namespace BL.UserTools
                 toKill.Kill();
                 return "";
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 string s = e.Message;
                 return "Could not kill process";
