@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PL_GUI"
         mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
         Title="SecurityTK/MainMenu" Height="600" Width="600">
     <Window.Background>
         <ImageBrush ImageSource="Image/background.png"/>

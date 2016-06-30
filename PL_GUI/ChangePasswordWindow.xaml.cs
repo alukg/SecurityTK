@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using BL;
+using SharedClasses;
 
 namespace PL_GUI
 {
@@ -100,7 +101,7 @@ namespace PL_GUI
 
         private void Back_Click(object sender, RoutedEventArgs e)
         {
-            if(theBL.getUser().userName == "Employee")
+            if(theBL.getUser().role == Role.Employee)
             {
                 AdministratorManagment am = new AdministratorManagment(theBL);
                 am.Show();

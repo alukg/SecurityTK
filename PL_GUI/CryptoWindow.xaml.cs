@@ -63,7 +63,6 @@ namespace PL_GUI
         private void Choose_File_Click(object sender, RoutedEventArgs e)
         {
             OpenFileDialog openFileDialog1 = new OpenFileDialog();
-            openFileDialog1.Filter = "Text Files (.txt)|*.txt|All Files (*.*)|*.*";
             openFileDialog1.FilterIndex = 1;
             openFileDialog1.Multiselect = true;
             DialogResult result = openFileDialog1.ShowDialog();

@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PL_GUI"
         mc:Ignorable="d"
-        Title="AddEmailForAdmin" Height="600" Width="600">
+        WindowStartupLocation="CenterScreen"
+        Title="SecurityTK/AddEmail" Height="600" Width="600">
     <Window.Background>
         <ImageBrush ImageSource="image/background.png"/>
     </Window.Background>

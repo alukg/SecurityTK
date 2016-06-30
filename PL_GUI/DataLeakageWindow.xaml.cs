@@ -46,16 +46,8 @@ namespace PL_GUI
                 urlAdress = fbd.SelectedPath;
                 DataLeakageTool dlt = new DataLeakageTool();
                 SortedDictionary<double, FileInfo> dictionary = null;
-                try
-                {
-                    dictionary = dlt.checkSensitivity(urlAdress);
-                }
-                catch (Exception exc)
-                {
-                    System.Windows.MessageBox.Show(exc.Message);
-                    Open_File_Left_Button_Click(sender, e);
 
-                }
+                dictionary = dlt.checkSensitivity(urlAdress);
                 foreach (var item in dictionary.Reverse())
                 {
                     double temp;
