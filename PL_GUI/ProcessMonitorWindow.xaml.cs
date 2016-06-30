@@ -58,18 +58,13 @@ namespace PL_GUI
             }
             this.Process_List.ItemsSource = pro;
             this.toKill = new List<Proc>();
-            if (totalc > 100)
-            {
-                pm = new ProcessMonitor();
-                initialize();
-            }
-            else
-            {
+
+
                 totalCPU = "Total CPU Usage " + String.Format("{0:0.00}", totalc) + "%";
                 totalMemory = "Total Memory Usage: " + String.Format("{0:0.00}", totalm) + " MB";
                 lable1.Content = totalCPU;
                 lable2.Content = totalMemory;
-            }
+            
 
         }
 
