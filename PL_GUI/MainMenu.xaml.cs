@@ -25,12 +25,19 @@ namespace PL_GUI
 
         public MainMenu(IBL bl)
         {
-            theBL = bl;
-            InitializeComponent();
-            if (theBL.getUser().role == Role.Guest)
+            try
             {
-                Process_Monitor.Visibility = Visibility.Hidden;
-                User_Management.Visibility = Visibility.Hidden;
+                theBL = bl;
+                InitializeComponent();
+                if (theBL.getUser().role == Role.Guest)
+                {
+                    Process_Monitor.Visibility = Visibility.Hidden;
+                    User_Management.Visibility = Visibility.Hidden;
+                }
+            }
+            catch
+            {
+                System.Windows.Forms.MessageBox.Show("Connection to server faild");
             }
         }
 

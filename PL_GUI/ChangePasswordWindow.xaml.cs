@@ -39,21 +39,28 @@ namespace PL_GUI
 
         private void Random_Button_Click(object sender, RoutedEventArgs e)
         {
-            string newPass;
-            if(choose == 0)
+            try
             {
-                newPass = theBL.changePass(theBL.getUser().userName);
-                MessageBox.Show(newPass);
-                
+                string newPass;
+                if (choose == 0)
+                {
+                    newPass = theBL.changePass(theBL.getUser().userName);
+                    MessageBox.Show(newPass);
+
+                }
+                else
+                {
+                    UserName.Visibility = Visibility.Visible;
+                    UserNameBox.Visibility = Visibility.Visible;
+                    EnterRandom.Visibility = Visibility.Visible;
+                    EnterYourOwn.Visibility = Visibility.Hidden;
+                    New_Password.Visibility = Visibility.Hidden;
+                    PasswordBox.Visibility = Visibility.Hidden;
+                }
             }
-            else
+            catch
             {
-                UserName.Visibility = Visibility.Visible;
-                UserNameBox.Visibility = Visibility.Visible;
-                EnterRandom.Visibility = Visibility.Visible;
-                EnterYourOwn.Visibility = Visibility.Hidden;
-                New_Password.Visibility = Visibility.Hidden;
-                PasswordBox.Visibility = Visibility.Hidden;
+                System.Windows.Forms.MessageBox.Show("Connection to server faild");
             }
         }
 
@@ -79,39 +86,58 @@ namespace PL_GUI
 
         private void Enter_RandomButton_Click(object sender, RoutedEventArgs e)
         {
-            String newPass = theBL.changePass(UserNameBox.Text);
-            MessageBox.Show(newPass);
-            
+            try
+            {
+                String newPass = theBL.changePass(UserNameBox.Text);
+                MessageBox.Show(newPass);
+            }
+            catch
+            {
+                System.Windows.Forms.MessageBox.Show("Connection to server faild");
+            }
         }
 
         private void EnterYourOwn_Click(object sender, RoutedEventArgs e)
         {
-            String newPass = "";
-            if(choose == 0)
+            try
             {
-                newPass = theBL.changePass(theBL.getUser().userName, PasswordBox.Password);
+                String newPass = "";
+                if (choose == 0)
+                {
+                    newPass = theBL.changePass(theBL.getUser().userName, PasswordBox.Password);
+                }
+                else
+                {
+                    newPass = theBL.changePass(UserNameBox.Text, PasswordBox.Password);
+                }
+                MessageBox.Show(newPass);
             }
-            else
+            catch
             {
-                newPass = theBL.changePass(UserNameBox.Text, PasswordBox.Password);
+                System.Windows.Forms.MessageBox.Show("Connection to server faild");
             }
-            MessageBox.Show(newPass);
-            
         }
 
         private void Back_Click(object sender, RoutedEventArgs e)
         {
-            if(theBL.getUser().role == Role.Employee)
+            try
             {
-                AdministratorManagment am = new AdministratorManagment(theBL);
-                am.Show();
+                if (theBL.getUser().role == Role.Employee)
+                {
+                    AdministratorManagment am = new AdministratorManagment(theBL);
+                    am.Show();
+                }
+                else
+                {
+                    ChangePasswordChoose cpc = new ChangePasswordChoose(theBL);
+                    cpc.Show();
+                }
+                this.Close();
             }
-            else
+            catch
             {
-                ChangePasswordChoose cpc = new ChangePasswordChoose(theBL);
-                cpc.Show();
+                System.Windows.Forms.MessageBox.Show("Connection to server faild");
             }
-            this.Close();
         }
     }
 }

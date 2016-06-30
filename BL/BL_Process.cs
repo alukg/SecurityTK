@@ -52,9 +52,12 @@ namespace BL
         /// </summary>
         public void logOff()
         {
-            if (currUser.role != Role.Guest)
+            if(currUser != null)
             {
-                writeToLog("User log off", currUser.userName, null);
+                if (currUser.role != Role.Guest)
+                {
+                    writeToLog("User log off", currUser.userName, null);
+                }
             }
             currUser = null;
         }
@@ -461,35 +464,37 @@ namespace BL
         private void sendLiveAlerts(string logEntry, string action)
         {
             List<string> emailList = itsDAL.getLiveAlertsMailsForAction(action);
-
-            MailAddress fromAddress = new MailAddress("bgu.software@gmail.com");
-            const string fromPassword = "bgu12345";
-            const string subject = "Live Alert";
-            string body = logEntry;
-
-            var smtp = new SmtpClient
+            if (emailList != null)
             {
-                Host = "smtp.gmail.com",
-                Port = 587,
-                EnableSsl = true,
-                DeliveryMethod = SmtpDeliveryMethod.Network,
-                UseDefaultCredentials = false,
-                Credentials = new NetworkCredential(fromAddress.Address, fromPassword)
-            };
+                MailAddress fromAddress = new MailAddress("bgu.software@gmail.com");
+                const string fromPassword = "bgu12345";
+                const string subject = "Live Alert";
+                string body = logEntry;
 
-            foreach (var email in emailList)
-            {
-                if (email != null)
+                var smtp = new SmtpClient
                 {
-                    MailAddress toAddress = new MailAddress(email);
+                    Host = "smtp.gmail.com",
+                    Port = 587,
+                    EnableSsl = true,
+                    DeliveryMethod = SmtpDeliveryMethod.Network,
+                    UseDefaultCredentials = false,
+                    Credentials = new NetworkCredential(fromAddress.Address, fromPassword)
+                };
 
-                    using (var message = new MailMessage(fromAddress, toAddress)
+                foreach (var email in emailList)
+                {
+                    if (email != null)
                     {
-                        Subject = subject,
-                        Body = body
-                    })
-                    {
-                        smtp.Send(message);
+                        MailAddress toAddress = new MailAddress(email);
+
+                        using (var message = new MailMessage(fromAddress, toAddress)
+                        {
+                            Subject = subject,
+                            Body = body
+                        })
+                        {
+                            smtp.Send(message);
+                        }
                     }
                 }
             }

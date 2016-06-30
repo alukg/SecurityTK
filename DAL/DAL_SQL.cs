@@ -10,7 +10,7 @@ namespace DAL
 {
     public class DAL_SQL : IDAL
     {
-        private string connectionString = "Data Source=KERENHERMAN-PC   ; Initial Catalog=Security_DB; Integrated Security=SSPI";
+        private string connectionString = "Data Source=ISE-SQL12   ; Initial Catalog=aluk; Integrated Security=SSPI";
 
         /// <summary>
         /// checks if the user is in the DB.
@@ -183,7 +183,7 @@ namespace DAL
             }
             catch
             {
-                throw new Exception("connection faild");
+                ;
             }
         }
 
@@ -258,7 +258,7 @@ namespace DAL
             }
             catch
             {
-                throw new Exception("connection faild");
+                return null;
             }
         }
 

@@ -32,8 +32,15 @@ namespace PL_GUI
 
         public void Run()
         {
-            this.Show();
-            LogBox.ItemsSource = theBL.readLog();
+            try
+            {
+                this.Show();
+                LogBox.ItemsSource = theBL.readLog();
+            }
+            catch
+            {
+                System.Windows.Forms.MessageBox.Show("Connection to server faild");
+            }
         }
 
         private void MainMenu_Click(object sender, RoutedEventArgs e)
@@ -52,11 +59,17 @@ namespace PL_GUI
 
         private void SavePDF_Click(object sender, RoutedEventArgs e)
         {
-            FolderBrowserDialog fbd = new FolderBrowserDialog();
-            DialogResult result = fbd.ShowDialog();
-            String pathFolder = fbd.SelectedPath;
-            string dateTime = DateTime.Now.ToString("ddMMyyHHmm");
-            System.Windows.MessageBox.Show(theBL.createsPDFFile("ReadLog"+dateTime, pathFolder));
+            try {
+                FolderBrowserDialog fbd = new FolderBrowserDialog();
+                DialogResult result = fbd.ShowDialog();
+                String pathFolder = fbd.SelectedPath;
+                string dateTime = DateTime.Now.ToString("ddMMyyHHmm");
+                System.Windows.MessageBox.Show(theBL.createsPDFFile("ReadLog" + dateTime, pathFolder));
+            }
+            catch
+            {
+                System.Windows.Forms.MessageBox.Show("Connection to server faild");
+            }
         }
     }
 }

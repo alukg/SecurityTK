@@ -81,7 +81,7 @@ namespace PL_GUI
             }
             catch
             {
-                throw new Exception("connection faild");
+                System.Windows.Forms.MessageBox.Show("Connection to server faild");
             }
         }
 
@@ -93,59 +93,68 @@ namespace PL_GUI
 
         private void update_Click(object sender, RoutedEventArgs e)
         {
-            if (IsValidEmail(EmailBox.Text) | EmailBox.Text.Equals(""))
+            try
             {
-                EmailString = EmailBox.Text;
-
-                if (getUpdates.IsChecked.Value == true)
+                if (IsValidEmail(EmailBox.Text) | EmailBox.Text.Equals(""))
                 {
-                    GetUpdateCheck = true;
+                    EmailString = EmailBox.Text;
 
-                    if (logOn.IsChecked.Value == true) logOnCheck = true;
-                    else logOnCheck = false;
+                    if (getUpdates.IsChecked.Value == true)
+                    {
+                        GetUpdateCheck = true;
 
-                    if (logOff.IsChecked.Value == true) logOffCheck = true;
-                    else logOffCheck = false;
+                        if (logOn.IsChecked.Value == true) logOnCheck = true;
+                        else logOnCheck = false;
 
-                    if (changePassword.IsChecked.Value == true) changePasswordCheck = true;
-                    else changePasswordCheck = false;
+                        if (logOff.IsChecked.Value == true) logOffCheck = true;
+                        else logOffCheck = false;
 
-                    if (encryption.IsChecked.Value == true) encryptionCheck = true;
-                    else encryptionCheck = false;
+                        if (changePassword.IsChecked.Value == true) changePasswordCheck = true;
+                        else changePasswordCheck = false;
 
-                    if (dataLeakage.IsChecked.Value == true) dataLeakageCheck = true;
-                    else dataLeakageCheck = false;
+                        if (encryption.IsChecked.Value == true) encryptionCheck = true;
+                        else encryptionCheck = false;
 
-                    if (processMonitor.IsChecked.Value == true) processMonitorCheck = true;
-                    else processMonitorCheck = false;
+                        if (dataLeakage.IsChecked.Value == true) dataLeakageCheck = true;
+                        else dataLeakageCheck = false;
+
+                        if (processMonitor.IsChecked.Value == true) processMonitorCheck = true;
+                        else processMonitorCheck = false;
+                    }
+                    else
+                    {
+                        GetUpdateCheck = false;
+                        logOnCheck = false;
+                        logOffCheck = false;
+                        changePasswordCheck = false;
+                        encryptionCheck = false;
+                        dataLeakageCheck = false;
+                        processMonitorCheck = false;
+                    }
+
+                    //
+                    Dictionary<string, object> h = new Dictionary<string, object>();
+                    h.Add("GetUpdate", GetUpdateCheck);
+                    h.Add("logOn", logOnCheck);
+                    h.Add("logOff", logOffCheck);
+                    h.Add("changePassword", changePasswordCheck);
+                    h.Add("encryption", encryptionCheck);
+                    h.Add("dataLeakage", dataLeakageCheck);
+                    h.Add("processMonitor", processMonitorCheck);
+                    h.Add("Email", EmailString);
+                    theBL.updateEmailLine(h);
+
+                    wrongEmailText.Visibility = System.Windows.Visibility.Hidden;
+                    MessageBox.Show("Setting updated.");
                 }
-                else {
-                    GetUpdateCheck = false;
-                    logOnCheck = false;
-                    logOffCheck = false;
-                    changePasswordCheck = false;
-                    encryptionCheck = false;
-                    dataLeakageCheck = false;
-                    processMonitorCheck = false;
+                else
+                {
+                    wrongEmailText.Visibility = System.Windows.Visibility.Visible;
                 }
-
-                //
-                Dictionary<string, object> h = new Dictionary<string, object>();
-                h.Add("GetUpdate", GetUpdateCheck);
-                h.Add("logOn", logOnCheck);
-                h.Add("logOff", logOffCheck);
-                h.Add("changePassword", changePasswordCheck);
-                h.Add("encryption", encryptionCheck);
-                h.Add("dataLeakage", dataLeakageCheck);
-                h.Add("processMonitor", processMonitorCheck);
-                h.Add("Email", EmailString);
-                theBL.updateEmailLine(h);
-
-                wrongEmailText.Visibility = System.Windows.Visibility.Hidden;
-                MessageBox.Show("Setting updated.");
             }
-            else {
-                wrongEmailText.Visibility = System.Windows.Visibility.Visible;
+            catch
+            {
+                System.Windows.Forms.MessageBox.Show("Connection to server faild");
             }
 
         }

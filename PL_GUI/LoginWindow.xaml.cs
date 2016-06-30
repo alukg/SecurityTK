@@ -40,17 +40,24 @@ namespace PL_GUI
 
         private void Left_Enter_Button_Click(object sender, RoutedEventArgs e)
         {
-            if (theBL.userVarification(Username.Text, Password.Password))
+            try
             {
-                System.Windows.Forms.MessageBox.Show("Welcome " + theBL.getUser().userName+"!");
-                MainMenu mm = new MainMenu(theBL);
-                mm.Run();
-                this.Close();
+                if (theBL.userVarification(Username.Text, Password.Password))
+                {
+                    System.Windows.Forms.MessageBox.Show("Welcome " + theBL.getUser().userName + "!");
+                    MainMenu mm = new MainMenu(theBL);
+                    mm.Run();
+                    this.Close();
+                }
+                else
+                {
+                    System.Windows.Forms.MessageBox.Show("Wrong Username/Password. Please try again.");
+                    Left_Refresh_Button_Click(sender, e);
+                }
             }
-            else
+            catch
             {
-                System.Windows.Forms.MessageBox.Show("Wrong Username/Password. Please try again.");
-                Left_Refresh_Button_Click(sender, e);
+                System.Windows.Forms.MessageBox.Show("Connection to server faild");
             }
         }
 

@@ -24,19 +24,26 @@ namespace PL_GUI
         IBL theBL;
         public AdministratorManagment(IBL bl)
         {
-            theBL = bl;
-            InitializeComponent();
-            if(theBL.getUser().role == Role.Administrator || theBL.getUser().role == Role.Manager)
+            try
             {
-                AddUser.Visibility = Visibility.Visible;
-                RemoveUser.Visibility = Visibility.Visible;
-                if(theBL.getUser().role == Role.Administrator)
+                theBL = bl;
+                InitializeComponent();
+                if (theBL.getUser().role == Role.Administrator || theBL.getUser().role == Role.Manager)
                 {
-                    ChangeRole.Visibility = Visibility.Visible;
-                    ReadLog.Visibility = Visibility.Visible;
-                    AddEmail.Visibility = Visibility.Visible;
+                    AddUser.Visibility = Visibility.Visible;
+                    RemoveUser.Visibility = Visibility.Visible;
+                    if (theBL.getUser().role == Role.Administrator)
+                    {
+                        ChangeRole.Visibility = Visibility.Visible;
+                        ReadLog.Visibility = Visibility.Visible;
+                        AddEmail.Visibility = Visibility.Visible;
+                    }
                 }
-            } 
+            }
+            catch
+            {
+                System.Windows.Forms.MessageBox.Show("Connection to server faild");
+            }
         }
 
         public void Run()
@@ -47,17 +54,24 @@ namespace PL_GUI
 
         private void ChangePassword_Button_Click(object sender, RoutedEventArgs e)
         {
-            if(theBL.getUser().role == Role.Employee)
+            try
             {
-                ChangePasswordWindow cpw = new ChangePasswordWindow(theBL, 0);
-                cpw.Run();
+                if (theBL.getUser().role == Role.Employee)
+                {
+                    ChangePasswordWindow cpw = new ChangePasswordWindow(theBL, 0);
+                    cpw.Run();
+                }
+                else
+                {
+                    ChangePasswordChoose cpc = new ChangePasswordChoose(theBL);
+                    cpc.Run();
+                }
+                this.Close();
             }
-            else
+            catch
             {
-                ChangePasswordChoose cpc = new ChangePasswordChoose(theBL);
-                cpc.Run(); 
+                System.Windows.Forms.MessageBox.Show("Connection to server faild");
             }
-            this.Close();
         }
 
         private void AddUser_Button_Click(object sender, RoutedEventArgs e)

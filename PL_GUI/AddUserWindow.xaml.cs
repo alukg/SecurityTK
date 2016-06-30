@@ -31,22 +31,35 @@ namespace PL_GUI
 
         public void Run()
         {
-            this.Show();
-            if(theBL.getUser().role == Role.Administrator)
+            try
             {
-                Administrator.Visibility = Visibility.Visible;
+                this.Show();
+                if (theBL.getUser().role == Role.Administrator)
+                {
+                    Administrator.Visibility = Visibility.Visible;
+                }
+            }
+            catch
+            {
+                System.Windows.Forms.MessageBox.Show("Connection to server faild");
             }
         }
 
         private void Add_Click(object sender, RoutedEventArgs e)
         {
-            Role role = theBL.convertRole(RoleBox.SelectedItem.ToString());
-            String ans = theBL.addUser(UserNameBox.Text, PasswordBox.Password, role);
-            MessageBox.Show(ans);
-            AddUserWindow auw = new AddUserWindow(theBL);
-            auw.Run();
-            this.Close();
-
+            try
+            {
+                Role role = theBL.convertRole(RoleBox.SelectedItem.ToString());
+                String ans = theBL.addUser(UserNameBox.Text, PasswordBox.Password, role);
+                MessageBox.Show(ans);
+                AddUserWindow auw = new AddUserWindow(theBL);
+                auw.Run();
+                this.Close();
+            }
+            catch
+            {
+                System.Windows.Forms.MessageBox.Show("Connection to server faild");
+            }
         }
 
         private void MainMenu_Button_Click(object sender, RoutedEventArgs e)
@@ -58,11 +71,20 @@ namespace PL_GUI
 
         private void Random_Click(object sender, RoutedEventArgs e)
         {
-            Role role = theBL.convertRole(RoleBox.SelectedItem.ToString());
-            String ans = theBL.addUser(UserNameBox.Text, role);
-            MessageBox.Show(ans);
-        }
+            try
+            {
 
+
+                Role role = theBL.convertRole(RoleBox.SelectedItem.ToString());
+                String ans = theBL.addUser(UserNameBox.Text, role);
+                MessageBox.Show(ans);
+
+            }
+            catch
+            {
+                System.Windows.Forms.MessageBox.Show("Connection to server faild");
+            }
+        }
         private void YourOwn_Click(object sender, RoutedEventArgs e)
         {
             PasswordBox.Visibility = Visibility.Visible;

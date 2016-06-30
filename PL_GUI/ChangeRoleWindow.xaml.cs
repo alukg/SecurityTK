@@ -31,10 +31,17 @@ namespace PL_GUI
 
         public void Run()
         {
-            this.Show();
-            if (theBL.getUser().role == Role.Administrator)
+            try
             {
-                Administrator.Visibility = Visibility.Visible;
+                this.Show();
+                if (theBL.getUser().role == Role.Administrator)
+                {
+                    Administrator.Visibility = Visibility.Visible;
+                }
+            }
+            catch
+            {
+                System.Windows.Forms.MessageBox.Show("Connection to server faild");
             }
         }
 
@@ -47,8 +54,15 @@ namespace PL_GUI
 
         private void Change_Click(object sender, RoutedEventArgs e)
         {
-            Role newRole = theBL.convertRole(RoleBox.SelectedItem.ToString());
-            MessageBox.Show(theBL.changeRole(UsernameBox.Text,newRole));
+            try
+            {
+                Role newRole = theBL.convertRole(RoleBox.SelectedItem.ToString());
+                MessageBox.Show(theBL.changeRole(UsernameBox.Text, newRole));
+            }
+            catch
+            {
+                System.Windows.Forms.MessageBox.Show("Connection to server faild");
+            }
         }
 
         private void Back_Click(object sender, RoutedEventArgs e)

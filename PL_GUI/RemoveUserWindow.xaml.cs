@@ -51,9 +51,16 @@ namespace PL_GUI
 
         private void Remove_Click(object sender, RoutedEventArgs e)
         {
-            String ans = theBL.removeUser(Username.Text);
-            MessageBox.Show(ans);
-            Username.Text = "";
+            try
+            {
+                String ans = theBL.removeUser(Username.Text);
+                MessageBox.Show(ans);
+                Username.Text = "";
+            }
+            catch
+            {
+                System.Windows.Forms.MessageBox.Show("Connection to server faild");
+            }
         }
     }
 }
