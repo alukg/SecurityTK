@@ -67,7 +67,6 @@ namespace PL_GUI
                         score = temp,
                         text = "",
                         url = urlAdress
-
                     };
                     files.Add(currVar);
                 };

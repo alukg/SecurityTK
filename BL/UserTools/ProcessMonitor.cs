@@ -49,7 +49,7 @@ namespace BL.UserTools
                     {
                         secondSample[p] = cpu.NextSample();
                         var mem = allProcesses[p].WorkingSet64;
-                        ProcessObj process = new ProcessObj(allProcesses[p], CounterSample.Calculate(firstSample[p], secondSample[p]), mem);
+                        ProcessObj process = new ProcessObj(allProcesses[p], CounterSample.Calculate(firstSample[p], secondSample[p]) / Environment.ProcessorCount, mem);
                         processes.Add(process);
                     }
                 }
